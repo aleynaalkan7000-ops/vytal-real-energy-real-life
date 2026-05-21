@@ -1,4 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import heroBottle from "@/assets/hero-bottle.jpg";
 import refillMotion from "@/assets/refill-motion.jpg";
 import productLineup from "@/assets/product-lineup.jpg";
@@ -8,28 +11,6 @@ import dailyOffice from "@/assets/daily-office.jpg";
 export const Route = createFileRoute("/")({
   component: Index,
 });
-
-function Nav() {
-  return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-10 py-4 backdrop-blur-md bg-background/75 border-b border-border">
-      <a href="#top" className="font-display text-xl font-extrabold tracking-tight uppercase">
-        Vytal
-      </a>
-      <div className="hidden md:flex gap-8 text-sm font-medium text-muted-foreground">
-        <a href="#struggles" className="hover:text-foreground transition-colors">Why Vytal</a>
-        <a href="#ingredients" className="hover:text-foreground transition-colors">Ingredients</a>
-        <a href="#products" className="hover:text-foreground transition-colors">Bottles</a>
-        <a href="#sustainability" className="hover:text-foreground transition-colors">Sustainability</a>
-      </div>
-      <a
-        href="#cta"
-        className="bg-foreground text-background px-5 py-2 rounded-full text-sm font-medium hover:bg-primary transition-all duration-300"
-      >
-        Try Vytal
-      </a>
-    </nav>
-  );
-}
 
 function Hero() {
   return (
@@ -47,18 +28,18 @@ function Hero() {
           just a steady stream of mental clarity that fits the way you actually live.
         </p>
         <div className="animate-reveal [animation-delay:400ms] flex flex-col sm:flex-row gap-3">
-          <a
-            href="#products"
+          <Link
+            to="/shop"
             className="bg-accent text-foreground px-8 py-4 rounded-full font-semibold hover:ring-4 ring-accent/30 transition-all"
           >
-            Start your routine
-          </a>
-          <a
-            href="#sustainability"
+            Shop the system
+          </Link>
+          <Link
+            to="/refill"
             className="px-8 py-4 rounded-full font-semibold border border-border hover:bg-secondary transition-all"
           >
-            The Refill System
-          </a>
+            How refill works
+          </Link>
         </div>
       </div>
 
@@ -398,37 +379,22 @@ function FinalCTA() {
         <p className="text-muted-foreground text-lg mb-12">
           Join the people who quietly swapped burnout for balance. Start with a single bottle — refill forever.
         </p>
-        <a
-          href="#products"
+        <Link
+          to="/shop"
           className="inline-flex items-center gap-3 bg-foreground text-background px-10 py-5 rounded-full text-lg font-semibold hover:bg-primary transition-all"
         >
           Get the VYTAL starter kit
           <span aria-hidden>→</span>
-        </a>
+        </Link>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="px-6 pb-10">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-muted-foreground border-t border-border pt-8">
-        <span>© {new Date().getFullYear()} VYTAL — Energy that fits real life.</span>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
-          <a href="#" className="hover:text-foreground transition-colors">Terms</a>
-          <a href="#sustainability" className="hover:text-foreground transition-colors">Sustainability</a>
-        </div>
-      </div>
-    </footer>
   );
 }
 
 function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <Nav />
+      <SiteHeader />
       <Hero />
       <Struggles />
       <WhyDifferent />
@@ -438,7 +404,7 @@ function Index() {
       <DailyLife />
       <Sustainability />
       <FinalCTA />
-      <Footer />
+      <SiteFooter />
     </main>
   );
 }
