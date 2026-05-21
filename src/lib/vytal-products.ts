@@ -20,8 +20,21 @@ export type Product = {
   bundle?: string;
   swatch: string;
   color: string;
+  image: string;
   reviews: { quote: string; name: string; role: string }[];
 };
+
+import productFocus from "@/assets/product-focus.jpg";
+import productFlow from "@/assets/product-flow.jpg";
+import productRefresh from "@/assets/product-refresh.jpg";
+import productBoost from "@/assets/product-boost.jpg";
+import productBalance from "@/assets/product-balance.jpg";
+import productRecharge from "@/assets/product-recharge.jpg";
+import bottleGo from "@/assets/bottle-go.jpg";
+import bottleFlow from "@/assets/bottle-flow.jpg";
+import bottleOffice from "@/assets/bottle-office.jpg";
+import bottleHome from "@/assets/bottle-home.jpg";
+import bottleUnity from "@/assets/bottle-unity.jpg";
 
 const baseNutrition = [
   { label: "Energy", value: "12 kcal / 100ml" },
@@ -33,6 +46,7 @@ const baseNutrition = [
 export const products: Product[] = [
   {
     slug: "focus",
+    image: productFocus,
     name: "VYTAL Focus",
     category: "refill",
     function: "Focus, concentration & deep study",
@@ -81,6 +95,7 @@ export const products: Product[] = [
   },
   {
     slug: "flow",
+    image: productFlow,
     name: "VYTAL Flow",
     category: "refill",
     function: "Constant energy for long sessions",
@@ -116,6 +131,7 @@ export const products: Product[] = [
   },
   {
     slug: "refresh",
+    image: productRefresh,
     name: "VYTAL Refresh",
     category: "refill",
     function: "Mental freshness & light activation",
@@ -151,6 +167,7 @@ export const products: Product[] = [
   },
   {
     slug: "boost",
+    image: productBoost,
     name: "VYTAL Boost",
     category: "refill",
     function: "Stronger activation & mental alertness",
@@ -186,6 +203,7 @@ export const products: Product[] = [
   },
   {
     slug: "balance",
+    image: productBalance,
     name: "VYTAL Balance",
     category: "refill",
     function: "Calmer energy & conscious everyday use",
@@ -221,6 +239,7 @@ export const products: Product[] = [
   },
   {
     slug: "recharge",
+    image: productRecharge,
     name: "VYTAL Recharge",
     category: "refill",
     function: "Evening productivity & late sessions",
@@ -257,6 +276,7 @@ export const products: Product[] = [
   // Bottles
   {
     slug: "go-bottle",
+    image: bottleGo,
     name: "VYTAL GO Bottle",
     category: "bottle",
     function: "Optimised to-go bottle for fast, precise refills",
@@ -294,6 +314,7 @@ export const products: Product[] = [
   },
   {
     slug: "flow-bottle",
+    image: bottleFlow,
     name: "VYTAL FLOW Bottle",
     category: "bottle",
     function: "Longer use & intelligent hydration",
@@ -325,6 +346,7 @@ export const products: Product[] = [
   },
   {
     slug: "office-bottle",
+    image: bottleOffice,
     name: "VYTAL OFFICE Bottle",
     category: "bottle",
     function: "Premium reusable bottle for professional spaces",
@@ -355,6 +377,7 @@ export const products: Product[] = [
   },
   {
     slug: "home-container",
+    image: bottleHome,
     name: "VYTAL HOME Container",
     category: "bottle",
     function: "Pantry container for home & flexible use",
@@ -384,6 +407,7 @@ export const products: Product[] = [
   },
   {
     slug: "unity-bottle",
+    image: bottleUnity,
     name: "VYTAL UNITY Bottle",
     category: "bottle",
     function: "Community-driven limited edition",
@@ -415,6 +439,7 @@ export const products: Product[] = [
   // Bundles
   {
     slug: "starter-kit",
+    image: bottleGo,
     name: "VYTAL Starter Kit",
     category: "bundle",
     function: "Bottle + 6 refills, one of each flavor",

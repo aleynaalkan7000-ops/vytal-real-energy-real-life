@@ -74,16 +74,18 @@ function ShopPage() {
               onClick={() => setActive(p)}
               className="text-left group rounded-3xl border border-border bg-secondary/40 hover:bg-secondary p-6 transition-all flex flex-col"
             >
-              <div
-                className={`aspect-[4/5] rounded-2xl ${p.swatch} relative overflow-hidden flex items-end p-5`}
-              >
+              <div className="aspect-[4/5] rounded-2xl relative overflow-hidden">
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  loading="lazy"
+                  width={768}
+                  height={960}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
                 <div className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-background/85 backdrop-blur text-[10px] font-mono uppercase tracking-widest text-foreground">
                   {p.category}
                 </div>
-                <div className="absolute inset-x-8 top-10 bottom-10 rounded-full bg-background/10 ring-1 ring-foreground/10" />
-                <span className="relative font-display text-3xl font-extrabold text-background mix-blend-difference">
-                  {p.name.replace("VYTAL ", "")}
-                </span>
               </div>
               <div className="mt-5 flex items-start justify-between gap-3">
                 <div>
@@ -123,13 +125,23 @@ function ProductSheet({ product, onClose }: { product: Product | null; onClose: 
       >
         {product && (
           <div className="flex flex-col">
-            <div className={`${product.swatch} relative h-56 flex items-end p-6`}>
-              <span className="font-mono text-[11px] uppercase tracking-widest text-background/80">
-                {product.category} · {product.color}
-              </span>
-              <span className="absolute bottom-5 right-6 font-display text-4xl font-extrabold text-background mix-blend-difference">
-                {product.name.replace("VYTAL ", "")}
-              </span>
+            <div className="relative h-72 overflow-hidden">
+              <img
+                src={product.image}
+                alt={product.name}
+                loading="lazy"
+                width={768}
+                height={960}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-background/85 to-transparent">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-foreground/80">
+                  {product.category} · {product.color}
+                </span>
+                <p className="font-display text-2xl font-extrabold text-foreground">
+                  {product.name.replace("VYTAL ", "")}
+                </p>
+              </div>
             </div>
 
             <div className="p-6 md:p-8 space-y-8">
