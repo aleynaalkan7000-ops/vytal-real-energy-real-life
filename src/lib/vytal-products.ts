@@ -20,8 +20,21 @@ export type Product = {
   bundle?: string;
   swatch: string;
   color: string;
+  image: string;
   reviews: { quote: string; name: string; role: string }[];
 };
+
+import productFocus from "@/assets/product-focus.jpg";
+import productFlow from "@/assets/product-flow.jpg";
+import productRefresh from "@/assets/product-refresh.jpg";
+import productBoost from "@/assets/product-boost.jpg";
+import productBalance from "@/assets/product-balance.jpg";
+import productRecharge from "@/assets/product-recharge.jpg";
+import bottleGo from "@/assets/bottle-go.jpg";
+import bottleFlow from "@/assets/bottle-flow.jpg";
+import bottleOffice from "@/assets/bottle-office.jpg";
+import bottleHome from "@/assets/bottle-home.jpg";
+import bottleUnity from "@/assets/bottle-unity.jpg";
 
 const baseNutrition = [
   { label: "Energy", value: "12 kcal / 100ml" },
