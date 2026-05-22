@@ -226,6 +226,11 @@ function BottleStage({
   waterHeight: MotionValue<string>;
   waterHueProgress: MotionValue<number>;
 }) {
+  const waterBackground = useTransform(
+    waterHueProgress,
+    (v) =>
+      `linear-gradient(180deg, rgba(141,163,153,${0.35 + v * 0.4}) 0%, rgba(141,163,153,${0.55 + v * 0.35}) 100%)`,
+  );
   return (
     <div className="relative w-full h-full grid place-items-center">
       {/* glow */}
@@ -246,14 +251,7 @@ function BottleStage({
 
         {/* Water */}
         <motion.div
-          style={{
-            height: waterHeight,
-            background: useTransform(
-              waterHueProgress,
-              (v) =>
-                `linear-gradient(180deg, rgba(141,163,153,${0.35 + v * 0.4}) 0%, rgba(141,163,153,${0.55 + v * 0.35}) 100%)`,
-            ),
-          }}
+          style={{ height: waterHeight, background: waterBackground }}
           className="absolute bottom-0 left-0 right-0"
         >
           {/* surface ripple */}
