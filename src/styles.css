@@ -165,10 +165,65 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes vytal-float {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(0,-14px,0); }
+}
+
+@keyframes vytal-drift {
+  0% { transform: translate3d(-2%, 0, 0) scale(1); }
+  50% { transform: translate3d(3%, -2%, 0) scale(1.05); }
+  100% { transform: translate3d(-2%, 0, 0) scale(1); }
+}
+
+@keyframes vytal-dissolve {
+  0% { opacity: 1; filter: blur(0px) saturate(1); transform: scale(1) translateY(0); }
+  60% { opacity: 0.75; filter: blur(2px) saturate(1.1); transform: scale(0.95) translateY(8%); }
+  100% { opacity: 0; filter: blur(14px) saturate(1.3); transform: scale(0.6) translateY(20%); }
+}
+
 @layer utilities {
   .font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
   .font-mono { font-family: var(--font-mono); }
   .animate-reveal {
     animation: vytal-reveal-up 0.9s var(--ease-soft) both;
+  }
+  .animate-float { animation: vytal-float 9s ease-in-out infinite; }
+  .animate-drift { animation: vytal-drift 22s ease-in-out infinite; }
+
+  /* Editorial reveal: hidden until .in-view class is added */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1.1s var(--ease-soft), transform 1.1s var(--ease-soft);
+    will-change: opacity, transform;
+  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  /* Scroll-driven dissolve for the centerpiece tablet (modern browsers) */
+  @supports (animation-timeline: view()) {
+    .scroll-dissolve {
+      animation: vytal-dissolve linear both;
+      animation-timeline: view();
+      animation-range: cover 10% cover 80%;
+    }
+    .scroll-rise {
+      animation: vytal-reveal-up linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 40%;
+    }
+  }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .grain::after {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(0,0,0,0.18) 1px, transparent 1px);
+    background-size: 3px 3px;
+    mix-blend-mode: overlay;
+    opacity: 0.06;
   }
 }
