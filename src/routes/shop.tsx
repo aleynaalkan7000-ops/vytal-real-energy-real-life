@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -13,6 +13,8 @@ import {
 import shopHero from "@/assets/shop-hero.jpg";
 import shopStarterKit from "@/assets/shop-starter-kit.jpg";
 import shopRitualDesk from "@/assets/shop-ritual-desk.jpg";
+import shopHeroBottle from "@/assets/shop-hero-bottle.jpg";
+import { useCart, parsePrice, formatPrice } from "@/contexts/cart-context";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -132,12 +134,25 @@ function ShopPage() {
               >
                 Explore flavours
               </button>
-              <button
-                onClick={scrollTo("system")}
+              <Link
+                to="/shop/starter-kit"
                 className="inline-flex items-center gap-2 px-5 py-4 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                Discover the system →
-              </button>
+                Build your ritual →
+              </Link>
+            </div>
+          </div>
+
+          <div className="md:col-span-5 relative hidden md:block">
+            <div className="relative aspect-[3/4] reveal">
+              <img
+                src={shopHeroBottle}
+                alt="A translucent sage VYTAL bottle with dissolving tablets floating in soft light"
+                width={1200}
+                height={1600}
+                className="absolute inset-0 h-full w-full object-cover rounded-md shadow-2xl animate-float"
+              />
+              <div className="pointer-events-none absolute -inset-6 -z-10 rounded-full bg-primary/15 blur-3xl animate-drift" />
             </div>
           </div>
         </div>
@@ -385,6 +400,21 @@ function ShopPage() {
 
 function ProductSheet({ product, onClose }: { product: Product | null; onClose: () => void }) {
   const [qty, setQty] = useState(1);
+  const { add } = useCart();
+  useEffect(() => { setQty(1); }, [product?.slug]);
+  const unit = product ? parsePrice(product.price) : 0;
+  const handleAdd = () => {
+    if (!product) return;
+    add({
+      id: product.slug,
+      name: product.name,
+      variant: product.flavor ?? product.color,
+      image: product.image,
+      unitPrice: unit,
+      qty,
+    });
+    onClose();
+  };
   return (
     <Sheet open={!!product} onOpenChange={(o) => !o && onClose()}>
       <SheetContent
@@ -517,9 +547,17 @@ function ProductSheet({ product, onClose }: { product: Product | null; onClose: 
                     <button onClick={() => setQty((q) => q + 1)} className="size-7 grid place-items-center">+</button>
                   </div>
                 </div>
-                <button className="w-full bg-foreground text-background rounded-full py-3.5 text-sm font-semibold hover:bg-primary transition-colors">
-                  Add to cart · {qty} × {product.price.split("/")[0].trim()}
+                <button onClick={handleAdd} className="w-full bg-foreground text-background rounded-full py-3.5 text-sm font-semibold hover:bg-primary transition-colors">
+                  Add to cart · {formatPrice(qty * unit)}
                 </button>
+                <Link
+                  to="/shop/$slug"
+                  params={{ slug: product.slug }}
+                  onClick={onClose}
+                  className="mt-2 block text-center text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground"
+                >
+                  View full ritual →
+                </Link>
               </div>
             </div>
           </div>

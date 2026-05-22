@@ -13,8 +13,12 @@ import { Route as ShopRouteImport } from './routes/shop'
 import { Route as RefillRouteImport } from './routes/refill'
 import { Route as JournalRouteImport } from './routes/journal'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ShopStarterKitRouteImport } from './routes/shop.starter-kit'
+import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
 
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
@@ -36,6 +40,16 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -46,54 +60,102 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShopStarterKitRoute = ShopStarterKitRouteImport.update({
+  id: '/starter-kit',
+  path: '/starter-kit',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopSlugRoute = ShopSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ShopRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/journal': typeof JournalRoute
   '/refill': typeof RefillRoute
-  '/shop': typeof ShopRoute
+  '/shop': typeof ShopRouteWithChildren
+  '/shop/$slug': typeof ShopSlugRoute
+  '/shop/starter-kit': typeof ShopStarterKitRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/journal': typeof JournalRoute
   '/refill': typeof RefillRoute
-  '/shop': typeof ShopRoute
+  '/shop': typeof ShopRouteWithChildren
+  '/shop/$slug': typeof ShopSlugRoute
+  '/shop/starter-kit': typeof ShopStarterKitRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/journal': typeof JournalRoute
   '/refill': typeof RefillRoute
-  '/shop': typeof ShopRoute
+  '/shop': typeof ShopRouteWithChildren
+  '/shop/$slug': typeof ShopSlugRoute
+  '/shop/starter-kit': typeof ShopStarterKitRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/journal' | '/refill' | '/shop'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/journal' | '/refill' | '/shop'
-  id:
-    | '__root__'
+  fullPaths:
     | '/'
     | '/about'
+    | '/account'
+    | '/checkout'
     | '/contact'
     | '/journal'
     | '/refill'
     | '/shop'
+    | '/shop/$slug'
+    | '/shop/starter-kit'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/about'
+    | '/account'
+    | '/checkout'
+    | '/contact'
+    | '/journal'
+    | '/refill'
+    | '/shop'
+    | '/shop/$slug'
+    | '/shop/starter-kit'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/account'
+    | '/checkout'
+    | '/contact'
+    | '/journal'
+    | '/refill'
+    | '/shop'
+    | '/shop/$slug'
+    | '/shop/starter-kit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AccountRoute: typeof AccountRoute
+  CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
   JournalRoute: typeof JournalRoute
   RefillRoute: typeof RefillRoute
-  ShopRoute: typeof ShopRoute
+  ShopRoute: typeof ShopRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -126,6 +188,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -140,16 +216,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shop/starter-kit': {
+      id: '/shop/starter-kit'
+      path: '/starter-kit'
+      fullPath: '/shop/starter-kit'
+      preLoaderRoute: typeof ShopStarterKitRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/shop/$slug': {
+      id: '/shop/$slug'
+      path: '/$slug'
+      fullPath: '/shop/$slug'
+      preLoaderRoute: typeof ShopSlugRouteImport
+      parentRoute: typeof ShopRoute
+    }
   }
 }
+
+interface ShopRouteChildren {
+  ShopSlugRoute: typeof ShopSlugRoute
+  ShopStarterKitRoute: typeof ShopStarterKitRoute
+}
+
+const ShopRouteChildren: ShopRouteChildren = {
+  ShopSlugRoute: ShopSlugRoute,
+  ShopStarterKitRoute: ShopStarterKitRoute,
+}
+
+const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AccountRoute: AccountRoute,
+  CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
   JournalRoute: JournalRoute,
   RefillRoute: RefillRoute,
-  ShopRoute: ShopRoute,
+  ShopRoute: ShopRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

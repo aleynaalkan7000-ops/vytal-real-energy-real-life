@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { CartProvider } from "@/contexts/cart-context";
+import { CartDrawer } from "@/components/cart-drawer";
 
 function NotFoundComponent() {
   return (
@@ -113,7 +115,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <CartProvider>
+        <Outlet />
+        <CartDrawer />
+      </CartProvider>
     </QueryClientProvider>
   );
 }
