@@ -345,13 +345,13 @@ function Sustainability() {
         <div className="w-full md:w-1/2">
           <span className="font-mono text-xs text-primary mb-4 block">Impact</span>
           <h2 className="font-display text-4xl md:text-5xl font-bold leading-[1.05] mb-8">
-            A quieter system. Less packaging, more everyday use.
+            90% less waste than traditional energy drinks.
           </h2>
           <div className="space-y-6">
             {[
-              { t: "Reusable bottles", d: "Borosilicate and stainless designs built for years of daily use, not a single trip." },
-              { t: "Compact refills", d: "Concentrated tablets and capsules replace the volume — and the can — of a traditional drink." },
-              { t: "Transparent sourcing", d: "Traceable actives, independently tested. No vague claims, no hidden additives." },
+              { t: "Infinite glass", d: "Borosilicate bottles designed to last years, not weeks." },
+              { t: "Compostable refills", d: "Concentrates arrive in 100% plastic-free, water-soluble packaging." },
+              { t: "Honest sourcing", d: "Transparent supply chain. Certified organic actives, no hidden additives." },
             ].map((b) => (
               <div key={b.t} className="flex gap-4">
                 <div className="size-5 rounded-full border border-primary flex-shrink-0 mt-1" />

@@ -25,19 +25,6 @@ export const Route = createFileRoute("/shop")({
 
 type FilterId = "all" | Product["category"];
 
-// Per-product flavor mood. Soft, premium, atmospheric tints used as card
-// backgrounds and image gradient overlays so each product reads instantly.
-const flavorMood: Record<string, { tintFrom: string; tintTo: string; chip: string; label: string }> = {
-  focus:    { tintFrom: "#E6EFD8", tintTo: "#F4F7EA", chip: "#7BA05B", label: "Matcha · Lime" },
-  flow:     { tintFrom: "#F7E6D5", tintTo: "#FBF1E4", chip: "#C99770", label: "Peach · Sand" },
-  refresh:  { tintFrom: "#DCEEE8", tintTo: "#EFF7F3", chip: "#6FA89B", label: "Mint · Berry" },
-  boost:    { tintFrom: "#FBE3CB", tintTo: "#FDF1DE", chip: "#D88445", label: "Citrus · Ginger" },
-  balance:  { tintFrom: "#DCE6D6", tintTo: "#EEF2E8", chip: "#7E957A", label: "Sage · Pear" },
-  recharge: { tintFrom: "#E5D1D4", tintTo: "#F0E3E4", chip: "#7A4148", label: "Cherry · Bordeaux" },
-};
-
-const defaultMood = { tintFrom: "#EDEAE2", tintTo: "#F6F3EB", chip: "#9A9183", label: "" };
-
 function ShopPage() {
   const [filter, setFilter] = useState<FilterId>("all");
   const [active, setActive] = useState<Product | null>(null);
@@ -81,66 +68,40 @@ function ShopPage() {
 
       <section className="px-6 md:px-10 pb-24 max-w-7xl mx-auto">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((p) => {
-            const mood = flavorMood[p.slug] ?? defaultMood;
-            return (
-              <button
-                key={p.slug}
-                onClick={() => setActive(p)}
-                className="text-left group rounded-[28px] border border-border/70 bg-card p-3 pb-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(45,49,46,0.25)] flex flex-col"
-              >
-                <div
-                  className="relative aspect-[4/5] rounded-[22px] overflow-hidden ring-1 ring-foreground/5"
-                  style={{
-                    background: `linear-gradient(160deg, ${mood.tintFrom} 0%, ${mood.tintTo} 100%)`,
-                    boxShadow: `inset 0 0 80px ${mood.tintFrom}`,
-                  }}
-                >
-                  {/* atmospheric light */}
-                  <div
-                    className="absolute -top-1/4 -right-1/4 w-2/3 h-2/3 rounded-full blur-3xl opacity-60 pointer-events-none"
-                    style={{ background: `radial-gradient(circle, ${mood.tintFrom}, transparent 70%)` }}
-                  />
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    loading="lazy"
-                    width={768}
-                    height={960}
-                    className="absolute inset-0 h-full w-full object-cover mix-blend-multiply transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4 flex items-center gap-1.5">
-                    <span
-                      className="size-2 rounded-full shadow-sm"
-                      style={{ backgroundColor: mood.chip }}
-                    />
-                    <span className="px-2.5 py-1 rounded-full bg-background/85 backdrop-blur text-[10px] font-mono uppercase tracking-widest text-foreground">
-                      {p.category}
-                    </span>
-                  </div>
-                  {mood.label && (
-                    <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-foreground/70 bg-background/70 backdrop-blur px-2 py-1 rounded-full">
-                        {mood.label}
-                      </span>
-                    </div>
-                  )}
+          {filtered.map((p) => (
+            <button
+              key={p.slug}
+              onClick={() => setActive(p)}
+              className="text-left group rounded-3xl border border-border bg-secondary/40 hover:bg-secondary p-6 transition-all flex flex-col"
+            >
+              <div className="aspect-[4/5] rounded-2xl relative overflow-hidden">
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  loading="lazy"
+                  width={768}
+                  height={960}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-background/85 backdrop-blur text-[10px] font-mono uppercase tracking-widest text-foreground">
+                  {p.category}
                 </div>
-                <div className="px-3 mt-5 flex items-start justify-between gap-3">
-                  <div>
-                    <p className="font-display text-lg font-bold leading-tight">{p.name.replace("VYTAL ", "")}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{p.function}</p>
-                  </div>
-                  <span className="font-mono text-sm whitespace-nowrap">{p.price.split("/")[0].trim()}</span>
+              </div>
+              <div className="mt-5 flex items-start justify-between gap-3">
+                <div>
+                  <p className="font-semibold">{p.name}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    {p.flavor ?? p.color}
+                  </p>
                 </div>
-                <p className="px-3 text-sm text-muted-foreground mt-3 leading-relaxed">{p.tagline}</p>
-                <span className="px-3 mt-5 inline-flex text-xs font-mono text-primary group-hover:translate-x-1 transition-transform">
-                  View details →
-                </span>
-              </button>
-            );
-          })}
+                <span className="font-mono text-sm">{p.price}</span>
+              </div>
+              <p className="text-sm text-muted-foreground mt-3">{p.tagline}</p>
+              <span className="mt-4 inline-flex text-xs font-mono text-primary group-hover:translate-x-1 transition-transform">
+                View details →
+              </span>
+            </button>
+          ))}
         </div>
       </section>
 
