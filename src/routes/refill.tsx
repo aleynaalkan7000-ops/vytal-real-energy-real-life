@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "framer-motion";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import refillMotion from "@/assets/refill-motion.jpg";
@@ -202,7 +202,7 @@ function ScrollPhrase({
   opacity,
   children,
 }: {
-  opacity: ReturnType<typeof useTransform<number, number>>;
+  opacity: MotionValue<number>;
   children: React.ReactNode;
 }) {
   return (
@@ -221,10 +221,10 @@ function BottleStage({
   waterHeight,
   waterHueProgress,
 }: {
-  capsuleY: ReturnType<typeof useTransform<number, string>>;
-  capsuleOpacity: ReturnType<typeof useTransform<number, number>>;
-  waterHeight: ReturnType<typeof useTransform<number, string>>;
-  waterHueProgress: ReturnType<typeof useTransform<number, number>>;
+  capsuleY: MotionValue<string>;
+  capsuleOpacity: MotionValue<number>;
+  waterHeight: MotionValue<string>;
+  waterHueProgress: MotionValue<number>;
 }) {
   return (
     <div className="relative w-full h-full grid place-items-center">
