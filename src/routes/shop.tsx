@@ -547,8 +547,8 @@ function ProductSheet({ product, onClose }: { product: Product | null; onClose: 
                     <button onClick={() => setQty((q) => q + 1)} className="size-7 grid place-items-center">+</button>
                   </div>
                 </div>
-                <button className="w-full bg-foreground text-background rounded-full py-3.5 text-sm font-semibold hover:bg-primary transition-colors">
-                  <span onClick={handleAdd} className="block w-full">Add to cart · {formatPrice(qty * unit)}</span>
+                <button onClick={handleAdd} className="w-full bg-foreground text-background rounded-full py-3.5 text-sm font-semibold hover:bg-primary transition-colors">
+                  Add to cart · {formatPrice(qty * unit)}
                 </button>
                 <Link
                   to="/shop/$slug"
