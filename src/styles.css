@@ -226,4 +226,7 @@
     mix-blend-mode: overlay;
     opacity: 0.06;
   }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 }
