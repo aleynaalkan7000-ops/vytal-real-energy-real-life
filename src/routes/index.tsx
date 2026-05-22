@@ -411,7 +411,7 @@ function ProductTeaser() {
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md text-[10px] font-mono tracking-widest text-muted-foreground">
-              VYTAL \u00b7 STARTER KIT
+              VYTAL · STARTER KIT
             </div>
           </div>
         </div>
