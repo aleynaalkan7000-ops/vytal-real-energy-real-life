@@ -227,6 +227,117 @@ function RefillPage() {
 
       {/* MATERIALS & DESIGN — luxury object */}
       <section className="relative bg-secondary/60 overflow-hidden">
+        {/* THE ALU CYLINDER — system object */}
+        <div className="px-6 md:px-10 pt-32 md:pt-44 pb-8 max-w-7xl mx-auto reveal">
+          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
+            Interlude — the cylinder
+          </span>
+          <h2 className="mt-6 font-display text-4xl md:text-6xl font-bold leading-[1] text-balance max-w-3xl">
+            The cylinder that<br/>
+            <span className="italic font-light text-muted-foreground">closes the loop.</span>
+          </h2>
+        </div>
+
+        <div className="px-6 md:px-10 pb-24 md:pb-32 max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-stretch">
+          <Link
+            to="/shop/alu-cylinder"
+            className="group lg:col-span-7 relative aspect-[4/5] lg:aspect-auto lg:min-h-[560px] overflow-hidden rounded-3xl bg-[#f3ede2] reveal"
+          >
+            <img
+              src={aluHeroImg}
+              alt="Matte aluminum VYTAL refill cylinder in warm natural light"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]"
+            />
+            <span className="absolute top-6 left-6 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
+              New · System object
+            </span>
+            <span className="absolute bottom-6 right-6 inline-flex items-center gap-2 bg-foreground text-background px-5 py-3 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+              View product →
+            </span>
+          </Link>
+
+          <div className="lg:col-span-5 flex flex-col justify-between gap-10 reveal">
+            <div>
+              <p className="font-display text-2xl md:text-3xl leading-snug">
+                One press. One tablet. <span className="text-muted-foreground">Hygienic, airtight, and built to come back to us — not the bin.</span>
+              </p>
+              <ul className="mt-10 space-y-5">
+                {[
+                  ["Hygienic", "Air- and moisture-tight aluminum shell. Tablets stay clean, dry, untouched."],
+                  ["Portable", "108 mm. 38 g. Holds 12 refills. Lives in a pocket, a bag, on a desk."],
+                  ["Returnable", "Collect 5 empties, drop into any postbox. We sterilize and refill."],
+                ].map(([t, d]) => (
+                  <li key={t} className="grid grid-cols-[120px_1fr] gap-4 border-t border-foreground/10 pt-4">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mt-1">{t}</span>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{d}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/shop/alu-cylinder" className="inline-flex bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium hover:bg-primary transition-colors">
+                Explore the cylinder →
+              </Link>
+              <Link to="/shop" className="inline-flex border border-foreground/15 px-6 py-3 rounded-full text-sm font-medium hover:bg-background transition-colors">
+                See refill packs
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* STATIONS × ONLINE — honest positioning */}
+        <div className="px-6 md:px-10 pb-24 md:pb-32 max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-12 reveal">
+            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
+              Two routes, one ritual
+            </span>
+            <h3 className="mt-5 font-display text-3xl md:text-5xl font-bold leading-[1.02]">
+              Stations <span className="italic font-light text-muted-foreground">long-term.</span><br/>
+              Online <span className="italic font-light text-muted-foreground">for real life.</span>
+            </h3>
+            <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
+              We're not pretending to be 100% zero waste. We're trying to be significantly more
+              conscious than a canned drink — without asking you to reorganize your week. Both
+              routes feed the same cylinder.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                tag: "01 · Stations",
+                title: "The long-term ecosystem",
+                body: "Walk into a local VYTAL station. Refill the cylinder directly. Walk out. Zero shipping, zero packaging. Rolling out city by city — slowly, on purpose.",
+              },
+              {
+                tag: "02 · Online refills",
+                title: "For wherever you actually are",
+                body: "Refill packs shipped in concentrated form. No water trucked across the country. Subscription pauses, skips and shifts with your life.",
+              },
+              {
+                tag: "03 · Return loop",
+                title: "Five empties at a time",
+                body: "Collect five empty cylinders. Drop them unfranked into any postbox. They come back to us, get sterilized and re-released. No app needed.",
+              },
+            ].map((c) => (
+              <article key={c.tag} className="reveal rounded-3xl border border-foreground/10 bg-background p-7 hover:bg-secondary/40 transition-colors duration-500">
+                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">{c.tag}</span>
+                <h4 className="mt-4 font-display text-lg font-semibold">{c.title}</h4>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-12 reveal max-w-xl">
+            <p className="text-xs text-muted-foreground/80 leading-relaxed border-t border-foreground/10 pt-5">
+              Not perfect — significantly more conscious. Concentrated shipping cuts ~85% of
+              transported volume vs. canned drinks. Numbers published every quarter, in plain
+              language, with the parts we still get wrong.
+            </p>
+          </div>
+        </div>
+
         <div className="px-6 md:px-10 py-32 md:py-44 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-background order-2 lg:order-1">
             <img src={refillDispenser} alt="Refilling a frosted glass bottle" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
