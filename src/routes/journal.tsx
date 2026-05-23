@@ -178,12 +178,16 @@ function JournalPage() {
             </h2>
           </div>
           <span className="hidden md:block font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-            01 / 04
+            01 / {journalArticles.length.toString().padStart(2, "0")}
           </span>
         </div>
 
         <article className="reveal group grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-          <a href="#" className="lg:col-span-7 block overflow-hidden rounded-sm">
+          <Link
+            to="/journal/$slug"
+            params={{ slug: featured.slug }}
+            className="lg:col-span-7 block overflow-hidden rounded-sm"
+          >
             <div className="aspect-[4/3] overflow-hidden">
               <img
                 src={featured.image}
@@ -194,23 +198,26 @@ function JournalPage() {
                 className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
               />
             </div>
-          </a>
+          </Link>
           <div className="lg:col-span-5">
             <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
               {featured.category} · {featured.date} · {featured.readTime}
             </p>
-            <h3 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.02] tracking-tight text-balance">
-              {featured.title}
-            </h3>
+            <Link to="/journal/$slug" params={{ slug: featured.slug }} className="block group/title">
+              <h3 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.02] tracking-tight text-balance group-hover/title:text-primary transition-colors">
+                {featured.title}
+              </h3>
+            </Link>
             <p className="mt-6 text-muted-foreground text-base md:text-lg leading-relaxed">
               {featured.dek}
             </p>
-            <a
-              href="#"
+            <Link
+              to="/journal/$slug"
+              params={{ slug: featured.slug }}
               className="mt-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-foreground border-b border-foreground/40 pb-1 hover:border-primary hover:text-primary transition-colors"
             >
               Read the cover essay →
-            </a>
+            </Link>
           </div>
         </article>
       </section>
@@ -242,9 +249,10 @@ function JournalPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-20">
           {editorial.map((p, i) => (
-            <a
+            <Link
               key={p.title}
-              href="#"
+              to="/journal/$slug"
+              params={{ slug: p.slug }}
               className={`reveal group block ${p.span} ${i % 2 === 1 ? "lg:mt-24" : ""}`}
             >
               <div className={`overflow-hidden rounded-sm ${p.ratio}`}>
