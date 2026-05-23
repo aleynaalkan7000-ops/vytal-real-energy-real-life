@@ -10,7 +10,7 @@ import journalMorning from "@/assets/journal-morning.jpg";
 import journalCafe from "@/assets/journal-cafe.jpg";
 import journalLibrary from "@/assets/journal-library.jpg";
 import journalTrain from "@/assets/journal-train.jpg";
-import ritualMorning from "@/assets/ritual-morning.jpg";
+import ritualMorning from "@/assets/ritual-morning.png";
 
 export const Route = createFileRoute("/journal")({
   head: () => ({

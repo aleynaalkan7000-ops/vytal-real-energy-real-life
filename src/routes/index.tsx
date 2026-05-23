@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import cinematicHero from "@/assets/cinematic-hero.jpg";
 import tabletDissolve from "@/assets/tablet-dissolve.jpg";
-import ritualMorning from "@/assets/ritual-morning.jpg";
+import ritualMorning from "@/assets/ritual-morning.png";
 import ritualNight from "@/assets/ritual-night.jpg";
 import dailyStudy from "@/assets/daily-study.jpg";
 import dailyOffice from "@/assets/daily-office.jpg";
