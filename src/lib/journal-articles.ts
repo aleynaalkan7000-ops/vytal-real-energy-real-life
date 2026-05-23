@@ -1,5 +1,5 @@
 import journalFeatured from "@/assets/journal-featured.jpg";
-import journalRitual from "@/assets/journal-ritual.jpg";
+import journalRitual from "@/assets/journal-ritual.png";
 import journalMorning from "@/assets/journal-morning.jpg";
 import journalCafe from "@/assets/journal-cafe.jpg";
 import journalTrain from "@/assets/journal-train.jpg";
