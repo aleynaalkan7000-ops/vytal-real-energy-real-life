@@ -14,6 +14,7 @@ import shopHero from "@/assets/shop-hero.jpg";
 import shopStarterKit from "@/assets/shop-starter-kit.jpg";
 import shopRitualDesk from "@/assets/shop-ritual-desk.jpg";
 import shopHeroBottle from "@/assets/shop-hero-bottle.jpg";
+import aluHeroImg from "@/assets/alu-hero.jpg";
 import { useCart, parsePrice, formatPrice } from "@/contexts/cart-context";
 
 export const Route = createFileRoute("/shop")({
@@ -172,6 +173,57 @@ function ShopPage() {
           Six functional refills. Five system bottles. One calm idea — energy that fits the life
           you already live.
         </p>
+      </section>
+
+      {/* ALU CYLINDER — featured system object */}
+      <section className="px-6 md:px-10 max-w-7xl mx-auto pb-24 md:pb-32">
+        <Link
+          to="/shop/alu-cylinder"
+          className="group reveal block relative overflow-hidden rounded-md bg-[#f3ede2]"
+        >
+          <div className="grid md:grid-cols-12 gap-0 items-stretch">
+            <div className="md:col-span-7 relative aspect-[4/5] md:aspect-auto md:min-h-[560px] overflow-hidden">
+              <img
+                src={aluHeroImg}
+                alt="Matte aluminum VYTAL refill cylinder on warm stone"
+                loading="lazy"
+                width={1600}
+                height={1920}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]"
+              />
+              <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
+                New · System object
+              </span>
+            </div>
+            <div className="md:col-span-5 p-8 md:p-14 flex flex-col justify-between gap-10">
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
+                  The refill cylinder
+                </span>
+                <h3 className="mt-5 font-display text-4xl md:text-5xl font-extrabold leading-[0.98] tracking-tight">
+                  Energy,<br/>
+                  <em className="not-italic italic font-light text-muted-foreground">refined.</em>
+                </h3>
+                <p className="mt-6 text-muted-foreground leading-relaxed max-w-sm">
+                  A reusable matte aluminum cylinder. One press releases one tablet
+                  straight into your bottle. Hygienic, airtight, designed to live on
+                  your desk — not in a bin.
+                </p>
+              </div>
+              <div className="flex items-end justify-between gap-4">
+                <div>
+                  <p className="font-display text-2xl">€24</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-1">
+                    4 finishes · 12 tablets per cylinder
+                  </p>
+                </div>
+                <span className="inline-flex items-center gap-2 bg-foreground text-background px-5 py-3 rounded-full text-sm font-medium group-hover:bg-primary transition-colors">
+                  Explore →
+                </span>
+              </div>
+            </div>
+          </div>
+        </Link>
       </section>
 
       {/* FILTER STRIP */}
