@@ -81,6 +81,8 @@ function ShopPage() {
   const refills = useMemo(() => products.filter((p) => p.category === "refill"), []);
   const bottles = useMemo(() => products.filter((p) => p.category === "bottle"), []);
 
+  const [openProduct, setOpenProduct] = useState<Product | null>(null);
+
   const scrollTo = (id: string) => () =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -285,60 +287,15 @@ function ShopPage() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {refills.map((p, i) => (
-            <RefillCard key={p.slug} p={p} i={i} />
+            <RefillCard key={p.slug} p={p} i={i} onOpen={() => setOpenProduct(p)} />
           ))}
         </div>
       </section>
 
-      {/* RETURN LOOP — interactive, animated */}
+      {/* RETURN LOOP — single, compact explanation */}
       <ReturnLoop />
-
-      {/* THE CYLINDER — system object, NOT standalone */}
-      <section className="px-6 md:px-10 max-w-7xl mx-auto py-28 md:py-44 grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-6 reveal relative">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#f1ece1]">
-            <img src={aluHero} alt="The matte aluminum VYTAL refill cylinder" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-            <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
-              Part of every refill
-            </span>
-          </div>
-        </div>
-        <div className="lg:col-span-6 reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">The system object</span>
-          <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-            Included in<br/>
-            <span className="italic font-light text-muted-foreground">the refill loop.</span>
-          </h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
-            The matte aluminum cylinder is not a product you buy once. It's the
-            vessel the refills travel inside — included with every order, returned
-            for deposit, sterilized, refilled, re-released.
-          </p>
-          <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 max-w-md">
-            {[
-              ["Format", "108 mm · 38 g · holds 12 tablets"],
-              ["Material", "Aerospace-grade aluminum, anodized"],
-              ["Seal", "Air- and moisture-tight silicone"],
-              ["Deposit", "Refunded on 5-cylinder return"],
-            ].map(([k, v]) => (
-              <div key={k} className="border-t border-border pt-3">
-                <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{k}</dt>
-                <dd className="mt-1.5 font-display text-sm">{v}</dd>
-              </div>
-            ))}
-          </dl>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link to="/shop/starter-kit" className="inline-flex bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium hover:bg-primary transition-colors">
-              Start with the kit →
-            </Link>
-            <Link to="/shop/alu-cylinder" className="inline-flex border border-foreground/15 px-6 py-3 rounded-full text-sm font-medium hover:bg-secondary transition-colors">
-              How the cylinder works
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* ACCESSORIES — bottles */}
       <section id="accessories" className="px-6 md:px-10 max-w-7xl mx-auto pb-24 md:pb-32">
@@ -353,55 +310,10 @@ function ShopPage() {
             Optional extensions of the system. The refills fit them all.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {bottles.map((b) => (
-            <Link key={b.slug} to="/shop/$slug" params={{ slug: b.slug }} className="group reveal block">
-              <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
-                <img src={b.image} alt={b.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]" />
-                <div className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/80">
-                  Bottle · {b.color}
-                </div>
-              </div>
-              <div className="mt-5 flex items-baseline justify-between">
-                <p className="font-display text-lg font-semibold">{b.name.replace("VYTAL ", "")}</p>
-                <span className="font-mono text-xs text-muted-foreground">{b.price}</span>
-              </div>
-              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{b.tagline}</p>
-            </Link>
+            <BottleCard key={b.slug} b={b} onOpen={() => setOpenProduct(b)} />
           ))}
-        </div>
-      </section>
-
-      {/* SUSTAINABILITY — honest, transparent */}
-      <section className="bg-foreground text-background py-28 md:py-44 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-5 reveal">
-            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-accent">Transparency · 05</span>
-            <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-              Quietly honest.<br/>
-              <span className="italic font-light text-background/70">Measurably better.</span>
-            </h2>
-            <p className="mt-8 text-background/70 leading-relaxed max-w-md">
-              We're not pretending to be zero-waste. We're publishing the real
-              numbers, the real loop, the real material trail — and asking less of
-              the planet, one refill at a time.
-            </p>
-          </div>
-          <div className="md:col-span-7 grid sm:grid-cols-2 gap-4 reveal">
-            {[
-              { k: "−85%", l: "Shipping volume vs. canned drinks" },
-              { k: "0", l: "Single-use plastic wrappers per refill" },
-              { k: "5×", l: "Cylinders per return cycle" },
-              { k: "Q1", l: "Public sustainability report each quarter" },
-              { k: "100%", l: "Traceable ingredient sourcing" },
-              { k: "12", l: "Refills per cylinder before return" },
-            ].map((m) => (
-              <div key={m.l} className="rounded-2xl border border-background/15 p-6 bg-background/5">
-                <p className="font-display text-3xl">{m.k}</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.22em] text-background/60 font-mono">{m.l}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
