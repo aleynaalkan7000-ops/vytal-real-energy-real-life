@@ -3,13 +3,8 @@ import { useEffect, useRef } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import journalHero from "@/assets/journal-hero.jpg";
-import journalFeatured from "@/assets/journal-featured.jpg";
-import journalCafe from "@/assets/journal-cafe.jpg";
-import journalLibrary from "@/assets/journal-library.jpg";
-import journalTrain from "@/assets/journal-train.jpg";
-import journalMorning from "@/assets/journal-morning.jpg";
-import journalRitual from "@/assets/journal-ritual.jpg";
 import journalStillife from "@/assets/journal-stillife.jpg";
+import { journalArticles } from "@/lib/journal-articles";
 
 export const Route = createFileRoute("/journal")({
   head: () => ({
@@ -36,89 +31,18 @@ const categories = [
   "Calm Productivity",
 ] as const;
 
-const featured = {
-  issue: "Issue 04",
-  category: "Focus",
-  date: "May 2026",
-  readTime: "9 min",
-  title: "Your attention span isn't broken.",
-  dek: "The way modern life is designed — endless inputs, endless tabs, endless small emergencies — was never something a nervous system was supposed to hold. A quieter way of working is not a productivity hack. It's recovery.",
-  image: journalFeatured,
-};
-
-const editorial = [
-  {
-    cat: "Recovery",
-    date: "May 18, 2026",
-    read: "6 min",
-    title: "The myth of the productive crash.",
-    excerpt:
-      "Why the cycle of spikes and collapses isn't a personality trait — and what calmer energy actually looks like across a real week.",
-    image: journalRitual,
-    span: "lg:col-span-7",
-    ratio: "aspect-[16/10]",
-  },
-  {
-    cat: "Rituals",
-    date: "May 11, 2026",
-    read: "4 min",
-    title: "Designing calmer mornings.",
-    excerpt:
-      "Not 5 a.m. wake-ups. Not ice baths. Three small, repeatable shifts that change the temperature of a day.",
-    image: journalMorning,
-    span: "lg:col-span-5",
-    ratio: "aspect-[4/5]",
-  },
-  {
-    cat: "Digital Overload",
-    date: "May 03, 2026",
-    read: "7 min",
-    title: "A quiet hour inside a loud internet.",
-    excerpt:
-      "Notes on building one un-interrupted hour a day — and why it matters more than any productivity system.",
-    image: journalCafe,
-    span: "lg:col-span-5",
-    ratio: "aspect-[4/5]",
-  },
-  {
-    cat: "Nervous System",
-    date: "Apr 26, 2026",
-    read: "8 min",
-    title: "Why modern productivity feels emotionally exhausting.",
-    excerpt:
-      "What overstimulation really costs — and the small interventions that quietly give energy back.",
-    image: journalLibrary,
-    span: "lg:col-span-7",
-    ratio: "aspect-[16/10]",
-  },
-];
-
-const essays = [
-  {
-    cat: "Sustainable Energy",
-    date: "Apr 19, 2026",
-    read: "5 min",
-    title: "Slow caffeine, explained gently.",
-    excerpt: "A short, un-hyped look at the chemistry behind smoother focus.",
-    image: journalStillife,
-  },
-  {
-    cat: "Modern Work",
-    date: "Apr 12, 2026",
-    read: "6 min",
-    title: "Meetings, screens, and the 3 p.m. dip.",
-    excerpt: "A quiet survival kit for office afternoons without the burnout.",
-    image: journalTrain,
-  },
-  {
-    cat: "Calm Productivity",
-    date: "Apr 04, 2026",
-    read: "5 min",
-    title: "Planning with your nervous system.",
-    excerpt: "What it looks like to design a week around real attention, not theoretical attention.",
-    image: journalRitual,
-  },
-];
+const featured = journalArticles[0];
+const editorial = journalArticles.slice(1).map((a, idx) => ({
+  slug: a.slug,
+  cat: a.category,
+  date: a.date,
+  read: a.readTime,
+  title: a.title,
+  excerpt: a.dek,
+  image: a.image,
+  span: idx % 2 === 0 ? "lg:col-span-7" : "lg:col-span-5",
+  ratio: idx % 2 === 0 ? "aspect-[16/10]" : "aspect-[4/5]",
+}));
 
 function useReveal() {
   useEffect(() => {
