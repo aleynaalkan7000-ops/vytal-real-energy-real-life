@@ -20,6 +20,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShopStarterKitRouteImport } from './routes/shop.starter-kit'
 import { Route as ShopAluCylinderRouteImport } from './routes/shop.alu-cylinder'
 import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
+import { Route as JournalSlugRouteImport } from './routes/journal.$slug'
 
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
@@ -76,6 +77,11 @@ const ShopSlugRoute = ShopSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ShopRoute,
 } as any)
+const JournalSlugRoute = JournalSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => JournalRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -83,9 +89,10 @@ export interface FileRoutesByFullPath {
   '/account': typeof AccountRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
-  '/journal': typeof JournalRoute
+  '/journal': typeof JournalRouteWithChildren
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
+  '/journal/$slug': typeof JournalSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/shop/alu-cylinder': typeof ShopAluCylinderRoute
   '/shop/starter-kit': typeof ShopStarterKitRoute
@@ -96,9 +103,10 @@ export interface FileRoutesByTo {
   '/account': typeof AccountRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
-  '/journal': typeof JournalRoute
+  '/journal': typeof JournalRouteWithChildren
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
+  '/journal/$slug': typeof JournalSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/shop/alu-cylinder': typeof ShopAluCylinderRoute
   '/shop/starter-kit': typeof ShopStarterKitRoute
@@ -110,9 +118,10 @@ export interface FileRoutesById {
   '/account': typeof AccountRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
-  '/journal': typeof JournalRoute
+  '/journal': typeof JournalRouteWithChildren
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
+  '/journal/$slug': typeof JournalSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
   '/shop/alu-cylinder': typeof ShopAluCylinderRoute
   '/shop/starter-kit': typeof ShopStarterKitRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/journal'
     | '/refill'
     | '/shop'
+    | '/journal/$slug'
     | '/shop/$slug'
     | '/shop/alu-cylinder'
     | '/shop/starter-kit'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/journal'
     | '/refill'
     | '/shop'
+    | '/journal/$slug'
     | '/shop/$slug'
     | '/shop/alu-cylinder'
     | '/shop/starter-kit'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/journal'
     | '/refill'
     | '/shop'
+    | '/journal/$slug'
     | '/shop/$slug'
     | '/shop/alu-cylinder'
     | '/shop/starter-kit'
@@ -165,7 +177,7 @@ export interface RootRouteChildren {
   AccountRoute: typeof AccountRoute
   CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
-  JournalRoute: typeof JournalRoute
+  JournalRoute: typeof JournalRouteWithChildren
   RefillRoute: typeof RefillRoute
   ShopRoute: typeof ShopRouteWithChildren
 }
@@ -249,8 +261,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopSlugRouteImport
       parentRoute: typeof ShopRoute
     }
+    '/journal/$slug': {
+      id: '/journal/$slug'
+      path: '/$slug'
+      fullPath: '/journal/$slug'
+      preLoaderRoute: typeof JournalSlugRouteImport
+      parentRoute: typeof JournalRoute
+    }
   }
 }
+
+interface JournalRouteChildren {
+  JournalSlugRoute: typeof JournalSlugRoute
+}
+
+const JournalRouteChildren: JournalRouteChildren = {
+  JournalSlugRoute: JournalSlugRoute,
+}
+
+const JournalRouteWithChildren =
+  JournalRoute._addFileChildren(JournalRouteChildren)
 
 interface ShopRouteChildren {
   ShopSlugRoute: typeof ShopSlugRoute
@@ -272,10 +302,20 @@ const rootRouteChildren: RootRouteChildren = {
   AccountRoute: AccountRoute,
   CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
-  JournalRoute: JournalRoute,
+  JournalRoute: JournalRouteWithChildren,
   RefillRoute: RefillRoute,
   ShopRoute: ShopRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
