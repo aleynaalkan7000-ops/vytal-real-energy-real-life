@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import aboutHero from "@/assets/about-hero.jpg";
-import aboutRealization from "@/assets/about-realization.jpg";
+import aboutRealization from "@/assets/about-realization.png";
 import aboutPhilosophy from "@/assets/about-philosophy.jpg";
 import aboutDesign from "@/assets/about-design.jpg";
 import aboutHuman from "@/assets/about-human.jpg";
