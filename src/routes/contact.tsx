@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import heroImg from "@/assets/contact-hero.jpg";
 import letterImg from "@/assets/contact-letter.jpg";
-import studioImg from "@/assets/contact-studio.jpg";
+import studioImg from "@/assets/contact-studio.png";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
