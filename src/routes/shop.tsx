@@ -4,7 +4,6 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products, type Product } from "@/lib/vytal-products";
 import { useCart, parsePrice, formatPrice } from "@/contexts/cart-context";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
 import shopHero from "@/assets/shop-hero.jpg";
 import shopStarterKit from "@/assets/shop-starter-kit.jpg";
 import shopHeroBottle from "@/assets/shop-hero-bottle.jpg";
@@ -80,8 +79,6 @@ function ShopPage() {
 
   const refills = useMemo(() => products.filter((p) => p.category === "refill"), []);
   const bottles = useMemo(() => products.filter((p) => p.category === "bottle"), []);
-
-  const [openProduct, setOpenProduct] = useState<Product | null>(null);
 
   const scrollTo = (id: string) => () =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -287,15 +284,60 @@ function ShopPage() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-14">
           {refills.map((p, i) => (
-            <RefillCard key={p.slug} p={p} i={i} onOpen={() => setOpenProduct(p)} />
+            <RefillCard key={p.slug} p={p} i={i} />
           ))}
         </div>
       </section>
 
-      {/* RETURN LOOP — single, compact explanation */}
+      {/* RETURN LOOP — interactive, animated */}
       <ReturnLoop />
+
+      {/* THE CYLINDER — system object, NOT standalone */}
+      <section className="px-6 md:px-10 max-w-7xl mx-auto py-28 md:py-44 grid lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-6 reveal relative">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#f1ece1]">
+            <img src={aluHero} alt="The matte aluminum VYTAL refill cylinder" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
+              Part of every refill
+            </span>
+          </div>
+        </div>
+        <div className="lg:col-span-6 reveal">
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">The system object</span>
+          <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
+            Included in<br/>
+            <span className="italic font-light text-muted-foreground">the refill loop.</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
+            The matte aluminum cylinder is not a product you buy once. It's the
+            vessel the refills travel inside — included with every order, returned
+            for deposit, sterilized, refilled, re-released.
+          </p>
+          <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 max-w-md">
+            {[
+              ["Format", "108 mm · 38 g · holds 12 tablets"],
+              ["Material", "Aerospace-grade aluminum, anodized"],
+              ["Seal", "Air- and moisture-tight silicone"],
+              ["Deposit", "Refunded on 5-cylinder return"],
+            ].map(([k, v]) => (
+              <div key={k} className="border-t border-border pt-3">
+                <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{k}</dt>
+                <dd className="mt-1.5 font-display text-sm">{v}</dd>
+              </div>
+            ))}
+          </dl>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link to="/shop/starter-kit" className="inline-flex bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium hover:bg-primary transition-colors">
+              Start with the kit →
+            </Link>
+            <Link to="/shop/alu-cylinder" className="inline-flex border border-foreground/15 px-6 py-3 rounded-full text-sm font-medium hover:bg-secondary transition-colors">
+              How the cylinder works
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* ACCESSORIES — bottles */}
       <section id="accessories" className="px-6 md:px-10 max-w-7xl mx-auto pb-24 md:pb-32">
@@ -310,10 +352,55 @@ function ShopPage() {
             Optional extensions of the system. The refills fit them all.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
           {bottles.map((b) => (
-            <BottleCard key={b.slug} b={b} onOpen={() => setOpenProduct(b)} />
+            <Link key={b.slug} to="/shop/$slug" params={{ slug: b.slug }} className="group reveal block">
+              <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
+                <img src={b.image} alt={b.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]" />
+                <div className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/80">
+                  Bottle · {b.color}
+                </div>
+              </div>
+              <div className="mt-5 flex items-baseline justify-between">
+                <p className="font-display text-lg font-semibold">{b.name.replace("VYTAL ", "")}</p>
+                <span className="font-mono text-xs text-muted-foreground">{b.price}</span>
+              </div>
+              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{b.tagline}</p>
+            </Link>
           ))}
+        </div>
+      </section>
+
+      {/* SUSTAINABILITY — honest, transparent */}
+      <section className="bg-foreground text-background py-28 md:py-44 px-6 md:px-10">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-5 reveal">
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-accent">Transparency · 05</span>
+            <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
+              Quietly honest.<br/>
+              <span className="italic font-light text-background/70">Measurably better.</span>
+            </h2>
+            <p className="mt-8 text-background/70 leading-relaxed max-w-md">
+              We're not pretending to be zero-waste. We're publishing the real
+              numbers, the real loop, the real material trail — and asking less of
+              the planet, one refill at a time.
+            </p>
+          </div>
+          <div className="md:col-span-7 grid sm:grid-cols-2 gap-4 reveal">
+            {[
+              { k: "−85%", l: "Shipping volume vs. canned drinks" },
+              { k: "0", l: "Single-use plastic wrappers per refill" },
+              { k: "5×", l: "Cylinders per return cycle" },
+              { k: "Q1", l: "Public sustainability report each quarter" },
+              { k: "100%", l: "Traceable ingredient sourcing" },
+              { k: "12", l: "Refills per cylinder before return" },
+            ].map((m) => (
+              <div key={m.l} className="rounded-2xl border border-background/15 p-6 bg-background/5">
+                <p className="font-display text-3xl">{m.k}</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.22em] text-background/60 font-mono">{m.l}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -341,17 +428,12 @@ function ShopPage() {
       </section>
 
       <SiteFooter />
-
-      <ProductDrawer
-        product={openProduct}
-        onClose={() => setOpenProduct(null)}
-      />
     </main>
   );
 }
 
 // ── Refill card ──────────────────────────────────────────────────────
-function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => void }) {
+function RefillCard({ p, i }: { p: Product; i: number }) {
   const id = flavorIdentity[p.slug];
   const { add } = useCart();
   const [added, setAdded] = useState(false);
@@ -371,10 +453,10 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
   };
 
   return (
-    <button
-      type="button"
-      onClick={onOpen}
-      className="text-left group reveal flex flex-col h-full"
+    <Link
+      to="/shop/$slug"
+      params={{ slug: p.slug }}
+      className={`text-left group reveal flex flex-col ${i % 5 === 0 ? "lg:mt-10" : i % 5 === 3 ? "lg:-mt-6" : ""}`}
     >
       <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
         <img
@@ -399,227 +481,21 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
           {String(i + 1).padStart(2, "0")}
         </span>
         {/* quick add */}
-        <span
-          role="button"
-          tabIndex={0}
+        <button
           onClick={handle}
-          onKeyDown={(e) => { if (e.key === "Enter") handle(e as unknown as React.MouseEvent); }}
-          className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 bg-foreground text-background backdrop-blur px-4 py-2.5 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 hover:bg-primary cursor-pointer"
+          className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 bg-foreground text-background backdrop-blur px-4 py-2.5 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 hover:bg-primary"
           aria-label={`Add ${p.name} refill cylinder to cart`}
         >
           {added ? "Added ✓" : "Quick add →"}
-        </span>
+        </button>
       </div>
       <div className="mt-6 flex items-baseline justify-between gap-3">
         <p className="font-display text-xl font-semibold tracking-tight">{p.name.replace("VYTAL ", "")}</p>
-        <span className="font-mono text-xs text-muted-foreground whitespace-nowrap">{formatPrice(parsePrice(p.price) * 12)}</span>
+        <span className="font-mono text-xs text-muted-foreground">{formatPrice(parsePrice(p.price) * 12)} <span className="text-muted-foreground/60">/ cylinder</span></span>
       </div>
-      <p className="text-[13px] font-mono text-primary/80 mt-1.5">{id?.mood ?? p.flavor}</p>
-      <p className="text-sm text-muted-foreground mt-3 leading-relaxed line-clamp-2">{id?.emotion ?? p.tagline}</p>
-      <div className="mt-auto pt-5 flex items-center justify-between">
-        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">View details →</span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">/ cylinder · 12 tablets</span>
-      </div>
-    </button>
-  );
-}
-
-// ── Bottle card ──────────────────────────────────────────────────────
-function BottleCard({ b, onOpen }: { b: Product; onOpen: () => void }) {
-  return (
-    <button
-      type="button"
-      onClick={onOpen}
-      className="text-left group reveal flex flex-col h-full"
-    >
-      <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
-        <img
-          src={b.image}
-          alt={b.name}
-          loading="lazy"
-          width={768}
-          height={960}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]"
-        />
-        <span className="absolute top-4 left-4 font-mono text-[9px] uppercase tracking-[0.25em] bg-background/85 backdrop-blur px-2.5 py-1.5 rounded-full">
-          Bottle · {b.color}
-        </span>
-        <span className="absolute top-4 right-4 inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.25em] bg-foreground/85 text-background backdrop-blur px-2.5 py-1.5 rounded-full">
-          <span className="size-1.5 rounded-full bg-primary" /> Refill-ready
-        </span>
-      </div>
-      <div className="mt-6 flex items-baseline justify-between gap-3">
-        <p className="font-display text-xl font-semibold tracking-tight">{b.name.replace("VYTAL ", "")}</p>
-        <span className="font-mono text-xs text-muted-foreground whitespace-nowrap">{b.price}</span>
-      </div>
-      <p className="text-[13px] font-mono text-primary/80 mt-1.5">{b.function}</p>
-      <p className="text-sm text-muted-foreground mt-3 leading-relaxed line-clamp-2">{b.tagline}</p>
-      <div className="mt-auto pt-5 flex items-center justify-between">
-        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">View details →</span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Fits the cylinder</span>
-      </div>
-    </button>
-  );
-}
-
-// ── Product detail drawer (slide-in side modal) ──────────────────────
-function ProductDrawer({ product, onClose }: { product: Product | null; onClose: () => void }) {
-  const { add } = useCart();
-  const [added, setAdded] = useState(false);
-
-  const isRefill = product?.category === "refill";
-  const id = product ? flavorIdentity[product.slug] : undefined;
-  const unitPrice = product ? (isRefill ? parsePrice(product.price) * 12 : parsePrice(product.price)) : 0;
-
-  const onAdd = () => {
-    if (!product) return;
-    add({
-      id: isRefill ? `refill-${product.slug}` : `bottle-${product.slug}`,
-      name: isRefill ? `${product.name} Refill Cylinder` : product.name,
-      variant: isRefill
-        ? `${id?.mood ?? product.flavor} · in aluminum cylinder`
-        : product.color,
-      image: product.image,
-      unitPrice,
-      href: `/shop/${product.slug}`,
-    });
-    setAdded(true);
-    setTimeout(() => setAdded(false), 1600);
-  };
-
-  return (
-    <Sheet open={!!product} onOpenChange={(o) => { if (!o) onClose(); }}>
-      <SheetContent
-        side="right"
-        className="w-full sm:max-w-xl md:max-w-2xl p-0 overflow-y-auto border-l border-border bg-background"
-      >
-        {product && (
-          <div className="flex flex-col">
-            {/* Image — always visible at the top */}
-            <div
-              className="relative aspect-[4/3] overflow-hidden bg-secondary/40"
-              style={isRefill && id ? { background: `linear-gradient(160deg, ${id.hex}25, var(--secondary))` } : undefined}
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
-                {isRefill ? `Refill · ${id?.mood ?? product.flavor}` : `Bottle · ${product.color}`}
-              </span>
-            </div>
-
-            <div className="p-7 md:p-10 space-y-10">
-              {/* Header */}
-              <header>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary">{product.function}</p>
-                <h2 className="mt-3 font-display text-3xl md:text-4xl font-extrabold leading-[1.02] tracking-tight">
-                  {product.name.replace("VYTAL ", "")}
-                </h2>
-                <p className="mt-3 text-muted-foreground leading-relaxed">{product.description}</p>
-              </header>
-
-              {isRefill && (
-                <>
-                  <section>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-3">Flavor notes</p>
-                    <p className="font-display text-lg">{product.flavor}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{product.flavorNote}</p>
-                    <p className="mt-4 text-sm leading-relaxed text-foreground/80 italic">{id?.emotion}</p>
-                  </section>
-
-                  <section>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-3">Ingredients</p>
-                    <ul className="grid sm:grid-cols-2 gap-2 text-sm">
-                      {product.ingredients.map((ing) => (
-                        <li key={ing.name} className="border-b border-border pb-2">
-                          <span className="font-medium">{ing.name}</span>
-                          {ing.why && <span className="block text-xs text-muted-foreground mt-0.5">{ing.why}</span>}
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-
-                  <section>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-3">When to drink it</p>
-                    <div className="flex flex-wrap gap-2">
-                      {product.situations.map((s) => (
-                        <span key={s} className="font-mono text-[10px] uppercase tracking-[0.22em] bg-secondary px-3 py-1.5 rounded-full">{s}</span>
-                      ))}
-                    </div>
-                  </section>
-                </>
-              )}
-
-              {!isRefill && (
-                <>
-                  <section>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-3">Material</p>
-                    <p className="text-sm leading-relaxed">{product.material}</p>
-                  </section>
-
-                  <section>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-3">Made for</p>
-                    <div className="flex flex-wrap gap-2">
-                      {product.situations.map((s) => (
-                        <span key={s} className="font-mono text-[10px] uppercase tracking-[0.22em] bg-secondary px-3 py-1.5 rounded-full">{s}</span>
-                      ))}
-                    </div>
-                  </section>
-
-                  <section>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-3">Care & durability</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Dishwasher-safe body. Hand-wash the silicone sleeve. Soft-touch finish stays
-                      matte across years of daily use — built to outlast hundreds of single-use cans.
-                    </p>
-                  </section>
-                </>
-              )}
-
-              {/* Refill loop — short, integrated */}
-              <section className="rounded-2xl bg-secondary/60 p-5 border border-border">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary">Part of the refill loop</p>
-                <p className="mt-2 text-sm leading-relaxed">
-                  {isRefill
-                    ? "Ships inside the matte aluminum cylinder — 12 tablets per refill. Return 5 empties, deposit refunded, cylinders sterilized and refilled."
-                    : "Fully compatible with the VYTAL aluminum cylinder. Drop a tablet in, refill anywhere, return empties to close the loop."}
-                </p>
-                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                  Deposit included · refunded on 5-cylinder return
-                </p>
-              </section>
-
-              {/* CTA row */}
-              <section className="sticky bottom-0 -mx-7 md:-mx-10 px-7 md:px-10 py-5 border-t border-border bg-background/95 backdrop-blur flex items-center justify-between gap-4">
-                <div>
-                  <p className="font-display text-2xl leading-none">{formatPrice(unitPrice)}</p>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mt-1">
-                    {isRefill ? "per cylinder · 12 tablets" : "one-time · lifetime use"}
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Link
-                    to="/shop/$slug"
-                    params={{ slug: product.slug }}
-                    className="hidden sm:inline-flex font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    Full page →
-                  </Link>
-                  <button
-                    onClick={onAdd}
-                    className="inline-flex bg-foreground text-background px-6 py-3.5 rounded-full text-sm font-medium hover:bg-primary transition-colors"
-                  >
-                    {added ? "Added ✓" : "Add to cart"}
-                  </button>
-                </div>
-              </section>
-            </div>
-          </div>
-        )}
-      </SheetContent>
-    </Sheet>
+      <p className="text-[13px] font-mono text-primary/80 mt-1">{id?.mood ?? p.flavor}</p>
+      <p className="text-sm text-muted-foreground mt-3 leading-relaxed max-w-sm">{id?.emotion ?? p.tagline}</p>
+    </Link>
   );
 }
 
