@@ -18,6 +18,7 @@ import { Route as AccountRouteImport } from './routes/account'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShopStarterKitRouteImport } from './routes/shop.starter-kit'
+import { Route as ShopAluCylinderRouteImport } from './routes/shop.alu-cylinder'
 import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
 
 const ShopRoute = ShopRouteImport.update({
@@ -65,6 +66,11 @@ const ShopStarterKitRoute = ShopStarterKitRouteImport.update({
   path: '/starter-kit',
   getParentRoute: () => ShopRoute,
 } as any)
+const ShopAluCylinderRoute = ShopAluCylinderRouteImport.update({
+  id: '/alu-cylinder',
+  path: '/alu-cylinder',
+  getParentRoute: () => ShopRoute,
+} as any)
 const ShopSlugRoute = ShopSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
   '/shop/$slug': typeof ShopSlugRoute
+  '/shop/alu-cylinder': typeof ShopAluCylinderRoute
   '/shop/starter-kit': typeof ShopStarterKitRoute
 }
 export interface FileRoutesByTo {
@@ -93,6 +100,7 @@ export interface FileRoutesByTo {
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
   '/shop/$slug': typeof ShopSlugRoute
+  '/shop/alu-cylinder': typeof ShopAluCylinderRoute
   '/shop/starter-kit': typeof ShopStarterKitRoute
 }
 export interface FileRoutesById {
@@ -106,6 +114,7 @@ export interface FileRoutesById {
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
   '/shop/$slug': typeof ShopSlugRoute
+  '/shop/alu-cylinder': typeof ShopAluCylinderRoute
   '/shop/starter-kit': typeof ShopStarterKitRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/refill'
     | '/shop'
     | '/shop/$slug'
+    | '/shop/alu-cylinder'
     | '/shop/starter-kit'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -132,6 +142,7 @@ export interface FileRouteTypes {
     | '/refill'
     | '/shop'
     | '/shop/$slug'
+    | '/shop/alu-cylinder'
     | '/shop/starter-kit'
   id:
     | '__root__'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/refill'
     | '/shop'
     | '/shop/$slug'
+    | '/shop/alu-cylinder'
     | '/shop/starter-kit'
   fileRoutesById: FileRoutesById
 }
@@ -223,6 +235,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopStarterKitRouteImport
       parentRoute: typeof ShopRoute
     }
+    '/shop/alu-cylinder': {
+      id: '/shop/alu-cylinder'
+      path: '/alu-cylinder'
+      fullPath: '/shop/alu-cylinder'
+      preLoaderRoute: typeof ShopAluCylinderRouteImport
+      parentRoute: typeof ShopRoute
+    }
     '/shop/$slug': {
       id: '/shop/$slug'
       path: '/$slug'
@@ -235,11 +254,13 @@ declare module '@tanstack/react-router' {
 
 interface ShopRouteChildren {
   ShopSlugRoute: typeof ShopSlugRoute
+  ShopAluCylinderRoute: typeof ShopAluCylinderRoute
   ShopStarterKitRoute: typeof ShopStarterKitRoute
 }
 
 const ShopRouteChildren: ShopRouteChildren = {
   ShopSlugRoute: ShopSlugRoute,
+  ShopAluCylinderRoute: ShopAluCylinderRoute,
   ShopStarterKitRoute: ShopStarterKitRoute,
 }
 
@@ -258,3 +279,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
