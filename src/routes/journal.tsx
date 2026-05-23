@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import journalHero from "@/assets/journal-hero.jpg";
 import journalStillife from "@/assets/journal-stillife.jpg";
 import journalFeatured from "@/assets/journal-featured.jpg";
-import journalRitual from "@/assets/journal-ritual.jpg";
+import journalRitual from "@/assets/journal-ritual.png";
 import journalMorning from "@/assets/journal-morning.jpg";
 import journalCafe from "@/assets/journal-cafe.jpg";
 import journalLibrary from "@/assets/journal-library.jpg";
