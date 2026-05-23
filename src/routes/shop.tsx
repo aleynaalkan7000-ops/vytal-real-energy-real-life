@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products, type Product } from "@/lib/vytal-products";
 import { useCart, parsePrice, formatPrice } from "@/contexts/cart-context";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import shopHero from "@/assets/shop-hero.jpg";
 import shopStarterKit from "@/assets/shop-starter-kit.jpg";
 import shopHeroBottle from "@/assets/shop-hero-bottle.jpg";
