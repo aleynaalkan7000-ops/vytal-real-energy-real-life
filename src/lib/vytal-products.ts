@@ -34,7 +34,7 @@ import bottleGo from "@/assets/bottle-go.jpg";
 import bottleFlow from "@/assets/bottle-flow.jpg";
 import bottleOffice from "@/assets/bottle-office.jpg";
 import bottleHome from "@/assets/bottle-home.jpg";
-import bottleUnity from "@/assets/bottle-unity.jpg";
+import bottleUnity from "@/assets/bottle-unity.png";
 
 const baseNutrition = [
   { label: "Energy", value: "12 kcal / 100ml" },
