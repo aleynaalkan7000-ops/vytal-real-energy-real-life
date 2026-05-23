@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import aboutHero from "@/assets/about-hero.jpg";
 import aboutRealization from "@/assets/about-realization.png";
 import aboutPhilosophy from "@/assets/about-philosophy.jpg";
-import aboutDesign from "@/assets/about-design.jpg";
+import aboutDesign from "@/assets/about-design.png";
 import aboutHuman from "@/assets/about-human.jpg";
 
 export const Route = createFileRoute("/about")({
