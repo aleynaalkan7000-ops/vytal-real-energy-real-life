@@ -575,7 +575,7 @@ function ArticleModal({
         onClick={onClose}
         className="absolute inset-0 bg-foreground/40 backdrop-blur-md"
       />
-      <div className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-lg bg-[hsl(var(--background))] shadow-2xl ring-1 ring-foreground/10">
+      <div className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-lg bg-background shadow-2xl ring-1 ring-foreground/10">
         <button
           type="button"
           aria-label="Close article"
