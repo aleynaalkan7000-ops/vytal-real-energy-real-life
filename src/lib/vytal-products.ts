@@ -32,7 +32,7 @@ import productBalance from "@/assets/product-balance.jpg";
 import productRecharge from "@/assets/product-recharge.jpg";
 import bottleGo from "@/assets/bottle-go.jpg";
 import bottleFlow from "@/assets/bottle-flow.jpg";
-import bottleOffice from "@/assets/bottle-office.jpg";
+import bottleOffice from "@/assets/bottle-office.png";
 import bottleHome from "@/assets/bottle-home.jpg";
 import bottleUnity from "@/assets/bottle-unity.png";
 
