@@ -3,13 +3,8 @@ import { useEffect, useRef } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import journalHero from "@/assets/journal-hero.jpg";
-import journalFeatured from "@/assets/journal-featured.jpg";
-import journalCafe from "@/assets/journal-cafe.jpg";
-import journalLibrary from "@/assets/journal-library.jpg";
-import journalTrain from "@/assets/journal-train.jpg";
-import journalMorning from "@/assets/journal-morning.jpg";
-import journalRitual from "@/assets/journal-ritual.jpg";
 import journalStillife from "@/assets/journal-stillife.jpg";
+import { journalArticles } from "@/lib/journal-articles";
 
 export const Route = createFileRoute("/journal")({
   head: () => ({
@@ -36,89 +31,18 @@ const categories = [
   "Calm Productivity",
 ] as const;
 
-const featured = {
-  issue: "Issue 04",
-  category: "Focus",
-  date: "May 2026",
-  readTime: "9 min",
-  title: "Your attention span isn't broken.",
-  dek: "The way modern life is designed — endless inputs, endless tabs, endless small emergencies — was never something a nervous system was supposed to hold. A quieter way of working is not a productivity hack. It's recovery.",
-  image: journalFeatured,
-};
-
-const editorial = [
-  {
-    cat: "Recovery",
-    date: "May 18, 2026",
-    read: "6 min",
-    title: "The myth of the productive crash.",
-    excerpt:
-      "Why the cycle of spikes and collapses isn't a personality trait — and what calmer energy actually looks like across a real week.",
-    image: journalRitual,
-    span: "lg:col-span-7",
-    ratio: "aspect-[16/10]",
-  },
-  {
-    cat: "Rituals",
-    date: "May 11, 2026",
-    read: "4 min",
-    title: "Designing calmer mornings.",
-    excerpt:
-      "Not 5 a.m. wake-ups. Not ice baths. Three small, repeatable shifts that change the temperature of a day.",
-    image: journalMorning,
-    span: "lg:col-span-5",
-    ratio: "aspect-[4/5]",
-  },
-  {
-    cat: "Digital Overload",
-    date: "May 03, 2026",
-    read: "7 min",
-    title: "A quiet hour inside a loud internet.",
-    excerpt:
-      "Notes on building one un-interrupted hour a day — and why it matters more than any productivity system.",
-    image: journalCafe,
-    span: "lg:col-span-5",
-    ratio: "aspect-[4/5]",
-  },
-  {
-    cat: "Nervous System",
-    date: "Apr 26, 2026",
-    read: "8 min",
-    title: "Why modern productivity feels emotionally exhausting.",
-    excerpt:
-      "What overstimulation really costs — and the small interventions that quietly give energy back.",
-    image: journalLibrary,
-    span: "lg:col-span-7",
-    ratio: "aspect-[16/10]",
-  },
-];
-
-const essays = [
-  {
-    cat: "Sustainable Energy",
-    date: "Apr 19, 2026",
-    read: "5 min",
-    title: "Slow caffeine, explained gently.",
-    excerpt: "A short, un-hyped look at the chemistry behind smoother focus.",
-    image: journalStillife,
-  },
-  {
-    cat: "Modern Work",
-    date: "Apr 12, 2026",
-    read: "6 min",
-    title: "Meetings, screens, and the 3 p.m. dip.",
-    excerpt: "A quiet survival kit for office afternoons without the burnout.",
-    image: journalTrain,
-  },
-  {
-    cat: "Calm Productivity",
-    date: "Apr 04, 2026",
-    read: "5 min",
-    title: "Planning with your nervous system.",
-    excerpt: "What it looks like to design a week around real attention, not theoretical attention.",
-    image: journalRitual,
-  },
-];
+const featured = journalArticles[0];
+const editorial = journalArticles.slice(1).map((a, idx) => ({
+  slug: a.slug,
+  cat: a.category,
+  date: a.date,
+  read: a.readTime,
+  title: a.title,
+  excerpt: a.dek,
+  image: a.image,
+  span: idx % 2 === 0 ? "lg:col-span-7" : "lg:col-span-5",
+  ratio: idx % 2 === 0 ? "aspect-[16/10]" : "aspect-[4/5]",
+}));
 
 function useReveal() {
   useEffect(() => {
@@ -254,12 +178,16 @@ function JournalPage() {
             </h2>
           </div>
           <span className="hidden md:block font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-            01 / 04
+            01 / {journalArticles.length.toString().padStart(2, "0")}
           </span>
         </div>
 
         <article className="reveal group grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-          <a href="#" className="lg:col-span-7 block overflow-hidden rounded-sm">
+          <Link
+            to="/journal/$slug"
+            params={{ slug: featured.slug }}
+            className="lg:col-span-7 block overflow-hidden rounded-sm"
+          >
             <div className="aspect-[4/3] overflow-hidden">
               <img
                 src={featured.image}
@@ -270,23 +198,26 @@ function JournalPage() {
                 className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
               />
             </div>
-          </a>
+          </Link>
           <div className="lg:col-span-5">
             <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
               {featured.category} · {featured.date} · {featured.readTime}
             </p>
-            <h3 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.02] tracking-tight text-balance">
-              {featured.title}
-            </h3>
+            <Link to="/journal/$slug" params={{ slug: featured.slug }} className="block group/title">
+              <h3 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.02] tracking-tight text-balance group-hover/title:text-primary transition-colors">
+                {featured.title}
+              </h3>
+            </Link>
             <p className="mt-6 text-muted-foreground text-base md:text-lg leading-relaxed">
               {featured.dek}
             </p>
-            <a
-              href="#"
+            <Link
+              to="/journal/$slug"
+              params={{ slug: featured.slug }}
               className="mt-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-foreground border-b border-foreground/40 pb-1 hover:border-primary hover:text-primary transition-colors"
             >
               Read the cover essay →
-            </a>
+            </Link>
           </div>
         </article>
       </section>
@@ -318,9 +249,10 @@ function JournalPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-20">
           {editorial.map((p, i) => (
-            <a
+            <Link
               key={p.title}
-              href="#"
+              to="/journal/$slug"
+              params={{ slug: p.slug }}
               className={`reveal group block ${p.span} ${i % 2 === 1 ? "lg:mt-24" : ""}`}
             >
               <div className={`overflow-hidden rounded-sm ${p.ratio}`}>
@@ -345,94 +277,7 @@ function JournalPage() {
               <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                 {p.date}
               </p>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* ─────────────────────────── RITUAL / PRODUCT INTEGRATION ─────────────────────────── */}
-      <section className="relative bg-foreground text-background py-28 md:py-36 overflow-hidden">
-        <div className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full bg-primary/30 blur-3xl opacity-50 animate-drift" />
-        <div className="relative max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 reveal">
-            <div className="overflow-hidden rounded-sm aspect-[4/5]">
-              <img
-                src={journalRitual}
-                alt="A tablet dissolving slowly in a glass of water"
-                loading="lazy"
-                width={1280}
-                height={1600}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-          <div className="lg:col-span-7">
-            <p className="reveal font-mono text-[11px] uppercase tracking-[0.24em] text-background/60">
-              Field notes · A small daily ritual
-            </p>
-            <h3 className="reveal mt-6 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.02] tracking-tight text-balance">
-              The quietest minute of your morning.
-            </h3>
-            <p className="reveal mt-8 max-w-xl text-background/70 text-base md:text-lg leading-relaxed">
-              A glass. A tablet. A breath while it dissolves. Not a productivity
-              system — a sixty-second pause before the day asks for everything.
-              Most of our readers say it's the only ritual that survived.
-            </p>
-            <div className="reveal mt-10 flex flex-wrap items-center gap-3">
-              <Link
-                to="/refill"
-                className="inline-flex items-center gap-2 bg-background text-foreground rounded-full px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
-              >
-                Read about the ritual
-              </Link>
-              <Link
-                to="/shop"
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium border border-background/30 hover:bg-background/10 transition-colors"
-              >
-                See what's inside
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────── SHORTER ESSAYS ─────────────────────────── */}
-      <section className="px-6 md:px-10 py-28 max-w-7xl mx-auto">
-        <div className="reveal mb-14">
-          <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-            Shorter notes
-          </p>
-          <h2 className="mt-3 font-display text-3xl md:text-4xl font-medium tracking-tight max-w-xl text-balance">
-            Small reflections for the in-between moments of a week.
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-10 md:gap-12">
-          {essays.map((e) => (
-            <a key={e.title} href="#" className="reveal group block">
-              <div className="aspect-[5/6] overflow-hidden rounded-sm">
-                <img
-                  src={e.image}
-                  alt={e.title}
-                  loading="lazy"
-                  width={1280}
-                  height={1536}
-                  className="h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]"
-                />
-              </div>
-              <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-                {e.cat} · {e.read}
-              </p>
-              <h3 className="mt-3 font-display text-xl md:text-2xl font-bold leading-snug tracking-tight text-balance group-hover:text-primary transition-colors">
-                {e.title}
-              </h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                {e.excerpt}
-              </p>
-              <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                {e.date}
-              </p>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
