@@ -6,6 +6,7 @@ import { products } from "@/lib/vytal-products";
 import { useCart, formatPrice } from "@/contexts/cart-context";
 import shopStarterKit from "@/assets/shop-starter-kit.jpg";
 import shopRitualDesk from "@/assets/shop-ritual-desk.jpg";
+import shopHeroBottle from "@/assets/shop-hero-bottle.png";
 import aluHero from "@/assets/alu-hero.jpg";
 import aluDispense from "@/assets/alu-dispense.jpg";
 
@@ -230,18 +231,17 @@ function StarterKitPage() {
             {/* tablet preview */}
             <div className="lg:col-span-5 lg:sticky lg:top-32 self-start reveal">
               <div
-                className="relative aspect-[4/5] overflow-hidden rounded-md transition-all duration-[1500ms] ease-[cubic-bezier(0.32,0.72,0,1)]"
-                style={{ background: `linear-gradient(160deg, ${activeFlavor.hex}30, var(--secondary))` }}
+                className="relative aspect-[4/5] overflow-hidden rounded-md transition-all duration-[1500ms] ease-[cubic-bezier(0.32,0.72,0,1)] bg-secondary/80"
               >
-                {flavorProducts.map((p) => (
+                {/* Product Float Shot */}
+                <div className="absolute inset-0 flex items-center justify-center p-8">
                   <img
-                    key={p.slug}
-                    src={p.image}
-                    alt={p.name}
-                    loading="lazy"
-                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${active === p.slug ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
+                    src={shopHeroBottle}
+                    alt="VYTAL Bottle Float"
+                    className="w-full h-auto max-h-full object-contain animate-float drop-shadow-2xl"
                   />
-                ))}
+                </div>
+                
                 <div className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
                   {activeFlavor.mood}
                 </div>
