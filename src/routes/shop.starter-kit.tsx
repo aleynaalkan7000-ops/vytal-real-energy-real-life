@@ -1,323 +1,381 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products } from "@/lib/vytal-products";
-import { useCart, formatPrice, parsePrice } from "@/contexts/cart-context";
-import configuratorImg from "@/assets/shop-configurator.jpg";
+import { useCart, formatPrice } from "@/contexts/cart-context";
+import shopStarterKit from "@/assets/shop-starter-kit.jpg";
+import shopRitualDesk from "@/assets/shop-ritual-desk.jpg";
+import aluHero from "@/assets/alu-hero.jpg";
+import aluDispense from "@/assets/alu-dispense.jpg";
 
 export const Route = createFileRoute("/shop/starter-kit")({
   head: () => ({
     meta: [
-      { title: "Build your starter ritual — VYTAL" },
-      { name: "description", content: "Compose your personal VYTAL starter kit: bottle, color, three flavors and a lifestyle goal. Live preview, premium ritual." },
-      { property: "og:title", content: "Build your starter ritual — VYTAL" },
-      { property: "og:description", content: "A calm configurator for your personal VYTAL ritual." },
-      { property: "og:image", content: configuratorImg },
+      { title: "The VYTAL Starter Kit — Begin the refill ritual." },
+      { name: "description", content: "The complete entry into the VYTAL refill ecosystem: glass bottle, reusable aluminum cylinder, all six functional flavors, linen sleeve and ritual card. Deposit included." },
+      { property: "og:title", content: "The VYTAL Starter Kit — Begin the refill ritual." },
+      { property: "og:description", content: "Start the refill ritual. All six flavors, the reusable cylinder, the loop — one calm box." },
+      { property: "og:image", content: shopStarterKit },
     ],
   }),
   component: StarterKitPage,
 });
 
-type Goal = "focus" | "balance" | "energy" | "calm";
+const KIT_PRICE = 68;
 
-const bottles = products.filter((p) => p.category === "bottle").slice(0, 3);
-const refills = products.filter((p) => p.category === "refill");
-
-const bottleColors: Record<string, { id: string; label: string; tint: string; swatch: string }[]> = {
-  default: [
-    { id: "sage", label: "Sage", tint: "from-primary/20 via-secondary to-background", swatch: "bg-primary/70" },
-    { id: "sand", label: "Sand", tint: "from-clay/30 via-secondary to-background", swatch: "bg-clay" },
-    { id: "charcoal", label: "Charcoal", tint: "from-foreground/20 via-secondary to-background", swatch: "bg-foreground" },
-    { id: "glass", label: "Bare glass", tint: "from-accent/15 via-secondary to-background", swatch: "bg-accent" },
-  ],
-};
-
-const goals: { id: Goal; label: string; note: string }[] = [
-  { id: "focus", label: "Deep focus", note: "Long study, deep work" },
-  { id: "balance", label: "Calm balance", note: "Slow mornings, soft days" },
-  { id: "energy", label: "Steady energy", note: "Full day, no crash" },
-  { id: "calm", label: "Evening calm", note: "Late sessions, soft wind-down" },
+const includedItems = [
+  { t: "Glass refill bottle", d: "Borosilicate, soft-touch sleeve, hand-balanced.", img: "" },
+  { t: "Aluminum refill cylinder", d: "Matte anodized, airtight, 12 tablets per fill.", img: aluHero },
+  { t: "All six refill flavors", d: "Focus · Flow · Refresh · Boost · Balance · Recharge.", img: "" },
+  { t: "Linen sleeve & pouch", d: "Carry the bottle and cylinder quietly. Washable.", img: "" },
+  { t: "Onboarding ritual card", d: "A small printed guide for the first calm morning.", img: "" },
+  { t: "Access to the refill loop", d: "Deposit included. Return five empties, refunded.", img: aluDispense },
 ];
 
+const flavors = [
+  { slug: "focus",    name: "Focus",    mood: "Matcha Lime",      hex: "#A8C49D", line: "For long days and full to-do lists." },
+  { slug: "flow",     name: "Flow",     mood: "Peach Green Tea",  hex: "#E8C6A4", line: "Steady energy, morning to evening." },
+  { slug: "refresh",  name: "Refresh",  mood: "Berry Mint",       hex: "#C8D9E4", line: "Reset between meetings and screens." },
+  { slug: "boost",    name: "Boost",    mood: "Citrus Ginger",    hex: "#E8A86A", line: "For the days that ask more of you." },
+  { slug: "balance",  name: "Balance",  mood: "Pear Sage",        hex: "#BCC8AE", line: "Energy that knows when to be quiet." },
+  { slug: "recharge", name: "Recharge", mood: "Cherry Black Tea", hex: "#A88494", line: "Late sessions, without overdoing it." },
+];
+
+function useReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("in-view");
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.14 },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+}
+
 function StarterKitPage() {
+  useReveal();
   const { add } = useCart();
-  const [step, setStep] = useState(0);
-  const [bottleId, setBottleId] = useState(bottles[0]?.slug ?? "");
-  const [colorId, setColorId] = useState("sage");
-  const [picks, setPicks] = useState<string[]>([]);
-  const [goal, setGoal] = useState<Goal>("focus");
+  const [active, setActive] = useState("focus");
+  const heroRef = useRef<HTMLImageElement>(null);
+  const [added, setAdded] = useState(false);
 
-  const selectedBottle = bottles.find((b) => b.slug === bottleId) ?? bottles[0];
-  const selectedColor = bottleColors.default.find((c) => c.id === colorId) ?? bottleColors.default[0];
-  const selectedRefills = refills.filter((r) => picks.includes(r.slug));
+  useEffect(() => {
+    const onScroll = () => {
+      const el = heroRef.current;
+      if (!el) return;
+      const y = window.scrollY;
+      el.style.transform = `translate3d(0, ${y * 0.1}px, 0) scale(1.05)`;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const togglePick = (slug: string) => {
-    setPicks((prev) => {
-      if (prev.includes(slug)) return prev.filter((s) => s !== slug);
-      if (prev.length >= 3) return [...prev.slice(1), slug];
-      return [...prev, slug];
-    });
-  };
-
-  const price = useMemo(() => {
-    const b = selectedBottle ? parsePrice(selectedBottle.price) : 0;
-    const r = selectedRefills.reduce((s, x) => s + parsePrice(x.price), 0);
-    return b + r * 2; // bottle + each refill x2
-  }, [selectedBottle, selectedRefills]);
-
-  const ready = !!selectedBottle && picks.length === 3;
+  const activeFlavor = flavors.find((f) => f.slug === active) ?? flavors[0];
+  const flavorProducts = products.filter((p) => p.category === "refill");
 
   const handleAdd = () => {
-    if (!ready || !selectedBottle) return;
     add({
-      id: `kit-${selectedBottle.slug}-${colorId}-${picks.join("-")}-${goal}`,
-      name: "VYTAL Starter Ritual",
-      variant: `${selectedBottle.name.replace("VYTAL ", "")} · ${selectedColor.label} · ${goal}`,
-      image: selectedBottle.image,
-      unitPrice: price,
-      qty: 1,
+      id: "starter-kit-v2",
+      name: "VYTAL Starter Kit",
+      variant: "Bottle · Cylinder · 6 flavors · Deposit included",
+      image: shopStarterKit,
+      unitPrice: KIT_PRICE,
     });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1600);
   };
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SiteHeader />
 
-      <section className="pt-28 pb-12 md:pt-32 md:pb-16 px-6 md:px-10 max-w-7xl mx-auto">
-        <Link to="/shop" className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground hover:text-foreground">
-          ← Shop
-        </Link>
-        <div className="mt-6 flex items-end justify-between gap-6 flex-wrap">
-          <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-              Configurator · Volume 04
+      {/* HERO */}
+      <section className="relative min-h-[100svh] flex items-end overflow-hidden bg-[#f3ede2]">
+        <img
+          ref={heroRef}
+          src={shopStarterKit}
+          alt="The VYTAL Starter Kit laid out on warm stone — bottle, aluminum cylinder, six flavors, linen sleeve"
+          width={1600}
+          height={1920}
+          className="absolute inset-0 w-full h-full object-cover will-change-transform"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#f3ede2] via-[#f3ede2]/10 to-transparent" />
+        <div className="absolute inset-0 grain opacity-40" />
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-32 grid md:grid-cols-12 gap-8">
+          <div className="md:col-span-8">
+            <Link to="/shop" className="font-mono text-[11px] uppercase tracking-[0.32em] text-foreground/60 hover:text-foreground transition-colors">
+              ← Back to shop
+            </Link>
+            <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.32em] text-primary reveal">
+              The Starter Kit · Volume 01
             </p>
-            <h1 className="mt-3 font-display text-5xl md:text-7xl font-extrabold leading-[0.95] tracking-tight text-balance">
-              Build your <em className="not-italic text-primary">ritual</em>.
+            <h1 className="mt-5 font-display text-[clamp(3rem,9vw,8.5rem)] font-extrabold leading-[0.92] tracking-tighter text-balance reveal">
+              Begin the<br/>
+              <em className="not-italic font-light italic text-foreground/70">refill ritual.</em>
             </h1>
+            <p className="mt-8 max-w-lg text-lg text-foreground/75 leading-relaxed reveal">
+              Everything you need to enter the system. One bottle. The reusable
+              cylinder. All six flavors — because the ritual begins with exploring
+              every one of them.
+            </p>
           </div>
-          <p className="max-w-sm text-muted-foreground">
-            Compose a calm starter kit in four quiet steps. Live preview · no commitment until you're ready.
-          </p>
+          <div className="md:col-span-4 self-end font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/55 max-w-xs ml-auto text-right reveal">
+            <p>€68 · giftable · deposit included</p>
+            <p className="mt-2">Ships in recycled board · plastic-free</p>
+          </div>
         </div>
       </section>
 
-      <section className="px-6 md:px-10 max-w-7xl mx-auto pb-32 grid lg:grid-cols-12 gap-12 lg:gap-16">
-        {/* LIVE PREVIEW */}
-        <div className="lg:col-span-6 lg:sticky lg:top-28 self-start">
-          <div
-            className={`relative aspect-[4/5] overflow-hidden rounded-md transition-all duration-[1500ms] ease-[cubic-bezier(0.32,0.72,0,1)] bg-gradient-to-br ${selectedColor.tint}`}
-          >
-            <div className="absolute inset-0 -z-10">
-              <div className="absolute -top-20 -left-20 size-72 rounded-full bg-primary/15 blur-3xl animate-drift" />
-              <div className="absolute -bottom-20 -right-10 size-80 rounded-full bg-accent/20 blur-3xl animate-drift" style={{ animationDelay: "-7s" }} />
-            </div>
-            {selectedBottle && (
-              <img
-                key={selectedBottle.slug + colorId}
-                src={selectedBottle.image}
-                alt={selectedBottle.name}
-                className="absolute inset-0 h-full w-full object-cover mix-blend-multiply opacity-95 transition-all duration-[1200ms] ease-[cubic-bezier(0.32,0.72,0,1)]"
-                style={{ animation: "vytal-reveal-up 1.1s var(--ease-soft) both" }}
-              />
-            )}
-
-            {/* Floating refill tablets */}
-            <div className="absolute inset-0">
-              {selectedRefills.map((r, i) => (
-                <span
-                  key={r.slug}
-                  className={`absolute size-14 rounded-2xl shadow-xl backdrop-blur ${r.swatch}`}
-                  style={{
-                    top: `${20 + i * 22}%`,
-                    [i % 2 === 0 ? "left" : "right"]: `${8 + i * 4}%`,
-                    animation: `vytal-float ${8 + i}s ease-in-out infinite`,
-                    animationDelay: `${i * 0.6}s`,
-                  }}
-                  aria-hidden
-                />
-              ))}
-            </div>
-
-            <div className="absolute top-6 left-6 font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/70">
-              Live ritual preview
-            </div>
-            <div className="absolute bottom-6 left-6 right-6">
-              <p className="font-display text-2xl">{selectedBottle?.name.replace("VYTAL ", "") ?? "—"}</p>
-              <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-foreground/70 mt-1">
-                {selectedColor.label} · {picks.length}/3 refills · {goal}
-              </p>
+      {/* STICKY ADD-TO-CART */}
+      <section className="sticky top-16 z-30 bg-background/90 backdrop-blur-xl border-y border-border">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-5 flex flex-wrap items-center justify-between gap-6">
+          <div className="flex items-center gap-5">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">The complete kit</p>
+              <p className="mt-0.5 font-display text-base font-semibold">Bottle · Cylinder · 6 flavors</p>
             </div>
           </div>
-
-          <div className="mt-8 flex items-center justify-between">
-            <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                Your ritual
+          <div className="flex items-center gap-4 ml-auto">
+            <div className="text-right">
+              <p className="font-display text-2xl leading-none">{formatPrice(KIT_PRICE)}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-1">
+                Deposit included · returns refunded
               </p>
-              <p className="mt-1 font-display text-3xl">{formatPrice(price)}</p>
             </div>
             <button
-              disabled={!ready}
               onClick={handleAdd}
-              className="bg-foreground text-background rounded-full px-7 py-4 text-sm font-medium hover:bg-primary transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="relative overflow-hidden bg-foreground text-background rounded-full px-7 py-3.5 text-sm font-medium hover:bg-primary transition-colors"
             >
-              {ready ? "Add ritual to cart →" : `Pick ${3 - picks.length} more`}
+              <span className={`block transition-all duration-500 ${added ? "-translate-y-8 opacity-0" : ""}`}>
+                Begin the ritual →
+              </span>
+              <span className={`absolute inset-0 grid place-items-center transition-all duration-500 ${added ? "" : "translate-y-8 opacity-0"}`}>
+                Added ✓
+              </span>
             </button>
           </div>
         </div>
+      </section>
 
-        {/* STEPS */}
-        <div className="lg:col-span-6 space-y-12">
-          <ConfigBlock
-            index={1}
-            title="Choose your bottle"
-            active={step >= 0}
-            onFocus={() => setStep(0)}
-          >
-            <div className="grid sm:grid-cols-3 gap-3">
-              {bottles.map((b) => (
-                <button
-                  key={b.slug}
-                  onClick={() => setBottleId(b.slug)}
-                  className={`text-left p-4 rounded-2xl border transition-all ${
-                    bottleId === b.slug
-                      ? "border-foreground bg-secondary"
-                      : "border-border hover:bg-secondary/50"
-                  }`}
-                >
-                  <div className="aspect-square overflow-hidden rounded-md bg-secondary/40 mb-3">
-                    <img src={b.image} alt={b.name} className="h-full w-full object-cover" />
-                  </div>
-                  <p className="font-display text-sm font-semibold">{b.name.replace("VYTAL ", "")}</p>
-                  <p className="font-mono text-[10px] text-muted-foreground mt-1">{b.price}</p>
-                </button>
-              ))}
+      {/* QUIET STATEMENT */}
+      <section className="px-6 md:px-10 max-w-4xl mx-auto py-28 md:py-40 text-center">
+        <p className="reveal font-display text-3xl md:text-5xl leading-[1.15] tracking-tight text-balance">
+          Not tablets in a box.<br/>
+          <span className="text-muted-foreground">A system in a box.</span>
+        </p>
+        <p className="reveal mt-8 max-w-xl mx-auto text-muted-foreground leading-relaxed">
+          Open it once. Use the bottle for years. Refill the cylinder for a
+          lifetime. The kit is the doorway — not the destination.
+        </p>
+      </section>
+
+      {/* WHAT'S INSIDE */}
+      <section className="px-6 md:px-10 max-w-7xl mx-auto pb-28 md:pb-40 grid lg:grid-cols-12 gap-12 lg:gap-20">
+        <div className="lg:col-span-5 reveal lg:sticky lg:top-32 self-start">
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">01 · Inside the box</span>
+          <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
+            Six things.<br/>
+            <span className="italic font-light text-muted-foreground">One ritual.</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
+            Each piece earns its place. Nothing decorative. The cylinder isn't a
+            standalone product — it's the vessel that brings every refill home.
+          </p>
+        </div>
+        <ol className="lg:col-span-7 space-y-3">
+          {includedItems.map((it, i) => (
+            <li key={it.t} className="reveal group rounded-3xl border border-border bg-secondary/40 p-6 md:p-7 hover:bg-secondary transition-colors duration-500">
+              <div className="flex items-start gap-5">
+                <span className="font-mono text-xs tracking-widest text-primary mt-1 w-8">0{i + 1}</span>
+                <div className="flex-1">
+                  <p className="font-display text-xl font-semibold">{it.t}</p>
+                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{it.d}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* SIX FLAVORS — interactive */}
+      <section className="relative bg-secondary/40 border-y border-border/60 py-28 md:py-40 overflow-hidden">
+        <div
+          className="absolute inset-0 -z-10 transition-all duration-[1800ms] ease-[cubic-bezier(0.32,0.72,0,1)] opacity-50"
+          style={{ background: `radial-gradient(60% 80% at 50% 30%, ${activeFlavor.hex}55, transparent 70%)` }}
+        />
+        <div className="px-6 md:px-10 max-w-7xl mx-auto">
+          <div className="max-w-3xl mb-14 reveal">
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">02 · The six flavors</span>
+            <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
+              Every flavor.<br/>
+              <span className="italic font-light text-muted-foreground">Inside every kit.</span>
+            </h2>
+            <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
+              You don't have to commit before you've tried them. The kit ships with
+              all six — explore each one, find the two or three you'll reorder.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            {/* tablet preview */}
+            <div className="lg:col-span-5 lg:sticky lg:top-32 self-start reveal">
+              <div
+                className="relative aspect-[4/5] overflow-hidden rounded-md transition-all duration-[1500ms] ease-[cubic-bezier(0.32,0.72,0,1)]"
+                style={{ background: `linear-gradient(160deg, ${activeFlavor.hex}30, var(--secondary))` }}
+              >
+                {flavorProducts.map((p) => (
+                  <img
+                    key={p.slug}
+                    src={p.image}
+                    alt={p.name}
+                    loading="lazy"
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${active === p.slug ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
+                  />
+                ))}
+                <div className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
+                  {activeFlavor.mood}
+                </div>
+                <div className="absolute bottom-5 left-5 right-5">
+                  <p className="font-display text-2xl">{activeFlavor.name}</p>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-foreground/70 mt-1">
+                    Included · in the cylinder
+                  </p>
+                </div>
+              </div>
             </div>
-          </ConfigBlock>
 
-          <ConfigBlock
-            index={2}
-            title="Pick a colour"
-            active={!!bottleId}
-            onFocus={() => setStep(1)}
-          >
-            <div className="flex flex-wrap gap-3">
-              {bottleColors.default.map((c) => (
-                <button
-                  key={c.id}
-                  onClick={() => setColorId(c.id)}
-                  className={`group flex items-center gap-3 pl-2 pr-5 py-2 rounded-full border transition-all ${
-                    colorId === c.id
-                      ? "border-foreground bg-secondary"
-                      : "border-border hover:bg-secondary/50"
-                  }`}
-                >
-                  <span className={`size-8 rounded-full ${c.swatch} ring-2 ring-background shadow-inner`} />
-                  <span className="text-sm font-medium">{c.label}</span>
-                </button>
-              ))}
-            </div>
-          </ConfigBlock>
-
-          <ConfigBlock
-            index={3}
-            title="Choose three flavours"
-            sub={`${picks.length}/3 selected`}
-            active={picks.length > 0 || step >= 2}
-            onFocus={() => setStep(2)}
-          >
-            <div className="grid sm:grid-cols-2 gap-3">
-              {refills.map((r) => {
-                const on = picks.includes(r.slug);
+            <div className="lg:col-span-7 grid sm:grid-cols-2 gap-3">
+              {flavors.map((f) => {
+                const on = active === f.slug;
                 return (
                   <button
-                    key={r.slug}
-                    onClick={() => togglePick(r.slug)}
-                    className={`text-left flex gap-4 p-3 rounded-2xl border transition-all ${
-                      on
-                        ? "border-foreground bg-secondary"
-                        : "border-border hover:bg-secondary/50"
-                    }`}
+                    key={f.slug}
+                    onMouseEnter={() => setActive(f.slug)}
+                    onFocus={() => setActive(f.slug)}
+                    onClick={() => setActive(f.slug)}
+                    className={`text-left p-6 rounded-2xl border transition-all duration-700 ${on ? "border-foreground bg-background shadow-lg -translate-y-1" : "border-border bg-background/40 hover:bg-background/80"}`}
                   >
-                    <span className={`size-14 rounded-xl shrink-0 ${r.swatch}`} />
-                    <div className="min-w-0">
-                      <p className="font-display text-sm font-semibold">{r.name.replace("VYTAL ", "")}</p>
-                      <p className="font-mono text-[10px] text-muted-foreground mt-0.5 truncate">
-                        {r.flavor}
-                      </p>
-                      <p className="text-[11px] text-muted-foreground mt-1.5 line-clamp-2">{r.tagline}</p>
+                    <div className="flex items-center gap-3">
+                      <span className={`size-9 rounded-full transition-transform duration-700 ${on ? "scale-110" : ""}`} style={{ background: f.hex }} />
+                      <div className="flex-1">
+                        <p className="font-display text-lg font-semibold">{f.name}</p>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mt-0.5">{f.mood}</p>
+                      </div>
                     </div>
+                    <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{f.line}</p>
+                    <Link
+                      to="/shop/$slug"
+                      params={{ slug: f.slug }}
+                      onClick={(e) => e.stopPropagation()}
+                      className="mt-4 inline-flex font-mono text-[10px] uppercase tracking-[0.25em] text-primary hover:text-foreground transition-colors"
+                    >
+                      Full ritual →
+                    </Link>
                   </button>
                 );
               })}
             </div>
-          </ConfigBlock>
+          </div>
+        </div>
+      </section>
 
-          <ConfigBlock
-            index={4}
-            title="Your everyday goal"
-            active={picks.length === 3 || step >= 3}
-            onFocus={() => setStep(3)}
-          >
-            <div className="grid sm:grid-cols-2 gap-3">
-              {goals.map((g) => (
-                <button
-                  key={g.id}
-                  onClick={() => setGoal(g.id)}
-                  className={`text-left p-4 rounded-2xl border transition-all ${
-                    goal === g.id
-                      ? "border-foreground bg-secondary"
-                      : "border-border hover:bg-secondary/50"
-                  }`}
-                >
-                  <p className="font-display font-semibold">{g.label}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{g.note}</p>
-                </button>
-              ))}
-            </div>
-          </ConfigBlock>
+      {/* CYLINDER NOTE */}
+      <section className="relative px-6 md:px-10 max-w-7xl mx-auto py-28 md:py-40 grid lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-6 reveal">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#f1ece1]">
+            <img src={aluHero} alt="The aluminum refill cylinder included in every starter kit" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
+              Included · part of the loop
+            </span>
+          </div>
+        </div>
+        <div className="lg:col-span-6 reveal">
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">03 · The cylinder</span>
+          <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
+            Reusable.<br/>
+            <span className="italic font-light text-muted-foreground">Returnable. Refined.</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
+            The matte aluminum cylinder is included with the kit — but it belongs to
+            the system. Return it with four others, get your deposit back, and the
+            cylinder begins another life.
+          </p>
+          <ul className="mt-8 space-y-3 max-w-md text-sm">
+            {[
+              "Air- and moisture-tight — tablets stay clean and dry",
+              "108 mm · 38 g · 12 tablets per cylinder",
+              "Deposit refunded on 5-cylinder return",
+              "Sterilized and refilled — not recycled away",
+            ].map((b) => (
+              <li key={b} className="flex gap-3 text-muted-foreground border-b border-border pb-2">
+                <span className="text-primary mt-0.5">—</span>{b}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* RITUAL CARD */}
+      <section className="relative overflow-hidden">
+        <div className="relative h-[80svh] min-h-[560px] w-full">
+          <img src={shopRitualDesk} alt="A calm morning desk with the VYTAL bottle, cylinder, and the printed ritual card" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
+        </div>
+        <div className="absolute inset-0 flex items-end">
+          <div className="max-w-7xl mx-auto w-full px-6 md:px-10 pb-16 md:pb-24">
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-background reveal">04 · The first morning</span>
+            <h2 className="reveal mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight max-w-2xl text-background drop-shadow">
+              The printed<br/>
+              <span className="italic font-light">ritual card.</span>
+            </h2>
+            <p className="reveal mt-6 max-w-md text-background/85 leading-relaxed">
+              A small folded card lives inside the kit. Three steps for the first
+              morning. After that, it lives on your shelf — quiet, unbranded, yours.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="relative px-6 md:px-10 py-32 md:py-44 text-center overflow-hidden bg-secondary/40">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 size-[60vmax] rounded-full bg-primary/15 blur-3xl animate-drift" />
+          <div className="absolute bottom-0 right-0 size-[40vmax] rounded-full bg-accent/15 blur-3xl animate-float" />
+        </div>
+        <div className="max-w-3xl mx-auto reveal">
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">A box that opens once</span>
+          <h2 className="mt-8 font-display text-5xl md:text-7xl font-extrabold leading-[0.95] tracking-tighter text-balance">
+            Open it once.<br/>
+            <span className="italic font-light text-muted-foreground">Refill it forever.</span>
+          </h2>
+          <div className="mt-12 flex flex-wrap gap-3 justify-center">
+            <button
+              onClick={handleAdd}
+              className="inline-flex bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-primary transition-colors"
+            >
+              Add Starter Kit — €68
+            </button>
+            <Link to="/refill" className="inline-flex border border-foreground/20 text-foreground px-8 py-4 rounded-full font-medium hover:bg-foreground hover:text-background transition-all">
+              How the system works
+            </Link>
+            <Link to="/shop" className="inline-flex px-8 py-4 rounded-full font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Back to shop →
+            </Link>
+          </div>
         </div>
       </section>
 
       <SiteFooter />
     </main>
-  );
-}
-
-function ConfigBlock({
-  index,
-  title,
-  sub,
-  active,
-  onFocus,
-  children,
-}: {
-  index: number;
-  title: string;
-  sub?: string;
-  active: boolean;
-  onFocus: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <div
-      onMouseEnter={onFocus}
-      className={`transition-opacity duration-700 ${active ? "opacity-100" : "opacity-60"}`}
-    >
-      <div className="flex items-baseline gap-4 mb-5">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary">
-          0{index}
-        </span>
-        <h2 className="font-display text-2xl font-semibold tracking-tight">{title}</h2>
-        {sub && (
-          <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-            {sub}
-          </span>
-        )}
-      </div>
-      {children}
-    </div>
   );
 }

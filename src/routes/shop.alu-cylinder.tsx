@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { useCart } from "@/contexts/cart-context";
 import aluHero from "@/assets/alu-hero.jpg";
 import aluMacro from "@/assets/alu-macro.jpg";
 import aluDispense from "@/assets/alu-dispense.jpg";
@@ -12,12 +11,11 @@ import aluLoop from "@/assets/alu-loop.jpg";
 export const Route = createFileRoute("/shop/alu-cylinder")({
   head: () => ({
     meta: [
-      { title: "Alu Refill Cylinder — VYTAL · Energy, refined." },
-      { name: "description", content: "A reusable matte aluminum refill cylinder for VYTAL. One press, one tablet. Hygienic, portable, designed for everyday calm." },
-      { property: "og:title", content: "Alu Refill Cylinder — VYTAL · Energy, refined." },
-      { property: "og:description", content: "A reusable refill system designed for everyday life. One press. No wasteful routines." },
+      { title: "The cylinder — VYTAL refill system." },
+      { name: "description", content: "The reusable matte aluminum cylinder that every VYTAL refill arrives inside. Included in the kit, returned for deposit, sterilized and refilled. Part of the circular loop." },
+      { property: "og:title", content: "The cylinder — VYTAL refill system." },
+      { property: "og:description", content: "Not a product. The vessel. Included with every refill. Returned for deposit. Refilled, refined, re-released." },
       { property: "og:image", content: aluHero },
-      { name: "twitter:image", content: aluHero },
     ],
   }),
   component: AluCylinderPage,
@@ -42,21 +40,11 @@ function useReveal() {
   }, []);
 }
 
-const colorways = [
-  { id: "silver", label: "Brushed silver", swatch: "bg-[#c8c6c1]", ring: "ring-[#c8c6c1]" },
-  { id: "sage", label: "Anodized sage", swatch: "bg-primary/70", ring: "ring-primary/70" },
-  { id: "graphite", label: "Soft graphite", swatch: "bg-foreground/80", ring: "ring-foreground/80" },
-  { id: "sand", label: "Warm sand", swatch: "bg-clay", ring: "ring-clay" },
-];
-
 function AluCylinderPage() {
   useReveal();
-  const { add } = useCart();
-  const [color, setColor] = useState("silver");
   const heroRef = useRef<HTMLImageElement>(null);
   const [pressed, setPressed] = useState(false);
 
-  // gentle parallax on hero
   useEffect(() => {
     const onScroll = () => {
       const el = heroRef.current;
@@ -68,27 +56,16 @@ function AluCylinderPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleAdd = () => {
-    add({
-      id: `alu-cylinder-${color}`,
-      name: "VYTAL Alu Refill Cylinder",
-      variant: colorways.find((c) => c.id === color)?.label ?? color,
-      image: aluHero,
-      unitPrice: 24,
-      href: "/shop/alu-cylinder",
-    });
-  };
-
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SiteHeader />
 
-      {/* HERO — cinematic, slow */}
+      {/* HERO */}
       <section className="relative min-h-[100svh] flex items-end overflow-hidden bg-[#f3ede2]">
         <img
           ref={heroRef}
           src={aluHero}
-          alt="Matte aluminum VYTAL refill cylinder on a warm stone surface in soft natural light"
+          alt="Matte aluminum VYTAL refill cylinder on warm stone in soft light"
           width={1600}
           height={1920}
           className="absolute inset-0 w-full h-full object-cover will-change-transform"
@@ -97,7 +74,7 @@ function AluCylinderPage() {
         <div className="absolute inset-0 grain opacity-40" />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-32 grid md:grid-cols-12 gap-8">
-          <div className="md:col-span-7">
+          <div className="md:col-span-8">
             <Link to="/shop" className="font-mono text-[11px] uppercase tracking-[0.32em] text-foreground/60 hover:text-foreground transition-colors">
               ← Back to shop
             </Link>
@@ -105,52 +82,35 @@ function AluCylinderPage() {
               The system object · Volume 04
             </p>
             <h1 className="mt-5 font-display text-[clamp(3rem,9vw,8rem)] font-extrabold leading-[0.92] tracking-tighter text-balance reveal">
-              Energy,<br/><em className="not-italic font-light italic text-foreground/70">refined.</em>
+              The vessel,<br/>
+              <em className="not-italic font-light italic text-foreground/70">not the product.</em>
             </h1>
             <p className="mt-8 max-w-lg text-lg text-foreground/75 leading-relaxed reveal">
-              A reusable matte aluminum refill cylinder. One press. One tablet.
-              A small, satisfying object designed for everyday life — not for the bin.
+              The matte aluminum cylinder isn't sold separately — it's the vessel
+              every refill arrives inside. Included in the kit. Returned for
+              deposit. Sterilized and refilled. Part of the loop.
             </p>
           </div>
-          <div className="md:col-span-5 self-end font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/55 max-w-xs ml-auto text-right reveal">
-            <p>108 mm · 38 g · holds 12 refills</p>
-            <p className="mt-2">Aerospace-grade aluminum · airtight</p>
+          <div className="md:col-span-4 self-end font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/55 max-w-xs ml-auto text-right reveal">
+            <p>Included in starter kit + every refill order</p>
+            <p className="mt-2">€4 deposit · refunded on 5-cylinder return</p>
           </div>
         </div>
       </section>
 
-      {/* CONFIGURE + PRICE STRIP */}
+      {/* PART-OF-SYSTEM BANNER */}
       <section className="sticky top-16 z-30 bg-background/90 backdrop-blur-xl border-y border-border">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-5 flex flex-wrap items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground hidden sm:block">Finish</span>
-            <div className="flex gap-2">
-              {colorways.map((c) => (
-                <button
-                  key={c.id}
-                  onClick={() => setColor(c.id)}
-                  aria-label={c.label}
-                  className={`relative size-9 rounded-full ${c.swatch} transition-all ring-offset-2 ring-offset-background ${color === c.id ? `ring-2 ${c.ring}` : "ring-0 hover:scale-110"}`}
-                />
-              ))}
-            </div>
-            <span className="text-sm text-muted-foreground hidden md:inline">
-              {colorways.find((c) => c.id === color)?.label}
-            </span>
-          </div>
-          <div className="flex items-center gap-4 ml-auto">
-            <div className="text-right">
-              <p className="font-display text-2xl leading-none">€24</p>
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-1">
-                or 5×€20 with subscription
-              </p>
-            </div>
-            <button
-              onClick={handleAdd}
-              className="bg-foreground text-background rounded-full px-6 py-3 text-sm font-medium hover:bg-primary transition-colors"
-            >
-              Add to cart
-            </button>
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+            Not a standalone product — included with every refill
+          </p>
+          <div className="flex items-center gap-3 ml-auto">
+            <Link to="/shop/starter-kit" className="bg-foreground text-background rounded-full px-6 py-3 text-sm font-medium hover:bg-primary transition-colors">
+              Begin with the Starter Kit →
+            </Link>
+            <Link to="/shop" className="hidden md:inline-flex border border-foreground/15 px-5 py-3 rounded-full text-sm font-medium hover:bg-secondary transition-colors">
+              Browse refills
+            </Link>
           </div>
         </div>
       </section>
@@ -222,7 +182,7 @@ function AluCylinderPage() {
         </div>
       </section>
 
-      {/* MATERIAL — full bleed */}
+      {/* MATERIAL */}
       <section className="relative bg-foreground text-background overflow-hidden">
         <div className="grid lg:grid-cols-2">
           <div className="relative aspect-[16/12] lg:aspect-auto lg:min-h-[680px] overflow-hidden">
@@ -267,7 +227,7 @@ function AluCylinderPage() {
             <p className="mt-8 text-muted-foreground leading-relaxed max-w-md">
               When you've collected five empty cylinders, drop them unfranked into any
               postbox. They return to us, get sterilized, refilled and re-released into
-              the loop. Significantly less waste — without pretending to be perfect.
+              the loop. Deposit credited the moment they reach us.
             </p>
             <p className="mt-6 text-sm text-muted-foreground/80 max-w-md">
               Roughly 85% less shipping volume vs. canned drinks. Roughly zero plastic
@@ -318,60 +278,22 @@ function AluCylinderPage() {
         </div>
       </section>
 
-      {/* ONLINE × STATIONS — honest positioning */}
-      <section className="px-6 md:px-10 py-32 md:py-44 max-w-7xl mx-auto">
-        <div className="max-w-3xl mb-16 reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">05 · Honest about it</span>
-          <h2 className="mt-5 font-display text-4xl md:text-6xl font-bold leading-[1] text-balance">
-            Stations long-term.<br/>
-            <span className="italic font-light text-muted-foreground">Online for real life.</span>
-          </h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
-            Local refill stations are the long arc — what we're building toward.
-            Online refills exist because real life moves, and a system you can't actually
-            use is just decoration. Both routes feed the same cylinder.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          <article className="reveal rounded-3xl border border-border bg-secondary/40 p-8 md:p-10">
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">Stations</span>
-            <h3 className="mt-4 font-display text-2xl font-semibold">The long-term ecosystem</h3>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Walk in, refill the cylinder directly, walk out. Zero shipping.
-              Rolling out city by city — slowly, on purpose.
-            </p>
-          </article>
-          <article className="reveal rounded-3xl border border-border bg-background p-8 md:p-10">
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">Online refills</span>
-            <h3 className="mt-4 font-display text-2xl font-semibold">For wherever you actually are</h3>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Compact refill packs shipped in concentrated form — no water trucked
-              around the country. Subscription pauses any time.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      {/* FINAL — calm CTA */}
+      {/* FINAL — calm CTA back into the system */}
       <section className="relative px-6 md:px-10 py-40 md:py-56 text-center overflow-hidden bg-secondary/40">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-1/3 left-1/2 -translate-x-1/2 size-[60vmax] rounded-full bg-primary/15 blur-3xl animate-drift" />
           <div className="absolute bottom-0 right-0 size-[40vmax] rounded-full bg-accent/15 blur-3xl animate-float" />
         </div>
         <div className="max-w-3xl mx-auto reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">A small object. A quieter loop.</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">Included in the system</span>
           <h2 className="mt-8 font-display text-5xl md:text-7xl font-extrabold leading-[0.95] tracking-tighter text-balance">
-            One press.<br/>
-            <span className="italic font-light text-muted-foreground">No wasteful routines.</span>
+            Begin with the kit.<br/>
+            <span className="italic font-light text-muted-foreground">The cylinder comes with it.</span>
           </h2>
           <div className="mt-12 flex flex-wrap gap-3 justify-center">
-            <button
-              onClick={handleAdd}
-              className="inline-flex bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-primary transition-all"
-            >
-              Add cylinder — €24
-            </button>
+            <Link to="/shop/starter-kit" className="inline-flex bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-primary transition-all">
+              Begin the Starter Kit →
+            </Link>
             <Link to="/refill" className="inline-flex border border-foreground/20 text-foreground px-8 py-4 rounded-full font-medium hover:bg-foreground hover:text-background transition-all">
               Explore the system
             </Link>
