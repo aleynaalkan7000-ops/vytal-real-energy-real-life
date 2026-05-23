@@ -7,6 +7,9 @@ import refillBubbles from "@/assets/refill-bubbles.jpg";
 import refillWaste from "@/assets/refill-waste.jpg";
 import refillLifestyle from "@/assets/refill-lifestyle.jpg";
 import refillDispenser from "@/assets/refill-dispenser.jpg";
+import aluHeroImg from "@/assets/alu-hero.jpg";
+import aluDispenseImg from "@/assets/alu-dispense.jpg";
+import aluLoopImg from "@/assets/alu-loop.jpg";
 import { useEffect, useRef } from "react";
 
 export const Route = createFileRoute("/refill")({
