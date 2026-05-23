@@ -133,7 +133,7 @@ function ArticlePage() {
 
       {/* Body */}
       <article className="max-w-2xl mx-auto px-6 md:px-0 py-24 md:py-36">
-        {article.paragraphs.map((p, i) => (
+        {article.paragraphs.map((p: string, i: number) => (
           <p
             key={i}
             className={`reveal font-serif text-lg md:text-xl leading-[1.75] text-foreground/85 ${
