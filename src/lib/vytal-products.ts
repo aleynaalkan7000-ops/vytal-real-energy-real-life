@@ -33,7 +33,7 @@ import productRecharge from "@/assets/product-recharge.jpg";
 import bottleGo from "@/assets/bottle-go.png";
 import bottleFlow from "@/assets/bottle-flow.png";
 import bottleOffice from "@/assets/bottle-office.png";
-import bottleHome from "@/assets/bottle-home.jpg";
+import bottleHome from "@/assets/bottle-home.png";
 import bottleUnity from "@/assets/bottle-unity.png";
 
 const baseNutrition = [
