@@ -8,7 +8,7 @@ import ritualMorning from "@/assets/ritual-morning.jpg";
 import ritualNight from "@/assets/ritual-night.jpg";
 import dailyStudy from "@/assets/daily-study.jpg";
 import dailyOffice from "@/assets/daily-office.jpg";
-import productLineup from "@/assets/product-lineup.jpg";
+import productLineup from "@/assets/product-lineup.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
