@@ -17,8 +17,6 @@ import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ShopStarterKitRouteImport } from './routes/shop.starter-kit'
-import { Route as ShopAluCylinderRouteImport } from './routes/shop.alu-cylinder'
 import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
 
 const ShopRoute = ShopRouteImport.update({
@@ -61,16 +59,6 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ShopStarterKitRoute = ShopStarterKitRouteImport.update({
-  id: '/starter-kit',
-  path: '/starter-kit',
-  getParentRoute: () => ShopRoute,
-} as any)
-const ShopAluCylinderRoute = ShopAluCylinderRouteImport.update({
-  id: '/alu-cylinder',
-  path: '/alu-cylinder',
-  getParentRoute: () => ShopRoute,
-} as any)
 const ShopSlugRoute = ShopSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -87,8 +75,6 @@ export interface FileRoutesByFullPath {
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
   '/shop/$slug': typeof ShopSlugRoute
-  '/shop/alu-cylinder': typeof ShopAluCylinderRoute
-  '/shop/starter-kit': typeof ShopStarterKitRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -100,8 +86,6 @@ export interface FileRoutesByTo {
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
   '/shop/$slug': typeof ShopSlugRoute
-  '/shop/alu-cylinder': typeof ShopAluCylinderRoute
-  '/shop/starter-kit': typeof ShopStarterKitRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -114,8 +98,6 @@ export interface FileRoutesById {
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
   '/shop/$slug': typeof ShopSlugRoute
-  '/shop/alu-cylinder': typeof ShopAluCylinderRoute
-  '/shop/starter-kit': typeof ShopStarterKitRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -129,8 +111,6 @@ export interface FileRouteTypes {
     | '/refill'
     | '/shop'
     | '/shop/$slug'
-    | '/shop/alu-cylinder'
-    | '/shop/starter-kit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -142,8 +122,6 @@ export interface FileRouteTypes {
     | '/refill'
     | '/shop'
     | '/shop/$slug'
-    | '/shop/alu-cylinder'
-    | '/shop/starter-kit'
   id:
     | '__root__'
     | '/'
@@ -155,8 +133,6 @@ export interface FileRouteTypes {
     | '/refill'
     | '/shop'
     | '/shop/$slug'
-    | '/shop/alu-cylinder'
-    | '/shop/starter-kit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -228,20 +204,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/shop/starter-kit': {
-      id: '/shop/starter-kit'
-      path: '/starter-kit'
-      fullPath: '/shop/starter-kit'
-      preLoaderRoute: typeof ShopStarterKitRouteImport
-      parentRoute: typeof ShopRoute
-    }
-    '/shop/alu-cylinder': {
-      id: '/shop/alu-cylinder'
-      path: '/alu-cylinder'
-      fullPath: '/shop/alu-cylinder'
-      preLoaderRoute: typeof ShopAluCylinderRouteImport
-      parentRoute: typeof ShopRoute
-    }
     '/shop/$slug': {
       id: '/shop/$slug'
       path: '/$slug'
@@ -254,14 +216,10 @@ declare module '@tanstack/react-router' {
 
 interface ShopRouteChildren {
   ShopSlugRoute: typeof ShopSlugRoute
-  ShopAluCylinderRoute: typeof ShopAluCylinderRoute
-  ShopStarterKitRoute: typeof ShopStarterKitRoute
 }
 
 const ShopRouteChildren: ShopRouteChildren = {
   ShopSlugRoute: ShopSlugRoute,
-  ShopAluCylinderRoute: ShopAluCylinderRoute,
-  ShopStarterKitRoute: ShopStarterKitRoute,
 }
 
 const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
@@ -279,3 +237,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
