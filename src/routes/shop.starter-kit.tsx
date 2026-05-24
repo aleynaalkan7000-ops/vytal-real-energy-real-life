@@ -4,9 +4,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products } from "@/lib/vytal-products";
 import { useCart, formatPrice } from "@/contexts/cart-context";
-import shopStarterKit from "@/assets/shop-starter-kit.png";
+import shopStarterKit from "@/assets/shop-starter-kit-v2.png";
 import shopRitualDesk from "@/assets/shop-ritual-desk.jpg";
-import shopHeroBottle from "@/assets/shop-hero-bottle.png";
+import shopHeroBottle from "@/assets/shop-hero-bottle-new.png";
 import aluHero from "@/assets/alu-hero.jpg";
 import aluDispense from "@/assets/alu-dispense.jpg";
 
