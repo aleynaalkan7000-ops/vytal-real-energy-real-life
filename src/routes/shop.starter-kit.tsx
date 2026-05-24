@@ -31,7 +31,7 @@ const includedItems = [
   { t: "All six refill flavors", d: "Focus · Flow · Refresh · Boost · Balance · Recharge.", img: "" },
   { t: "Linen sleeve & pouch", d: "Carry the bottle and cylinder quietly. Washable.", img: "" },
   { t: "Onboarding ritual card", d: "A small printed guide for the first calm morning.", img: "" },
-  { t: "Access to the refill loop", d: "Deposit included. Return five empties, refunded.", img: aluDispense },
+  
 ];
 
 const flavors = [

@@ -213,7 +213,7 @@ function ShopPage() {
                     "6 × Refill flavors (Focus, Flow, Refresh, Boost, Balance, Recharge)",
                     "1 × Linen sleeve & carry pouch",
                     "1 × Onboarding ritual card",
-                    "Access to the VYTAL refill loop",
+                    
                   ].map((i) => (
                     <li key={i} className="flex gap-3 text-muted-foreground border-b border-border/60 pb-2">
                       <span className="text-primary mt-1">—</span>{i}
