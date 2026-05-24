@@ -460,9 +460,11 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
   };
 
   return (
-    <button
-      onClick={() => onOpen()}
-      className={`text-left group reveal flex flex-col ${i % 5 === 0 ? "lg:mt-10" : i % 5 === 3 ? "lg:-mt-6" : ""}`}
+    <div
+      onClick={onOpen}
+      role="button"
+      tabIndex={0}
+      className={`text-left group reveal flex flex-col cursor-pointer ${i % 5 === 0 ? "lg:mt-10" : i % 5 === 3 ? "lg:-mt-6" : ""}`}
     >
       <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
         <img
@@ -501,7 +503,7 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
       </div>
       <p className="text-[13px] font-mono text-primary/80 mt-1">{id?.mood ?? p.flavor}</p>
       <p className="text-sm text-muted-foreground mt-3 leading-relaxed max-w-sm">{id?.emotion ?? p.tagline}</p>
-    </button>
+    </div>
   );
 }
 
