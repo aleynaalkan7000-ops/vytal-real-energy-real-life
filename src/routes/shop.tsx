@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { products, type Product } from "@/lib/vytal-products";
 import { useCart, parsePrice, formatPrice } from "@/contexts/cart-context";
 import shopHero from "@/assets/shop-hero.jpg";
-import shopStarterKit from "@/assets/shop-starter-kit.jpg";
+import shopStarterKit from "@/assets/shop-starter-kit.png";
 import shopHeroBottle from "@/assets/shop-hero-bottle.png";
 import shopRitualDesk from "@/assets/shop-ritual-desk.jpg";
 import aluHero from "@/assets/alu-hero.jpg";
