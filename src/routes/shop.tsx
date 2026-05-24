@@ -80,6 +80,8 @@ function ShopPage() {
   const refills = useMemo(() => products.filter((p) => p.category === "refill"), []);
   const bottles = useMemo(() => products.filter((p) => p.category === "bottle"), []);
 
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
   const scrollTo = (id: string) => () =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -286,7 +288,12 @@ function ShopPage() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-14">
           {refills.map((p, i) => (
-            <RefillCard key={p.slug} p={p} i={i} />
+            <RefillCard
+              key={p.slug}
+              p={p}
+              i={i}
+              onOpen={() => setSelectedProduct(p)}
+            />
           ))}
         </div>
       </section>
@@ -354,7 +361,7 @@ function ShopPage() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
           {bottles.map((b) => (
-            <Link key={b.slug} to="/shop/$slug" params={{ slug: b.slug }} className="group reveal block">
+            <button key={b.slug} onClick={() => setSelectedProduct(b)} className="group reveal block text-left">
               <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
                 <img src={b.image} alt={b.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]" />
                 <div className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/80">
@@ -366,7 +373,7 @@ function ShopPage() {
                 <span className="font-mono text-xs text-muted-foreground">{b.price}</span>
               </div>
               <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{b.tagline}</p>
-            </Link>
+            </button>
           ))}
         </div>
       </section>
@@ -433,7 +440,7 @@ function ShopPage() {
 }
 
 // ── Refill card ──────────────────────────────────────────────────────
-function RefillCard({ p, i }: { p: Product; i: number }) {
+function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => void }) {
   const id = flavorIdentity[p.slug];
   const { add } = useCart();
   const [added, setAdded] = useState(false);
@@ -453,9 +460,8 @@ function RefillCard({ p, i }: { p: Product; i: number }) {
   };
 
   return (
-    <Link
-      to="/shop/$slug"
-      params={{ slug: p.slug }}
+    <button
+      onClick={() => onOpen()}
       className={`text-left group reveal flex flex-col ${i % 5 === 0 ? "lg:mt-10" : i % 5 === 3 ? "lg:-mt-6" : ""}`}
     >
       <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
@@ -495,7 +501,7 @@ function RefillCard({ p, i }: { p: Product; i: number }) {
       </div>
       <p className="text-[13px] font-mono text-primary/80 mt-1">{id?.mood ?? p.flavor}</p>
       <p className="text-sm text-muted-foreground mt-3 leading-relaxed max-w-sm">{id?.emotion ?? p.tagline}</p>
-    </Link>
+    </button>
   );
 }
 
