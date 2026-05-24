@@ -555,7 +555,7 @@ function ReturnLoop() {
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}
                 tabIndex={0}
-                className={`group cursor-pointer reveal rounded-3xl border p-6 md:p-8 transition-all duration-700 ${on ? "border-foreground bg-background shadow-lg" : "border-border bg-background/40 hover:bg-background/80"}`}
+                className={`group cursor-pointer rounded-3xl border p-6 md:p-8 transition-all duration-700 ${on ? "border-foreground bg-background shadow-lg" : "border-border bg-background/40 hover:bg-background/80"}`}
               >
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
@@ -578,7 +578,7 @@ function ReturnLoop() {
             );
           })}
 
-          <div className="reveal mt-10 grid sm:grid-cols-3 gap-3 text-xs text-muted-foreground">
+          <div className="mt-10 grid sm:grid-cols-3 gap-3 text-xs text-muted-foreground">
             <div className="rounded-2xl border border-border p-4 bg-background/60">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Deposit</p>
               <p className="mt-2">€4 per cylinder. Fully refunded when you return five together.</p>
