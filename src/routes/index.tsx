@@ -188,17 +188,9 @@ function SystemSection() {
               loading="lazy"
               width={1024}
               height={1408}
-              className="absolute inset-0 w-full h-full object-cover scroll-dissolve"
+              className="absolute inset-0 w-full h-full object-cover"
             />
-            <img
-              src={tabletDissolve}
-              alt=""
-              aria-hidden
-              loading="lazy"
-              width={1024}
-              height={1408}
-              className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen blur-2xl"
-            />
+            
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-background/80 font-mono text-[10px] tracking-[0.25em] uppercase">
               <span>The VYTAL System</span>
