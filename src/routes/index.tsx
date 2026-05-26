@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react"; // HIER: useState und useMemo hinzugefügt
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { products, type Product } from "@/lib/vytal-products"; // HIER: products importiert
 import cinematicHero from "@/assets/cinematic-hero.jpg";
 import tabletDissolve from "@/assets/tablet-dissolve.jpg";
 import ritualMorning from "@/assets/ritual-morning.png";
@@ -28,6 +29,45 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
+function Index() {
+  useReveal();
+  
+  const [heroIndex, setHeroIndex] = useState(0);
+  const starterKit = useMemo(() => products.find((p: Product) => p.slug === "starter-kit"), []);
+  const variants = starterKit?.variants || [];
+
+  useEffect(() => {
+    if (variants.length <= 1) return;
+    const interval = setInterval(() => {
+      setHeroIndex((prev: number) => {
+        const next = (prev + 1) % variants.length;
+        console.log("Wechsel zu Index:", next, "Bild:", variants[next].image); // <--- Hier schauen
+        return next;
+      });
+    }, 4000); 
+    return () => clearInterval(interval);
+  }, [variants]);
+
+  return (
+    <main className="min-h-screen bg-background text-foreground">
+      <SiteHeader />
+      <Hero 
+        key={heroIndex} // HIER: Das 'key' muss an die Hero-Komponente, nicht nur ans Bild!
+        heroImage={variants.length > 0 ? variants[heroIndex].image : cinematicHero} 
+        heroIndex={heroIndex} 
+      />
+      <Overstimulation />
+      <SystemSection />
+      <InsideBottle />
+      <Rituals />
+      <ProductTeaser />
+      <JournalPreview />
+      <FinalCTA />
+      <SiteFooter />
+    </main>
+  );
+}
 
 function useReveal() {
   useEffect(() => {
@@ -58,18 +98,19 @@ function AmbientOrbs() {
   );
 }
 
-function Hero() {
+function Hero({ heroImage, heroIndex }: { heroImage: string; heroIndex: number }) {
   return (
     <section
       id="top"
       className="relative min-h-[92vh] flex items-end overflow-hidden bg-foreground text-background grain"
     >
       <img
-        src={cinematicHero}
-        alt="Frosted sage glass bottle on a desk in soft library light"
+        key={heroIndex}
+        src={heroImage}
+        alt="VYTAL Hero Image"
         width={1920}
         height={1080}
-        className="absolute inset-0 h-full w-full object-cover opacity-90"
+        className="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity duration-1000 ease-in-out"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-foreground/55 via-foreground/20 to-foreground/85" />
       <AmbientOrbs />
@@ -373,7 +414,7 @@ function ProductTeaser() {
             The starter ritual.
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-md">
-            One bottle, three flavours, a month of focus. Designed to be the only thing you need to
+            One bottle, six flavours, a month of focus. Designed to be the only thing you need to
             begin — and the only thing left on your desk a year later.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
@@ -526,23 +567,5 @@ function FinalCTA() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Index() {
-  useReveal();
-  return (
-    <main className="min-h-screen bg-background text-foreground">
-      <SiteHeader />
-      <Hero />
-      <Overstimulation />
-      <SystemSection />
-      <InsideBottle />
-      <Rituals />
-      <ProductTeaser />
-      <JournalPreview />
-      <FinalCTA />
-      <SiteFooter />
-    </main>
   );
 }
