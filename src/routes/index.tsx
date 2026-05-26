@@ -379,6 +379,7 @@ function ProductTeaser() {
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               to="/shop"
+              hash="starter"
               className="group inline-flex items-center justify-center gap-2 bg-foreground text-background px-7 py-4 rounded-full text-sm font-semibold hover:bg-primary transition-all duration-500 hover:-translate-y-0.5 shadow-lg"
             >
               Shop the starter kit
@@ -386,6 +387,7 @@ function ProductTeaser() {
             </Link>
             <Link
               to="/shop"
+              hash="refills"
               className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold border border-foreground/20 hover:bg-background/50 transition-all duration-500"
             >
               Browse all flavours
