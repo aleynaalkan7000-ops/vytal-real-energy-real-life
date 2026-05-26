@@ -38,6 +38,8 @@ import bottleHome from "@/assets/bottle-home.png";
 import bottleUnity from "@/assets/bottle-unity.png";
 import flowBottleBeige from "@/assets/bottle-flow-beige.jpg";
 import flowBottleOlive from "@/assets/bottle-flow-green.jpg";
+import goBottleBrown from "@/assets/bottle-go-brown.jpg";
+import goBottleBeige from "@/assets/bottle-go-beige.jpg";
 
 const baseNutrition = [
   { label: "Energy", value: "12 kcal / 100ml" },
@@ -311,6 +313,11 @@ export const products: Product[] = [
     bundle: "Bottle + 5 refills · €38",
     swatch: "bg-foreground",
     color: "Matte charcoal",
+    variants: [
+      { slug: "go-bottle", colorName: "Matte Charcoal", hex: "#5a5c5a", image: bottleGo },
+      { slug: "go-bottle-brown", colorName: "Matte Brown", hex: "#8c7a6b", image: goBottleBrown },
+      { slug: "go-bottle-beige", colorName: "Matte Beige", hex: "#dcd3c6", image: goBottleBeige },
+    ],
     reviews: [
       { quote: "The NFC thing genuinely changes the experience.", name: "Niko P.", role: "Student · Leipzig" },
     ],
