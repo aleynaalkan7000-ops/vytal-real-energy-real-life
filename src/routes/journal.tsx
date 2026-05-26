@@ -34,7 +34,6 @@ const categories = [
   "Modern Work",
   "Nervous System",
   "Sustainable Energy",
-  "Calm Productivity",
 ] as const;
 
 type Article = {
@@ -59,10 +58,58 @@ const journalArticles: Article[] = [
     excerpt:
       "The way modern life is designed — endless inputs, endless tabs, endless small emergencies — was never something a nervous system was supposed to hold.",
     content: [
-      "The modern digital landscape is an environment our nervous systems were never evolved to sustain. Every notification, infinite scroll feed, and algorithmic ping competing for your focus creates a state of continuous low-level biological emergency. We have been conditioned to believe that scattered attention is a personal deficiency, a lack of discipline in the face of endless inputs.",
-      "But the truth is much quieter: your focus is simply outnumbered. A calmer way of working is not a productivity hack designed to extract more output from your day; it is a necessary form of neurological recovery. To find depth, we must first build sanctuaries of isolation.",
-      "By establishing deliberate boundaries — turning off the continuous pull of digital inputs and anchoring your day with a mindful, tactile ritual like VYTAL — you allow your cognitive baseline to settle. True focus occurs naturally when the noise is removed, moving you away from frantic multitasking toward deep, meaningful immersion in a single good task at a time.",
-    ],
+      "The modern digital landscape is an environment our nervous systems were never evolved to sustain. Every notification, infinite scroll feed, algorithmic recommendation and blinking red badge competes for the same limited cognitive bandwidth.",
+
+      "Yet modern culture keeps framing distraction as a personal moral failure. We are told that if we cannot focus, we simply lack discipline. That our inability to concentrate is proof that we are lazy, unmotivated or mentally weak.",
+
+      "But research on attention suggests something far more complex. Cognitive scientists have repeatedly shown that constant interruptions, digital task-switching and continuous notifications increase mental fatigue and reduce sustained concentration over time.",
+
+      "The brain is not designed to context-switch endlessly between tabs, messages, emails and algorithms competing for urgency. Every interruption carries a small cognitive cost. Individually these moments feel insignificant. Collectively they create exhaustion.",
+
+      "Your attention span is not broken. It is reacting exactly the way a human nervous system would react inside an environment built around interruption.",
+
+      "Most people no longer move through the day intentionally. They wake up and immediately absorb inputs. Notifications. Emails. Timelines. Messages. News. Deadlines. Tabs left open from yesterday. The nervous system never fully settles because it is constantly preparing to respond to the next demand.",
+
+      "Over time, this creates a state of permanent partial attention — where the body never fully rests, yet the mind never fully focuses either. You are technically available at all times, but mentally present almost nowhere.",
+
+      "That is why modern exhaustion feels psychologically different from normal tiredness. It is not only physical fatigue. It is cognitive overload. Emotional fragmentation. The quiet stress of never feeling mentally finished.",
+
+      "Modern productivity culture rarely acknowledges this reality. Instead, it sells increasingly extreme solutions to a problem the environment itself created. More stimulation. More caffeine. More optimization. More urgency. More pressure to become sharper, faster and endlessly efficient.",
+
+      "But intensity is not the same thing as clarity.",
+
+      "A sudden spike of stimulation may create temporary activation, but it does not automatically create sustainable focus. In many cases, overstimulation simply pushes the nervous system further into stress-response patterns that eventually lead to crashes, irritability and mental fatigue.",
+
+      "This is partly why calmer forms of energy are becoming increasingly important. Research around ingredients such as L-Theanine — commonly found in green tea — suggests that when paired with caffeine, it may support a smoother state of alertness compared to highly aggressive stimulant spikes alone.",
+
+      "The goal is not hyperactivity. The goal is steadier attention.",
+
+      "Real focus does not come from forcing the mind into constant acceleration. It comes from reducing friction. Reducing noise. Creating conditions where concentration feels natural again.",
+
+      "This is why rituals matter.",
+
+      "Not because routines are trendy or aesthetically pleasing, but because repetition creates psychological stability inside overstimulation. Small actions become anchors for the nervous system. They tell the body: this moment is safe, this moment matters, this is where we return to ourselves.",
+
+      "Preparing a drink slowly. Sitting near natural light. Opening a notebook before opening notifications. Taking five uninterrupted breaths before responding to the world. These moments appear small, yet over time they rebuild attention in ways constant stimulation slowly erodes.",
+
+      "The body does not interpret calm as laziness. It interprets calm as safety.",
+
+      "And safety is where deeper focus becomes possible again.",
+
+      "That is also the philosophy behind VYTAL. Sustainable energy should not feel aggressive. It should not overwhelm the body further in order to create temporary performance. It should support a calmer and more stable relationship with focus itself.",
+
+      "A smoother form of energy feels different. Less euphoric. Less chaotic. More grounded. It allows the mind to stay present with one thing long enough for meaningful work, reflection and recovery to happen.",
+
+      "Because real performance is not built through endless spikes of intensity. It is built through consistency. Through rhythms the body can actually sustain. Through routines that respect attention as something valuable instead of endlessly extractable.",
+
+      "Maybe the goal was never to become a machine capable of infinite output.",
+
+      "Maybe the goal is simply to create enough quiet to hear yourself think again.",
+
+      "Maybe your attention span was never broken.",
+
+      "Maybe it was simply trying to protect you."
+    ]
   },
   {
     id: "productive-crash",
@@ -73,11 +120,49 @@ const journalArticles: Article[] = [
     image: journalRitual,
     excerpt:
       "Why the cycle of spikes and collapses isn't a personality trait — and what calmer energy actually looks like across a real week.",
-    content: [
-      "Modern work culture heavily celebrates the high-caffeine, high-sugar rush of traditional energy drinks, treating the initial burst of artificial adrenaline as a badge of efficiency. Yet, the industry rarely accounts for the inevitable collapse that follows. The infamous '4 PM cliff' is not a failure of willpower; it is a predictable, biological response to synthetic spikes.",
-      "When you flood your system with rapidly absorbing stimulants, your nervous system is forced into overdrive, borrowing energy from your future hours. The crash is simply the bill coming due. True, sustainable cognitive stamina doesn't spike — it flows smoothly.",
-      "By shifting to clean, steady, functional ingredients without added sugars, you stabilize your physical and mental energy baseline across the entire week. This eliminates the exhausting, volatile cycle of jittery peaks and burnout crashes, allowing you to finish your real evening with a clear, calm mind rather than carrying exhaustion home.",
-    ],
+   content: [
+      "Modern culture has normalized a strange relationship with energy. Feeling constantly overstimulated, emotionally drained and physically exhausted is often treated as proof that someone is ambitious enough, disciplined enough or simply working hard enough.",
+
+      "The productive crash has become so common that many people no longer question it. The afternoon fog. The sudden irritability. The inability to focus despite consuming more caffeine. The feeling of being mentally wired while physically exhausted.",
+
+      "But none of this is actually a sustainable biological state.",
+
+      "Most traditional energy systems are built around intensity rather than stability. Highly concentrated caffeine, rapid sugar spikes and constant overstimulation push the nervous system into short bursts of artificial urgency designed to feel like productivity.",
+
+      "And for a moment, it works.",
+
+      "The body becomes activated. Thoughts move faster. Motivation temporarily feels easier to access. But the nervous system cannot remain in that heightened state indefinitely.",
+
+      "Research on stress physiology continues to show that the human body performs best under conditions of relative balance, not endless cycles of activation and collapse. The nervous system constantly attempts to regulate itself back toward equilibrium.",
+
+      "When energy rises too aggressively, the body eventually compensates. Blood sugar drops. Cognitive fatigue appears. Concentration weakens. Mood shifts. The famous '3 p.m. crash' is often less mysterious than modern culture pretends it is.",
+
+      "In many ways, the crash is simply the nervous system trying to recover from excessive stimulation.",
+
+      "But modern productivity culture rarely frames it this way. Instead, exhaustion is aestheticized. Burnout becomes associated with ambition. The ability to override biological limits becomes something people quietly pride themselves on.",
+
+      "The issue is that the body always keeps score eventually.",
+
+      "Over time, unstable energy patterns affect more than productivity alone. They shape emotional regulation, sleep quality, focus, recovery and even the ability to remain mentally present during ordinary moments of life.",
+
+      "That is why calmer forms of energy are becoming increasingly important.",
+
+      "Steadier energy feels fundamentally different from intensity. It does not create dramatic emotional highs. It does not force the nervous system into urgency. Instead, it supports a smoother and more sustainable rhythm throughout the day.",
+
+      "Research around ingredients such as L-Theanine — commonly found in green tea — suggests that when paired with caffeine, it may support calmer attention and smoother cognitive alertness compared to highly aggressive stimulant spikes alone.",
+
+      "The goal is not hyperactivity.",
+
+      "The goal is stability.",
+
+      "A healthier relationship with energy often looks quieter than modern culture expects. Fewer dramatic peaks. Fewer emotional crashes. Less chaos mistaken for motivation. More consistency. More clarity. More room for actual recovery.",
+
+      "Because sustainable performance should not require the body to constantly survive the very systems designed to keep it functioning.",
+
+      "Maybe the productive crash was never a personality trait.",
+
+      "Maybe it was a nervous system asking for a calmer rhythm all along."
+    ]
   },
   {
     id: "calmer-mornings",
@@ -89,10 +174,46 @@ const journalArticles: Article[] = [
     excerpt:
       "Not 5 a.m. wake-ups. Not ice baths. Three small, repeatable shifts that change the temperature of a day.",
     content: [
-      "True morning intentionality has been hijacked by extreme routines — 5 a.m. wake-up calls, immediate ice baths, and rigid 10-step optimization regimes. These systems often introduce performance anxiety before the day even begins. True morning design is simply about changing the temperature of your first hour.",
-      "Protecting your mind from immediate screen exposure prevents your brain from falling into an immediate state of reactive panic. Checking inputs the moment you open your eyes forces your nervous system to respond to external emergencies before you have established your own internal center.",
-      "Introducing slow, conscious hydration and allowing yourself a few unhurried breaths before opening your laptop resets your stress threshold. It transforms your day from a series of scattered responses into a deliberate, calm progression that adapts easily to whatever demands follow.",
-    ],
+      "Modern mornings have quietly become performances. Wake up at 5 a.m. Cold plunge. Journal. Meditate. Train. Optimize. Track. Improve. The first hour of the day is increasingly treated like a productivity competition rather than a biological transition into consciousness.",
+
+      "But for many people, these routines do not create calm. They create pressure.",
+
+      "The nervous system wakes up already feeling behind. Before the day has even properly begun, the mind is introduced to urgency, comparison and the subtle anxiety of trying to perform wellness correctly.",
+
+      "True morning design is rarely about intensity.",
+
+      "It is about nervous-system temperature.",
+
+      "Research around stress and cognitive regulation continues to show that the first moments after waking influence emotional state, attention and stress responsiveness throughout the rest of the day. The body does not instantly transition from rest into full performance mode without consequences.",
+
+      "This is partly why immediate screen exposure feels so mentally invasive. Notifications, emails and social feeds force the brain into reactive processing before it has established any internal stability of its own.",
+
+      "The nervous system wakes up and immediately begins responding to external demands.",
+
+      "Over time, this creates mornings that feel psychologically fragmented before they have even properly started.",
+
+      "A calmer morning often begins with subtraction rather than addition.",
+
+      "Less urgency. Less noise. Less pressure to optimize every second of existence.",
+
+      "Small rituals matter because they slow the nervous system down enough to fully arrive inside the day. Opening a window. Drinking water slowly. Sitting near natural light. Allowing silence to exist before information enters the body.",
+
+      "These actions appear simple, yet biologically they communicate safety and regulation. They reduce the immediate cognitive load placed on the brain during the transition from sleep into alertness.",
+
+      "And calm focus tends to grow more easily inside regulated environments.",
+
+      "This is also why slower forms of energy often feel fundamentally different than aggressive stimulation. Instead of shocking the body into temporary activation, steadier rhythms support attention more gently across the day itself.",
+
+      "The healthiest mornings rarely look dramatic from the outside.",
+
+      "They are often quiet. Repetitive. Slightly boring, even.",
+
+      "But consistency regulates the nervous system in ways intensity often cannot.",
+
+      "Because the goal of a morning routine should not be to impress the internet.",
+
+      "The goal is to create a beginning your mind can actually sustain."
+    ]
   },
   {
     id: "quiet-hour",
@@ -104,10 +225,56 @@ const journalArticles: Article[] = [
     excerpt:
       "Notes on building one un-interrupted hour a day — and why it matters more than any productivity system.",
     content: [
-      "In an era of continuous connectivity, the ultimate workspace luxury is a single, uninterrupted hour of deep, quiet focus. True depth is impossible when your attention is fragmented every few minutes by collaboration pings, status updates, and team notifications.",
-      "Embracing single-tasking is often misunderstood as inefficiency in a culture that worships speed. However, cognitive psychology continuously proves that context-switching wears down your mental stamina faster than any heavy workload. Depth requires a protected sanctuary.",
-      "When you fiercely guard just one single hour each day for uninterrupted thought, you accomplish more meaningful, high-value progress than in an entire afternoon of scattered, reactive communication. It is the absolute foundation upon which impactful work is built.",
-    ],
+      "The modern internet was not designed to protect attention. It was designed to capture it.",
+
+      "Every platform, notification system and algorithm competes for the same limited psychological resource: your ability to stay mentally present with one thing long enough for depth to emerge.",
+
+      "As a result, uninterrupted focus has quietly become one of the rarest experiences in modern life.",
+
+      "Most people no longer work in continuous concentration. They work in fragments. A message arrives. A notification appears. A tab gets opened. An email gets checked. The nervous system never fully settles into a single cognitive rhythm before another interruption pulls it somewhere else.",
+
+      "And because these interruptions feel small individually, their cumulative psychological effect often goes unnoticed.",
+
+      "But research in cognitive psychology continues to show that constant context-switching carries a measurable mental cost. The brain does not instantly transition between tasks without friction. Every switch consumes cognitive energy and weakens sustained attention over time.",
+
+      "This is partly why so many people finish entire workdays feeling mentally exhausted despite struggling to remember what they actually focused on deeply.",
+
+      "The issue is not always workload itself.",
+
+      "Often, the issue is fragmentation.",
+
+      "A loud digital environment keeps the nervous system in a continuous state of partial alertness. Attention becomes shallow because the brain is constantly preparing for interruption.",
+
+      "This is why a single uninterrupted hour can feel strangely powerful.",
+
+      "Inside silence, the mind begins to organize itself differently. Thoughts become less reactive. Concentration deepens. The nervous system slowly exits survival mode and re-enters a calmer state of sustained cognitive engagement.",
+
+      "Depth requires psychological safety.",
+
+      "And constant interruption quietly removes that safety from the brain.",
+
+      "Modern culture often mistakes frantic responsiveness for productivity. Fast replies become associated with competence. Constant availability becomes associated with ambition. But being reachable at every second of the day is not the same thing as doing meaningful work.",
+
+      "In many cases, the opposite is true.",
+
+      "The highest quality thinking usually emerges inside protected environments — environments where the mind is given enough uninterrupted time to move beyond surface-level reaction and into deeper reflection.",
+
+      "This is also why calmer rituals around focus matter. Slower mornings. Fewer notifications. More intentional transitions between tasks. Less digital noise competing for urgency.",
+
+      "The nervous system performs differently when it no longer expects interruption every few minutes.",
+
+      "A quiet hour does not just improve productivity.",
+
+      "It changes the emotional texture of work itself.",
+
+      "Tasks begin to feel less frantic. Attention becomes less scattered. Even time feels slower in a strangely restorative way.",
+
+      "Because deep focus was never simply about efficiency.",
+
+      "It was also about feeling mentally present inside your own life again.",
+
+      "And in an internet built around constant interruption, protecting even one quiet hour a day becomes a small act of psychological resistance."
+    ]
   },
   {
     id: "productivity-exhausting",
@@ -119,10 +286,60 @@ const journalArticles: Article[] = [
     excerpt:
       "The continuous performance of optimization has turned work into an emotional burden that no amount of sleep alone can repair.",
     content: [
-      "The modern obsession with optimized output has shifted productivity from a functional tool to an emotional burden. We are surrounded by metrics, tracking systems, and endless philosophies telling us that every minute of our existence must be leveraged for growth, turning life into a continuous performance.",
-      "This continuous pressure creates a unique form of exhaustion that sleep alone cannot fix. It is an emotional depletion born from the belief that we are always lagging behind an impossible standard. Our nervous systems remain stuck in a perpetual state of hyper-vigilance, scanning for tasks yet unfulfilled.",
-      "True recovery begins when we decouple our self-worth from our output matrix. By embracing slower, more honest rhythms and accepting that calm focus is infinitely more valuable than frantic acceleration, we allow our minds to heal from the chronic strain of modern optimization culture.",
-    ],
+      "Modern productivity was originally supposed to help people work more effectively. Somewhere along the way, it quietly became something far more personal.",
+
+      "Today, productivity is no longer treated as a tool. It has become an identity.",
+
+      "Every part of modern life increasingly feels measurable. Steps tracked. Sleep tracked. Focus tracked. Habits optimized. Calendars color-coded. Morning routines perfected. Even rest is often evaluated through the lens of performance and self-improvement.",
+
+      "The result is a culture where people rarely feel finished.",
+
+      "There is always another system to improve. Another habit to build. Another routine to optimize. Another version of yourself supposedly waiting on the other side of greater discipline.",
+
+      "And while much of modern productivity culture promises control, many people experience the exact opposite emotionally.",
+
+      "Exhaustion.",
+
+      "Not simply physical tiredness, but psychological fatigue created by the constant pressure to improve every area of existence simultaneously.",
+
+      "Research around chronic stress and cognitive overload continues to show that the nervous system struggles under conditions of continuous psychological pressure. The human brain was never designed to exist inside an environment where self-worth constantly feels tied to output, speed and measurable efficiency.",
+
+      "Yet modern work culture quietly reinforces this idea everywhere.",
+
+      "Rest begins to feel guilty. Slowness feels irresponsible. Doing nothing feels unproductive, even when the body is clearly asking for recovery.",
+
+      "Over time, this creates a strange emotional contradiction. People become obsessed with systems designed to improve life while simultaneously feeling increasingly disconnected from life itself.",
+
+      "The nervous system remains trapped in low-level hyper-vigilance — constantly scanning for unfinished tasks, unread messages, missed opportunities and future responsibilities.",
+
+      "This is partly why modern exhaustion often feels difficult to fully recover from through sleep alone.",
+
+      "The body may physically rest, but the mind never fully exits performance mode.",
+
+      "Even moments meant for recovery become optimized. Evening routines become productivity strategies. Weekends become opportunities for self-improvement. Vacations become content.",
+
+      "And eventually, the emotional weight of constantly managing the self becomes exhausting in its own right.",
+
+      "Modern culture often frames this emotional burnout as a motivation problem. As if people simply need better discipline or stronger habits.",
+
+      "But in many cases, the issue is not laziness.",
+
+      "The issue is overstimulation paired with impossible psychological expectations.",
+
+      "Human beings are not machines designed for endless optimization. The nervous system requires variation, softness, recovery and emotional safety in order to function sustainably.",
+
+      "This is why slower rhythms matter psychologically.",
+
+      "Calmer mornings. Less aggressive stimulation. Fewer systems competing for urgency. More room for presence without constantly evaluating whether every moment is productive enough.",
+
+      "Because real wellbeing does not come from maximizing every second of existence.",
+
+      "Sometimes it comes from finally allowing yourself to stop performing your life long enough to actually experience it.",
+
+      "And maybe that is what modern productivity culture forgot entirely.",
+
+      "A meaningful life was never supposed to feel like a permanent self-improvement project."
+    ]
   },
   {
     id: "slow-caffeine",
@@ -133,11 +350,53 @@ const journalArticles: Article[] = [
     image: journalStillife,
     excerpt:
       "Why botanical balance — caffeine paired with L-Theanine — produces a long, calm plateau instead of a jagged spike.",
-    content: [
-      "Caffeine is the world's most trusted focus companion, yet the delivery mechanism dictates the quality of the experience. When caffeine is introduced alongside heavy sugars or synthetic speed-enhancers, it hits the bloodstream with a violent, immediate surge, creating jitters and anxiety.",
-      "A gentler approach relies on botanical balance. Combining clean, naturally derived caffeine with specific amino acids — such as L-Theanine found in green tea — alters how the stimulant interacts with your central nervous system. L-Theanine promotes alpha brain waves, which are associated with relaxation and deep focus.",
-      "This synergy smooths out the sharp edges of the caffeine curve. Instead of a sudden spike followed by a precipitous drop, the energy release becomes an elongated, predictable plateau. It provides the alertness you seek without triggering the anxious nervous response.",
-    ],
+   content: [
+      "Caffeine has become one of the most normalized performance tools in modern life. It exists everywhere — offices, libraries, train stations, morning routines, late-night deadlines. Entire work cultures quietly run on it.",
+
+      "But the experience of caffeine is rarely just about caffeine itself.",
+
+      "The delivery system matters.",
+
+      "Modern energy culture often prioritizes intensity over stability. Extremely high caffeine doses paired with sugar spikes and synthetic stimulants are designed to create immediate activation — fast energy, heightened urgency, instant psychological momentum.",
+
+      "And for a short moment, that intensity can feel productive.",
+
+      "The nervous system becomes alert. Thoughts accelerate. Fatigue temporarily disappears beneath stimulation.",
+
+      "But aggressive energy delivery often comes with equally aggressive consequences. Jitters. Anxiety. Mental restlessness. Sudden crashes. The strange feeling of being simultaneously overstimulated and cognitively exhausted.",
+
+      "This is partly because the nervous system interprets rapid stimulant spikes as stress activation. Energy rises quickly, but the body struggles to sustain that state smoothly over longer periods of time.",
+
+      "A calmer approach to energy works differently.",
+
+      "Instead of overwhelming the nervous system into temporary urgency, slower energy systems aim to support steadier cognitive rhythms throughout the day itself.",
+
+      "This is one reason combinations such as caffeine paired with L-Theanine — an amino acid naturally found in green tea — have become increasingly interesting within conversations around calmer focus and sustainable attention.",
+
+      "Research suggests that L-Theanine may help support a smoother form of alertness when combined with caffeine, potentially reducing some of the jittery or overstimulating effects often associated with highly aggressive caffeine consumption alone.",
+
+      "The result is not usually explosive energy.",
+
+      "It is something quieter.",
+
+      "More stable attention. Less frantic stimulation. A gentler sense of mental clarity that feels sustainable rather than euphoric.",
+
+      "This is also why many people describe slower caffeine experiences differently emotionally. The body feels less pushed. Focus feels less chaotic. Concentration becomes easier to sustain without the dramatic emotional highs and lows that often accompany overstimulation.",
+
+      "Modern culture tends to associate effectiveness with intensity. The stronger the stimulation feels, the more productive it appears to be.",
+
+      "But sustainable cognitive performance often depends on the opposite.",
+
+      "Consistency.",
+
+      "A nervous system that feels regulated enough to maintain attention calmly across an entire day instead of constantly oscillating between spikes and crashes.",
+
+      "Because real focus rarely feels frantic.",
+
+      "It usually feels quiet.",
+
+      "And maybe energy was never supposed to feel violent in the first place."
+    ]
   },
   {
     id: "afternoon-dip",
@@ -149,10 +408,54 @@ const journalArticles: Article[] = [
     excerpt:
       "A quiet survival kit for office afternoons without the burnout — built from micro-breaks, real light and slow hydration.",
     content: [
-      "The mid-afternoon energy slump is a natural part of our circadian rhythm, but it is heavily exacerbated by the modern workplace demands of back-to-back video calls and endless screen glare. By 3 p.m., the cognitive load of processing continuous digital stimulation leaves the mind exhausted.",
-      "Surviving this corporate bottleneck without relying on artificial sugar rushes requires sensory micro-breaks. Step away from the glass display, allow your eyes to rest on natural light, and rehydrate your system with steady, slow-releasing plant nutrients that support your nervous system.",
-      "Re-centering your focus calmly at 3 p.m. ensures you complete your remaining tasks with absolute clarity. This subtle intervention allows you to finish your workday gracefully, rather than carrying a deficit of exhaustion into your personal life.",
-    ],
+      "By mid-afternoon, modern work begins to feel strangely heavy. Concentration weakens. Motivation drops. Thoughts become slower, yet the nervous system often still feels overstimulated at the same time.",
+
+      "The famous '3 p.m. dip' is so common that many people treat it as a personal weakness — something to fight through with more caffeine, more sugar or more pressure.",
+
+      "But biologically, the story is more complex than that.",
+
+      "Human energy naturally fluctuates throughout the day. Research around circadian rhythms shows that alertness and cognitive performance are not completely stable from morning until evening. The body moves through natural phases of activation and recovery.",
+
+      "Modern work environments, however, tend to intensify this afternoon decline dramatically.",
+
+      "Back-to-back meetings. Continuous screen exposure. Artificial lighting. Endless notifications. Constant cognitive switching between emails, messages, documents and video calls. By afternoon, the nervous system is often less physically tired than mentally overloaded.",
+
+      "The brain spends hours processing digital stimulation without meaningful pauses for sensory recovery.",
+
+      "And because most office environments reward constant responsiveness, people rarely allow the nervous system to reset properly during the day itself.",
+
+      "This is partly why the afternoon slump feels different from ordinary tiredness. It is not always sleepiness. Often, it is cognitive saturation.",
+
+      "The body quietly asking for regulation.",
+
+      "Modern culture usually responds to this state with more stimulation. Another coffee. Another energy drink. Another quick dopamine spike to force the nervous system back into temporary activation.",
+
+      "But constantly overriding biological fatigue often creates even more instability later in the evening. The body becomes trapped in repeated cycles of stimulation and recovery without ever fully settling.",
+
+      "A calmer approach to afternoon energy tends to look much smaller and less dramatic.",
+
+      "Micro-breaks. Natural light. Hydration. Stepping away from screens for a few uninterrupted minutes. Allowing the eyes and nervous system to focus on something other than information for a short period of time.",
+
+      "Research around cognitive recovery suggests that even brief moments of reduced sensory input can help restore mental clarity and attention capacity.",
+
+      "The nervous system does not always need more stimulation.",
+
+      "Sometimes it simply needs less overload.",
+
+      "This is also why slower forms of energy often feel more sustainable across an entire workday. Instead of creating sharp spikes of urgency, steadier energy rhythms support concentration more gently and reduce the emotional volatility that often follows aggressive stimulation.",
+
+      "A calmer afternoon changes more than productivity alone.",
+
+      "It changes how the rest of the evening feels.",
+
+      "You leave work with more mental clarity. More emotional capacity. More energy still available for actual life outside the office.",
+
+      "Because sustainable focus should not require sacrificing the nervous system just to survive the second half of the day.",
+
+      "And maybe the real luxury of modern work is not endless productivity at all.",
+
+      "Maybe it is simply finishing the day without feeling completely depleted by it."
+    ]
   },
   {
     id: "nervous-system",
@@ -164,10 +467,58 @@ const journalArticles: Article[] = [
     excerpt:
       "Most frameworks treat the mind like a machine. A calmer week begins by reading the body's actual signals first.",
     content: [
-      "Most productivity frameworks treat the human mind like a machine, scheduling tasks in rigid blocks without accounting for biological capacity. True efficiency, however, requires working in alignment with your autonomic nervous system, recognizing when your body transitions between stress and rest.",
-      "Forcing yourself into deep creative work when your system is in a state of sympathetic flight — overstimulated and anxious — only produces friction and frustration. Conversely, attempting to execute high-energy tasks during a parasympathetic slump leads to brain fog and procrastination.",
-      "By learning to read your internal signals and structuring your day around your natural energetic ebbs and flows, you eliminate unnecessary resistance. Planning with your biology, rather than against it, ensures your work remains sustainable, consistent, and remarkably calm.",
-    ],
+      "Most modern productivity systems are built on the assumption that the human mind should function like a machine. Wake up. Optimize output. Maintain consistency. Push through resistance. Repeat.",
+
+      "But human beings are not emotionally neutral operating systems capable of producing the same level of focus every hour of every day.",
+
+      "The nervous system fluctuates constantly.",
+
+      "Energy changes. Attention changes. Emotional regulation changes. Some moments naturally support deep concentration and creative thinking, while others are biologically better suited for recovery, slower tasks or rest.",
+
+      "Yet most productivity culture ignores these internal signals entirely.",
+
+      "Schedules become rigid. Calendars become overloaded. The body is expected to adapt endlessly to external demands regardless of cognitive or emotional state.",
+
+      "Over time, this creates friction between biological reality and modern work expectations.",
+
+      "People begin forcing themselves into intense concentration while already mentally overstimulated. They attempt creative work while emotionally exhausted. They override fatigue with caffeine and pressure instead of recognizing it as information from the body itself.",
+
+      "And eventually, the nervous system starts resisting.",
+
+      "Brain fog. Procrastination. Irritability. Emotional exhaustion. Difficulty concentrating despite trying harder and harder to force focus into existence.",
+
+      "Modern culture often interprets these experiences as laziness or poor discipline.",
+
+      "But in many cases, the body is simply operating beyond its current regulatory capacity.",
+
+      "Research around stress physiology and nervous-system regulation continues to show that the autonomic nervous system plays a major role in attention, emotional stability, recovery and cognitive performance.",
+
+      "When the body remains in prolonged states of stress activation, concentration becomes more difficult because the nervous system prioritizes survival and responsiveness over calm, sustained focus.",
+
+      "This is partly why planning with the nervous system feels fundamentally different than planning against it.",
+
+      "Instead of treating the body like an obstacle to overcome, you begin treating internal signals as useful information.",
+
+      "Some mornings support deep creative work naturally. Some afternoons require slower pacing. Some days call for restoration more than optimization.",
+
+      "A calmer relationship with productivity begins by removing the belief that every hour of existence must produce the same level of output.",
+
+      "This does not mean abandoning structure or ambition.",
+
+      "It means understanding that sustainable focus depends on regulation, not constant self-pressure.",
+
+      "The nervous system performs best inside environments that feel psychologically safe enough for concentration to emerge naturally.",
+
+      "This is also why slower rituals matter so deeply. Sleep. Hydration. Natural light. Reduced overstimulation. Small transitions between tasks. Quiet moments without immediate digital interruption.",
+
+      "These actions appear simple, yet biologically they support regulation in ways modern work culture often neglects entirely.",
+
+      "Because productivity becomes much less violent when you stop treating the body like something that constantly needs to be conquered.",
+
+      "And maybe real balance was never about perfectly managing time at all.",
+
+      "Maybe it was about learning how to work with your nervous system instead of permanently fighting against it."
+    ]
   },
 ];
 
@@ -281,13 +632,29 @@ function JournalPage() {
             Sections
           </span>
           {categories.map((c) => (
-            <button
+            <a
               key={c}
-              type="button"
+              href={
+                  c === "Focus"
+                    ? "#attention-span"
+                    : c === "Recovery"
+                    ? "#productive-crash"
+                    : c === "Rituals"
+                    ? "#calmer-mornings"
+                    : c === "Digital Overload"
+                    ? "#quiet-hour"
+                    : c === "Modern Work"
+                    ? "#productivity-exhausting"
+                    : c === "Nervous System"
+                    ? "#nervous-system"
+                    : c === "Sustainable Energy"
+                    ? "#slow-caffeine"
+                    : "#featured"
+                }
               className="shrink-0 rounded-full border border-border px-4 py-1.5 text-xs font-medium text-foreground/70 hover:text-foreground hover:border-foreground/40 transition-colors"
             >
               {c}
-            </button>
+            </a>
           ))}
         </div>
       </section>
@@ -519,6 +886,7 @@ function ArticleCard({
 }) {
   return (
     <button
+      id={article.id}
       type="button"
       onClick={() => onOpen(article)}
       className={`reveal group block text-left w-full ${className}`}
@@ -563,56 +931,62 @@ function ArticleModal({
   onClose: () => void;
 }) {
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={article.title}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-300"
-    >
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8">
       <button
         type="button"
         aria-label="Close article"
         onClick={onClose}
-        className="absolute inset-0 bg-foreground/40 backdrop-blur-md"
+        className="absolute inset-0 bg-black/50 backdrop-blur-md"
       />
-      <div className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-lg bg-background shadow-2xl ring-1 ring-foreground/10">
+
+      <div className="relative z-10 w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-[2rem] bg-background shadow-2xl">
         <button
           type="button"
           aria-label="Close article"
           onClick={onClose}
-          className="sticky top-4 float-right mr-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-background/80 backdrop-blur-sm text-foreground/70 hover:text-foreground hover:bg-background border border-border transition-colors"
+          className="sticky top-6 float-right mr-6 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-background/90 border border-border text-foreground hover:text-primary transition-colors"
         >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-            <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
+          ✕
         </button>
-        <div className="aspect-[16/9] w-full overflow-hidden">
+
+        <article className="px-6 sm:px-12 md:px-20 py-12 md:py-20">
+          <div className="flex justify-between gap-6 font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
+            <span>Issue 04 · Editorial Journal</span>
+            <span>01 / 08</span>
+          </div>
+
+          <p className="mt-16 font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
+            {article.category} · {article.date} · {article.readTime}
+          </p>
+
+          <h1 className="mt-6 font-display text-5xl md:text-7xl font-extrabold leading-[0.95] tracking-tight text-balance">
+            {article.title}
+          </h1>
+
+          <p className="mt-8 max-w-3xl text-xl md:text-2xl leading-relaxed text-muted-foreground">
+            {article.excerpt}
+          </p>
+
           <img
             src={article.image}
             alt={article.title}
-            className="h-full w-full object-cover"
+            className="mt-16 w-full rounded-[2rem] object-cover"
           />
-        </div>
-        <article className="px-6 sm:px-12 md:px-16 py-12 md:py-16">
-          <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-            {article.category} · {article.date} · {article.readTime}
-          </p>
-          <h1 className="mt-6 font-display text-3xl md:text-5xl font-extrabold leading-[1.05] tracking-tight text-balance text-foreground">
-            {article.title}
-          </h1>
-          <div className="mt-10 space-y-7 text-foreground/85 text-[17px] md:text-lg leading-[1.85]">
+
+          <div className="mx-auto mt-20 max-w-3xl space-y-8 text-[18px] md:text-xl leading-[1.9] text-foreground/85">
             {article.content.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
           </div>
-          <div className="mt-14 pt-8 border-t border-border flex items-center justify-between">
+
+          <div className="mt-16 border-t border-border pt-8 flex justify-between">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
               VYTAL Journal · Volume 04
             </p>
             <button
               type="button"
               onClick={onClose}
-              className="font-mono text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors"
+              className="font-mono text-[11px] uppercase tracking-[0.2em] hover:text-primary"
             >
               Close ✕
             </button>

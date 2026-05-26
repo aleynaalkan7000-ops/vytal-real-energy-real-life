@@ -54,6 +54,141 @@ function useReveal() {
   }, []);
 }
 
+function StarterKitQuickView({ onClose }: { onClose: () => void }) {
+  const { add } = useCart();
+  const [qty, setQty] = useState(1);
+  const [added, setAdded] = useState(false);
+
+  const unitPrice = 68;
+
+  const handleAdd = () => {
+  add({
+    id: "starter-kit",
+    name: "VYTAL Starter Kit",
+    variant: "Complete ritual",
+    image: shopStarterKit,
+    unitPrice,
+    qty,
+    href: "/shop/starter-kit",
+  });
+
+  setAdded(true);
+
+  setTimeout(() => {
+    setAdded(false);
+    onClose(); // <- schließt popup automatisch
+  }, 900);
+};
+  return (
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex items-center justify-center p-6"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-background rounded-3xl shadow-2xl"
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-5 right-5 z-10 size-10 rounded-full bg-background/80 backdrop-blur flex items-center justify-center hover:bg-secondary transition-colors"
+        >
+          ✕
+        </button>
+
+        <div className="grid md:grid-cols-2">
+          <div className="relative aspect-[4/5] bg-secondary/40">
+            <img
+              src={shopStarterKit}
+              alt="VYTAL Starter Kit"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="p-6 md:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
+              Starter Kit · Complete refill ritual
+            </p>
+
+            <h2 className="mt-4 font-display text-4xl font-extrabold leading-[0.95]">
+              VYTAL Starter Kit
+            </h2>
+
+            <p className="mt-5 text-muted-foreground leading-relaxed">
+              The complete entry into the VYTAL refill system: one reusable bottle,
+              one refill cylinder, all six functional flavors, sleeve, pouch and
+              onboarding ritual card.
+            </p>
+
+            <div className="mt-8 rounded-2xl border border-border p-5 bg-secondary/30">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-primary mb-3">
+                What’s inside
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>• 1 × reusable glass bottle</li>
+                <li>• 1 × matte aluminum refill cylinder</li>
+                <li>• 6 × functional flavor tablets</li>
+                <li>• 1 × linen sleeve & carry pouch</li>
+                <li>• 1 × onboarding ritual card</li>
+              </ul>
+            </div>
+
+            <div className="mt-8 rounded-2xl bg-secondary/40 p-5 text-xs text-muted-foreground leading-relaxed">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
+                Required product information
+              </p>
+              <p>
+                Food supplement. Not a substitute for a balanced and varied diet.
+                Keep out of reach of children.
+              </p>
+              <p className="mt-2">
+                Contains caffeine. Not recommended for children, pregnant or
+                breastfeeding women.
+              </p>
+              <p className="mt-2">
+                Bottle and cylinder are designed for cold still water and VYTAL
+                tablets. Clean before first use. Do not use if damaged.
+              </p>
+            </div>
+
+            <div className="mt-8 flex items-center gap-4">
+              <div className="inline-flex items-center border border-border rounded-full">
+                <button
+                  type="button"
+                  onClick={() => setQty((q) => Math.max(1, q - 1))}
+                  className="size-10 hover:bg-secondary rounded-full transition-colors"
+                >
+                  −
+                </button>
+                <span className="w-10 text-center font-mono">{qty}</span>
+                <button
+                  type="button"
+                  onClick={() => setQty((q) => q + 1)}
+                  className="size-10 hover:bg-secondary rounded-full transition-colors"
+                >
+                  +
+                </button>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleAdd}
+                className="flex-1 bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium hover:bg-primary transition-colors"
+              >
+                {added ? "Added ✓" : `Add to cart · ${formatPrice(qty * unitPrice)}`}
+              </button>
+            </div>
+
+            <p className="mt-3 text-[11px] text-muted-foreground">
+              Deposit included. Return loop applies to refill cylinders.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function useParallax(ref: React.RefObject<HTMLElement | null>, intensity = 0.1) {
   useEffect(() => {
     let raf = 0;
@@ -81,6 +216,8 @@ function ShopPage() {
   const bottles = useMemo(() => products.filter((p) => p.category === "bottle"), []);
 
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [starterKitOpen, setStarterKitOpen] = useState(false);
+
 
   const scrollTo = (id: string) => () =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -93,12 +230,12 @@ function ShopPage() {
       <section className="relative min-h-[100svh] flex items-end overflow-hidden bg-gradient-to-b from-secondary/70 via-background to-background">
         <div className="absolute inset-0 -z-10">
           <img
-            ref={heroImgRef}
-            src={shopHero}
-            alt="A translucent VYTAL bottle and aluminum cylinder in soft morning light"
+            src={shopStarterKit}
+            alt="The VYTAL Starter Kit — bottle, aluminum refill cylinder, linen sleeve and the full flavor set"
+            loading="lazy"
             width={1600}
-            height={1024}
-            className="absolute inset-0 h-[115%] w-full object-cover opacity-90"
+            height={1920}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1600ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/75 via-transparent to-transparent" />
@@ -171,133 +308,115 @@ function ShopPage() {
         </p>
       </section>
 
-      {/* STARTER KIT — THE HERO PRODUCT */}
-      <section id="starter" className="px-6 md:px-10 max-w-7xl mx-auto pb-28 md:pb-44">
-        <Link
-          to="/shop/starter-kit"
-          className="group reveal block relative overflow-hidden rounded-md bg-[#f3ede2]"
-        >
-          <div className="grid md:grid-cols-12 gap-0 items-stretch">
-            <div className="md:col-span-7 relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden">
-              <img
-                src={shopStarterKit}
-                alt="The VYTAL Starter Kit — bottle, aluminum refill cylinder, linen sleeve and the full flavor set"
-                loading="lazy"
-                width={1600}
-                height={1920}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1600ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
-              />
-              <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
-                The Starter Kit · Hero product
-              </span>
-              <span className="absolute bottom-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-foreground/85 text-background backdrop-blur px-3 py-1.5 rounded-full">
-                All 6 flavors · cylinder included · deposit included
-              </span>
-            </div>
-            <div className="md:col-span-5 p-8 md:p-14 flex flex-col justify-between gap-10">
-              <div>
-                <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-                  Volume 01 · The complete ritual
-                </span>
-                <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
-                  Begin the<br/>
-                  <em className="not-italic italic font-light text-muted-foreground">refill ritual.</em>
-                </h2>
-                <p className="mt-6 text-muted-foreground leading-relaxed max-w-sm">
-                  Everything you need to enter the system — the glass bottle, the
-                  reusable aluminum cylinder, all six functional flavors, and a
-                  ritual card for the first morning.
-                </p>
-                <ul className="mt-8 space-y-2 text-sm">
-                  {[
-                    "1 × Borosilicate glass bottle",
-                    "1 × Matte aluminum refill cylinder",
-                    "6 × Refill flavors (Focus, Flow, Refresh, Boost, Balance, Recharge)",
-                    "1 × Linen sleeve & carry pouch",
-                    "1 × Onboarding ritual card",
-                    
-                  ].map((i) => (
-                    <li key={i} className="flex gap-3 text-muted-foreground border-b border-border/60 pb-2">
-                      <span className="text-primary mt-1">—</span>{i}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex items-end justify-between gap-4">
-                <div>
-                  <p className="font-display text-3xl">€68</p>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-1">
-                    Deposit included · 5-empties return loop
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3.5 rounded-full text-sm font-medium group-hover:bg-primary transition-colors">
-                  Open the kit →
-                </span>
-              </div>
-            </div>
-          </div>
-        </Link>
-      </section>
+ {/* STARTER KIT — THE HERO PRODUCT */}
+<section id="starter" className="px-6 md:px-10 max-w-7xl mx-auto pb-28 md:pb-44">
+  <button
+    type="button"
+    onClick={() => setStarterKitOpen(true)}
+    className="group reveal block w-full text-left relative overflow-hidden rounded-md bg-[#f3ede2]"
+  >
+    <div className="grid md:grid-cols-12 gap-0 items-stretch">
+      <div className="md:col-span-7 relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden">
+        <img
+  src={shopStarterKit}
+  alt="The VYTAL Starter Kit — bottle, aluminum refill cylinder, linen sleeve and the full flavor set"
+  loading="lazy"
+  width={1600}
+  height={1920}
+  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1600ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
+/>
+        <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
+          The Starter Kit · Hero product
+        </span>
 
-      {/* SIX FLAVORS — quick identity strip */}
-      <section className="bg-secondary/40 border-y border-border/60 py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex items-end justify-between gap-6 mb-10 reveal">
-            <div>
-              <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">Six functional moods</span>
-              <h3 className="mt-3 font-display text-2xl md:text-3xl font-semibold tracking-tight">
-                Every kit contains all six.
-              </h3>
-            </div>
-            <p className="hidden md:block text-sm text-muted-foreground max-w-xs">
-              Each flavor has its own intent — try them all before you choose your everyday.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {refills.map((r) => {
-              const id = flavorIdentity[r.slug];
-              return (
-                <div key={r.slug} className="reveal group rounded-2xl bg-background p-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
-                  <span className="block size-10 rounded-full mb-4 transition-transform duration-700 group-hover:scale-110" style={{ background: id?.hex }} />
-                  <p className="font-display text-base font-semibold">{r.name.replace("VYTAL ", "")}</p>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mt-1">{id?.mood}</p>
-                  <p className="text-xs text-muted-foreground mt-3 leading-relaxed">{id?.emotion}</p>
-                </div>
-              );
-            })}
-          </div>
+        <span className="absolute bottom-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-foreground/85 text-background backdrop-blur px-3 py-1.5 rounded-full">
+          All 6 flavors · cylinder included · deposit included
+        </span>
+      </div>
+
+      <div className="md:col-span-5 p-8 md:p-14 flex flex-col justify-between gap-10">
+        <div>
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
+            Volume 01 · The complete ritual
+          </span>
+
+          <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
+            Begin the<br />
+            <em className="not-italic italic font-light text-muted-foreground">
+              refill ritual.
+            </em>
+          </h2>
+
+          <p className="mt-6 text-muted-foreground leading-relaxed max-w-sm">
+            Everything you need to enter the system — the glass bottle, the
+            reusable aluminum cylinder, all six functional flavors, and a
+            ritual card for the first morning.
+          </p>
+
+          <ul className="mt-8 space-y-2 text-sm">
+            {[
+              "1 × Borosilicate glass bottle",
+              "1 × Matte aluminum refill cylinder",
+              "6 × Refill flavors (Focus, Flow, Refresh, Boost, Balance, Recharge)",
+              "1 × Linen sleeve & carry pouch",
+              "1 × Onboarding ritual card",
+            ].map((i) => (
+              <li
+                key={i}
+                className="flex gap-3 text-muted-foreground border-b border-border/60 pb-2"
+              >
+                <span className="text-primary mt-1">—</span>
+                {i}
+              </li>
+            ))}
+          </ul>
+          <br></br>
+          <Link
+  to="/shop/starter-kit"
+  className="bg-foreground text-background px-8 py-4 rounded-full text-sm font-medium hover:bg-primary transition-colors"
+>
+  Begin the Starter Kit →
+</Link>
         </div>
-      </section>
+      </div>
+    </div>
+  </button>
+</section>
 
       {/* RELOADS / REFILLS — cinematic cards */}
-      <section id="refills" className="px-6 md:px-10 max-w-7xl mx-auto pt-28 md:pt-40 pb-20">
-        <div className="max-w-3xl mb-14 reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-            Reloads · Volume 02
-          </span>
-          <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-            The refills.<br/>
-            <span className="italic font-light text-muted-foreground">Always inside the cylinder.</span>
-          </h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
-            Each refill arrives in a reusable matte aluminum cylinder. When five
-            cylinders are empty, send them back, get your deposit credited, and we
-            sterilize and refill them. No loose tablets. No single-use waste.
-          </p>
-        </div>
+<section id="refills" className="px-6 md:px-10 max-w-7xl mx-auto pt-28 md:pt-40 pb-20">
+  <div className="max-w-3xl mb-14 reveal">
+    <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
+      Reloads · Volume 02
+    </span>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-14">
-          {refills.map((p, i) => (
-            <RefillCard
-              key={p.slug}
-              p={p}
-              i={i}
-              onOpen={() => setSelectedProduct(p)}
-            />
-          ))}
-        </div>
-      </section>
+    <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
+      The refills.<br />
+      <span className="italic font-light text-muted-foreground">
+        Always inside the cylinder.
+      </span>
+    </h2>
 
+    <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
+      Each refill arrives in a reusable matte aluminum cylinder. Every cylinder
+      holds 8 functional tablets and includes a €4 refundable deposit. When five
+      cylinders are empty, send them back, get your deposit credited, and we
+      sterilize and refill them.
+    </p>
+  </div>
+
+  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-14">
+    {refills.map((p, i) => (
+      <RefillCard
+        key={p.slug}
+        p={p}
+        i={i}
+        onOpen={() => setSelectedProduct(p)}
+      />
+    ))}
+  </div>
+</section>
+      
       {/* RETURN LOOP — interactive, animated */}
       <ReturnLoop />
 
@@ -324,7 +443,7 @@ function ShopPage() {
           </p>
           <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 max-w-md">
             {[
-              ["Format", "108 mm · 38 g · holds 12 tablets"],
+              ["Format", "108 mm · 38 g · holds 8 tablets"],
               ["Material", "Aerospace-grade aluminum, anodized"],
               ["Seal", "Air- and moisture-tight silicone"],
               ["Deposit", "Refunded on 5-cylinder return"],
@@ -335,14 +454,6 @@ function ShopPage() {
               </div>
             ))}
           </dl>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link to="/shop/starter-kit" className="inline-flex bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium hover:bg-primary transition-colors">
-              Start with the kit →
-            </Link>
-            <Link to="/shop/alu-cylinder" className="inline-flex border border-foreground/15 px-6 py-3 rounded-full text-sm font-medium hover:bg-secondary transition-colors">
-              How the cylinder works
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -400,7 +511,7 @@ function ShopPage() {
               { k: "5×", l: "Cylinders per return cycle" },
               { k: "Q1", l: "Public sustainability report each quarter" },
               { k: "100%", l: "Traceable ingredient sourcing" },
-              { k: "12", l: "Refills per cylinder before return" },
+              { k: "8", l: "Tablets per cylinder before return" },
             ].map((m) => (
               <div key={m.l} className="rounded-2xl border border-background/15 p-6 bg-background/5">
                 <p className="font-display text-3xl">{m.k}</p>
@@ -433,12 +544,23 @@ function ShopPage() {
           </div>
         </div>
       </section>
+  {selectedProduct && (
+  <ProductQuickView
+    product={selectedProduct}
+    onClose={() => setSelectedProduct(null)}
+  />
+)}
 
-      <SiteFooter />
+{starterKitOpen && (
+  <StarterKitQuickView
+    onClose={() => setStarterKitOpen(false)}
+  />
+)}
+
+<SiteFooter />
     </main>
   );
 }
-
 // ── Refill card ──────────────────────────────────────────────────────
 function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => void }) {
   const id = flavorIdentity[p.slug];
@@ -450,9 +572,9 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
     add({
       id: `refill-${p.slug}`,
       name: `${p.name} Refill Cylinder`,
-      variant: `${id?.mood ?? p.flavor} · in aluminum cylinder`,
+     variant: `${id?.mood ?? p.flavor} · 8 tablets · €4 deposit included`,
       image: p.image,
-      unitPrice: parsePrice(p.price) * 12,
+      unitPrice: parsePrice(p.price) + 4,
       href: `/shop/${p.slug}`,
     });
     setAdded(true);
@@ -461,9 +583,11 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
 
   return (
     <div
+      id={`product-${p.slug}`}
       onClick={onOpen}
       role="button"
       tabIndex={0}
+
       className={`text-left group reveal flex flex-col cursor-pointer ${i % 5 === 0 ? "lg:mt-10" : i % 5 === 3 ? "lg:-mt-6" : ""}`}
     >
       <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
@@ -499,7 +623,7 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
       </div>
       <div className="mt-6 flex items-baseline justify-between gap-3">
         <p className="font-display text-xl font-semibold tracking-tight">{p.name.replace("VYTAL ", "")}</p>
-        <span className="font-mono text-xs text-muted-foreground">{formatPrice(parsePrice(p.price) * 12)} <span className="text-muted-foreground/60">/ cylinder</span></span>
+        <span className="font-mono text-xs text-muted-foreground">{formatPrice(parsePrice(p.price) + 4)} <span className="text-muted-foreground/60">/ cylinder</span></span>
       </div>
       <p className="text-[13px] font-mono text-primary/80 mt-1">{id?.mood ?? p.flavor}</p>
       <p className="text-sm text-muted-foreground mt-3 leading-relaxed max-w-sm">{id?.emotion ?? p.tagline}</p>
@@ -512,7 +636,7 @@ function ReturnLoop() {
   const [active, setActive] = useState(0);
   const steps = [
     { t: "Receive", d: "Refill cylinder arrives with your order. Deposit included.", img: aluHero },
-    { t: "Use", d: "One press. One tablet. Twelve refills per cylinder.", img: aluDispense },
+    { t: "Use", d: "One press. One tablet. Eight tablets per cylinder.", img: aluDispense }, 
     { t: "Collect 5", d: "Slip empty cylinders into the return pouch as they're used.", img: aluLoop },
     { t: "Return", d: "Drop the pouch unfranked in any postbox. Pre-paid. No app.", img: aluLoop },
     { t: "Reused", d: "We sterilize, inspect, refill. Your deposit returns. The loop closes.", img: shopRitualDesk },
@@ -603,5 +727,286 @@ function ReturnLoop() {
         </ol>
       </div>
     </section>
+  );
+}
+function ProductQuickView({
+  product,
+  onClose,
+}: {
+  product: Product;
+  onClose: () => void;
+}) {
+  const { add } = useCart();
+  const [qty, setQty] = useState(1);
+  const unitPrice =
+    product.category === "refill" ? parsePrice(product.price) + 4 : parsePrice(product.price);
+  const basePrice = parsePrice(product.price);
+  const deposit = product.category === "refill" ? 4 : 0;  
+  const [added, setAdded] = useState(false);
+      useEffect(() => {
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }, []);
+    useEffect(() => {
+  const onKey = (e: KeyboardEvent) => {
+    if (e.key === "Escape") onClose();
+  };
+
+  window.addEventListener("keydown", onKey);
+
+  return () => window.removeEventListener("keydown", onKey);
+}, [onClose]);
+
+  const handleAdd = () => {
+  add({
+    id: product.slug,
+    name: product.name,
+    variant: product.flavor ?? product.color,
+    image: product.image,
+    unitPrice,
+    qty,
+    href: `/shop/${product.slug}`,
+  });
+
+  setAdded(true);
+
+  setTimeout(() => {
+    setAdded(false);
+    onClose();
+  }, 900);
+};
+
+  return (
+  <div
+    onClick={onClose}
+    className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex items-center justify-center p-6"
+  >
+    <div
+      onClick={(e) => e.stopPropagation()}
+      className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-background rounded-3xl shadow-2xl animate-in fade-in zoom-in-95 duration-300"
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-5 right-5 z-10 size-10 rounded-full bg-background/80 backdrop-blur flex items-center justify-center hover:bg-secondary transition-colors"
+      >
+        ✕
+      </button>
+
+        <div className="grid md:grid-cols-2">
+          <div className="relative aspect-[4/5] bg-secondary/40">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="p-8 md:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
+              {product.function}
+            </p>
+
+            <h2 className="mt-4 font-display text-4xl font-extrabold leading-[0.95]">
+              {product.name}
+            </h2>
+
+            <p className="mt-5 text-muted-foreground leading-relaxed">
+              {product.description}
+            </p>
+
+            {product.flavor && (
+              <div className="mt-6 rounded-2xl border border-border p-5 bg-secondary/30">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
+                  Flavor
+                </p>
+                <p className="mt-1 font-semibold">{product.flavor}</p>
+                <p className="text-sm text-muted-foreground">
+                  {product.flavorNote}
+                </p>
+              </div>
+            )}
+
+            <div className="mt-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
+                Ingredients
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                {product.ingredients?.map((i) => (
+                  <li key={i.name} className="flex justify-between gap-4 border-b border-border pb-2">
+                    <span>{i.name}</span>
+                    {i.why && <span className="text-right">{i.why}</span>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {product.nutrition?.length > 0 && (
+              <div className="mt-8">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
+                  Nutrition per serving
+                </p>
+                <div className="grid grid-cols-2 gap-3">
+                  {product.nutrition.map((n) => (
+                    <div key={n.label} className="border border-border rounded-xl p-3">
+                      <p className="font-mono text-[10px] uppercase text-muted-foreground">
+                        {n.label}
+                      </p>
+                      <p className="font-display text-lg">{n.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {product.category === "refill" && (
+              <div className="mt-8 rounded-2xl bg-secondary/40 p-5 text-xs text-muted-foreground leading-relaxed">
+                <p>
+                  Food supplement. Not a substitute for a balanced and varied diet.
+                  Keep out of reach of children.
+                </p>
+                <p className="mt-2">
+                  Contains caffeine. Not recommended for children, pregnant or
+                  breastfeeding women.
+                </p>
+              </div>
+            )}
+
+            {product.category === "bottle" && (
+  <div className="mt-8 rounded-2xl bg-secondary/40 p-5 text-xs text-muted-foreground leading-relaxed">
+    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
+      Bottle details & care
+    </p>
+
+    {product.slug === "office-bottle" && (
+      <>
+        <p>
+          Brushed stainless steel bottle designed for desk work, commuting and longer office sessions.
+        </p>
+        <ul className="mt-4 space-y-2">
+          <li>• Stainless steel exterior with professional office look.</li>
+          <li>• Designed for daily hydration and VYTAL refill rituals.</li>
+          <li>• Suitable for cold still water and VYTAL tablets.</li>
+          <li>• Hand-wash recommended to protect lid and finish.</li>
+          <li>• Do not use if dented, leaking or visibly damaged.</li>
+        </ul>
+      </>
+    )}
+
+    {product.slug === "go-bottle" && (
+      <>
+        <p>
+          Lightweight everyday bottle designed for movement, campus days and routines outside the home.
+        </p>
+        <ul className="mt-4 space-y-2">
+          <li>• Soft everyday carry feel.</li>
+          <li>• Designed for cold still water and VYTAL tablets.</li>
+          <li>• Easy to carry in bags and daily setups.</li>
+          <li>• Hand-wash recommended.</li>
+          <li>• Do not use if cracked, leaking or visibly damaged.</li>
+        </ul>
+      </>
+    )}
+
+    {product.slug === "flow-bottle" && (
+      <>
+        <p>
+          Minimal hydration bottle designed for calmer daily routines and slow refill rituals.
+        </p>
+        <ul className="mt-4 space-y-2">
+          <li>• Clean minimal design for everyday hydration.</li>
+          <li>• Suitable for cold still water and VYTAL tablets.</li>
+          <li>• Designed for repeated daily use.</li>
+          <li>• Hand-wash recommended to protect the finish.</li>
+          <li>• Do not use with boiling liquids.</li>
+        </ul>
+      </>
+    )}
+
+    {product.slug === "home-container" && (
+      <>
+        <p>
+          Home storage vessel designed for keeping refill routines visible, organized and easy to share.
+        </p>
+        <ul className="mt-4 space-y-2">
+          <li>• Intended for home storage and shared routines.</li>
+          <li>• Store in a dry, cool place away from direct sunlight.</li>
+          <li>• Keep closed when not in use.</li>
+          <li>• Clean before first use.</li>
+          <li>• Do not use if cracked or visibly damaged.</li>
+        </ul>
+      </>
+    )}
+
+    {product.slug === "unity-bottle" && (
+      <>
+        <p>
+          Limited visual edition with translucent collector character, designed as a seasonal extension of the refill ritual.
+        </p>
+        <ul className="mt-4 space-y-2">
+          <li>• Limited-edition visual finish.</li>
+          <li>• Designed for cold still water and VYTAL tablets.</li>
+          <li>• Refills are sold separately unless included in a bundle.</li>
+          <li>• Hand-wash recommended to protect the surface finish.</li>
+          <li>• Do not use if cracked, leaking or visibly damaged.</li>
+        </ul>
+      </>
+    )}
+
+    <p className="mt-4">
+      Product must be used as intended. Always clean before first use.
+    </p>
+  </div>
+)}
+
+            <div className="mt-8 flex items-center gap-4">
+              <div className="inline-flex items-center border border-border rounded-full">
+                <button
+                  onClick={() => setQty((q) => Math.max(1, q - 1))}
+                  className={`flex-1 bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:bg-primary ${
+                      added ? "scale-[1.03] animate-pulse" : ""
+                  }`}
+                >
+                  −
+                </button>
+                <span className="w-10 text-center font-mono">{qty}</span>
+                <button
+                  onClick={() => setQty((q) => q + 1)}
+                  className={`flex-1 bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:bg-primary ${
+                      added ? "scale-[1.03] animate-pulse" : ""
+                  }`}
+                >
+                  +
+                </button>
+              </div>
+
+              <button
+                onClick={handleAdd}
+                className={`flex-1 bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:bg-primary ${
+                    added ? "scale-[1.03] animate-pulse" : ""
+                }`} 
+              >
+                {added ? "Added ✓" : `Add to cart · ${formatPrice(qty * unitPrice)}`}
+              </button>
+              {product.category === "refill" && (
+                <p className="mt-3 text-[11px] text-muted-foreground">
+                  {formatPrice(basePrice)} refill + {formatPrice(deposit)} refundable cylinder deposit.
+                </p>
+              )}
+            </div>
+
+            <Link
+              to="/shop/$slug"
+              params={{ slug: product.slug }}
+              className="mt-5 inline-flex font-mono text-[10px] uppercase tracking-[0.25em] text-primary hover:text-foreground"
+            >
+              Full product page →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -27,7 +27,7 @@ const KIT_PRICE = 68;
 
 const includedItems = [
   { t: "Glass refill bottle", d: "Borosilicate, soft-touch sleeve, hand-balanced.", img: "" },
-  { t: "Aluminum refill cylinder", d: "Matte anodized, airtight, 12 tablets per fill.", img: aluHero },
+  { t: "Aluminum refill cylinder", d: "Matte anodized, airtight, 8 tablets per fill.", img: aluHero },
   { t: "All six refill flavors", d: "Focus · Flow · Refresh · Boost · Balance · Recharge.", img: "" },
   { t: "Linen sleeve & pouch", d: "Carry the bottle and cylinder quietly. Washable.", img: "" },
   { t: "Onboarding ritual card", d: "A small printed guide for the first calm morning.", img: "" },
@@ -62,10 +62,24 @@ function useReveal() {
   }, []);
 }
 
+const bottleOptions = [
+  { slug: "go-bottle", name: "GO Bottle", detail: "Lightweight everyday carry" },
+  { slug: "flow-bottle", name: "FLOW Bottle", detail: "Soft daily hydration" },
+  { slug: "office-bottle", name: "OFFICE Bottle", detail: "Steel bottle for work" },
+];
+
+const flavorSetOptions = [
+  { slug: "mixed", name: "Mixed Set", detail: "All six flavors included" },
+  { slug: "focus", name: "Focus Set", detail: "More Focus, Flow and Boost" },
+  { slug: "calm", name: "Calm Set", detail: "More Balance, Recharge and Refresh" },
+];
+
 function StarterKitPage() {
   useReveal();
   const { add } = useCart();
   const [active, setActive] = useState("focus");
+  const [selectedBottle, setSelectedBottle] = useState("go-bottle");
+  const [selectedSet, setSelectedSet] = useState("mixed");
   const heroRef = useRef<HTMLImageElement>(null);
   const [added, setAdded] = useState(false);
 
@@ -84,16 +98,20 @@ function StarterKitPage() {
   const flavorProducts = products.filter((p) => p.category === "refill");
 
   const handleAdd = () => {
-    add({
-      id: "starter-kit-v2",
-      name: "VYTAL Starter Kit",
-      variant: "Bottle · Cylinder · 6 flavors · Deposit included",
-      image: shopStarterKit,
-      unitPrice: KIT_PRICE,
-    });
-    setAdded(true);
-    setTimeout(() => setAdded(false), 1600);
-  };
+  const bottle = bottleOptions.find((b) => b.slug === selectedBottle);
+  const set = flavorSetOptions.find((s) => s.slug === selectedSet);
+
+  add({
+    id: `starter-kit-v2-${selectedBottle}-${selectedSet}`,
+    name: "VYTAL Starter Kit",
+    variant: `${bottle?.name ?? "Bottle"} · ${set?.name ?? "Mixed Set"} · Cylinder · Deposit included`,
+    image: shopStarterKit,
+    unitPrice: KIT_PRICE,
+  });
+
+  setAdded(true);
+  setTimeout(() => setAdded(false), 1600);
+};
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -149,11 +167,47 @@ function StarterKitPage() {
           <div className="flex items-center gap-4 ml-auto">
             <div className="text-right">
               <p className="font-display text-2xl leading-none">{formatPrice(KIT_PRICE)}</p>
+              <p className="mt-2 text-xs text-muted-foreground">Includes reusable cylinder deposit.</p>
               <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-1">
                 Deposit included · returns refunded
               </p>
             </div>
-            <button
+            <div className="w-full md:w-auto space-y-3">
+              <div className="flex flex-wrap gap-2 justify-end">
+                {bottleOptions.map((b) => (
+                  <button
+                    key={b.slug}
+                    type="button"
+                    onClick={() => setSelectedBottle(b.slug)}
+                    className={`rounded-full border px-4 py-2 text-xs transition-colors ${
+                      selectedBottle === b.slug
+                        ? "border-foreground bg-foreground text-background"
+                        : "border-border text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {b.name}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-2 justify-end">
+                {flavorSetOptions.map((s) => (
+                  <button
+                    key={s.slug}
+                    type="button"
+                    onClick={() => setSelectedSet(s.slug)}
+                    className={`rounded-full border px-4 py-2 text-xs transition-colors ${
+                      selectedSet === s.slug
+                        ? "border-foreground bg-foreground text-background"
+                        : "border-border text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {s.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+                        <button
               onClick={handleAdd}
               className="relative overflow-hidden bg-foreground text-background rounded-full px-7 py-3.5 text-sm font-medium hover:bg-primary transition-colors"
             >
@@ -238,7 +292,7 @@ function StarterKitPage() {
                   <img
                     src={shopHeroBottle}
                     alt="VYTAL Bottle Float"
-                    className="w-full h-auto max-h-full object-contain animate-float drop-shadow-2xl"
+                    className="w-full h-auto max-h-full object-contain animate-float drop-shadow-2xl transition-all duration-[1400ms]"
                   />
                 </div>
                 
@@ -258,12 +312,13 @@ function StarterKitPage() {
               {flavors.map((f) => {
                 const on = active === f.slug;
                 return (
-                  <button
+                  <Link
+                      to="/shop/$slug"
+                      params={{ slug: f.slug }}
                     key={f.slug}
                     onMouseEnter={() => setActive(f.slug)}
                     onFocus={() => setActive(f.slug)}
-                    onClick={() => setActive(f.slug)}
-                    className={`text-left p-6 rounded-2xl border transition-all duration-700 ${on ? "border-foreground bg-background shadow-lg -translate-y-1" : "border-border bg-background/40 hover:bg-background/80"}`}
+                    className={`text-left p-6 rounded-2xl border transition-all duration-700 ${on ? "border-foreground bg-background shadow-2xl ring-1 ring-primary/20 -translate-y-1" : "border-border bg-background/40 hover:bg-background/80"}`}
                   >
                     <div className="flex items-center gap-3">
                       <span className={`size-9 rounded-full transition-transform duration-700 ${on ? "scale-110" : ""}`} style={{ background: f.hex }} />
@@ -281,7 +336,7 @@ function StarterKitPage() {
                     >
                       Full ritual →
                     </Link>
-                  </button>
+                  </Link>
                 );
               })}
             </div>
@@ -313,7 +368,7 @@ function StarterKitPage() {
           <ul className="mt-8 space-y-3 max-w-md text-sm">
             {[
               "Air- and moisture-tight — tablets stay clean and dry",
-              "108 mm · 38 g · 12 tablets per cylinder",
+              "108 mm · 38 g · 8 tablets per cylinder",
               "Deposit refunded on 5-cylinder return",
               "Sterilized and refilled — not recycled away",
             ].map((b) => (

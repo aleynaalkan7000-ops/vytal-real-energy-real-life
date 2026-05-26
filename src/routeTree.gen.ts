@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as RefillRouteImport } from './routes/refill'
 import { Route as JournalRouteImport } from './routes/journal'
+import { Route as ImprintRouteImport } from './routes/imprint'
+import { Route as CoverEssayRouteImport } from './routes/cover-essay'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as AccountRouteImport } from './routes/account'
@@ -35,6 +37,16 @@ const RefillRoute = RefillRouteImport.update({
 const JournalRoute = JournalRouteImport.update({
   id: '/journal',
   path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImprintRoute = ImprintRouteImport.update({
+  id: '/imprint',
+  path: '/imprint',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoverEssayRoute = CoverEssayRouteImport.update({
+  id: '/cover-essay',
+  path: '/cover-essay',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -89,6 +101,8 @@ export interface FileRoutesByFullPath {
   '/account': typeof AccountRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/cover-essay': typeof CoverEssayRoute
+  '/imprint': typeof ImprintRoute
   '/journal': typeof JournalRouteWithChildren
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
@@ -103,6 +117,8 @@ export interface FileRoutesByTo {
   '/account': typeof AccountRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/cover-essay': typeof CoverEssayRoute
+  '/imprint': typeof ImprintRoute
   '/journal': typeof JournalRouteWithChildren
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
@@ -118,6 +134,8 @@ export interface FileRoutesById {
   '/account': typeof AccountRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/cover-essay': typeof CoverEssayRoute
+  '/imprint': typeof ImprintRoute
   '/journal': typeof JournalRouteWithChildren
   '/refill': typeof RefillRoute
   '/shop': typeof ShopRouteWithChildren
@@ -134,6 +152,8 @@ export interface FileRouteTypes {
     | '/account'
     | '/checkout'
     | '/contact'
+    | '/cover-essay'
+    | '/imprint'
     | '/journal'
     | '/refill'
     | '/shop'
@@ -148,6 +168,8 @@ export interface FileRouteTypes {
     | '/account'
     | '/checkout'
     | '/contact'
+    | '/cover-essay'
+    | '/imprint'
     | '/journal'
     | '/refill'
     | '/shop'
@@ -162,6 +184,8 @@ export interface FileRouteTypes {
     | '/account'
     | '/checkout'
     | '/contact'
+    | '/cover-essay'
+    | '/imprint'
     | '/journal'
     | '/refill'
     | '/shop'
@@ -177,6 +201,8 @@ export interface RootRouteChildren {
   AccountRoute: typeof AccountRoute
   CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
+  CoverEssayRoute: typeof CoverEssayRoute
+  ImprintRoute: typeof ImprintRoute
   JournalRoute: typeof JournalRouteWithChildren
   RefillRoute: typeof RefillRoute
   ShopRoute: typeof ShopRouteWithChildren
@@ -203,6 +229,20 @@ declare module '@tanstack/react-router' {
       path: '/journal'
       fullPath: '/journal'
       preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/imprint': {
+      id: '/imprint'
+      path: '/imprint'
+      fullPath: '/imprint'
+      preLoaderRoute: typeof ImprintRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cover-essay': {
+      id: '/cover-essay'
+      path: '/cover-essay'
+      fullPath: '/cover-essay'
+      preLoaderRoute: typeof CoverEssayRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -302,6 +342,8 @@ const rootRouteChildren: RootRouteChildren = {
   AccountRoute: AccountRoute,
   CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
+  CoverEssayRoute: CoverEssayRoute,
+  ImprintRoute: ImprintRoute,
   JournalRoute: JournalRouteWithChildren,
   RefillRoute: RefillRoute,
   ShopRoute: ShopRouteWithChildren,

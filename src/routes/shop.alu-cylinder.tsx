@@ -93,7 +93,7 @@ function AluCylinderPage() {
           </div>
           <div className="md:col-span-4 self-end font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/55 max-w-xs ml-auto text-right reveal">
             <p>Included in starter kit + every refill order</p>
-            <p className="mt-2">€4 deposit · refunded on 5-cylinder return</p>
+            <p className="mt-2">€4 refundable deposit · credited after return inspection</p>
           </div>
         </div>
       </section>
@@ -163,7 +163,7 @@ function AluCylinderPage() {
             className="group mt-12 inline-flex items-center gap-3 border border-foreground/15 px-6 py-3 rounded-full text-sm font-medium hover:bg-secondary transition-colors"
           >
             <span className={`size-2 rounded-full bg-primary transition-transform duration-500 ${pressed ? "scale-150" : ""}`} />
-            Feel the click
+            {pressed ? "Click." : "Feel the click"}
           </button>
         </div>
 
@@ -177,7 +177,13 @@ function AluCylinderPage() {
               height={1350}
               className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${pressed ? "scale-[1.04]" : "scale-100"}`}
             />
-            <div className={`absolute inset-0 bg-foreground/0 transition-colors duration-700 ${pressed ? "bg-foreground/5" : ""}`} />
+            <div
+                className={`absolute inset-0 transition-all duration-700 ${
+                  pressed
+                    ? "bg-primary/10 backdrop-brightness-105"
+                    : "bg-transparent"
+                }`}
+              />
           </div>
         </div>
       </section>
@@ -198,12 +204,15 @@ function AluCylinderPage() {
               crumbling, no humidity creeping in. Aluminum, because it's light, it's
               recyclable, and it lasts.
             </p>
+            <p className="mt-8 text-xs text-background/45 max-w-sm">
+                Food-contact materials tested for repeated daily use.
+              </p>
             <dl className="reveal mt-14 grid grid-cols-2 gap-x-8 gap-y-8 max-w-md">
               {[
                 ["Shell", "6061 aluminum · matte anodized"],
                 ["Seal", "Food-grade silicone gasket"],
                 ["Mechanism", "Precision stainless click"],
-                ["Capacity", "12 tablets per cylinder"],
+                ["Capacity", "8 tablets per cylinder"],
               ].map(([k, v]) => (
                 <div key={k}>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-background/45">{k}</dt>
