@@ -6,8 +6,6 @@ import { products, type Product } from "@/lib/vytal-products";
 import { useCart, parsePrice, formatPrice } from "@/contexts/cart-context";
 import shopHero from "@/assets/shop-hero.jpg";
 import shopStarterKit from "@/assets/shop-starter-kit-v2.png";
-import shopStarterKitBrown from "@/assets/shop-starter-kit-brown.jpg";
-import shopStarterKitBeige from "@/assets/shop-starter-kit-beige.png";
 import shopHeroBottle from "@/assets/shop-hero-bottle-new.png";
 import shopRitualDesk from "@/assets/shop-ritual-desk.jpg";
 import aluHero from "@/assets/alu-hero.jpg";
@@ -188,27 +186,17 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
 
-  const product = useMemo(() => products.find((p) => p.slug === "starter-kit")!, []);
-
-  const [activeVariant, setActiveVariant] = useState(
-    product?.variants && product.variants.length > 0 ? product.variants[0] : null
-  );
-
-  const currentImage = activeVariant ? activeVariant.image : shopStarterKit;
-  const currentSlug = activeVariant ? activeVariant.slug : "starter-kit";
-  const currentColorName = activeVariant ? activeVariant.colorName : "Complete ritual";
-
   const unitPrice = 68;
 
   const handleAdd = () => {
   add({
-    id: currentSlug,
+    id: "starter-kit",
     name: "VYTAL Starter Kit",
-    variant: currentColorName,
-    image: currentImage,
+    variant: "Complete ritual",
+    image: shopStarterKit,
     unitPrice,
     qty,
-    href: `/shop/${currentSlug}`,
+    href: "/shop/starter-kit",
   });
 
   setAdded(true);
@@ -238,7 +226,7 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
         <div className="grid md:grid-cols-2">
           <div className="relative h-full min-h-[350px] bg-secondary/40">
             <img
-              src={currentImage}
+              src={shopStarterKit}
               alt="VYTAL Starter Kit"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
@@ -258,29 +246,6 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
               one refill cylinder, all six functional flavors, sleeve, pouch and
               onboarding ritual card.
             </p>
-
-            {product?.variants && product.variants.length > 0 && (
-              <div className="mt-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
-                  Bottle Color · <span className="text-foreground">{currentColorName}</span>
-                </p>
-                <div className="flex gap-3">
-                  {product.variants.map((v) => (
-                    <button
-                      key={v.slug}
-                      onClick={() => setActiveVariant(v)}
-                      className={`size-8 rounded-full border-2 transition-all ${
-                        activeVariant?.slug === v.slug 
-                          ? "border-foreground scale-110" 
-                          : "border-transparent hover:scale-105 shadow-sm"
-                      }`}
-                      style={{ backgroundColor: v.hex }}
-                      aria-label={`Select ${v.colorName}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
 
             <div className="mt-8 rounded-2xl border border-border p-5 bg-secondary/30">
               <p className="font-mono text-[10px] uppercase tracking-widest text-primary mb-3">
@@ -374,18 +339,6 @@ function ShopPage() {
   const heroImgRef = useRef<HTMLImageElement>(null);
   useParallax(heroImgRef as unknown as React.RefObject<HTMLElement | null>, 0.06);
 
-  const [heroIndex, setHeroIndex] = useState(0);
-  const starterKit = useMemo(() => products.find((p) => p.slug === "starter-kit"), []);
-  const variants = starterKit?.variants || [];
-
-  useEffect(() => {
-    if (variants.length <= 1) return;
-    const interval = setInterval(() => {
-      setHeroIndex((prev) => (prev + 1) % variants.length);
-    }, 4000); // Alle 4 Sekunden
-    return () => clearInterval(interval);
-  }, [variants]);
-
   const refills = useMemo(() => products.filter((p) => p.category === "refill"), []);
   const bottles = useMemo(() => products.filter((p) => p.category === "bottle"), []);
 
@@ -402,17 +355,15 @@ function ShopPage() {
       <SiteHeader />
 
       {/* HERO — Starter Kit leads the entire shop */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden bg-gradient-to-b from-secondary/70 via-background to-background">
+      <section id ="starter-kit"className="relative min-h-[100svh] flex items-end overflow-hidden bg-gradient-to-b from-secondary/70 via-background to-background">
         <div className="absolute inset-0 -z-10">
           <img
-            // Dynamische Quelle nutzen:
-            src={variants.length > 0 ? variants[heroIndex].image : shopStarterKit}
-            alt="The VYTAL Starter Kit"
+            src={shopStarterKit}
+            alt="The VYTAL Starter Kit — bottle, aluminum refill cylinder, linen sleeve and the full flavor set"
             loading="lazy"
             width={1600}
             height={1920}
-            // WICHTIG: Die Klasse duration-1000 sorgt für den weichen Übergang
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1600ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/75 via-transparent to-transparent" />
@@ -495,21 +446,19 @@ function ShopPage() {
     <div className="grid md:grid-cols-12 gap-0 items-stretch">
       <div className="md:col-span-7 relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden">
         <img
-          // Hier nutzen wir die Variable 'variants' aus deinem ShopPage-Code
-          src={variants.length > 0 ? variants[heroIndex].image : shopStarterKit}
-          alt="The VYTAL Starter Kit"
-          loading="lazy"
-          width={1600}
-          height={1920}
-          // Hier haben wir 'transition-opacity' hinzugefügt für den weichen Wechsel
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out group-hover:scale-[1.03]"
-        />
+  src={shopStarterKit}
+  alt="The VYTAL Starter Kit — bottle, aluminum refill cylinder, linen sleeve and the full flavor set"
+  loading="lazy"
+  width={1600}
+  height={1920}
+  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1600ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
+/>
         <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
           The Starter Kit · Hero product
         </span>
 
-        <span className="absolute bottom-5 left-5 font-mono text-[8.68px] uppercase tracking-[0.3em] bg-foreground/85 text-background backdrop-blur px-3 py-1.5 rounded-full">
-          All 6 flavors · choose your bottle color · cylinder included · deposit included
+        <span className="absolute bottom-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-foreground/85 text-background backdrop-blur px-3 py-1.5 rounded-full">
+          All 6 flavors · cylinder included · deposit included
         </span>
       </div>
 
@@ -550,12 +499,12 @@ function ShopPage() {
             ))}
           </ul>
           <br></br>
-          <Link
-  to="/shop/starter-kit"
-  className="bg-foreground text-background px-8 py-4 rounded-full text-sm font-medium hover:bg-primary transition-colors"
->
-  Begin the Starter Kit →
-</Link>
+          <button
+            onClick={scrollTo("starter")}
+            className="bg-foreground text-background px-8 py-4 rounded-full text-sm font-medium hover:bg-primary transition-colors"
+          >
+            Begin the Starter Kit →
+          </button>
         </div>
       </div>
     </div>
@@ -564,7 +513,8 @@ function ShopPage() {
 
 {/* SIX FLAVORS — quick identity strip */}
 <section className="bg-secondary/40 border-y border-border/60 py-16 md:py-20">
-  <div className="max-w-7xl mx-auto px-6 md:px-10">
+  <div id="packs"
+        className="max-w-7xl mx-auto px-6 md:px-10">
     <div className="flex items-end justify-between gap-6 mb-10 reveal">
       <div>
         <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
@@ -869,9 +819,12 @@ function ShopPage() {
             <span className="italic font-light text-muted-foreground">Endlessly refilled.</span>
           </h2>
           <div className="mt-12 flex flex-wrap justify-center gap-3">
-            <Link to="/shop/starter-kit" className="bg-foreground text-background px-8 py-4 rounded-full text-sm font-medium hover:bg-primary transition-colors">
-              Begin the Starter Kit →
-            </Link>
+            <button
+                onClick={scrollTo("starter")}
+                className="bg-foreground text-background px-8 py-4 rounded-full text-sm font-medium hover:bg-primary transition-colors"
+              >
+                Begin the Starter Kit →
+            </button>
             <button onClick={scrollTo("refills")} className="border border-foreground/15 px-8 py-4 rounded-full text-sm font-medium hover:bg-background transition-colors">
               Explore the refills
             </button>
@@ -1077,13 +1030,6 @@ function ProductQuickView({
   const basePrice = parsePrice(product.price);
   const deposit = product.category === "refill" ? 4 : 0;  
   const [added, setAdded] = useState(false);
-  const [activeVariant, setActiveVariant] = useState(
-    product.variants && product.variants.length > 0 ? product.variants[0] : null
-  );
-
-  const currentImage = activeVariant ? activeVariant.image : product.image;
-  const currentSlug = activeVariant ? activeVariant.slug : product.slug;
-  const currentColorName = activeVariant ? activeVariant.colorName : (product.flavor ?? product.color);
       useEffect(() => {
       document.body.style.overflow = "hidden";
 
@@ -1103,13 +1049,13 @@ function ProductQuickView({
 
   const handleAdd = () => {
   add({
-    id: currentSlug,
+    id: product.slug,
     name: product.name,
-    variant: currentColorName,
-    image: currentImage,
+    variant: product.flavor ?? product.color,
+    image: product.image,
     unitPrice,
     qty,
-    href: `/shop/${currentSlug}`,
+    href: `/shop/${product.slug}`,
   });
 
   setAdded(true);
@@ -1139,9 +1085,9 @@ function ProductQuickView({
         <div className="grid md:grid-cols-2">
           <div className="relative aspect-[4/5] bg-secondary/40">
             <img
-              src={currentImage}
+              src={product.image}
               alt={product.name}
-              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
 
@@ -1157,29 +1103,6 @@ function ProductQuickView({
             <p className="mt-5 text-muted-foreground leading-relaxed">
               {product.description}
             </p>
-
-            {product.variants && product.variants.length > 0 && (
-              <div className="mt-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
-                  Color · <span className="text-foreground">{currentColorName}</span>
-                </p>
-                <div className="flex gap-3">
-                  {product.variants.map((v) => (
-                    <button
-                      key={v.slug}
-                      onClick={() => setActiveVariant(v)}
-                      className={`size-8 rounded-full border-2 transition-all ${
-                        activeVariant?.slug === v.slug 
-                          ? "border-foreground scale-110" 
-                          : "border-transparent hover:scale-105 shadow-sm"
-                      }`}
-                      style={{ backgroundColor: v.hex }}
-                      aria-label={`Select ${v.colorName}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
 
             {product.flavor && (
               <div className="mt-6 rounded-2xl border border-border p-5 bg-secondary/30">
@@ -1363,7 +1286,7 @@ function ProductQuickView({
 
             <Link
               to="/shop/$slug"
-              params={{ slug: currentSlug }}
+              params={{ slug: product.slug }}
               className="mt-5 inline-flex font-mono text-[10px] uppercase tracking-[0.25em] text-primary hover:text-foreground"
             >
               Full product page →
