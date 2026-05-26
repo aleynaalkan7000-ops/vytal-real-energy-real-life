@@ -265,8 +265,8 @@ function RefillPage() {
               <ul className="mt-10 space-y-5">
                 {[
                   ["Hygienic", "Air- and moisture-tight aluminum shell. Tablets stay clean, dry, untouched."],
-                  ["Portable", "108 mm. 38 g. Holds 12 refills. Lives in a pocket, a bag, on a desk."],
-                  ["Returnable", "Collect 5 empties, drop into any postbox. We sterilize and refill."],
+                  ["Portable", "108 mm. 38 g. Holds 8 refills. Lives in a pocket, a bag, on a desk."],
+                  ["Returnable", "Drop empty cylinders unfranked into any postbox. We sterilize and refill, or you keep them."],
                 ].map(([t, d]) => (
                   <li key={t} className="grid grid-cols-[120px_1fr] gap-4 border-t border-foreground/10 pt-4">
                     <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mt-1">{t}</span>

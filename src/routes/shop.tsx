@@ -702,20 +702,21 @@ function ShopPage() {
         <div className="lg:col-span-6 reveal">
           <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">The system object</span>
           <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-            Included in<br/>
-            <span className="italic font-light text-muted-foreground">the refill loop.</span>
+            Included with<br/>
+            <span className="italic font-light text-muted-foreground">every single refill.</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
-            The matte aluminum cylinder is not a product you buy once. It's the
-            vessel the refills travel inside — included with every order, returned
-            for deposit, sterilized, refilled, re-released.
+            The matte aluminum cylinder isn’t just packaging; it’s the vessel your refills travel in. 
+            Every flavor you order arrives inside one. 
+            Use it, empty it, and decide: 
+            return it for a deposit refund so we can close the loop, or keep it to organize your own space.
           </p>
           <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 max-w-md">
             {[
-              ["Format", "108 mm · 38 g · holds 8 tablets"],
-              ["Material", "Aerospace-grade aluminum, anodized"],
-              ["Seal", "Air- and moisture-tight silicone"],
-              ["Deposit", "Refunded on 5-cylinder return"],
+              ["Already included", "Ships automatically with every refill flavor. No need to buy it separately"],
+              ["Holds 8 refills", "Holds a complete flavor cycle, keeping everything airtight and fresh"],
+              ["A Quiet Footprint", "No wrappers, no plastic, no excess waste. Just the refill inside the cylinder"],
+              ["Refundable Deposit", "Send it back unfranked to claim your deposit, or keep it for your desk, shelf or kitchen counter"],
             ].map(([k, v]) => (
               <div key={k} className="border-t border-border pt-3">
                 <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{k}</dt>
