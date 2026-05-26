@@ -26,13 +26,140 @@ export const Route = createFileRoute("/shop")({
 });
 
 // ── Flavor identities — mood per refill ───────────────────────────────
-const flavorIdentity: Record<string, { mood: string; emotion: string; hex: string; ring: string }> = {
-  focus:    { mood: "Matcha Lime",      emotion: "Quiet, deep, focused mornings.",        hex: "#A8C49D", ring: "ring-[#A8C49D]" },
-  flow:     { mood: "Peach Green Tea",  emotion: "Soft warmth that lasts all day.",       hex: "#E8C6A4", ring: "ring-[#E8C6A4]" },
-  refresh:  { mood: "Berry Mint",       emotion: "Cool reset between two meetings.",      hex: "#C8D9E4", ring: "ring-[#C8D9E4]" },
-  boost:    { mood: "Citrus Ginger",    emotion: "Alert, awake, never aggressive.",       hex: "#E8A86A", ring: "ring-[#E8A86A]" },
-  balance:  { mood: "Pear Sage",        emotion: "Calm clarity for slower days.",         hex: "#BCC8AE", ring: "ring-[#BCC8AE]" },
-  recharge: { mood: "Cherry Black Tea", emotion: "Late, soft, finally yours.",            hex: "#A88494", ring: "ring-[#A88494]" },
+const flavorIdentity: Record<string, {
+  mood: string;
+  emotion: string;
+  hex: string;
+  ring: string;
+}> = {
+  focus: {
+    mood: "Matcha Lime",
+    emotion: "Quiet, deep, focused mornings.",
+    hex: "#A8C49D",
+    ring: "ring-[#A8C49D]",
+  },
+
+  flow: {
+    mood: "Peach Green Tea",
+    emotion: "Soft warmth that lasts all day.",
+    hex: "#E8C6A4",
+    ring: "ring-[#E8C6A4]",
+  },
+
+  refresh: {
+    mood: "Berry Mint",
+    emotion: "Cool reset between two meetings.",
+    hex: "#C8D9E4",
+    ring: "ring-[#C8D9E4]",
+  },
+
+  boost: {
+    mood: "Citrus Ginger",
+    emotion: "Alert, awake, never aggressive.",
+    hex: "#E8A86A",
+    ring: "ring-[#E8A86A]",
+  },
+
+  balance: {
+    mood: "Pear Sage",
+    emotion: "Calm clarity for slower days.",
+    hex: "#BCC8AE",
+    ring: "ring-[#BCC8AE]",
+  },
+
+  recharge: {
+    mood: "Cherry Black Tea",
+    emotion: "Late, soft, finally yours.",
+    hex: "#A88494",
+    ring: "ring-[#A88494]",
+  },
+};
+
+// ── Flavor storytelling / premium positioning ─────────────────────────
+const flavorStrategy: Record<string, {
+  audience: string;
+  sensory: string;
+  quality: string;
+  moment: string;
+}> = {
+
+  focus: {
+    audience: "Quiet focus",
+
+    sensory:
+      "Stone-ground matcha character with fresh lime brightness and a clean herbal finish.",
+
+    quality:
+      "Built around a calmer Japanese-inspired energy profile with naturally occurring caffeine sources instead of overly sweet synthetic energy drink flavors.",
+
+    moment:
+      "Made for library mornings, deep work blocks and long study sessions.",
+  },
+
+  flow: {
+    audience: "Soft daily energy",
+
+    sensory:
+      "Soft white peach sweetness balanced with delicate green tea bitterness and floral warmth.",
+
+    quality:
+      "Inspired by premium iced-tea culture and intentionally formulated to feel smoother, lighter and less overwhelming than traditional canned energy drinks.",
+
+    moment:
+      "Made for commuting, classes, slow mornings and everyday routines.",
+  },
+
+  refresh: {
+    audience: "Cold reset",
+
+    sensory:
+      "Cold berry freshness layered with peppermint clarity and a crisp almost sparkling finish.",
+
+    quality:
+      "Designed to feel mentally cooling and clean — inspired by spa-water flavor profiles and modern low-sugar botanical drinks.",
+
+    moment:
+      "Made for screen fatigue, hot afternoons and mentally overloaded days.",
+  },
+
+  boost: {
+    audience: "Pressure mode",
+
+    sensory:
+      "Sharp citrus opening followed by warm ginger heat and a dry sparkling finish.",
+
+    quality:
+      "A more refined interpretation of high-energy drinks — bold and energising without the heavy syrup-like sweetness.",
+
+    moment:
+      "Made for deadlines, early mornings and overloaded schedules.",
+  },
+
+  balance: {
+    audience: "Slower clarity",
+
+    sensory:
+      "Juicy pear layered with soft sage and subtle botanical depth.",
+
+    quality:
+      "Inspired by premium herbal infusions and minimalist wellness drinks with a softer, calmer flavor direction.",
+
+    moment:
+      "Made for planning, reading, creative work and low-pressure productivity.",
+  },
+
+  recharge: {
+    audience: "Late hours",
+
+    sensory:
+      "Dark cherry richness balanced with elegant black tea bitterness and low sweetness.",
+
+    quality:
+      "A deeper and more mature flavor profile for people who dislike artificial late-night energy drinks.",
+
+    moment:
+      "Made for evening work, studio sessions and finishing things peacefully.",
+  },
 };
 
 function useReveal() {
@@ -219,6 +346,7 @@ function ShopPage() {
   const [starterKitOpen, setStarterKitOpen] = useState(false);
 
 
+
   const scrollTo = (id: string) => () =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -381,6 +509,147 @@ function ShopPage() {
       </div>
     </div>
   </button>
+</section>
+
+{/* SIX FLAVORS — quick identity strip */}
+<section className="bg-secondary/40 border-y border-border/60 py-16 md:py-20">
+  <div className="max-w-7xl mx-auto px-6 md:px-10">
+    <div className="flex items-end justify-between gap-6 mb-10 reveal">
+      <div>
+        <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
+          Six functional moods
+        </span>
+        <h3 className="mt-3 font-display text-2xl md:text-3xl font-semibold tracking-tight">
+          Every kit contains all six.
+        </h3>
+      </div>
+
+      <p className="hidden md:block text-sm text-muted-foreground max-w-xs">
+        Each flavor has its own intent — try them all before you choose your everyday.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {refills.map((r) => {
+        const id = flavorIdentity[r.slug];
+        const strategy = flavorStrategy[r.slug];
+
+        return (
+          <button
+              key={r.slug}
+              type="button"
+              onClick={() => {
+                  document
+                    .getElementById(`product-${r.slug}`)
+                    ?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    });
+                }}
+              className={`
+                    reveal
+                    group
+                    relative
+                    overflow-hidden
+                    cursor-pointer
+                    text-left
+                    rounded-2xl
+                    bg-background
+                    p-5
+                    border
+                    border-transparent
+                    transition-all
+                    duration-700
+                    hover:-translate-y-2
+                    hover:shadow-2xl
+                    hover:border-primary/30
+                    hover:before:bg-white/[0.02]
+                    before:absolute
+                    before:inset-0
+                    before:bg-white/0
+                    before:transition-all
+                    before:duration-700
+                    min-h-[420px]
+
+
+
+              `}
+            >
+  
+            {/* glow effect */}
+               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 pointer-events-none" />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18),transparent_60%)]" />
+            </div>
+            <span
+              className="block size-10 rounded-full mb-4 transition-transform duration-700 group-hover:scale-110 group-hover:scale-125 group-hover:rotate-6 transition-all duration-700"
+              style={{ background: id?.hex }}
+            />
+
+            <p className="font-display text-base font-semibold">
+              {r.name.replace("VYTAL ", "")}
+            </p>
+
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mt-1">
+              {id?.mood}
+            </p>
+
+            <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+                {id?.emotion}
+              </p>
+
+              <div className="mt-5 pt-5 border-t border-border/60 space-y-4">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary mb-1">
+                  Taste profile
+                </p>
+                <p className="text-xs leading-relaxed text-muted-foreground">
+                  {strategy?.sensory}
+                </p>
+              </div>
+
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary mb-1">
+                  Premium cue
+                </p>
+                <p className="text-xs leading-relaxed text-muted-foreground">
+                  {strategy?.quality}
+                </p>
+              </div>
+
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary mb-1">
+                  Best moment
+                </p>
+                <p className="text-xs leading-relaxed text-muted-foreground">
+                  {strategy?.moment}
+                </p>
+              </div>
+            </div>
+
+              {/* BONUS */}
+               <div
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    document
+                      .getElementById(`product-${r.slug}`)
+                      ?.scrollIntoView({ behavior: "smooth", block: "center" });
+                  }}
+                  className="mt-6 flex items-center justify-between"
+                >
+                  <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                    Explore flavor
+                  </span>
+
+                  <span className="transition-transform duration-500 group-hover:translate-x-1">
+                    →
+                  </span>
+                </div>
+              </button>
+        );
+      })}
+    </div>
+  </div>
 </section>
 
       {/* RELOADS / REFILLS — cinematic cards */}
