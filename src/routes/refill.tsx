@@ -226,7 +226,7 @@ function RefillPage() {
       </section>
 
       {/* MATERIALS & DESIGN — luxury object */}
-      <section className="relative bg-secondary/60 overflow-hidden">
+      <section id="cylinder-details" className="relative bg-secondary/60 overflow-hidden">
         {/* THE ALU CYLINDER — system object */}
         <div className="px-6 md:px-10 pt-32 md:pt-44 pb-8 max-w-7xl mx-auto reveal">
           <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
@@ -239,8 +239,8 @@ function RefillPage() {
         </div>
 
         <div className="px-6 md:px-10 pb-24 md:pb-32 max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-stretch">
-          <Link
-            to="/shop/alu-cylinder"
+          <a
+            href="/shop#cylinder"
             className="group lg:col-span-7 relative aspect-[4/5] lg:aspect-auto lg:min-h-[560px] overflow-hidden rounded-3xl bg-[#f3ede2] reveal"
           >
             <img
@@ -249,13 +249,11 @@ function RefillPage() {
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]"
             />
-            <span className="absolute top-6 left-6 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
-              New · System object
-            </span>
+            {/* Das rote Label ist weg! */}
             <span className="absolute bottom-6 right-6 inline-flex items-center gap-2 bg-foreground text-background px-5 py-3 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-              View product →
+              Why it's included →
             </span>
-          </Link>
+          </a>
 
           <div className="lg:col-span-5 flex flex-col justify-between gap-10 reveal">
             <div>
@@ -264,8 +262,9 @@ function RefillPage() {
               </p>
               <ul className="mt-10 space-y-5">
                 {[
-                  ["Hygienic", "Air- and moisture-tight aluminum shell. Tablets stay clean, dry, untouched."],
-                  ["Portable", "108 mm. 38 g. Holds 8 refills. Lives in a pocket, a bag, on a desk."],
+                  ["Format", "108 mm · 38 g. Holds exactly 8 functional tablets. Built for pockets, bags, or desks."],
+                  ["Material", "Aerospace-grade aluminum, anodized for a matte, tactile finish."],
+                  ["Seal", "Air- and moisture-tight silicone. Tablets stay clean, dry, and untouched."],
                   ["Returnable", "Drop empty cylinders unfranked into any postbox. We sterilize and refill, or you keep them."],
                 ].map(([t, d]) => (
                   <li key={t} className="grid grid-cols-[120px_1fr] gap-4 border-t border-foreground/10 pt-4">
@@ -275,13 +274,20 @@ function RefillPage() {
                 ))}
               </ul>
             </div>
+            
             <div className="flex flex-wrap gap-3">
-              <Link to="/shop/alu-cylinder" className="inline-flex bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium hover:bg-primary transition-colors">
-                Explore the cylinder →
-              </Link>
-              <Link to="/shop" className="inline-flex border border-foreground/15 px-6 py-3 rounded-full text-sm font-medium hover:bg-background transition-colors">
+              <a 
+                href="/shop#loop" 
+                className="inline-flex bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium hover:bg-primary transition-colors"
+              >
+                How the loop works →
+              </a>
+              <a 
+                href="/shop#refills" 
+                className="inline-flex border border-foreground/15 px-6 py-3 rounded-full text-sm font-medium hover:bg-background transition-colors"
+              >
                 See refill packs
-              </Link>
+              </a>
             </div>
           </div>
         </div>

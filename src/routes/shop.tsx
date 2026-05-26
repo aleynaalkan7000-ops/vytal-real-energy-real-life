@@ -690,14 +690,27 @@ function ShopPage() {
       <ReturnLoop />
 
       {/* THE CYLINDER — system object, NOT standalone */}
-      <section className="px-6 md:px-10 max-w-7xl mx-auto py-28 md:py-44 grid lg:grid-cols-12 gap-12 items-center">
+      <section id="cylinder" className="px-6 md:px-10 max-w-7xl mx-auto py-28 md:py-44 grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-6 reveal relative">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#f1ece1]">
-            <img src={aluHero} alt="The matte aluminum VYTAL refill cylinder" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+          <a
+            href="/refill#cylinder-details"
+            className="group block relative aspect-[4/5] overflow-hidden rounded-md bg-[#f1ece1]"
+          >
+            <img 
+              src={aluHero} 
+              alt="The matte aluminum VYTAL refill cylinder" 
+              loading="lazy" 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]" 
+            />
             <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
               Part of every refill
             </span>
-          </div>
+            
+            {/* Der neue Hover-Button */}
+            <span className="absolute bottom-5 right-5 inline-flex items-center gap-2 bg-foreground text-background px-5 py-3 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+              Discover the details →
+            </span>
+          </a>
         </div>
         <div className="lg:col-span-6 reveal">
           <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">The system object</span>
