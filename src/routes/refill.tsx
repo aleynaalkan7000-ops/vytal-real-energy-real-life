@@ -11,6 +11,11 @@ import aluHeroImg from "@/assets/alu-hero.jpg";
 import aluDispenseImg from "@/assets/alu-dispense.jpg";
 import aluLoopImg from "@/assets/alu-loop.jpg";
 import { useEffect, useRef } from "react";
+import {
+  PackageOpen,
+  FlaskConical,
+  Recycle,
+} from "lucide-react";
 
 export const Route = createFileRoute("/refill")({
   head: () => ({
@@ -208,39 +213,72 @@ function RefillPage() {
               For days without station access, online refills arrive in reusable deposit cylinders.
             </p>
           </div>
-          <div className="lg:col-span-8 grid sm:grid-cols-2 gap-5">
-            {[
-              {
-                t: "Station refill",
-                d: "Bring your VYTAL container to a refill station and stock up on tablets without disposable packaging.",
-              },
-              {
-                t: "Ready-to-go drink",
-                d: "Use the same station with your VYTAL bottle: one tablet drops in, water is added, and your drink is ready.",
-              },
-              {
-                t: "Home container",
-                d: "The container stores tablets safely at home, protects them from moisture, and makes refilling part of your routine.",
-              },
-              {
-                t: "Online backup",
-                d: "When a station is not nearby, tablets can be ordered online in packs of eight or more.",
-              },
-              {
-                t: "Deposit cylinder",
-                d: "Online refills arrive in a reusable aluminum cylinder instead of single-use packaging. You pay a deposit and can return it.",
-              },
-              {
-                t: "Cleaned and reused",
-                d: "Returned cylinders are cleaned, checked and reused, so the packaging stays inside the system instead of becoming waste.",
-              },
-            ].map((c) => (
-              <article key={c.t} className="reveal rounded-3xl border border-border bg-secondary/40 p-7 hover:bg-secondary transition-colors duration-500">
-                <h3 className="font-display text-xl font-semibold mb-2">{c.t}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{c.d}</p>
-              </article>
-            ))}
+          <div className="lg:col-span-8">
+  <div className="grid md:grid-cols-3 gap-5">
+    {[
+      {
+        n: "01",
+        title: "Stock at home",
+        text: "Refill your home container with tablets at the station. Store them safely, use them whenever you need one.",
+        icon: "station",
+      },
+      {
+        n: "02",
+        title: "Drink on the go",
+        text: "Place your bottle in the station. Choose a flavour, still or sparkling water, and leave with a ready drink.",
+        icon: "bottle",
+      },
+      {
+        n: "03",
+        title: "Order when busy",
+        text: "If no station is nearby, order refill cylinders online. Send empties back so we can clean and reuse them.",
+        icon: "loop",
+      },
+    ].map((step) => (
+      <article
+        key={step.n}
+        className="group relative overflow-hidden rounded-3xl border border-border bg-secondary/40 p-7 min-h-[340px] transition-all duration-700 hover:-translate-y-1 hover:bg-secondary"
+      >
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-primary/10 via-transparent to-transparent" />
+
+        <div className="relative z-10 h-full flex flex-col justify-between">
+          <div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary">
+              {step.n}
+            </span>
+
+              <div className="mt-8 h-28 flex items-center justify-center">
+                {step.icon === "station" && (
+                  <PackageOpen className="size-16 text-primary/70 stroke-[1.5]" />
+                )}
+
+                {step.icon === "bottle" && (
+                  <FlaskConical className="size-16 text-primary/70 stroke-[1.5]" />
+                )}
+
+                {step.icon === "loop" && (
+                  <Recycle className="size-16 text-primary/70 stroke-[1.5]" />
+                )}
+              </div>
+              
+            <h3 className="mt-6 font-display text-2xl font-semibold">
+              {step.title}
+            </h3>
+
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+              {step.text}
+            </p>
           </div>
+
+          <div className="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+            <span className="h-px flex-1 bg-border" />
+            <span>Refill · Reuse</span>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</div>
         </div>
       </section>
 

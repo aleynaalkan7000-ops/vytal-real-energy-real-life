@@ -1,4 +1,4 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss" ;
 @source "../src";
 @import "tw-animate-css";
 
@@ -229,4 +229,31 @@
 
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+}
+@keyframes bubble {
+  0% {
+    transform: translateY(18px) scale(0.8);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-18px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes flow {
+  0% {
+    transform: translate(-50%, -8px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 18px);
+    opacity: 0;
+  }
 }
