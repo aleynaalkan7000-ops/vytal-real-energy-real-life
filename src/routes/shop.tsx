@@ -588,7 +588,7 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
       role="button"
       tabIndex={0}
 
-      className={`text-left group reveal flex flex-col cursor-pointer ${i % 5 === 0 ? "lg:mt-10" : i % 5 === 3 ? "lg:-mt-6" : ""}`}
+      className="text-left group reveal flex flex-col cursor-pointer"
     >
       <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
         <img
