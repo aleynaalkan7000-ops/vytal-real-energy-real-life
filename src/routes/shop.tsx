@@ -255,13 +255,13 @@ function ShopPage() {
             </p>
 
             <div className="mt-12 flex flex-wrap gap-3 reveal">
-              <Link
-                to="/shop/starter-kit"
+              <button
+                onClick={scrollTo("starter")}
                 className="group inline-flex items-center gap-2 bg-foreground text-background px-7 py-4 rounded-full text-sm font-medium hover:bg-primary transition-colors"
               >
                 Begin with the Starter Kit
                 <span className="transition-transform group-hover:translate-x-1">→</span>
-              </Link>
+              </button>
               <button
                 onClick={scrollTo("refills")}
                 className="inline-flex items-center gap-2 border border-foreground/15 px-7 py-4 rounded-full text-sm font-medium hover:bg-secondary transition-colors"
