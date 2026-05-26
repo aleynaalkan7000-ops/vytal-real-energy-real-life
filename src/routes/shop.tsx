@@ -906,9 +906,9 @@ function ReturnLoop() {
   const steps = [
     { t: "Receive", d: "Refill cylinder arrives with your order. Deposit included.", img: aluHero },
     { t: "Use", d: "One press. One tablet. Eight tablets per cylinder.", img: aluDispense }, 
-    { t: "Collect 5", d: "Slip empty cylinders into the return pouch as they're used.", img: aluLoop },
-    { t: "Return", d: "Drop the pouch unfranked in any postbox. Pre-paid. No app.", img: aluLoop },
-    { t: "Reused", d: "We sterilize, inspect, refill. Your deposit returns. The loop closes.", img: shopRitualDesk },
+    { t: "Collect", d: "Slip empty cylinders into the return pouch as they're used.", img: aluLoop },
+    { t: "Return", d: "Drop the pouch unfranked in any postbox. Pre-paid. No app. Or simply keep it to repurpose at home. You decide when the loop closes.", img: aluLoop },
+    { t: "Reuse", d: "If returned, we sterilize and refill it for someone else's ritual.", img: shopRitualDesk },
   ];
 
   // Cycle automatically
@@ -927,7 +927,7 @@ function ReturnLoop() {
             <span className="italic font-light text-muted-foreground">loop works.</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
-            Five cylinders. One postbox. Deposit refunded. No subscription tricks,
+            Return whenever you're ready. One postbox. Deposit refunded. No subscription tricks,
             no app, no greenwashing. The whole system is built around one quiet motion.
           </p>
 
@@ -982,7 +982,7 @@ function ReturnLoop() {
           <div className="mt-10 grid sm:grid-cols-3 gap-3 text-xs text-muted-foreground">
             <div className="rounded-2xl border border-border p-4 bg-background/60">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Deposit</p>
-              <p className="mt-2">€4 per cylinder. Fully refunded when you return five together.</p>
+              <p className="mt-2">4€ per cylinder. Fully refunded upon return. No minimums, no rush.</p>
             </div>
             <div className="rounded-2xl border border-border p-4 bg-background/60">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Hygiene</p>
