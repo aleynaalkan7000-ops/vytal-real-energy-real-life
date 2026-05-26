@@ -99,15 +99,15 @@ function RefillPage() {
               <span className="italic font-light text-background/85">not repeat.</span>
             </h1>
             <p className="mt-8 max-w-md text-background/75 text-base md:text-lg leading-relaxed">
-              A calmer system for modern energy. Designed for slower routines and
-              less disposable habits.
+                A refill-based alternative to disposable energy drinks — concentrated tablets,
+                a reusable bottle, and a return loop designed to waste less from the start.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a href="#ritual" className="inline-flex bg-background text-foreground px-7 py-3.5 rounded-full font-medium hover:bg-accent transition-all">
                 Explore the ritual
               </a>
-              <Link to="/shop" className="inline-flex border border-background/40 text-background px-7 py-3.5 rounded-full font-medium hover:bg-background/10 transition-all">
-                Shop the system
+              <Link to="/shop" hash="starter" className="inline-flex border border-background/40 text-background px-7 py-3.5 rounded-full font-medium hover:bg-background/10 transition-all">
+                Build your ritual
               </Link>
             </div>
           </div>
@@ -135,15 +135,15 @@ function RefillPage() {
           <div className="reveal mt-16 grid md:grid-cols-3 gap-6 max-w-4xl text-background/70">
             <p className="text-sm leading-relaxed">
               <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-background/40 mb-3">Single use</span>
-              Most energy drinks are mostly water — sold once, drunk once, thrown out once.
+              Most ready-to-drink energy products ship mostly water in single-use cans — bought once, consumed once, discarded once.
             </p>
             <p className="text-sm leading-relaxed">
               <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-background/40 mb-3">Overstimulation</span>
-              The packaging is loud. The marketing is louder. The routine is the loudest.
+              Classic energy culture often sells intensity: high sugar, loud branding, fast consumption and a crash built into the routine.
             </p>
             <p className="text-sm leading-relaxed">
               <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-background/40 mb-3">Quiet alternative</span>
-              Maybe energy shouldn't shout. Maybe it should ask less of you, and of the planet.
+              VYTAL changes the format: one reusable bottle, compact refills, and a calmer way to build energy into everyday life.
             </p>
           </div>
         </div>
@@ -203,18 +203,37 @@ function RefillPage() {
               One bottle.<br/>Many quiet refills.
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              The VYTAL system replaces the can with a ritual you actually want to repeat.
-              Tablets, water, glass. Nothing more.
+              We built the system around refill stations first: fill your home container with tablets,
+              or get one tablet and water directly into your bottle for a ready-to-go drink.
+              For days without station access, online refills arrive in reusable deposit cylinders.
             </p>
           </div>
           <div className="lg:col-span-8 grid sm:grid-cols-2 gap-5">
             {[
-              { t: "Compact tablets", d: "85% less volume than a canned drink. No water shipped around the country." },
-              { t: "Reusable vessel", d: "Glass, steel, soft-touch silicone. Built to be opened thousands of times." },
-              { t: "Calibrated dosing", d: "One tablet per fill. No measuring spoons, no guesswork, no overstimulation." },
-              { t: "Refill anywhere", d: "Tap water, sparkling water, your favourite café. The ritual travels with you." },
-              { t: "Traceable sourcing", d: "L-Theanine, Ashwagandha, Lion's Mane. Every batch documented." },
-              { t: "Quietly designed", d: "No loud branding. The object stays beautiful on the desk you live at." },
+              {
+                t: "Station refill",
+                d: "Bring your VYTAL container to a refill station and stock up on tablets without disposable packaging.",
+              },
+              {
+                t: "Ready-to-go drink",
+                d: "Use the same station with your VYTAL bottle: one tablet drops in, water is added, and your drink is ready.",
+              },
+              {
+                t: "Home container",
+                d: "The container stores tablets safely at home, protects them from moisture, and makes refilling part of your routine.",
+              },
+              {
+                t: "Online backup",
+                d: "When a station is not nearby, tablets can be ordered online in packs of eight or more.",
+              },
+              {
+                t: "Deposit cylinder",
+                d: "Online refills arrive in a reusable aluminum cylinder instead of single-use packaging. You pay a deposit and can return it.",
+              },
+              {
+                t: "Cleaned and reused",
+                d: "Returned cylinders are cleaned, checked and reused, so the packaging stays inside the system instead of becoming waste.",
+              },
             ].map((c) => (
               <article key={c.t} className="reveal rounded-3xl border border-border bg-secondary/40 p-7 hover:bg-secondary transition-colors duration-500">
                 <h3 className="font-display text-xl font-semibold mb-2">{c.t}</h3>
@@ -265,7 +284,7 @@ function RefillPage() {
                   ["Format", "108 mm · 38 g. Holds exactly 8 functional tablets. Built for pockets, bags, or desks."],
                   ["Material", "Aerospace-grade aluminum, anodized for a matte, tactile finish."],
                   ["Seal", "Air- and moisture-tight silicone. Tablets stay clean, dry, and untouched."],
-                  ["Returnable", "Drop empty cylinders unfranked into any postbox. We sterilize and refill, or you keep them."],
+                  ["Returnable", "Return empty cylinders to us. We clean, check and reuse them in the next cycle."],
                 ].map(([t, d]) => (
                   <li key={t} className="grid grid-cols-[120px_1fr] gap-4 border-t border-foreground/10 pt-4">
                     <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mt-1">{t}</span>
@@ -292,57 +311,65 @@ function RefillPage() {
           </div>
         </div>
 
-        {/* STATIONS × ONLINE — honest positioning */}
-        <div className="px-6 md:px-10 pb-24 md:pb-32 max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-12 reveal">
-            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
-              Two routes, one ritual
-            </span>
-            <h3 className="mt-5 font-display text-3xl md:text-5xl font-bold leading-[1.02]">
-              Stations <span className="italic font-light text-muted-foreground">long-term.</span><br/>
-              Online <span className="italic font-light text-muted-foreground">for real life.</span>
-            </h3>
-            <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
-              We're not pretending to be 100% zero waste. We're trying to be significantly more
-              conscious than a canned drink — without asking you to reorganize your week. Both
-              routes feed the same cylinder.
-            </p>
-          </div>
+        {/* WHY TABLETS — useful sustainability logic */}
+<div className="px-6 md:px-10 pb-24 md:pb-32 max-w-7xl mx-auto">
+  <div className="grid lg:grid-cols-12 gap-12 items-start">
+    <div className="lg:col-span-5 reveal">
+      <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
+        Chapter 05 — why tablets
+      </span>
 
-          <div className="grid md:grid-cols-3 gap-4">
-            {[
-              {
-                tag: "01 · Stations",
-                title: "The long-term ecosystem",
-                body: "Walk into a local VYTAL station. Refill the cylinder directly. Walk out. Zero shipping, zero packaging. Rolling out city by city — slowly, on purpose.",
-              },
-              {
-                tag: "02 · Online refills",
-                title: "For wherever you actually are",
-                body: "Refill packs shipped in concentrated form. No water trucked across the country. Subscription pauses, skips and shifts with your life.",
-              },
-              {
-                tag: "03 · Return loop",
-                title: "Five empties at a time",
-                body: "Collect five empty cylinders. Drop them unfranked into any postbox. They come back to us, get sterilized and re-released. No app needed.",
-              },
-            ].map((c) => (
-              <article key={c.tag} className="reveal rounded-3xl border border-foreground/10 bg-background p-7 hover:bg-secondary/40 transition-colors duration-500">
-                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">{c.tag}</span>
-                <h4 className="mt-4 font-display text-lg font-semibold">{c.title}</h4>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.body}</p>
-              </article>
-            ))}
-          </div>
+      <h3 className="mt-5 font-display text-4xl md:text-6xl font-bold leading-[0.98] text-balance">
+        Why ship water<br />
+        <span className="italic font-light text-muted-foreground">
+          across the country?
+        </span>
+      </h3>
 
-          <div className="mt-12 reveal max-w-xl">
-            <p className="text-xs text-muted-foreground/80 leading-relaxed border-t border-foreground/10 pt-5">
-              Not perfect — significantly more conscious. Concentrated shipping cuts ~85% of
-              transported volume vs. canned drinks. Numbers published every quarter, in plain
-              language, with the parts we still get wrong.
-            </p>
-          </div>
-        </div>
+      <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
+        Most ready-to-drink energy products are mostly water. We separate the drink
+        from the transport: you add local water, we only move the functional part.
+      </p>
+    </div>
+
+    <div className="lg:col-span-7 grid md:grid-cols-3 gap-4">
+      {[
+        {
+          tag: "01",
+          title: "Less transport volume",
+          body: "Compact tablets take up far less space than ready-made drinks in cans or bottles.",
+        },
+        {
+          tag: "02",
+          title: "Less disposable material",
+          body: "One bottle stays with you instead of buying a new single-use container for every drink.",
+        },
+        {
+          tag: "03",
+          title: "Water already exists nearby",
+          body: "At home, on campus, at work or at a station — water does not need to be shipped again and again.",
+        },
+      ].map((c) => (
+        <article
+          key={c.tag}
+          className="rounded-3xl border border-foreground/10 bg-background p-7 hover:bg-secondary/40 transition-colors duration-500"
+        >
+          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
+            {c.tag}
+          </span>
+
+          <h4 className="mt-4 font-display text-lg font-semibold">
+            {c.title}
+          </h4>
+
+          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+            {c.body}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</div>
 
         <div className="px-6 md:px-10 py-32 md:py-44 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-background order-2 lg:order-1">
@@ -355,19 +382,25 @@ function RefillPage() {
               An object you<br/>want to keep.
             </h2>
             <p className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-md">
-              Borosilicate glass. Brushed stainless. Cork. Soft silicone. Materials chosen
-              the way you'd choose a notebook you write in every day.
+              The bottle is designed as a long-term object instead of disposable packaging.
+              Borosilicate glass keeps the flavor clean and neutral, while stainless steel
+              and aluminum were chosen for durability, repeated daily use and long material lifecycles.
             </p>
             <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 max-w-md">
               {[
-                ["Glass", "Borosilicate, taste-neutral"],
-                ["Cap", "Brushed 304 stainless"],
-                ["Grip", "Soft-touch silicone"],
-                ["Weight", "318 g · balanced"],
+                ["Glass", "Borosilicate · taste-neutral · durable daily use"],
+                ["Steel", "304 stainless steel · corrosion-resistant"],
+                ["Cylinder", "Anodized aluminum · reused through the deposit loop"],
+                ["Weight", "318 g · balanced for everyday carry"],
               ].map(([k, v]) => (
                 <div key={k}>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{k}</dt>
-                  <dd className="mt-2 font-display text-lg">{v}</dd>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    {k}
+                  </dt>
+
+                  <dd className="mt-2 font-display text-lg">
+                    {v}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -393,9 +426,9 @@ function RefillPage() {
           </figure>
           <div className="md:col-span-4 grid gap-6">
             {[
-              { t: "The morning desk", d: "Before the laptop opens. One fill, one quiet minute." },
-              { t: "The library carry", d: "Refilled at the fountain. No queue, no can." },
-              { t: "The late evening", d: "Half a tablet. Wind down without crashing out." },
+              { t: "Home refill", d: "Open the container, press one tablet, add water." },
+              { t: "Station stop", d: "Refill on campus, at the supermarket or on the way home." },
+              { t: "Online backup", d: "When life gets busy, cylinders arrive at home and return later." },
             ].map((m) => (
               <article key={m.t} className="reveal rounded-3xl border border-border p-6 bg-background">
                 <h3 className="font-display text-lg font-semibold">{m.t}</h3>
@@ -438,18 +471,18 @@ function RefillPage() {
         <div className="max-w-3xl mx-auto reveal">
           <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Built calmly. On purpose.</span>
           <h2 className="mt-8 font-display text-5xl md:text-7xl font-extrabold leading-[0.95] tracking-tighter text-balance">
-            A refill system<br/>for modern <span className="italic font-light">overstimulation.</span>
+            A calmer way<br/>to refill energy.<span className="italic font-light">overstimulation.</span>
           </h2>
           <p className="mt-10 text-muted-foreground text-lg max-w-xl mx-auto leading-relaxed">
             (Re)Fuel your day. Not the planet. Start with one bottle and one tablet —
             the rest is just repetition you'll come to enjoy.
           </p>
           <div className="mt-12 flex flex-wrap gap-3 justify-center">
-            <Link to="/shop" className="inline-flex bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-primary transition-all">
-              Shop the system
+            <Link to="/shop" hash="starter" id="bottle"  className="inline-flex bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-primary transition-all">
+              Explore the bottle
             </Link>
-            <Link to="/journal" className="inline-flex border border-foreground/20 text-foreground px-8 py-4 rounded-full font-medium hover:bg-foreground hover:text-background transition-all">
-              Start your ritual
+            <Link to="/journal" id="packs" className="inline-flex border border-foreground/20 text-foreground px-8 py-4 rounded-full font-medium hover:bg-foreground hover:text-background transition-all">
+             Dive into the flavours
             </Link>
           </div>
         </div>
