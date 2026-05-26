@@ -37,25 +37,13 @@ function Index() {
   const starterKit = useMemo(() => products.find((p: Product) => p.slug === "starter-kit"), []);
   const variants = starterKit?.variants || [];
 
-  useEffect(() => {
-    if (variants.length <= 1) return;
-    const interval = setInterval(() => {
-      setHeroIndex((prev: number) => {
-        const next = (prev + 1) % variants.length;
-        console.log("Wechsel zu Index:", next, "Bild:", variants[next].image); // <--- Hier schauen
-        return next;
-      });
-    }, 4000); 
-    return () => clearInterval(interval);
-  }, [variants]);
 
   return (
     <main className="min-h-screen bg-background text-foreground">
       <SiteHeader />
       <Hero 
-        key={heroIndex} // HIER: Das 'key' muss an die Hero-Komponente, nicht nur ans Bild!
-        heroImage={variants.length > 0 ? variants[heroIndex].image : cinematicHero} 
-        heroIndex={heroIndex} 
+        heroImage={cinematicHero} // Hier fest das Bild einstellen, das du willst
+        heroIndex={0} 
       />
       <Overstimulation />
       <SystemSection />
