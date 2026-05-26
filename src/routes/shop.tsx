@@ -97,11 +97,11 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
         </button>
 
         <div className="grid md:grid-cols-2">
-          <div className="relative aspect-[4/5] bg-secondary/40">
+          <div className="relative h-full min-h-[350px] bg-secondary/40">
             <img
               src={shopStarterKit}
               alt="VYTAL Starter Kit"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover object-center"
             />
           </div>
 
