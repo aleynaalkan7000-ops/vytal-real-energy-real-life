@@ -21,6 +21,7 @@ export type Product = {
   swatch: string;
   color: string;
   image: string;
+  variants?: { slug: string; colorName: string; hex: string; image: string }[];
   reviews: { quote: string; name: string; role: string }[];
 };
 
@@ -35,6 +36,8 @@ import bottleFlow from "@/assets/bottle-flow.png";
 import bottleOffice from "@/assets/bottle-office.png";
 import bottleHome from "@/assets/bottle-home.png";
 import bottleUnity from "@/assets/bottle-unity.png";
+import flowBottleBeige from "@/assets/bottle-flow-beige.jpg";
+import flowBottleOlive from "@/assets/bottle-flow-green.jpg";
 
 const baseNutrition = [
   { label: "Energy", value: "12 kcal / 100ml" },
@@ -340,6 +343,11 @@ export const products: Product[] = [
     bundle: "Bottle + 5 refills · €44",
     swatch: "bg-primary/30",
     color: "Sage soft",
+    variants: [
+      { slug: "flow-bottle", colorName: "Sage Soft", hex: "#d1d5c6", image: bottleFlow },
+      { slug: "flow-bottle-beige", colorName: "Matte Oat", hex: "#e8dec7", image: flowBottleBeige },
+      { slug: "flow-bottle-olive", colorName: "Soft Olive", hex: "#8a9a83", image: flowBottleOlive },
+    ],
     reviews: [
       { quote: "Looks beautiful on my desk and never leaks.", name: "Ines W.", role: "PM · Munich" },
     ],

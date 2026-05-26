@@ -1026,6 +1026,13 @@ function ProductQuickView({
   const basePrice = parsePrice(product.price);
   const deposit = product.category === "refill" ? 4 : 0;  
   const [added, setAdded] = useState(false);
+  const [activeVariant, setActiveVariant] = useState(
+    product.variants && product.variants.length > 0 ? product.variants[0] : null
+  );
+
+  const currentImage = activeVariant ? activeVariant.image : product.image;
+  const currentSlug = activeVariant ? activeVariant.slug : product.slug;
+  const currentColorName = activeVariant ? activeVariant.colorName : (product.flavor ?? product.color);
       useEffect(() => {
       document.body.style.overflow = "hidden";
 
@@ -1045,13 +1052,13 @@ function ProductQuickView({
 
   const handleAdd = () => {
   add({
-    id: product.slug,
+    id: currentSlug,
     name: product.name,
-    variant: product.flavor ?? product.color,
-    image: product.image,
+    variant: currentColorName,
+    image: currentImage,
     unitPrice,
     qty,
-    href: `/shop/${product.slug}`,
+    href: `/shop/${currentSlug}`,
   });
 
   setAdded(true);
@@ -1081,9 +1088,9 @@ function ProductQuickView({
         <div className="grid md:grid-cols-2">
           <div className="relative aspect-[4/5] bg-secondary/40">
             <img
-              src={product.image}
+              src={currentImage}
               alt={product.name}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
             />
           </div>
 
@@ -1099,6 +1106,29 @@ function ProductQuickView({
             <p className="mt-5 text-muted-foreground leading-relaxed">
               {product.description}
             </p>
+
+            {product.variants && product.variants.length > 0 && (
+              <div className="mt-8">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
+                  Color · <span className="text-foreground">{currentColorName}</span>
+                </p>
+                <div className="flex gap-3">
+                  {product.variants.map((v) => (
+                    <button
+                      key={v.slug}
+                      onClick={() => setActiveVariant(v)}
+                      className={`size-8 rounded-full border-2 transition-all ${
+                        activeVariant?.slug === v.slug 
+                          ? "border-foreground scale-110" 
+                          : "border-transparent hover:scale-105 shadow-sm"
+                      }`}
+                      style={{ backgroundColor: v.hex }}
+                      aria-label={`Select ${v.colorName}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
 
             {product.flavor && (
               <div className="mt-6 rounded-2xl border border-border p-5 bg-secondary/30">
@@ -1282,7 +1312,7 @@ function ProductQuickView({
 
             <Link
               to="/shop/$slug"
-              params={{ slug: product.slug }}
+              params={{ slug: currentSlug }}
               className="mt-5 inline-flex font-mono text-[10px] uppercase tracking-[0.25em] text-primary hover:text-foreground"
             >
               Full product page →
