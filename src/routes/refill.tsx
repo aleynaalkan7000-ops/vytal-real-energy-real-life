@@ -471,7 +471,7 @@ function RefillPage() {
         <div className="max-w-3xl mx-auto reveal">
           <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Built calmly. On purpose.</span>
           <h2 className="mt-8 font-display text-5xl md:text-7xl font-extrabold leading-[0.95] tracking-tighter text-balance">
-            A calmer way<br/>to refill energy.<span className="italic font-light">overstimulation.</span>
+            A calmer way <br></br> <span className="italic font-light">to refill energy.</span>
           </h2>
           <p className="mt-10 text-muted-foreground text-lg max-w-xl mx-auto leading-relaxed">
             (Re)Fuel your day. Not the planet. Start with one bottle and one tablet —
