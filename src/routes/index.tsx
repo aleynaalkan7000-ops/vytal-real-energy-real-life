@@ -458,18 +458,21 @@ function ProductTeaser() {
 function JournalPreview() {
   const articles = [
     {
+      id: "productive-crash",
       kicker: "Essay",
       title: "The myth of productive crashes.",
       excerpt: "Why the spike-and-collapse cycle has become a personality, and what changes when you finally let it go.",
       meta: "6 min read",
     },
     {
+      id: "attention-span",
       kicker: "Field note",
       title: "Your attention span isn\u2019t broken.",
       excerpt: "It\u2019s just outnumbered. A quiet argument for fewer inputs, slower mornings, and one good drink at a time.",
       meta: "4 min read",
     },
     {
+      id: "calmer-mornings",
       kicker: "Manifesto",
       title: "Designing calmer routines.",
       excerpt: "Three small structural changes that compound into something that actually feels like rest.",
@@ -500,8 +503,9 @@ function JournalPreview() {
         <div className="grid md:grid-cols-3 gap-6">
           {articles.map((a, idx) => (
             <Link
-              key={a.title}
+              key={a.id}
               to="/journal"
+              hash={a.id.toLowerCase().replace(/ /g, "-")}
               className="reveal group p-10 rounded-3xl bg-secondary/60 border border-border hover:bg-secondary hover:border-primary/30 transition-all duration-700 flex flex-col gap-6 min-h-[20rem]"
               style={{ transitionDelay: `${idx * 80}ms` }}
             >

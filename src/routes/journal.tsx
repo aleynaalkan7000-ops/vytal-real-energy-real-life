@@ -573,6 +573,16 @@ function JournalPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const hash = window.location.hash.substring(1); // z.B. "attention-span"
+    if (hash) {
+      const article = journalArticles.find((a) => a.id === hash);
+      if (article) {
+        setActiveArticle(article);
+      }
+    }
+  }, []);
+
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SiteHeader />
