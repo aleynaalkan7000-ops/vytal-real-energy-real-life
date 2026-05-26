@@ -290,7 +290,7 @@ export const products: Product[] = [
     function: "Optimised to-go bottle for fast, precise refills",
     tagline: "More than a bottle — part of the system.",
     description:
-      "Specially developed for the VYTAL refill system. The standardised shape lets the dispenser recognise size, fill level, mix ratio and desired intensity — automatically.",
+      "Designed with a 750 ml capacity, it is specially developed for the VYTAL refill system. The standardised shape lets the dispenser recognise size, fill level, mix ratio and desired intensity — automatically.",
     ingredients: [
       { name: "Borosilicate glass body" },
       { name: "Soft-touch silicone sleeve" },
@@ -370,7 +370,7 @@ export const products: Product[] = [
     function: "Premium reusable bottle for professional spaces",
     tagline: "Quiet, professional, leak-proof.",
     description:
-      "Combines functionality with high-quality aesthetics — developed specifically for modern work environments. Soft-close lid, anti-fingerprint surface, leak-proof business build.",
+      "Designed with a 750 ml capacity, this bottle combines functionality with high-quality aesthetics — developed specifically for modern work environments. Its soft-close lid, anti-fingerprint surface, and leak-proof build ensure a professional experience.",
     ingredients: [
       { name: "Stainless steel body" },
       { name: "Soft-matte coating" },
@@ -431,7 +431,7 @@ export const products: Product[] = [
     function: "Community-driven limited edition",
     tagline: "Limited drops, with sammler character.",
     description:
-      "Not just functional — part of the brand and community experience. Limited drops and exclusive designs create emotional value, collectibility and stronger brand connection.",
+      "Featuring a 750 ml capacity, this limited-edition bottle is not just functional — but part of the brand and community experience. Limited drops and exclusive designs create emotional value, collectibility and stronger brand connection.",
     ingredients: [
       { name: "Translucent body" },
       { name: "Holographic accents" },

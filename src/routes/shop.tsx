@@ -534,7 +534,7 @@ function ShopPage() {
 
           <ul className="mt-8 space-y-2 text-sm">
             {[
-              "1 × Borosilicate glass bottle",
+              "1 × 750ml Borosilicate glass bottle",
               "1 × Matte aluminum refill cylinder",
               "6 × Refill flavors (Focus, Flow, Refresh, Boost, Balance, Recharge)",
               "1 × Linen sleeve & carry pouch",
