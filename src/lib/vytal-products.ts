@@ -40,6 +40,9 @@ import flowBottleBeige from "@/assets/bottle-flow-beige.jpg";
 import flowBottleOlive from "@/assets/bottle-flow-green.jpg";
 import goBottleBrown from "@/assets/bottle-go-brown.jpg";
 import goBottleBeige from "@/assets/bottle-go-beige.jpg";
+import shopStarterKitBrown from "@/assets/shop-starter-kit-brown.jpg";
+import shopStarterKitBeige from "@/assets/shop-starter-kit-beige.png";
+import shopStarterKit from "@/assets/shop-starter-kit-v2.png";
 
 const baseNutrition = [
   { label: "Energy", value: "12 kcal / 100ml" },
@@ -478,6 +481,11 @@ export const products: Product[] = [
     bundle: "Bottle + 6 refills",
     swatch: "bg-primary",
     color: "Sage starter",
+    variants: [
+      { slug: "starter-kit", colorName: "Sage Soft", hex: "#8a9a83", image: shopStarterKit },
+      { slug: "starter-kit-brown", colorName: "Matte Brown", hex: "#8c7a6b", image: shopStarterKitBrown },
+      { slug: "starter-kit-beige", colorName: "Matte Beige", hex: "#dcd3c6", image: shopStarterKitBeige },
+    ],
     reviews: [
       { quote: "I gifted three of these last month.", name: "Lena F.", role: "VYTAL early user" },
     ],

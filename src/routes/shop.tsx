@@ -6,6 +6,8 @@ import { products, type Product } from "@/lib/vytal-products";
 import { useCart, parsePrice, formatPrice } from "@/contexts/cart-context";
 import shopHero from "@/assets/shop-hero.jpg";
 import shopStarterKit from "@/assets/shop-starter-kit-v2.png";
+import shopStarterKitBrown from "@/assets/shop-starter-kit-brown.jpg";
+import shopStarterKitBeige from "@/assets/shop-starter-kit-beige.png";
 import shopHeroBottle from "@/assets/shop-hero-bottle-new.png";
 import shopRitualDesk from "@/assets/shop-ritual-desk.jpg";
 import aluHero from "@/assets/alu-hero.jpg";
@@ -186,6 +188,16 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
 
+  const product = useMemo(() => products.find((p) => p.slug === "starter-kit")!, []);
+
+  const [activeVariant, setActiveVariant] = useState(
+    product?.variants && product.variants.length > 0 ? product.variants[0] : null
+  );
+
+  const currentImage = activeVariant ? activeVariant.image : shopStarterKit;
+  const currentSlug = activeVariant ? activeVariant.slug : "starter-kit";
+  const currentColorName = activeVariant ? activeVariant.colorName : "Complete ritual";
+
   const unitPrice = 68;
 
   const handleAdd = () => {
@@ -226,7 +238,7 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
         <div className="grid md:grid-cols-2">
           <div className="relative h-full min-h-[350px] bg-secondary/40">
             <img
-              src={shopStarterKit}
+              src={currentImage}
               alt="VYTAL Starter Kit"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
@@ -246,6 +258,29 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
               one refill cylinder, all six functional flavors, sleeve, pouch and
               onboarding ritual card.
             </p>
+
+            {product?.variants && product.variants.length > 0 && (
+              <div className="mt-8">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
+                  Bottle Color · <span className="text-foreground">{currentColorName}</span>
+                </p>
+                <div className="flex gap-3">
+                  {product.variants.map((v) => (
+                    <button
+                      key={v.slug}
+                      onClick={() => setActiveVariant(v)}
+                      className={`size-8 rounded-full border-2 transition-all ${
+                        activeVariant?.slug === v.slug 
+                          ? "border-foreground scale-110" 
+                          : "border-transparent hover:scale-105 shadow-sm"
+                      }`}
+                      style={{ backgroundColor: v.hex }}
+                      aria-label={`Select ${v.colorName}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="mt-8 rounded-2xl border border-border p-5 bg-secondary/30">
               <p className="font-mono text-[10px] uppercase tracking-widest text-primary mb-3">
