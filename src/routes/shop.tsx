@@ -11,6 +11,7 @@ import shopRitualDesk from "@/assets/shop-ritual-desk.jpg";
 import aluHero from "@/assets/alu-hero.jpg";
 import aluDispense from "@/assets/alu-dispense.jpg";
 import aluLoop from "@/assets/alu-loop.jpg";
+import { DiscountBanner } from "./discount-banner";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -843,7 +844,7 @@ function ShopPage() {
     onClose={() => setStarterKitOpen(false)}
   />
 )}
-
+<DiscountBanner />
 <SiteFooter />
     </main>
   );

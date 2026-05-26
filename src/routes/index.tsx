@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react"; // HIER: useState und useM
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products, type Product } from "@/lib/vytal-products"; // HIER: products importiert
+import { DiscountBanner } from "./discount-banner";
 import cinematicHero from "@/assets/cinematic-hero.jpg";
 import tabletDissolve from "@/assets/tablet-dissolve.jpg";
 import ritualMorning from "@/assets/ritual-morning.png";
@@ -10,6 +11,7 @@ import ritualNight from "@/assets/ritual-night.jpg";
 import dailyStudy from "@/assets/daily-study.jpg";
 import dailyOffice from "@/assets/daily-office.jpg";
 import productLineup from "@/assets/product-lineup-new.png";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
