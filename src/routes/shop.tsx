@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products, type Product } from "@/lib/vytal-products";
 import { useCart, parsePrice, formatPrice } from "@/contexts/cart-context";
+import { UnityDropBanner } from "./unity-drop-banner";
 import shopHero from "@/assets/shop-hero.jpg";
 import shopStarterKit from "@/assets/shop-starter-kit-v2.png";
 import shopHeroBottle from "@/assets/shop-hero-bottle-new.png";
@@ -355,6 +356,48 @@ function ShopPage() {
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SiteHeader />
 
+<div className="px-6 md:px-10 mt-10 mb-6">
+  <div className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#f4f1eb] to-[#ebe7df] px-8 py-7 shadow-[0_10px_40px_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-[2px] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+
+    {/* glow */}
+    <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-white/40 blur-3xl opacity-60" />
+
+    {/* content */}
+    <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+
+      <div className="flex items-center gap-5 flex-wrap">
+
+        <span className="rounded-full border border-black/10 bg-white/50 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.28em] text-black/70 backdrop-blur-sm">
+          Limited Drop
+        </span>
+
+        <div>
+          <p className="text-xl md:text-2xl font-semibold tracking-tight text-black">
+            UNITY Bottle
+          </p>
+
+          <p className="mt-1 text-sm md:text-base text-black/60">
+            Translucent collector edition inspired by light, ritual and reuse.
+          </p>
+        </div>
+      </div>
+
+      <button
+        onClick={() => {
+          const el = document.getElementById("unity");
+          el?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }}
+        className="unity-drop-banner__button"
+      >
+        View drop →
+      </button>
+    </div>
+  </div>
+</div>
+
       {/* HERO — Starter Kit leads the entire shop */}
       <section id ="starter-kit"className="relative min-h-[100svh] flex items-end overflow-hidden bg-gradient-to-b from-secondary/70 via-background to-background">
         <div className="absolute inset-0 -z-10">
@@ -436,6 +479,8 @@ function ShopPage() {
           behind every order. Designed for routines you already live.
         </p>
       </section>
+
+
 
  {/* STARTER KIT — THE HERO PRODUCT */}
 <section id="starter" className="px-6 md:px-10 max-w-7xl mx-auto pb-28 md:pb-44">
@@ -653,6 +698,7 @@ function ShopPage() {
     </div>
   </div>
 </section>
+ 
 
       {/* RELOADS / REFILLS — cinematic cards */}
 <section id="refills" className="px-6 md:px-10 max-w-7xl mx-auto pt-28 md:pt-40 pb-20">
@@ -757,7 +803,7 @@ function ShopPage() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
           {bottles.map((b) => (
-            <button key={b.slug} onClick={() => setSelectedProduct(b)} className="group reveal block text-left">
+            <button  id={b.slug === "unity-bottle" ? "unity" : undefined} key={b.slug} onClick={() => setSelectedProduct(b)} className="group reveal block text-left">
               <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
                 <img src={b.image} alt={b.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]" />
                 <div className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/80">

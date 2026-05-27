@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
+import { UnityDropBanner } from "./unity-drop-banner";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { getArticleBySlug, journalArticles } from "@/lib/journal-articles";
@@ -24,6 +25,7 @@ export const Route = createFileRoute("/journal/$slug")({
       ],
     };
   },
+  
   notFoundComponent: () => (
     <main className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -52,7 +54,6 @@ export const Route = createFileRoute("/journal/$slug")({
   ),
   component: ArticlePage,
 });
-
 function ArticlePage() {
   const { article } = Route.useLoaderData();
   const heroRef = useRef<HTMLDivElement | null>(null);

@@ -2,13 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { UnityDropBanner } from "./unity-drop-banner";
+import journalLibrary from "@/assets/journal-library.jpg";
 import journalHero from "@/assets/journal-hero.jpg";
 import journalStillife from "@/assets/journal-stillife.jpg";
 import journalFeatured from "@/assets/journal-featured.jpg";
 import journalRitual from "@/assets/journal-ritual.png";
 import journalMorning from "@/assets/journal-morning.jpg";
 import journalCafe from "@/assets/journal-cafe.jpg";
-import journalLibrary from "@/assets/journal-library.jpg";
 import journalTrain from "@/assets/journal-train.jpg";
 import ritualMorning from "@/assets/ritual-morning.png";
 
@@ -25,7 +26,7 @@ export const Route = createFileRoute("/journal")({
   }),
   component: JournalPage,
 });
-
+<UnityDropBanner />
 const categories = [
   "Focus",
   "Rituals",
