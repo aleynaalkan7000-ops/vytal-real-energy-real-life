@@ -236,7 +236,7 @@ function ContactPage() {
                   className="group relative px-10 py-4 rounded-full bg-background text-foreground text-sm tracking-wide overflow-hidden transition hover:bg-primary hover:text-primary-foreground disabled:opacity-70"
                 >
                   <span className="relative z-10">
-                    {sent ? "Thank you — we&rsquo;ll write back soon." : "Send a message"}
+                    {sent ? "Thank you — we'll write back soon." : "Send a message"}
                   </span>
                 </button>
               </div>
