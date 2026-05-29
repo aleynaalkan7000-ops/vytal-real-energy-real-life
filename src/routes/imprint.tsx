@@ -57,8 +57,8 @@ function ImprintPage() {
 
             <p>
               Hochschule Heilbronn <br />
-              Max-Planck-Straße 39 <br />
-              74081 Heilbronn <br />
+              Bildungscampus <br />
+              74076 Heilbronn <br />
               Germany
             </p>
           </div>

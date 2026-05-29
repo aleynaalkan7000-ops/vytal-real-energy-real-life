@@ -130,7 +130,7 @@ function ContactPage() {
       <section className="px-6 md:px-12 pb-32 md:pb-48 max-w-[1400px] mx-auto">
         <div className="grid md:grid-cols-3 gap-px bg-foreground/10 rounded-3xl overflow-hidden">
           {[
-            { k: "01", t: "Real people", d: "Written by a small team in Munich. No outsourced support, no scripts." },
+            { k: "01", t: "Real people", d: "Written by a small team in Heilbronn. No outsourced support, no scripts." },
             { k: "02", t: "Read thoughtfully", d: "Every message is opened by a person before it&rsquo;s answered or routed." },
             { k: "03", t: "Calm by default", d: "We don&rsquo;t chase, we don&rsquo;t nudge. You&rsquo;ll hear from us once, and well." },
           ].map((p, i) => (
@@ -260,7 +260,7 @@ function ContactPage() {
               />
             </div>
             <figcaption className="mt-4 font-mono text-[10px] tracking-[0.32em] uppercase text-foreground/40">
-              Field note — Munich studio
+              Field note — Heilbronn studio
             </figcaption>
           </figure>
 
@@ -298,7 +298,7 @@ function ContactPage() {
 
             <dl className="mt-12 divide-y divide-foreground/10 border-t border-foreground/10">
               {[
-                ["Studio", "Münchner Freiheit 3 · 80802 München"],
+                ["Studio", "Bildungscampus · 74076 Heilbronn"],
                 ["Hours", "Mon — Fri · 09:00 to 17:00 CET"],
                 ["Reply time", "Usually within two working days"],
                 ["Press kit", "On request — press@vytal.energy"],
@@ -329,7 +329,7 @@ function ContactPage() {
             <em className="font-serif italic font-extralight">On purpose.</em>
           </h2>
           <p className="reveal opacity-0 translate-y-4 transition-all duration-1000 delay-200 mt-10 max-w-xl mx-auto text-foreground/65 leading-relaxed">
-            Whenever you&rsquo;re ready — we&rsquo;re here, quietly, in Munich.
+            Whenever you&rsquo;re ready — we&rsquo;re here, quietly, in Heilbronn.
           </p>
 
           <div className="reveal opacity-0 translate-y-4 transition-all duration-1000 delay-300 mt-12 flex flex-wrap justify-center gap-3">
