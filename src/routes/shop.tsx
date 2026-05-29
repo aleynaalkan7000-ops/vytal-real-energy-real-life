@@ -836,10 +836,8 @@ function ShopPage() {
             {[
               { k: "−85%", l: "Shipping volume vs. canned drinks" },
               { k: "0", l: "Single-use plastic wrappers per refill" },
-              { k: "5×", l: "Cylinders per return cycle" },
-              { k: "Q1", l: "Public sustainability report each quarter" },
               { k: "100%", l: "Traceable ingredient sourcing" },
-              { k: "8", l: "Tablets per cylinder before return" },
+              { k: "8", l: "Refills per cylinder" },
             ].map((m) => (
               <div key={m.l} className="rounded-2xl border border-background/15 p-6 bg-background/5">
                 <p className="font-display text-3xl">{m.k}</p>
