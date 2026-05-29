@@ -89,6 +89,7 @@ function AboutPage() {
 
       {/* ───────────────────────────── HERO ───────────────────────────── */}
       <section className="relative h-[94vh] min-h-[680px] w-full overflow-hidden">
+        {/* 1. NUR DAS BILD & GRADIENT (die absolute Ebene) */}
         <div ref={heroImgRef} className="absolute inset-0 will-change-transform">
           <img
             src={aboutHero}
@@ -100,36 +101,34 @@ function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/20 to-background" />
         </div>
 
+        {/* 2. DER TEXT-INHALT (darunter, im normalen Layout-Fluss) */}
         <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-10 flex flex-col justify-end pb-16 md:pb-24">
-          <div className="reveal flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.24em] text-foreground/70">
-            <span className="h-px w-10 bg-foreground/40" />
-            <span>About VYTAL — a quieter way of working</span>
+          
+          {/* Label jetzt hier platziert - es erscheint jetzt unter dem Bild/Text-Mix */}
+          <div className="mb-8 reveal opacity-0 translate-y-6 transition-all duration-[1400ms] ease-out">
+            <span className="font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/70">
+              Volume 04 · About
+            </span>
           </div>
-          <h1 className="reveal mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-extrabold leading-[0.92] tracking-tight text-balance max-w-5xl">
+
+          <h1 className="reveal mt-0 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-extrabold leading-[0.92] tracking-tight text-balance max-w-5xl">
             We're tired of <em className="italic font-normal text-primary">being tired.</em>
             <span className="block text-foreground/55">And of pretending it's normal.</span>
           </h1>
+          
           <p className="reveal mt-8 max-w-xl text-base md:text-lg text-foreground/75 leading-relaxed">
             A calmer alternative to modern productivity culture — built for people who'd rather
             live a day than survive it.
           </p>
+
           <div className="reveal mt-10 flex flex-wrap items-center gap-3">
-            <Link
-              to="/refill"
-              className="inline-flex items-center gap-2 bg-foreground text-background rounded-full px-6 py-3 text-sm font-medium hover:bg-primary transition-colors"
-            >
+            <Link to="/refill" className="inline-flex items-center gap-2 bg-foreground text-background rounded-full px-6 py-3 text-sm font-medium hover:bg-primary transition-colors">
               Explore the system
             </Link>
-            <Link
-              to="/journal"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium border border-foreground/20 hover:bg-foreground/5 transition-colors"
-            >
+            <Link to="/journal" className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium border border-foreground/20 hover:bg-foreground/5 transition-colors">
               Read the journal
             </Link>
-            <Link
-              to="/shop"
-              className="inline-flex items-center text-sm font-mono text-foreground/70 hover:text-foreground transition-colors ml-2"
-            >
+            <Link to="/shop" className="inline-flex items-center text-sm font-mono text-foreground/70 hover:text-foreground transition-colors ml-2">
               Shop VYTAL →
             </Link>
           </div>
@@ -153,7 +152,7 @@ function AboutPage() {
           </div>
           <div className="lg:col-span-7 order-1 lg:order-2">
             <p className="reveal font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-              A small realization
+              Chapter 01 · A Small Realization
             </p>
             <h2 className="reveal mt-6 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.04] tracking-tight text-balance">
               Maybe the problem <em className="italic font-normal text-primary">isn't motivation.</em>
@@ -199,7 +198,7 @@ function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4 reveal">
             <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-background/60">
-              The philosophy
+              Chapter 02 · The Philosophy
             </p>
             <h2 className="mt-6 font-display text-4xl md:text-5xl font-extrabold leading-[1.04] tracking-tight text-balance">
               Our philosophy, in five quiet lines.
@@ -232,7 +231,7 @@ function AboutPage() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           <div className="lg:col-span-5 lg:sticky lg:top-32">
             <p className="reveal font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-              Design intention
+              Chapter 03 · Design Intention
             </p>
             <h2 className="reveal mt-6 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.02] tracking-tight text-balance">
               Why we built it <em className="italic font-normal text-primary">this</em> way.
@@ -287,7 +286,7 @@ function AboutPage() {
           <div className="lg:col-span-5 bg-secondary/60 px-8 md:px-12 lg:px-16 py-20 md:py-28 flex items-center">
             <div>
               <p className="reveal font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-                The human side
+                Chapter 04 · The Human Side
               </p>
               <h2 className="reveal mt-6 font-display text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.06] tracking-tight text-balance">
                 A small studio. <em className="italic font-normal text-primary">Slow on purpose.</em>
