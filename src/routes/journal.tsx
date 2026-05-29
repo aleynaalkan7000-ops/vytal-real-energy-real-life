@@ -692,15 +692,12 @@ function JournalPage() {
         <div className="reveal flex items-end justify-between mb-10 md:mb-14">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-              Issue 04 · Cover essay
+              Issue 01 · Cover essay
             </p>
             <h2 className="mt-3 font-display text-2xl md:text-3xl font-medium tracking-tight">
               The cover essay
             </h2>
           </div>
-          <span className="hidden md:block font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-            01 / {journalArticles.length.toString().padStart(2, "0")}
-          </span>
         </div>
 
         <article className="reveal group grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
@@ -941,6 +938,13 @@ function ArticleModal({
   article: Article;
   onClose: () => void;
 }) {
+  // Wir finden den Index (0-basiert), deshalb +1 für die Anzeige
+  const index = journalArticles.findIndex((a) => a.id === article.id) + 1;
+  const total = journalArticles.length;
+  
+  // Formatierung: 01 / 08
+  const displayIndex = index.toString().padStart(2, '0');
+  const displayTotal = total.toString().padStart(2, '0');
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8">
       <button
@@ -962,8 +966,8 @@ function ArticleModal({
 
         <article className="px-6 sm:px-12 md:px-20 py-12 md:py-20">
           <div className="flex justify-between gap-6 font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-            <span>Issue 04 · Editorial Journal</span>
-            <span>01 / 08</span>
+            <span>Issue 01 · Editorial Journal</span>
+            <span>{displayIndex} / {displayTotal}</span>
           </div>
 
           <p className="mt-16 font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
