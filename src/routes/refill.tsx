@@ -425,7 +425,7 @@ function RefillPage() {
             <div className="absolute inset-0 ring-1 ring-inset ring-foreground/5 rounded-[2rem]" />
           </div>
           <div className="order-1 lg:order-2 reveal">
-            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Chapter 05 — materials</span>
+            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Chapter 06 — materials</span>
             <h2 className="mt-6 font-display text-4xl md:text-6xl font-bold leading-[1] text-balance">
               An object you<br/>want to keep.
             </h2>
@@ -459,7 +459,7 @@ function RefillPage() {
       {/* REAL LIFE INTEGRATION */}
       <section className="px-6 md:px-10 py-32 md:py-44 max-w-7xl mx-auto">
         <div className="max-w-3xl mb-16 reveal">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Chapter 06 — everyday</span>
+          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Chapter 07 — everyday</span>
           <h2 className="mt-6 font-display text-4xl md:text-6xl font-bold leading-[1]">
             Small rituals,<br/><span className="italic font-light text-muted-foreground">in real rooms.</span>
           </h2>
@@ -490,7 +490,7 @@ function RefillPage() {
       {/* TRANSPARENCY — quiet, not preachy */}
       <section className="bg-foreground text-background px-6 md:px-10 py-28 md:py-36">
         <div className="max-w-5xl mx-auto reveal">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-accent">Chapter 07 — what we mean by less</span>
+          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-accent">Chapter 08 — what we mean by less</span>
           <h2 className="mt-6 font-display text-3xl md:text-5xl font-light leading-[1.1] max-w-3xl">
             We measure what we change.<br/>
             <span className="italic">We don't decorate the rest.</span>
