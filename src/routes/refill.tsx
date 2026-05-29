@@ -95,7 +95,7 @@ function RefillPage() {
         <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-10 flex flex-col justify-between py-24">
           <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase text-background/70">
             <span className="size-1.5 rounded-full bg-accent animate-float" />
-            The refill system — Chapter 01
+            Volume 02 · The Refill System 
           </div>
 
           <div className="max-w-4xl">
@@ -133,7 +133,7 @@ function RefillPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-foreground via-foreground/60 to-foreground/20" />
         </div>
         <div className="relative max-w-5xl mx-auto">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-background/60 reveal">Chapter 02 — the cycle</span>
+          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-background/60 reveal">Chapter 01 · The Cycle</span>
           <h2 className="reveal mt-6 font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] text-balance">
             Energy<br/>shouldn't<br/>feel <span className="italic font-light">disposable.</span>
           </h2>
@@ -157,7 +157,7 @@ function RefillPage() {
       {/* THE RITUAL — signature cinematic sequence */}
       <section id="ritual" className="relative bg-background overflow-hidden">
         <div className="px-6 md:px-10 pt-32 md:pt-44 pb-12 max-w-7xl mx-auto">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary reveal">Chapter 03 — the ritual</span>
+          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary reveal">Chapter 02 · The Ritual</span>
           <h2 className="reveal mt-6 font-display text-5xl md:text-7xl font-bold leading-[0.95] max-w-3xl text-balance">
             Small rituals. <span className="italic font-light text-muted-foreground">Less waste. More intention.</span>
           </h2>
@@ -203,7 +203,7 @@ function RefillPage() {
       <section className="px-6 md:px-10 py-32 md:py-44 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-4 reveal lg:sticky lg:top-24">
-            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Chapter 04 — the system</span>
+            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Chapter 03 · The System</span>
             <h2 className="mt-6 font-display text-4xl md:text-5xl font-bold leading-[1]">
               One bottle.<br/>Many quiet refills.
             </h2>
@@ -297,7 +297,7 @@ function RefillPage() {
         {/* THE ALU CYLINDER — system object */}
         <div className="px-6 md:px-10 pt-32 md:pt-44 pb-8 max-w-7xl mx-auto reveal">
           <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
-            Interlude — the cylinder
+            Interlude · The Cylinder
           </span>
           <h2 className="mt-6 font-display text-4xl md:text-6xl font-bold leading-[1] text-balance max-w-3xl">
             The cylinder that<br/>
@@ -364,7 +364,7 @@ function RefillPage() {
   <div className="grid lg:grid-cols-12 gap-12 items-start">
     <div className="lg:col-span-5 reveal">
       <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
-        Chapter 05 — why tablets
+        Chapter 04 · Why Tablets
       </span>
 
       <h3 className="mt-5 font-display text-4xl md:text-6xl font-bold leading-[0.98] text-balance">
@@ -425,7 +425,7 @@ function RefillPage() {
             <div className="absolute inset-0 ring-1 ring-inset ring-foreground/5 rounded-[2rem]" />
           </div>
           <div className="order-1 lg:order-2 reveal">
-            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Chapter 06 — materials</span>
+            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Chapter 05 · Materials</span>
             <h2 className="mt-6 font-display text-4xl md:text-6xl font-bold leading-[1] text-balance">
               An object you<br/>want to keep.
             </h2>
@@ -466,7 +466,7 @@ function RefillPage() {
       {/* REAL LIFE INTEGRATION */}
       <section className="px-6 md:px-10 py-32 md:py-44 max-w-7xl mx-auto">
         <div className="max-w-3xl mb-16 reveal">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Chapter 07 — everyday</span>
+          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Chapter 06 · Everyday</span>
           <h2 className="mt-6 font-display text-4xl md:text-6xl font-bold leading-[1]">
             Small rituals,<br/><span className="italic font-light text-muted-foreground">in real rooms.</span>
           </h2>
@@ -497,7 +497,7 @@ function RefillPage() {
       {/* TRANSPARENCY — quiet, not preachy */}
       <section className="bg-foreground text-background px-6 md:px-10 py-28 md:py-36">
         <div className="max-w-5xl mx-auto reveal">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-accent">Chapter 08 — what we mean by less</span>
+          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-accent">Chapter 07 · What We Mean by Less</span>
           <h2 className="mt-6 font-display text-3xl md:text-5xl font-light leading-[1.1] max-w-3xl">
             We measure what we change.<br/>
             <span className="italic">We don't decorate the rest.</span>
