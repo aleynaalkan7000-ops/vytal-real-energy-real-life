@@ -459,14 +459,14 @@ function JournalPreview() {
       kicker: "Field note",
       title: "Your attention span isn\u2019t broken.",
       excerpt: "It\u2019s just outnumbered. A quiet argument for fewer inputs, slower mornings, and one good drink at a time.",
-      meta: "4 min read",
+      meta: "9 min read",
     },
     {
       id: "calmer-mornings",
       kicker: "Manifesto",
       title: "Designing calmer routines.",
       excerpt: "Three small structural changes that compound into something that actually feels like rest.",
-      meta: "8 min read",
+      meta: "4 min read",
     },
   ];
   return (
