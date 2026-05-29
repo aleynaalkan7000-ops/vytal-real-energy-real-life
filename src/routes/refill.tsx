@@ -212,7 +212,17 @@ function RefillPage() {
               or get one tablet and water directly into your bottle for a ready-to-go drink.
               For days without station access, online refills arrive in reusable deposit cylinders.
             </p>
+            <div className="mt-16 flex justify-center">
+            <Link 
+              to="/shop" 
+              hash="starter" 
+              className="inline-flex bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-primary transition-all shadow-lg"
+            >
+              Try our Starter-Kit now →
+            </Link>
           </div>
+          </div>
+
           <div className="lg:col-span-8">
   <div className="grid md:grid-cols-3 gap-5">
     {[
