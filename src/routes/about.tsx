@@ -294,7 +294,7 @@ function AboutPage() {
               </h2>
               <div className="reveal mt-8 space-y-5 text-muted-foreground text-base leading-relaxed">
                 <p>
-                  We're a small team based in Munich. No growth-at-all-costs deck. No twenty-person
+                  We're a small team based in Heilbronn. No growth-at-all-costs deck. No twenty-person
                   marketing floor. Just a quiet studio, a long table, and a stubborn belief that
                   brands made calmly tend to age better.
                 </p>
@@ -356,7 +356,7 @@ function AboutPage() {
           </div>
 
           <p className="reveal mt-14 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
-            Munich · est. 2024
+            Heilbronn · est. 2026
           </p>
         </div>
       </section>
