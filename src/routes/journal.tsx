@@ -604,7 +604,7 @@ function JournalPage() {
         <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-10 flex flex-col justify-end pb-16 md:pb-24">
           <div className="reveal flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.24em] text-foreground/70">
             <span className="h-px w-10 bg-foreground/40" />
-            <span>The Journal — Volume 04 · Spring 2026</span>
+            <span>Volume 03 · The Journal — Spring 2026</span>
           </div>
           <h1 className="reveal mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-extrabold leading-[0.92] tracking-tight text-balance max-w-5xl">
             Thoughts for <em className="italic font-normal text-primary">calmer</em> modern living.
@@ -692,10 +692,10 @@ function JournalPage() {
         <div className="reveal flex items-end justify-between mb-10 md:mb-14">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-              Issue 01 · Cover essay
+              Issue 01 · Cover Essay
             </p>
             <h2 className="mt-3 font-display text-2xl md:text-3xl font-medium tracking-tight">
-              The cover essay
+              The Cover Essay
             </h2>
           </div>
         </div>
@@ -753,7 +753,7 @@ function JournalPage() {
             — one that admits how much energy attention actually costs.
           </p>
           <p className="reveal mt-10 font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
-            — From the editor's notes, Issue 04
+            — From the editor's notes, Issue 01
           </p>
         </div>
       </section>
