@@ -416,7 +416,7 @@ function ShopPage() {
         <div className="relative max-w-7xl mx-auto w-full px-6 md:px-10 pb-24 md:pb-32 pt-40 grid md:grid-cols-12 gap-10">
           <div className="md:col-span-7">
             <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary block mb-8 reveal">
-              The shop · Volume 02 · The ecosystem
+              Volume 01 · The ecosystem
             </span>
             <h1 className="font-display text-[clamp(3rem,8.5vw,8rem)] font-extrabold leading-[0.92] tracking-tighter text-balance reveal">
               Start your <em className="not-italic italic font-light text-primary">refill</em> ritual.
@@ -511,7 +511,7 @@ function ShopPage() {
       <div className="md:col-span-5 p-8 md:p-14 flex flex-col justify-between gap-10">
         <div>
           <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-            Volume 01 · The complete ritual
+            Chapter 01 · The complete ritual
           </span>
 
           <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
@@ -704,7 +704,7 @@ function ShopPage() {
 <section id="refills" className="px-6 md:px-10 max-w-7xl mx-auto pt-28 md:pt-40 pb-20">
   <div className="max-w-3xl mb-14 reveal">
     <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-      Reloads · Volume 02
+      Chapter 02 · Reloads
     </span>
 
     <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
@@ -792,14 +792,11 @@ function ShopPage() {
       <section id="accessories" className="px-6 md:px-10 max-w-7xl mx-auto pb-24 md:pb-32">
         <div className="flex items-end justify-between gap-6 mb-10 reveal">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">Accessories · Volume 03</span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary"> Chapter 04 · Accessories</span>
             <h3 className="mt-3 font-display text-3xl md:text-5xl font-extrabold tracking-tight">
               Bottles & vessels.
             </h3>
           </div>
-          <p className="hidden md:block max-w-xs text-sm text-muted-foreground">
-            Optional extensions of the system. The refills fit them all.
-          </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
           {bottles.map((b) => (
@@ -824,7 +821,7 @@ function ShopPage() {
       <section className="bg-foreground text-background py-28 md:py-44 px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5 reveal">
-            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-accent">Transparency · 05</span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-accent">Chapter 05 · Transparency</span>
             <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
               Quietly honest.<br/>
               <span className="italic font-light text-background/70">Measurably better.</span>
@@ -986,7 +983,7 @@ function ReturnLoop() {
     <section id="loop" className="relative bg-[#f3ede2] text-foreground overflow-hidden">
       <div className="px-6 md:px-10 max-w-7xl mx-auto py-32 md:py-44 grid lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-5 lg:sticky lg:top-28 reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">Volume 04 · The loop</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">Chapter 03 · The loop</span>
           <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
             How the VYTAL<br/>
             <span className="italic font-light text-muted-foreground">loop works.</span>
