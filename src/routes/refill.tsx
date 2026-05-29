@@ -434,6 +434,13 @@ function RefillPage() {
               Borosilicate glass keeps the flavor clean and neutral, while stainless steel
               and aluminum were chosen for durability, repeated daily use and long material lifecycles.
             </p>
+            <Link 
+                to="/shop" 
+                hash="accessories" 
+                className="inline-flex items-center text-primary font-medium hover:underline"
+              >
+                Shop our bottles and vessels →
+              </Link>
             <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 max-w-md">
               {[
                 ["Glass", "Borosilicate · taste-neutral · durable daily use"],
