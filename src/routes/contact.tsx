@@ -76,7 +76,7 @@ function ContactPage() {
         <div className="relative z-10 h-full max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col justify-end pb-20 md:pb-28">
           <div className="reveal opacity-0 translate-y-6 transition-all duration-[1400ms] ease-out">
             <span className="font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/70">
-              Volume 05 — Contact
+              Volume 05 · Contact
             </span>
           </div>
           <h1 className="reveal opacity-0 translate-y-8 transition-all duration-[1600ms] delay-150 ease-out mt-6 font-display text-[12vw] md:text-[8.5vw] leading-[0.95] tracking-[-0.03em] font-light">
