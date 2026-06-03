@@ -1,8 +1,11 @@
 import { X } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/language-context";
 
 export function DiscountBanner() {
   const [visible, setVisible] = useState(true);
+  const { lang } = useLanguage();
+  const isDE = lang === "de";
 
   if (!visible) return null;
 
@@ -11,15 +14,18 @@ export function DiscountBanner() {
       <div className="discount-banner__glow" />
 
       <div className="discount-banner__content">
-        <span className="discount-banner__label">Student drop</span>
+        <span className="discount-banner__label">
+          {isDE ? "Studentenrabatt" : "Student drop"}
+        </span>
 
         <p className="discount-banner__text">
-          15% off your first refill setup with code{" "}
-          <strong>REFILL15</strong>
+          {isDE
+            ? <>15% auf dein erstes Nachfüll-Setup mit Code <strong>REFILL15</strong></>
+            : <>15% off your first refill setup with code <strong>REFILL15</strong></>}
         </p>
 
         <a href="/shop#starter" className="discount-banner__button">
-          Shop now
+          {isDE ? "Jetzt kaufen" : "Shop now"}
         </a>
 
         <button

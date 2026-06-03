@@ -11,14 +11,8 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products, type Product } from "@/lib/vytal-products";
 import { useCart, parsePrice, formatPrice } from "@/contexts/cart-context";
-import { UnityDropBanner } from "./unity-drop-banner";
-import shopHero from "@/assets/shop-hero.jpg";
 import shopStarterKit from "@/assets/shop-starter-kit-v2.png";
 import shopHeroBottle from "@/assets/shop-hero-bottle-new.png";
-import shopRitualDesk from "@/assets/shop-ritual-desk.jpg";
-import aluHero from "@/assets/alu-hero.jpg";
-import aluDispense from "@/assets/alu-dispense.jpg";
-import aluLoop from "@/assets/alu-loop.jpg";
 import { DiscountBanner } from "./discount-banner";
 
 export const Route = createFileRoute("/shop")({
@@ -172,16 +166,6 @@ const flavorStrategy: Record<string, {
   },
 };
 
-// ── German flavour emotion overrides ─────────────────────────────────
-const flavorEmotionDe: Record<string, string> = {
-  focus:    "Stille, tiefe, konzentrierte Morgen.",
-  flow:     "Sanfte Wärme, die den ganzen Tag anhält.",
-  refresh:  "Kühle Pause zwischen zwei Meetings.",
-  boost:    "Wach, aufmerksam, nie aggressiv.",
-  balance:  "Ruhige Klarheit für entspanntere Tage.",
-  recharge: "Spät, sanft, endlich ganz dir gehörend.",
-};
-
 const flavorMomentDe: Record<string, string> = {
   focus:    "Für Bibliotheks-Morgen, Deep-Work-Phasen und lange Lerneinheiten.",
   flow:     "Für den Pendlerweg, Vorlesungen, langsame Morgen und alltägliche Routinen.",
@@ -189,6 +173,24 @@ const flavorMomentDe: Record<string, string> = {
   boost:    "Für Deadlines, frühe Morgen und überfüllte Terminkalender.",
   balance:  "Für Planung, Lesen, kreative Arbeit und entspannte Produktivität.",
   recharge: "Für Abendarbeit, Studio-Sessions und das ruhige Fertigstellen.",
+};
+
+const flavorSensoryDe: Record<string, string> = {
+  focus:    "Matcha-Charakter mit frischer Limettenhelligkeit und einem klaren Kräuterabgang.",
+  flow:     "Weiche Pfirsichsüße mit zarter Grüntee-Bitterkeit und floraler Wärme.",
+  refresh:  "Kalte Beerenfrische mit Pfefferminzklarheit und einem fast prickelnden Abschluss.",
+  boost:    "Scharfe Zitrusöffnung mit warmem Ingwer und trockenem, leicht sprudelndem Abschluss.",
+  balance:  "Saftige Birne mit weichem Salbei und subtiler botanischer Tiefe.",
+  recharge: "Dunkelkirschfülle mit eleganter Schwarztee-Bitterkeit und geringer Süße.",
+};
+
+const flavorAudienceDe: Record<string, string> = {
+  focus:    "Stiller Fokus",
+  flow:     "Sanfte Tagesenergie",
+  refresh:  "Kühler Reset",
+  boost:    "Druckmodus",
+  balance:  "Ruhige Klarheit",
+  recharge: "Späte Stunden",
 };
 
 // ── Local shop page translations ──────────────────────────────────────
@@ -503,6 +505,13 @@ function useShopTx() {
     productMustBeUsed: isDE
       ? "Das Produkt muss bestimmungsgemäß verwendet werden. Vor dem ersten Gebrauch immer reinigen."
       : "Product must be used as intended. Always clean before first use.",
+    bottleTaglineDe: {
+      "go-bottle": "Mehr als eine Flasche — Teil des Systems.",
+      "flow-bottle": "750 ml gleichmäßige, bewusste Hydration.",
+      "office-bottle": "Still, professionell, auslaufsicher.",
+      "home-container": "Größere Mengen nachfüllen für den gemeinsamen Heimgebrauch.",
+      "unity-bottle": "Limitierte Drops mit Sammler-Charakter.",
+    } as Record<string, string>,
   };
 }
 
@@ -806,12 +815,6 @@ function ShopPage() {
               >
                 {s.heroCta2}
               </button>
-              <button
-                onClick={scrollTo("loop")}
-                className="inline-flex items-center gap-2 px-5 py-4 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {s.heroCta3}
-              </button>
             </div>
           </div>
 
@@ -914,119 +917,6 @@ function ShopPage() {
   </button>
 </section>
 
-{/* SIX FLAVORS — quick identity strip */}
-<section className="bg-secondary/40 border-y border-border/60 py-16 md:py-20">
-  <div id="packs"
-        className="max-w-7xl mx-auto px-6 md:px-10">
-    <div className="flex items-end justify-between gap-6 mb-10 reveal">
-      <div>
-        <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-          {s.sixFlavorsKicker}
-        </span>
-        <h3 className="mt-3 font-display text-2xl md:text-3xl font-semibold tracking-tight">
-          {s.sixFlavorsH3}
-        </h3>
-      </div>
-
-      <p className="hidden md:block text-sm text-muted-foreground max-w-xs">
-        {s.sixFlavorsDesc}
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {refills.map((r) => {
-        const id = flavorIdentity[r.slug];
-        const strategy = flavorStrategy[r.slug];
-
-        return (
-          <button
-              key={r.slug}
-              type="button"
-              onClick={() => {
-                  document
-                    .getElementById(`product-${r.slug}`)
-                    ?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "center",
-                    });
-                }}
-              className={`
-                    reveal
-                    group
-                    relative
-                    overflow-hidden
-                    cursor-pointer
-                    text-left
-                    rounded-2xl
-                    bg-background
-                    p-5
-                    border
-                    border-transparent
-                    transition-all
-                    duration-700
-                    hover:-translate-y-2
-                    hover:shadow-2xl
-                    hover:border-primary/30
-                    before:absolute
-                    before:inset-0
-                    before:bg-white/0
-                    before:transition-all
-                    before:duration-700
-              `}
-            >
-  
-            {/* glow effect */}
-               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 pointer-events-none" />
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18),transparent_60%)]" />
-            </div>
-            <span
-              className="block size-10 rounded-full mb-4 transition-transform duration-700 group-hover:scale-110 group-hover:scale-125 group-hover:rotate-6 transition-all duration-700"
-              style={{ background: id?.hex }}
-            />
-
-            <p className="font-display text-base font-semibold">
-              {r.name.replace("VYTAL ", "")}
-            </p>
-
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mt-1">
-              {id?.mood}
-            </p>
-
-            <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
-                {s.isDE ? (flavorEmotionDe[r.slug] ?? id?.emotion) : id?.emotion}
-              </p>
-
-              <p className="mt-3 text-[11px] text-muted-foreground/70 italic leading-relaxed">
-                {s.isDE ? (flavorMomentDe[r.slug] ?? strategy?.moment) : strategy?.moment}
-              </p>
-
-              {/* BONUS */}
-               <div
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    document
-                      .getElementById(`product-${r.slug}`)
-                      ?.scrollIntoView({ behavior: "smooth", block: "center" });
-                  }}
-                  className="mt-6 flex items-center justify-between"
-                >
-                  <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                    {s.exploreFlavorLabel}
-                  </span>
-
-                  <span className="transition-transform duration-500 group-hover:translate-x-1">
-                    →
-                  </span>
-                </div>
-              </button>
-        );
-      })}
-    </div>
-  </div>
-</section>
- 
-
       {/* RELOADS / REFILLS — cinematic cards */}
 <section id="refills" className="px-6 md:px-10 max-w-7xl mx-auto pt-28 md:pt-40 pb-20">
   <div className="max-w-3xl mb-14 reveal">
@@ -1058,52 +948,6 @@ function ShopPage() {
   </div>
 </section>
       
-      {/* RETURN LOOP — interactive, animated */}
-      <ReturnLoop />
-
-      {/* THE CYLINDER — system object, NOT standalone */}
-      <section id="cylinder" className="px-6 md:px-10 max-w-7xl mx-auto py-28 md:py-44 grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-6 reveal relative">
-          <a
-            href="/refill#cylinder-details"
-            className="group block relative aspect-[4/5] overflow-hidden rounded-md bg-[#f1ece1]"
-          >
-            <img 
-              src={aluHero} 
-              alt="The matte aluminum VYTAL refill cylinder" 
-              loading="lazy" 
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]" 
-            />
-            <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
-              {s.partOfEveryRefill}
-            </span>
-            
-            {/* Der neue Hover-Button */}
-            <span className="absolute bottom-5 right-5 inline-flex items-center gap-2 bg-foreground text-background px-5 py-3 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-              {s.discoverDetails}
-            </span>
-          </a>
-        </div>
-        <div className="lg:col-span-6 reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">{s.cylinderKicker}</span>
-          <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-            {s.cylinderH2a}<br/>
-            <span className="italic font-light text-muted-foreground">{s.cylinderH2b}</span>
-          </h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
-            {s.cylinderDesc}
-          </p>
-          <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 max-w-md">
-            {s.cylinderSpecs.map(([k, v]) => (
-              <div key={k} className="border-t border-border pt-3">
-                <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{k}</dt>
-                <dd className="mt-1.5 font-display text-sm">{v}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
       {/* ACCESSORIES — bottles */}
       <section id="accessories" className="px-6 md:px-10 max-w-7xl mx-auto pb-24 md:pb-32">
         <div className="flex items-end justify-between gap-6 mb-10 reveal">
@@ -1130,33 +974,9 @@ function ShopPage() {
                 <p className="font-display text-lg font-semibold">{b.name.replace("VYTAL ", "")}</p>
                 <span className="font-mono text-xs text-muted-foreground">{b.price}</span>
               </div>
-              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{b.tagline}</p>
+              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{s.isDE ? (s.bottleTaglineDe[b.slug] ?? b.tagline) : b.tagline}</p>
             </button>
           ))}
-        </div>
-      </section>
-
-      {/* SUSTAINABILITY — honest, transparent */}
-      <section className="bg-foreground text-background py-28 md:py-44 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-5 reveal">
-            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-accent">{s.susKicker}</span>
-            <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-              {s.susH2a}<br/>
-              <span className="italic font-light text-background/70">{s.susH2b}</span>
-            </h2>
-            <p className="mt-8 text-background/70 leading-relaxed max-w-md">
-              {s.susDesc}
-            </p>
-          </div>
-          <div className="md:col-span-7 grid sm:grid-cols-2 gap-4 reveal">
-            {s.susStats.map((m) => (
-              <div key={m.l} className="rounded-2xl border border-background/15 p-6 bg-background/5">
-                <p className="font-display text-3xl">{m.k}</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.22em] text-background/60 font-mono">{m.l}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -1290,6 +1110,7 @@ function ShopFAQ() {
 function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => void }) {
   const s = useShopTx();
   const id = flavorIdentity[p.slug];
+  const strategy = flavorStrategy[p.slug];
   const { add } = useCart();
   const [added, setAdded] = useState(false);
   const handle = (e: React.MouseEvent) => {
@@ -1298,7 +1119,7 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
     add({
       id: `refill-${p.slug}`,
       name: `${p.name} Refill Cylinder`,
-     variant: `${id?.mood ?? p.flavor} · 8 tablets · €4 deposit included`,
+      variant: `${id?.mood ?? p.flavor} · 8 tablets · €4 deposit included`,
       image: p.image,
       unitPrice: parsePrice(p.price) + 4,
       href: `/shop/${p.slug}`,
@@ -1313,7 +1134,6 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
       onClick={onOpen}
       role="button"
       tabIndex={0}
-
       className="text-left group reveal flex flex-col cursor-pointer"
     >
       <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
@@ -1325,12 +1145,10 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
           height={960}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.05]"
         />
-        {/* mood gradient overlay */}
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-60 transition-opacity duration-[1200ms] mix-blend-multiply"
           style={{ background: `linear-gradient(180deg, transparent 40%, ${id?.hex ?? "#A8C49D"} 130%)` }}
         />
-        {/* loop badge */}
         <span className="absolute top-4 left-4 inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.25em] bg-background/85 backdrop-blur px-2.5 py-1.5 rounded-full">
           <span className="size-1.5 rounded-full" style={{ background: id?.hex ?? "var(--primary)" }} />
           {s.inRefillLoop}
@@ -1338,7 +1156,6 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
         <span className="absolute top-4 right-4 font-mono text-[9px] uppercase tracking-[0.25em] bg-foreground/85 text-background backdrop-blur px-2.5 py-1.5 rounded-full">
           {String(i + 1).padStart(2, "0")}
         </span>
-        {/* quick add */}
         <button
           onClick={handle}
           className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 bg-foreground text-background backdrop-blur px-4 py-2.5 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 hover:bg-primary"
@@ -1347,123 +1164,26 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
           {added ? s.added : s.quickAdd}
         </button>
       </div>
-      <div className="mt-6 flex items-baseline justify-between gap-3">
-        <p className="font-display text-xl font-semibold tracking-tight">{p.name.replace("VYTAL ", "")}</p>
-        <span className="font-mono text-xs text-muted-foreground">{formatPrice(parsePrice(p.price) + 4)} <span className="text-muted-foreground/60">{s.perCylinder}</span></span>
+      <div className="mt-5 flex items-baseline justify-between gap-3">
+        <div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary/70">
+            {s.isDE ? (flavorAudienceDe[p.slug] ?? strategy?.audience) : strategy?.audience}
+          </p>
+          <p className="font-display text-xl font-semibold tracking-tight mt-0.5">{p.name.replace("VYTAL ", "")}</p>
+        </div>
+        <span className="font-mono text-xs text-muted-foreground shrink-0">{formatPrice(parsePrice(p.price) + 4)} <span className="text-muted-foreground/60">{s.perCylinder}</span></span>
       </div>
       <p className="text-[13px] font-mono text-primary/80 mt-1">{id?.mood ?? p.flavor}</p>
-      <p className="text-sm text-muted-foreground mt-3 leading-relaxed max-w-sm">{s.isDE ? (flavorEmotionDe[p.slug] ?? id?.emotion ?? p.tagline) : (id?.emotion ?? p.tagline)}</p>
+      <p className="text-sm text-muted-foreground mt-2 leading-relaxed max-w-sm">
+        {s.isDE ? (flavorSensoryDe[p.slug] ?? strategy?.sensory) : strategy?.sensory}
+      </p>
+      <p className="mt-2 text-[11px] text-muted-foreground/65 italic leading-relaxed max-w-sm">
+        {s.isDE ? (flavorMomentDe[p.slug] ?? strategy?.moment) : strategy?.moment}
+      </p>
     </div>
   );
 }
 
-// ── Return loop — interactive 5-step ─────────────────────────────────
-function ReturnLoop() {
-  const s = useShopTx();
-  const [active, setActive] = useState(0);
-  const steps = s.loopSteps.map((st, idx) => ({
-    ...st,
-    img: [aluHero, aluDispense, aluLoop, aluLoop, shopRitualDesk][idx],
-  }));
-
-  // Cycle automatically
-  useEffect(() => {
-    const t = setInterval(() => setActive((a) => (a + 1) % steps.length), 3600);
-    return () => clearInterval(t);
-  }, [steps.length]);
-
-  return (
-    <section id="loop" className="relative bg-[#f3ede2] text-foreground overflow-hidden">
-      <div className="px-6 md:px-10 max-w-7xl mx-auto py-32 md:py-44 grid lg:grid-cols-12 gap-12 items-start">
-        <div className="lg:col-span-5 lg:sticky lg:top-28 reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">{s.loopKicker}</span>
-          <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-            {s.loopH2a}<br/>
-            <span className="italic font-light text-muted-foreground">{s.loopH2b}</span>
-          </h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
-            {s.loopDesc}
-          </p>
-
-          <div className="mt-10 aspect-[4/5] relative overflow-hidden rounded-md bg-background">
-            {steps.map((s, i) => (
-              <img
-                key={s.t}
-                src={s.img}
-                alt={s.t}
-                loading="lazy"
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${active === i ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
-              />
-            ))}
-            <div className="absolute bottom-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
-              0{active + 1} · {steps[active].t}
-            </div>
-          </div>
-        </div>
-
-        <ol className="lg:col-span-7 space-y-4">
-          {steps.map((s, i) => {
-            const on = active === i;
-            return (
-              <li
-                key={s.t}
-                onMouseEnter={() => setActive(i)}
-                onFocus={() => setActive(i)}
-                tabIndex={0}
-                className={`group cursor-pointer rounded-3xl border p-6 md:p-8 transition-all duration-700 ${on ? "border-foreground bg-background shadow-lg" : "border-border bg-background/40 hover:bg-background/80"}`}
-              >
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0">
-                    <span className={`grid place-items-center size-12 rounded-full font-mono text-xs tracking-widest transition-all duration-700 ${on ? "bg-foreground text-background scale-110" : "bg-secondary text-muted-foreground"}`}>
-                      0{i + 1}
-                    </span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-2xl md:text-3xl font-semibold tracking-tight">{s.t}</h3>
-                    <p className="mt-2 text-muted-foreground leading-relaxed max-w-lg">{s.d}</p>
-                  </div>
-                  {/* animated arrow connector */}
-                  {i < 4 && (
-                    <div className="hidden md:flex items-center pt-3">
-                      <span className={`block h-px transition-all duration-700 ${on ? "w-12 bg-foreground" : "w-6 bg-border"}`} />
-                    </div>
-                  )}
-                </div>
-              </li>
-            );
-          })}
-
-          <div className="mt-10 grid sm:grid-cols-3 gap-3 text-xs text-muted-foreground">
-            <div className="rounded-2xl border border-border p-4 bg-background/60">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">{s.loopDeposit}</p>
-              <p className="mt-2">{s.loopDepositText}</p>
-            </div>
-            <div className="rounded-2xl border border-border p-4 bg-background/60">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">{s.loopHygiene}</p>
-              <p className="mt-2">{s.loopHygieneText}</p>
-            </div>
-            <div className="rounded-2xl border border-border p-4 bg-background/60">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">{s.loopReality}</p>
-              <p className="mt-2">{s.loopRealityText}</p>
-            </div>
-          </div>
-
-          <div className="mt-6 rounded-2xl border border-border bg-background/60 p-5 text-xs text-muted-foreground">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary mb-3">{s.costTitle}</p>
-            <div className="grid sm:grid-cols-3 gap-4">
-              {s.costItems.map((ci, i) => (
-                <div key={i}>
-                  <p className="font-display text-lg text-foreground">{ci.val}</p>
-                  <p className="mt-1">{ci.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </ol>
-      </div>
-    </section>
-  );
-}
 function ProductQuickView({
   product,
   onClose,
