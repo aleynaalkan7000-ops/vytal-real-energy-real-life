@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useLanguage } from "@/contexts/language-context";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { UnityDropBanner } from "./unity-drop-banner";
 import journalLibrary from "@/assets/journal-library.jpg";
 import journalHero from "@/assets/journal-hero.jpg";
 import journalStillife from "@/assets/journal-stillife.jpg";
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/journal")({
   head: () => ({
     meta: [
       { title: "Journal — thoughts for calmer modern living | VYTAL" },
-      { name: "description", content: "An editorial journal on focus, nervous-system recovery, ritual design and a calmer alternative to modern productivity culture." },
+      { name: "description", content: "Essays on focus, energy, attention and calmer routines. 8 long-form articles on nervous-system recovery, ritual design and modern productivity culture." },
       { property: "og:title", content: "VYTAL Journal — thoughts for calmer modern living" },
       { property: "og:description", content: "Reflections on focus, energy, attention and calmer routines. A quiet space inside an overstimulated internet." },
       { property: "og:image", content: journalHero },
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/journal")({
   }),
   component: JournalPage,
 });
-<UnityDropBanner />
+
 const categories = [
   "Focus",
   "Rituals",
@@ -46,6 +46,14 @@ type Article = {
   excerpt: string;
   image: string;
   content: string[];
+};
+
+const articlePermalinks: Record<string, string> = {
+  "attention-span": "your-attention-span-isnt-broken",
+  "productive-crash": "the-myth-of-the-productive-crash",
+  "calmer-mornings": "designing-calmer-mornings",
+  "quiet-hour": "a-quiet-hour-inside-a-loud-internet",
+  "afternoon-dip": "meetings-screens-and-the-3-pm-dip",
 };
 
 const journalArticles: Article[] = [
@@ -546,8 +554,11 @@ function useReveal() {
 
 function JournalPage() {
   useReveal();
+  const { tx, lang } = useLanguage();
   const heroImgRef = useRef<HTMLDivElement | null>(null);
   const [activeArticle, setActiveArticle] = useState<Article | null>(null);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterSent, setNewsletterSent] = useState(false);
 
   useEffect(() => {
     if (!activeArticle) return;
@@ -604,10 +615,10 @@ function JournalPage() {
         <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-10 flex flex-col justify-end pb-16 md:pb-24">
           <div className="reveal flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.24em] text-foreground/70">
             <span className="h-px w-10 bg-foreground/40" />
-            <span>The Journal — Volume 04 · Spring 2026</span>
+            <span>{tx.journal.heroKicker}</span>
           </div>
           <h1 className="reveal mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-extrabold leading-[0.92] tracking-tight text-balance max-w-5xl">
-            Thoughts for <em className="italic font-normal text-primary">calmer</em> modern living.
+            {tx.journal.heroH1a} <em className="italic font-normal text-primary">{tx.journal.heroH1b}</em> {tx.journal.heroH1c}
           </h1>
           <p className="reveal mt-8 max-w-xl text-base md:text-lg text-foreground/75 leading-relaxed">
             Editorial reflections on focus, recovery, attention and ritual —
@@ -640,40 +651,27 @@ function JournalPage() {
       <section className="border-y border-border bg-background/70 backdrop-blur-sm sticky top-[65px] z-30">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center gap-2 overflow-x-auto no-scrollbar">
           <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground shrink-0 mr-3">
-            Sections
+            {lang === "de" ? "Themen" : "Sections"}
           </span>
-          {categories.map((c) => (
-            <a
-              key={c}
-              href={
-                  c === "Focus"
-                    ? "#attention-span"
-                    : c === "Recovery"
-                    ? "#productive-crash"
-                    : c === "Rituals"
-                    ? "#calmer-mornings"
-                    : c === "Digital Overload"
-                    ? "#quiet-hour"
-                    : c === "Modern Work"
-                    ? "#productivity-exhausting"
-                    : c === "Nervous System"
-                    ? "#nervous-system"
-                    : c === "Sustainable Energy"
-                    ? "#slow-caffeine"
-                    : "#featured"
-                }
-              className="shrink-0 rounded-full border border-border px-4 py-1.5 text-xs font-medium text-foreground/70 hover:text-foreground hover:border-foreground/40 transition-colors"
-            >
-              {c}
-            </a>
-          ))}
+          {tx.journal.categories.map((c, idx) => {
+            const anchors = ["#attention-span", "#calmer-mornings", "#productive-crash", "#quiet-hour", "#productivity-exhausting", "#nervous-system", "#slow-caffeine"];
+            return (
+              <a
+                key={c}
+                href={anchors[idx] ?? "#featured"}
+                className="shrink-0 rounded-full border border-border px-4 py-1.5 text-xs font-medium text-foreground/70 hover:text-foreground hover:border-foreground/40 transition-colors"
+              >
+                {c}
+              </a>
+            );
+          })}
         </div>
       </section>
 
       {/* ─────────────────────────── EDITOR'S LETTER ─────────────────────────── */}
       <section className="px-6 md:px-10 py-28 md:py-40 max-w-4xl mx-auto">
         <p className="reveal font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-          A note from the editor
+          {tx.journal.editorKicker}
         </p>
         <p className="reveal mt-8 font-display text-3xl md:text-5xl leading-[1.15] tracking-tight text-balance">
           We started this journal because the loudest voices in modern productivity
@@ -768,7 +766,7 @@ function JournalPage() {
             Essays from the current volume.
           </h2>
           <span className="hidden md:block font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-            Spring · 2026
+            {tx.journal.springLabel}
           </span>
         </div>
 
@@ -800,7 +798,7 @@ function JournalPage() {
         {/* Row C — three columns: articles 6, 7, 8 */}
         <div className="mt-24 md:mt-32">
           <p className="reveal font-mono text-[11px] uppercase tracking-[0.24em] text-primary mb-8">
-            Shorter notes
+            {tx.journal.shorterNotes}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[journalArticles[5], journalArticles[6], journalArticles[7]].map((p) => (
@@ -830,38 +828,49 @@ function JournalPage() {
         </div>
         <div className="max-w-3xl mx-auto px-6 md:px-10 text-center">
           <p className="reveal font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-            Continue reading
+            {tx.journal.continueKicker}
           </p>
           <h2 className="reveal mt-6 font-display text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.02] tracking-tight text-balance">
-            Built calmly. <span className="italic font-normal text-primary">On purpose.</span>
+            {tx.journal.continueH2}
           </h2>
           <p className="reveal mt-8 text-muted-foreground text-base md:text-lg leading-relaxed">
-            One slow newsletter, once a month. One essay. One ritual. One small
-            update from inside the VYTAL system. No life hacks, no urgency.
+            {tx.journal.continueDesc}
           </p>
 
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="reveal mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-          >
-            <input
-              type="email"
-              required
-              placeholder="you@calm.day"
-              className="flex-1 bg-background border border-border rounded-full px-5 py-3 text-sm focus:outline-none focus:border-foreground/40 transition-colors"
-            />
-            <button className="bg-foreground text-background rounded-full px-6 py-3 text-sm font-medium hover:bg-primary transition-colors">
-              Join quietly
-            </button>
-          </form>
+          {newsletterSent ? (
+            <p className="reveal mt-10 text-center text-muted-foreground">
+              {tx.journal.newsletterSent}
+            </p>
+          ) : (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                window.open(
+                  `mailto:hello@vytal.energy?subject=Newsletter&body=Please add me to the VYTAL newsletter: ${newsletterEmail}`,
+                  "_blank"
+                );
+                setNewsletterSent(true);
+              }}
+              className="reveal mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+            >
+              <input
+                type="email"
+                required
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                placeholder={tx.journal.newsletterPlaceholder}
+                className="flex-1 bg-background border border-border rounded-full px-5 py-3 text-sm focus:outline-none focus:border-foreground/40 transition-colors"
+              />
+              <button
+                type="submit"
+                className="bg-foreground text-background rounded-full px-6 py-3 text-sm font-medium hover:bg-primary transition-colors"
+              >
+                Join quietly
+              </button>
+            </form>
+          )}
 
-          <div className="reveal mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            <Link to="/refill" className="hover:text-foreground transition-colors">
-              Explore the system →
-            </Link>
-            <Link to="/shop" className="hover:text-foreground transition-colors">
-              Shop VYTAL →
-            </Link>
+          <div className="reveal mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
             <a href="#featured" className="hover:text-foreground transition-colors">
               Continue reading →
             </a>
@@ -941,6 +950,7 @@ function ArticleModal({
   article: Article;
   onClose: () => void;
 }) {
+  const { tx } = useLanguage();
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8">
       <button
@@ -962,7 +972,7 @@ function ArticleModal({
 
         <article className="px-6 sm:px-12 md:px-20 py-12 md:py-20">
           <div className="flex justify-between gap-6 font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-            <span>Issue 04 · Editorial Journal</span>
+            <span>{tx.journal.modalIssue}</span>
             <span>01 / 08</span>
           </div>
 
@@ -985,14 +995,24 @@ function ArticleModal({
           />
 
           <div className="mx-auto mt-20 max-w-3xl space-y-8 text-[18px] md:text-xl leading-[1.9] text-foreground/85">
-            {article.content.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
+            {article.content.map((p, i) => {
+              const isCallout = p.length <= 90 && !p.endsWith(",") && !p.endsWith(":") && !p.endsWith("—");
+              return isCallout ? (
+                <p
+                  key={i}
+                  className="font-display text-2xl md:text-3xl font-semibold text-foreground leading-[1.2] border-l-2 border-primary pl-6 py-2"
+                >
+                  {p}
+                </p>
+              ) : (
+                <p key={i}>{p}</p>
+              );
+            })}
           </div>
 
           <div className="mt-16 border-t border-border pt-8 flex justify-between">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
-              VYTAL Journal · Volume 04
+              {tx.journal.modalIssue}
             </p>
             <button
               type="button"

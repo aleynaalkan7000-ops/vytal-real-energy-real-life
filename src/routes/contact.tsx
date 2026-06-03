@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useLanguage } from "@/contexts/language-context";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -40,6 +41,7 @@ function useReveal() {
 }
 
 function ContactPage() {
+  const { tx } = useLanguage();
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", subject: "A thoughtful conversation", message: "" });
   const heroRef = useRef<HTMLDivElement>(null);
@@ -76,26 +78,26 @@ function ContactPage() {
         <div className="relative z-10 h-full max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col justify-end pb-20 md:pb-28">
           <div className="reveal opacity-0 translate-y-6 transition-all duration-[1400ms] ease-out">
             <span className="font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/70">
-              Volume 05 — Contact
+              {tx.contact.heroKicker}
             </span>
           </div>
           <h1 className="reveal opacity-0 translate-y-8 transition-all duration-[1600ms] delay-150 ease-out mt-6 font-display text-[12vw] md:text-[8.5vw] leading-[0.95] tracking-[-0.03em] font-light">
-            Tell us<br />
-            <em className="font-serif italic font-extralight">what you&rsquo;re</em> working on.
+            {tx.contact.heroH1a}<br />
+            <em className="font-serif italic font-extralight">{tx.contact.heroH1b}</em> {tx.contact.heroH1c}
           </h1>
           <p className="reveal opacity-0 translate-y-4 transition-all duration-[1400ms] delay-300 ease-out mt-8 max-w-xl text-base md:text-lg text-foreground/70 leading-relaxed">
-            For collaborations, ideas, support, or simply reaching out. We read every message thoughtfully — there is no queue, no ticket, no script.
+            {tx.contact.heroDesc}
           </p>
 
           <div className="reveal opacity-0 translate-y-4 transition-all duration-[1200ms] delay-500 ease-out mt-10 flex flex-wrap gap-3">
             <a href="#write" className="px-7 py-3.5 rounded-full bg-foreground text-background text-sm tracking-wide hover:opacity-90 transition">
-              Contact VYTAL
+              {tx.contact.heroCta1}
             </a>
             <a href="/journal" className="px-7 py-3.5 rounded-full border border-foreground/20 text-sm tracking-wide hover:border-foreground/50 transition">
-              Explore the Journal
+              {tx.contact.heroCta2}
             </a>
             <a href="/shop" className="px-7 py-3.5 rounded-full text-sm tracking-wide text-foreground/70 hover:text-foreground transition">
-              Shop VYTAL →
+              {tx.contact.heroCta3}
             </a>
           </div>
         </div>
@@ -129,15 +131,11 @@ function ContactPage() {
       {/* THREE PILLARS */}
       <section className="px-6 md:px-12 pb-32 md:pb-48 max-w-[1400px] mx-auto">
         <div className="grid md:grid-cols-3 gap-px bg-foreground/10 rounded-3xl overflow-hidden">
-          {[
-            { k: "01", t: "Real people", d: "Written by a small team in Munich. No outsourced support, no scripts." },
-            { k: "02", t: "Read thoughtfully", d: "Every message is opened by a person before it&rsquo;s answered or routed." },
-            { k: "03", t: "Calm by default", d: "We don&rsquo;t chase, we don&rsquo;t nudge. You&rsquo;ll hear from us once, and well." },
-          ].map((p, i) => (
+          {tx.contact.pillars.map((p, i) => (
             <div key={p.k} className="reveal opacity-0 translate-y-4 transition-all duration-1000 bg-background p-10 md:p-12" style={{ transitionDelay: `${i * 120}ms` }}>
               <span className="font-mono text-[11px] tracking-[0.32em] text-foreground/40">{p.k}</span>
               <h3 className="mt-6 font-display text-2xl md:text-3xl font-light tracking-tight">{p.t}</h3>
-              <p className="mt-4 text-foreground/60 leading-relaxed" dangerouslySetInnerHTML={{ __html: p.d }} />
+              <p className="mt-4 text-foreground/60 leading-relaxed">{p.d}</p>
             </div>
           ))}
         </div>
@@ -178,28 +176,34 @@ function ContactPage() {
 
           <div className="md:col-span-7 reveal opacity-0 translate-y-8 transition-all duration-1200">
             <form
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={(e) => {
+                e.preventDefault();
+                const subject = encodeURIComponent(form.subject);
+                const body = encodeURIComponent(`From: ${form.name}\n\n${form.message}`);
+                window.open(`mailto:hello@vytal.energy?subject=${subject}&body=${body}`, "_blank");
+                setSent(true);
+              }}
               className="relative rounded-[2rem] border border-background/10 bg-background/[0.04] backdrop-blur-sm p-8 md:p-12 space-y-10"
             >
-              <FormRow label="Your name" htmlFor="name">
+              <FormRow label={tx.contact.formNameLabel} htmlFor="name">
                 <input
                   id="name" required value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="How should we call you?"
+                  placeholder={tx.contact.formNamePlaceholder}
                   className="w-full bg-transparent border-b border-background/15 focus:border-background/60 outline-none py-3 text-lg font-light text-background placeholder:text-background/30 transition"
                 />
               </FormRow>
 
-              <FormRow label="Email" htmlFor="email">
+              <FormRow label={tx.contact.formEmailLabel} htmlFor="email">
                 <input
                   id="email" type="email" required value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  placeholder="you@quiet-inbox.com"
+                  placeholder={tx.contact.formEmailPlaceholder}
                   className="w-full bg-transparent border-b border-background/15 focus:border-background/60 outline-none py-3 text-lg font-light text-background placeholder:text-background/30 transition"
                 />
               </FormRow>
 
-              <FormRow label="The conversation is about" htmlFor="subject">
+              <FormRow label={tx.contact.formSubjectLabel} htmlFor="subject">
                 <div className="flex flex-wrap gap-2 pt-2">
                   {["A thoughtful conversation", "Support", "Collaboration", "Press", "Hosting a station"].map((s) => (
                     <button
@@ -217,11 +221,11 @@ function ContactPage() {
                 </div>
               </FormRow>
 
-              <FormRow label="Your message" htmlFor="message">
+              <FormRow label={tx.contact.formMessageLabel} htmlFor="message">
                 <textarea
                   id="message" required rows={5} value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="Take your time. We will."
+                  placeholder={tx.contact.formMessagePlaceholder}
                   className="w-full bg-transparent border-b border-background/15 focus:border-background/60 outline-none py-3 text-lg font-light text-background placeholder:text-background/30 resize-none transition"
                 />
               </FormRow>
@@ -236,7 +240,7 @@ function ContactPage() {
                   className="group relative px-10 py-4 rounded-full bg-background text-foreground text-sm tracking-wide overflow-hidden transition hover:bg-primary hover:text-primary-foreground disabled:opacity-70"
                 >
                   <span className="relative z-10">
-                    {sent ? "Thank you — we&rsquo;ll write back soon." : "Send a message"}
+                    {sent ? tx.contact.formSent : tx.contact.formCta}
                   </span>
                 </button>
               </div>

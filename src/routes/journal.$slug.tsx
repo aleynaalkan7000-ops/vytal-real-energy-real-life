@@ -1,6 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { UnityDropBanner } from "./unity-drop-banner";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { getArticleBySlug, journalArticles } from "@/lib/journal-articles";
@@ -54,6 +53,19 @@ export const Route = createFileRoute("/journal/$slug")({
   ),
   component: ArticlePage,
 });
+
+function buildArticleSchema(a: { title: string; dek: string; date: string; category: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: a.title,
+    description: a.dek,
+    datePublished: a.date,
+    articleSection: a.category,
+    author: { "@type": "Organization", name: "VYTAL" },
+    publisher: { "@type": "Organization", name: "VYTAL", url: "https://vytal.energy" },
+  };
+}
 function ArticlePage() {
   const { article } = Route.useLoaderData();
   const heroRef = useRef<HTMLDivElement | null>(null);
@@ -94,6 +106,10 @@ function ArticlePage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleSchema(article)) }}
+      />
       <SiteHeader />
 
       {/* Back link */}

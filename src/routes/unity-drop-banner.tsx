@@ -19,7 +19,7 @@ export function UnityDropBanner() {
         className="unity-drop-banner__button"
         >
         View drop →
-    </Link>
+        </Link>
     </div>
   );
 }

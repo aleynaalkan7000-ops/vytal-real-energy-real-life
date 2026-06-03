@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react"; // HIER: useState und useMemo hinzugefügt
+import { useEffect, useMemo, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { products, type Product } from "@/lib/vytal-products"; // HIER: products importiert
+import { products, type Product } from "@/lib/vytal-products";
+import { useLanguage } from "@/contexts/language-context";
 import { DiscountBanner } from "./discount-banner";
 import cinematicHero from "@/assets/cinematic-hero.jpg";
 import tabletDissolve from "@/assets/tablet-dissolve.jpg";
@@ -20,7 +21,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Refillable, plant-based focus for real life. No crash, no noise — a calmer alternative to modern productivity culture.",
+          "Refillable plant-based energy tablets — calm focus, no crash, no single-use cans. Starter kit from €68. Ships to DE & AT. Built in Munich.",
       },
       { property: "og:title", content: "VYTAL — A calmer system for modern energy" },
       {
@@ -32,26 +33,61 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "VYTAL",
+  url: "https://vytal.energy",
+  description:
+    "Refillable plant-based focus supplements for everyday life. Calm energy, no crash, less waste.",
+  foundingDate: "2024",
+  foundingLocation: { "@type": "Place", name: "Munich, Germany" },
+  sameAs: [],
+};
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "VYTAL Starter Kit",
+  description:
+    "The complete entry into the VYTAL refill system: reusable bottle, aluminum refill cylinder, all six functional flavors, linen sleeve and ritual card.",
+  brand: { "@type": "Brand", name: "VYTAL" },
+  offers: {
+    "@type": "Offer",
+    price: "68",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+  },
+};
+
 function Index() {
   useReveal();
-  
+
   const [heroIndex, setHeroIndex] = useState(0);
   const starterKit = useMemo(() => products.find((p: Product) => p.slug === "starter-kit"), []);
   const variants = starterKit?.variants || [];
 
-
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <SiteHeader />
-      <Hero 
-        heroImage={cinematicHero} // Hier fest das Bild einstellen, das du willst
-        heroIndex={0} 
+      <Hero
+        heroImage={cinematicHero}
+        heroIndex={0}
       />
       <Overstimulation />
       <SystemSection />
       <InsideBottle />
       <Rituals />
       <ProductTeaser />
+      <Reviews />
       <JournalPreview />
       <FinalCTA />
       <SiteFooter />
@@ -89,6 +125,7 @@ function AmbientOrbs() {
 }
 
 function Hero({ heroImage, heroIndex }: { heroImage: string; heroIndex: number }) {
+  const { tx } = useLanguage();
   return (
     <section
       id="top"
@@ -97,7 +134,7 @@ function Hero({ heroImage, heroIndex }: { heroImage: string; heroIndex: number }
       <img
         key={heroIndex}
         src={heroImage}
-        alt="VYTAL Hero Image"
+        alt="VYTAL Starter Kit — refillable plant-based energy tablet dissolving in a glass bottle on a calm desk"
         width={1920}
         height={1080}
         className="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity duration-1000 ease-in-out"
@@ -109,40 +146,39 @@ function Hero({ heroImage, heroIndex }: { heroImage: string; heroIndex: number }
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 items-end">
           <div className="md:col-span-8">
             <span className="animate-reveal [animation-delay:100ms] font-mono text-[10px] tracking-[0.3em] uppercase text-background/70 block mb-8">
-              VYTAL — Refillable focus
+              {tx.hero.tag}
             </span>
             <h1 className="animate-reveal [animation-delay:200ms] font-display font-extrabold text-balance leading-[0.92] text-[clamp(3rem,9vw,8.5rem)]">
-              We&rsquo;re tired
+              {tx.hero.h1a}
               <br />
-              <span className="italic font-light text-background/80">of being tired.</span>
+              <span className="italic font-light text-background/80">{tx.hero.h1b}</span>
             </h1>
           </div>
           <div className="md:col-span-4 md:pb-4 flex flex-col gap-6">
             <p className="animate-reveal [animation-delay:350ms] text-background/75 text-lg leading-relaxed max-w-sm">
-              Calm focus. No crash. Less noise. A refillable ritual designed for the way you
-              actually live — not the way productivity culture pretends you do.
+              {tx.hero.desc}
             </p>
             <div className="animate-reveal [animation-delay:500ms] flex flex-col sm:flex-row gap-3">
               <Link
                 to="/shop"
                 className="group relative inline-flex items-center justify-center gap-2 bg-background text-foreground px-7 py-4 rounded-full text-sm font-semibold transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.4)] hover:-translate-y-0.5"
               >
-                Shop VYTAL
+                {tx.hero.cta1}
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </Link>
               <Link
                 to="/refill"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold border border-background/30 text-background hover:bg-background/10 backdrop-blur-md transition-all duration-500"
               >
-                Explore the system
+                {tx.hero.cta2}
               </Link>
             </div>
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-16 flex items-center justify-between text-background/60 font-mono text-[10px] tracking-[0.25em] uppercase">
-          <span>01 — Calm focus</span>
-          <span className="hidden md:inline">02 — Zero crash</span>
-          <span className="hidden md:inline">03 — Endless refills</span>
+          <span>{tx.hero.stat1}</span>
+          <span className="hidden md:inline">{tx.hero.stat2}</span>
+          <span className="hidden md:inline">{tx.hero.stat3}</span>
           <span>scroll ↓</span>
         </div>
       </div>
@@ -151,14 +187,7 @@ function Hero({ heroImage, heroIndex }: { heroImage: string; heroIndex: number }
 }
 
 function Overstimulation() {
-  const lines = [
-    "Notifications.",
-    "Deadlines.",
-    "Another coffee.",
-    "A 3pm crash.",
-    "More notifications.",
-    "An evening you can\u2019t feel.",
-  ];
+  const { tx } = useLanguage();
   return (
     <section className="relative bg-foreground text-background py-32 md:py-48 px-6 overflow-hidden">
       <div aria-hidden className="absolute inset-0 opacity-40 pointer-events-none">
@@ -167,34 +196,25 @@ function Overstimulation() {
       </div>
       <div className="relative max-w-6xl mx-auto">
         <span className="reveal font-mono text-[10px] tracking-[0.3em] uppercase text-background/50 block mb-10">
-          The pattern most of us recognise
+          {tx.home.overstimKicker}
         </span>
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
           <ul className="space-y-4 font-display text-3xl md:text-5xl font-bold leading-[1.05]">
-            {lines.map((l, i) => (
-              <li
-                key={i}
-                className="reveal text-background/40 hover:text-background transition-colors duration-700"
-                style={{ transitionDelay: `${i * 80}ms` }}
-              >
+            {tx.home.overstimLines.map((l, i) => (
+              <li key={i} className="reveal text-background/40 hover:text-background transition-colors duration-700" style={{ transitionDelay: `${i * 80}ms` }}>
                 {l}
               </li>
             ))}
           </ul>
           <div className="reveal md:sticky md:top-32 space-y-6 max-w-md text-background/70 text-lg leading-relaxed">
-            <p>
-              Modern productivity asks us to perform at 110% and call the burnout a personality
-              trait. Energy drinks are designed for that script — fast spike, faster crash, more
-              sugar, more cans, more guilt.
-            </p>
-            <p>VYTAL was made because we stopped believing in that loop.</p>
+            <p>{tx.home.overstimBodyA}</p>
+            <p>{tx.home.overstimBodyB}</p>
           </div>
         </div>
-
         <h2 className="reveal mt-32 md:mt-48 font-display font-extrabold text-balance leading-[0.95] text-[clamp(2.75rem,8vw,7rem)] max-w-5xl">
-          Maybe the problem
+          {tx.home.overstimH2a}
           <br />
-          <span className="text-primary">isn&rsquo;t motivation.</span>
+          <span className="text-primary">{tx.home.overstimH2b}</span>
         </h2>
       </div>
     </section>
@@ -202,26 +222,13 @@ function Overstimulation() {
 }
 
 function SystemSection() {
-  const steps = [
-    { n: "01", t: "Pour", d: "Fill your VYTAL bottle with cold water — tap, sparkling, however you like it." },
-    { n: "02", t: "Drop", d: "Add a single plant-based concentrate tablet. No sugar, no plastic, no fuss." },
-    { n: "03", t: "Dissolve", d: "Watch it disappear in 90 seconds. Slow-release focus, calm and ready." },
-    { n: "04", t: "Refill", d: "When you\u2019re low, refills arrive at your door in compostable paper." },
-  ];
+  const { tx } = useLanguage();
   return (
     <section className="relative bg-secondary overflow-hidden">
       <div className="relative md:grid md:grid-cols-12">
         <div className="md:col-span-6 md:sticky md:top-0 md:h-screen flex items-center justify-center bg-gradient-to-b from-background to-secondary p-10">
           <div className="relative w-full max-w-md aspect-[3/4] rounded-3xl overflow-hidden bg-foreground/90 shadow-[0_40px_120px_-20px_rgba(0,0,0,0.35)]">
-            <img
-              src={tabletDissolve}
-              alt="A sage tablet dissolving in a glass of water"
-              loading="lazy"
-              width={1024}
-              height={1408}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            
+            <img src={tabletDissolve} alt="A sage tablet dissolving in a glass of water" loading="lazy" width={1024} height={1408} className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-background/80 font-mono text-[10px] tracking-[0.25em] uppercase">
               <span>The VYTAL System</span>
@@ -229,23 +236,15 @@ function SystemSection() {
             </div>
           </div>
         </div>
-
         <div className="md:col-span-6 px-6 md:px-16 py-32 md:py-48 space-y-32">
           <div className="reveal max-w-md">
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">
-              The system
-            </span>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.systemKicker}</span>
             <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] mb-6 text-balance">
-              One bottle.
-              <br />A quieter ritual.
+              {tx.home.systemH2a}<br />{tx.home.systemH2b}
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              We replaced the can with a ritual. Each VYTAL tablet dissolves into a slow,
-              considered drink — calm technology designed for real life, not extreme life.
-            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed">{tx.home.systemDesc}</p>
           </div>
-
-          {steps.map((s) => (
+          {tx.home.systemSteps.map((s) => (
             <div key={s.n} className="reveal max-w-md">
               <div className="flex items-baseline gap-6 mb-4">
                 <span className="font-mono text-xs text-muted-foreground">{s.n}</span>
@@ -254,13 +253,9 @@ function SystemSection() {
               <p className="text-muted-foreground text-lg leading-relaxed pl-12">{s.d}</p>
             </div>
           ))}
-
           <div className="reveal">
-            <Link
-              to="/refill"
-              className="group inline-flex items-center gap-3 text-foreground font-semibold border-b border-foreground/40 pb-1 hover:border-foreground transition-colors"
-            >
-              See how a refill arrives
+            <Link to="/refill" className="group inline-flex items-center gap-3 text-foreground font-semibold border-b border-foreground/40 pb-1 hover:border-foreground transition-colors">
+              {tx.home.systemLink}
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </div>
@@ -271,56 +266,22 @@ function SystemSection() {
 }
 
 function InsideBottle() {
-  const items = [
-    {
-      kicker: "Focus without feeling attacked",
-      name: "L-Theanine",
-      dose: "200 mg",
-      body: "From green tea. Smooths caffeine into something you can actually live with — sharper attention without the buzz.",
-    },
-    {
-      kicker: "Calm under pressure",
-      name: "Ashwagandha (KSM-66)",
-      dose: "300 mg",
-      body: "An adaptogen that helps the body process cortisol. Clinically studied for stress resilience — not gym memes.",
-    },
-    {
-      kicker: "Energy that lasts the workday",
-      name: "Green Tea Caffeine",
-      dose: "80 mg",
-      body: "Slow-release natural caffeine. Roughly one cup of coffee, paired so it doesn\u2019t turn against you at 3pm.",
-    },
-    {
-      kicker: "The quiet co-pilot",
-      name: "Magnesium Bisglycinate",
-      dose: "150 mg",
-      body: "Cellular energy and muscle recovery, in the form your body actually absorbs.",
-    },
-  ];
+  const { tx } = useLanguage();
   return (
     <section id="inside" className="relative py-32 md:py-48 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="reveal max-w-2xl mb-20">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">
-            Inside the bottle
-          </span>
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.insideKicker}</span>
           <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] text-balance">
-            Four ingredients.{" "}
-            <span className="text-muted-foreground">Nothing hidden.</span>
+            {tx.home.insideH2a}{" "}<span className="text-muted-foreground">{tx.home.insideH2b}</span>
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-          {items.map((i, idx) => (
-            <article
-              key={i.name}
-              className="reveal group relative overflow-hidden p-10 md:p-12 rounded-3xl bg-secondary/60 border border-border hover:border-primary/40 hover:bg-secondary transition-all duration-700"
-              style={{ transitionDelay: `${idx * 60}ms` }}
-            >
+          {tx.home.ingredients.map((i, idx) => (
+            <article key={i.name} className="reveal group relative overflow-hidden p-10 md:p-12 rounded-3xl bg-secondary/60 border border-border hover:border-primary/40 hover:bg-secondary transition-all duration-700" style={{ transitionDelay: `${idx * 60}ms` }}>
               <div className="absolute -top-20 -right-20 size-64 rounded-full bg-primary/0 group-hover:bg-primary/15 blur-3xl transition-all duration-1000" />
               <div className="relative flex flex-col gap-5">
-                <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">
-                  {i.kicker}
-                </span>
+                <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">{i.kicker}</span>
                 <div className="flex items-baseline justify-between gap-4 pb-4 border-b border-border">
                   <h3 className="font-display text-3xl md:text-4xl font-bold">{i.name}</h3>
                   <span className="font-mono text-xs text-muted-foreground">{i.dose}</span>
@@ -336,11 +297,12 @@ function InsideBottle() {
 }
 
 function Rituals() {
+  const { tx } = useLanguage();
   const items = [
-    { src: ritualMorning, label: "08:14 \u00b7 Caf\u00e9", caption: "The slow start. A pour-over and a cold refill. Two things, no agenda." },
-    { src: dailyStudy, label: "14:42 \u00b7 Library", caption: "Three hours into a paper. The hum stays steady." },
-    { src: dailyOffice, label: "16:30 \u00b7 Office", caption: "Back-to-back calls. No spike. No 4pm cliff." },
-    { src: ritualNight, label: "21:08 \u00b7 Desk", caption: "One last quiet hour. Then a real evening." },
+    { src: ritualMorning, label: "08:14 · Café", caption: "The slow start. A pour-over and a cold refill. Two things, no agenda." },
+    { src: dailyStudy, label: "14:42 · Library", caption: "Three hours into a paper. The hum stays steady." },
+    { src: dailyOffice, label: "16:30 · Office", caption: "Back-to-back calls. No spike. No 4pm cliff." },
+    { src: ritualNight, label: "21:08 · Desk", caption: "One last quiet hour. Then a real evening." },
   ];
   const spans = ["md:col-span-7", "md:col-span-5", "md:col-span-5", "md:col-span-7"];
   return (
@@ -348,41 +310,19 @@ function Rituals() {
       <div className="max-w-7xl mx-auto">
         <div className="reveal grid md:grid-cols-12 gap-10 items-end mb-16">
           <h2 className="md:col-span-7 font-display text-4xl md:text-6xl font-extrabold leading-[1.02] text-balance">
-            Small rituals,
-            <br />
-            <span className="italic font-light text-muted-foreground">
-              instead of extreme optimisation.
-            </span>
+            {tx.home.ritualsH2a}<br />
+            <span className="italic font-light text-muted-foreground">{tx.home.ritualsH2b}</span>
           </h2>
-          <p className="md:col-span-4 md:col-start-9 text-muted-foreground text-lg leading-relaxed">
-            VYTAL doesn&rsquo;t live in a stadium. It lives in libraries, commutes, quiet cafés,
-            and 9pm desks. Real life, not extreme life.
-          </p>
+          <p className="md:col-span-4 md:col-start-9 text-muted-foreground text-lg leading-relaxed">{tx.home.ritualsDesc}</p>
         </div>
-
         <div className="grid md:grid-cols-12 gap-4 md:gap-5">
           {items.map((s, idx) => (
-            <figure
-              key={s.label}
-              className={`reveal relative overflow-hidden rounded-3xl bg-secondary group aspect-[4/5] ${spans[idx]}`}
-              style={{ transitionDelay: `${idx * 80}ms` }}
-            >
-              <img
-                src={s.src}
-                alt={s.label}
-                loading="lazy"
-                width={1280}
-                height={1600}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-105"
-              />
+            <figure key={s.label} className={`reveal relative overflow-hidden rounded-3xl bg-secondary group aspect-[4/5] ${spans[idx]}`} style={{ transitionDelay: `${idx * 80}ms` }}>
+              <img src={s.src} alt={s.label} loading="lazy" width={1280} height={1600} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/75 via-foreground/10 to-transparent" />
               <figcaption className="absolute bottom-6 left-6 right-6 text-background">
-                <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-background/70 mb-2">
-                  {s.label}
-                </p>
-                <p className="font-display text-2xl md:text-3xl font-semibold leading-tight">
-                  {s.caption}
-                </p>
+                <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-background/70 mb-2">{s.label}</p>
+                <p className="font-display text-2xl md:text-3xl font-semibold leading-tight">{s.caption}</p>
               </figcaption>
             </figure>
           ))}
@@ -393,51 +333,28 @@ function Rituals() {
 }
 
 function ProductTeaser() {
+  const { tx } = useLanguage();
   return (
     <section className="relative py-32 md:py-48 px-6 overflow-hidden bg-secondary">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-5 reveal">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">
-            Start here
-          </span>
-          <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] mb-6 text-balance">
-            The starter ritual.
-          </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-md">
-            One bottle, six flavours, a month of focus. Designed to be the only thing you need to
-            begin — and the only thing left on your desk a year later.
-          </p>
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.productKicker}</span>
+          <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] mb-6 text-balance">{tx.home.productH2}</h2>
+          <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-md">{tx.home.productDesc}</p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              to="/shop"
-              hash="starter"
-              className="group inline-flex items-center justify-center gap-2 bg-foreground text-background px-7 py-4 rounded-full text-sm font-semibold hover:bg-primary transition-all duration-500 hover:-translate-y-0.5 shadow-lg"
-            >
-              Shop the starter kit
+            <Link to="/shop" hash="starter" className="group inline-flex items-center justify-center gap-2 bg-foreground text-background px-7 py-4 rounded-full text-sm font-semibold hover:bg-primary transition-all duration-500 hover:-translate-y-0.5 shadow-lg">
+              {tx.home.productCta1}
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
-            <Link
-              to="/shop"
-              hash="refills"
-              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold border border-foreground/20 hover:bg-background/50 transition-all duration-500"
-            >
-              Browse all flavours
+            <Link to="/shop" hash="refills" className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold border border-foreground/20 hover:bg-background/50 transition-all duration-500">
+              {tx.home.productCta2}
             </Link>
           </div>
         </div>
         <div className="lg:col-span-7 reveal">
           <div className="relative aspect-[5/4] rounded-3xl overflow-hidden bg-background shadow-[0_40px_120px_-20px_rgba(0,0,0,0.25)]">
-            <img
-              src={productLineup}
-              alt="The VYTAL bottle lineup"
-              loading="lazy"
-              width={1600}
-              height={1280}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md text-[10px] font-mono tracking-widest text-muted-foreground">
-              VYTAL · STARTER KIT
-            </div>
+            <img src={productLineup} alt="The VYTAL bottle lineup" loading="lazy" width={1600} height={1280} className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md text-[10px] font-mono tracking-widest text-muted-foreground">VYTAL · STARTER KIT</div>
           </div>
         </div>
       </div>
@@ -446,65 +363,30 @@ function ProductTeaser() {
 }
 
 function JournalPreview() {
+  const { tx } = useLanguage();
   const articles = [
-    {
-      id: "productive-crash",
-      kicker: "Essay",
-      title: "The myth of productive crashes.",
-      excerpt: "Why the spike-and-collapse cycle has become a personality, and what changes when you finally let it go.",
-      meta: "6 min read",
-    },
-    {
-      id: "attention-span",
-      kicker: "Field note",
-      title: "Your attention span isn\u2019t broken.",
-      excerpt: "It\u2019s just outnumbered. A quiet argument for fewer inputs, slower mornings, and one good drink at a time.",
-      meta: "4 min read",
-    },
-    {
-      id: "calmer-mornings",
-      kicker: "Manifesto",
-      title: "Designing calmer routines.",
-      excerpt: "Three small structural changes that compound into something that actually feels like rest.",
-      meta: "8 min read",
-    },
+    { slug: "the-myth-of-the-productive-crash", kicker: "Essay", title: "The myth of productive crashes.", excerpt: "Why the spike-and-collapse cycle has become a personality, and what changes when you finally let it go.", meta: "6 min read" },
+    { slug: "your-attention-span-isnt-broken", kicker: "Field note", title: "Your attention span isn't broken.", excerpt: "It's just outnumbered. A quiet argument for fewer inputs, slower mornings, and one good drink at a time.", meta: "4 min read" },
+    { slug: "designing-calmer-mornings", kicker: "Manifesto", title: "Designing calmer routines.", excerpt: "Three small structural changes that compound into something that actually feels like rest.", meta: "8 min read" },
   ];
   return (
     <section className="py-32 md:py-48 px-6 border-t border-border">
       <div className="max-w-7xl mx-auto">
         <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">
-              The Journal
-            </span>
-            <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] text-balance">
-              Reading for slower minds.
-            </h2>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.journalKicker}</span>
+            <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] text-balance">{tx.home.journalH2}</h2>
           </div>
-          <Link
-            to="/journal"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            All articles
+          <Link to="/journal" className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            {tx.home.journalAllArticles}
             <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
-
         <div className="grid md:grid-cols-3 gap-6">
           {articles.map((a, idx) => (
-            <Link
-              key={a.id}
-              to="/journal"
-              hash={a.id.toLowerCase().replace(/ /g, "-")}
-              className="reveal group p-10 rounded-3xl bg-secondary/60 border border-border hover:bg-secondary hover:border-primary/30 transition-all duration-700 flex flex-col gap-6 min-h-[20rem]"
-              style={{ transitionDelay: `${idx * 80}ms` }}
-            >
-              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">
-                {a.kicker}
-              </span>
-              <h3 className="font-display text-2xl md:text-3xl font-bold leading-tight">
-                {a.title}
-              </h3>
+            <Link key={a.slug} to="/journal" hash={a.slug} className="reveal group p-10 rounded-3xl bg-secondary/60 border border-border hover:bg-secondary hover:border-primary/30 transition-all duration-700 flex flex-col gap-6 min-h-[20rem]" style={{ transitionDelay: `${idx * 80}ms` }}>
+              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">{a.kicker}</span>
+              <h3 className="font-display text-2xl md:text-3xl font-bold leading-tight">{a.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{a.excerpt}</p>
               <div className="mt-auto pt-6 border-t border-border flex items-center justify-between text-xs font-mono text-muted-foreground">
                 <span>{a.meta}</span>
@@ -518,7 +400,44 @@ function JournalPreview() {
   );
 }
 
+function Reviews() {
+  const { tx } = useLanguage();
+  const items = [
+    { quote: "Finally a focus drink that doesn't make me jittery at 3pm.", name: "Marie L.", role: "Law student · Munich" },
+    { quote: "It just works, all day. The most boring compliment, but still.", name: "Jonas K.", role: "Engineer · Berlin" },
+    { quote: "My 4pm reset. Cold sparkling, gone in two minutes.", name: "Anna T.", role: "Designer · Hamburg" },
+    { quote: "Replaces my pre-workout AND my 3rd coffee. Smarter.", name: "Leon S.", role: "Master's student · Cologne" },
+    { quote: "First energy drink I drink for the feeling, not the kick.", name: "Sophie B.", role: "Product designer · Berlin" },
+    { quote: "I can finish a 10pm writing block and still fall asleep.", name: "Mira H.", role: "PhD candidate · Vienna" },
+  ];
+  return (
+    <section className="py-24 md:py-32 px-6 bg-foreground text-background">
+      <div className="max-w-7xl mx-auto">
+        <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/50 block mb-4">{tx.home.reviewsKicker}</span>
+            <h2 className="font-display text-3xl md:text-5xl font-extrabold leading-[1.02] text-balance">{tx.home.reviewsH2}</h2>
+          </div>
+          <p className="text-background/55 text-sm max-w-xs leading-relaxed">{tx.home.reviewsDesc}</p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {items.map((item, i) => (
+            <figure key={item.name} className="reveal rounded-3xl border border-background/10 bg-background/5 p-8 flex flex-col gap-6" style={{ transitionDelay: `${i * 60}ms` }}>
+              <blockquote className="font-display text-xl leading-[1.3] text-balance">&ldquo;{item.quote}&rdquo;</blockquote>
+              <figcaption className="mt-auto border-t border-background/10 pt-5">
+                <p className="text-sm font-semibold text-background">{item.name}</p>
+                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-background/50 mt-1">{item.role}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FinalCTA() {
+  const { tx } = useLanguage();
   return (
     <section className="relative py-40 md:py-56 px-6 text-center overflow-hidden bg-gradient-to-b from-background via-secondary to-background">
       <div aria-hidden className="absolute inset-0 pointer-events-none">
@@ -526,37 +445,21 @@ function FinalCTA() {
         <div className="absolute bottom-1/4 right-1/4 size-[28rem] rounded-full bg-accent/25 blur-3xl animate-drift [animation-delay:-10s]" />
       </div>
       <div className="relative max-w-3xl mx-auto">
-        <span className="reveal font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-8 block">
-          Built calmly. On purpose.
-        </span>
+        <span className="reveal font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-8 block">{tx.home.finalKicker}</span>
         <h2 className="reveal font-display text-5xl md:text-7xl font-extrabold leading-[0.95] mb-10 text-balance">
-          A slower system
-          <br />
-          for modern energy.
+          {tx.home.finalH2a}<br />{tx.home.finalH2b}
         </h2>
-        <p className="reveal text-muted-foreground text-lg md:text-xl mb-14 max-w-xl mx-auto leading-relaxed">
-          Start with a bottle. Refill forever. Trade burnout for something quieter — and finally,
-          actually enjoyable.
-        </p>
+        <p className="reveal text-muted-foreground text-lg md:text-xl mb-14 max-w-xl mx-auto leading-relaxed">{tx.home.finalDesc}</p>
         <div className="reveal flex flex-col sm:flex-row gap-3 justify-center">
-          <Link
-            to="/shop"
-            className="group inline-flex items-center justify-center gap-3 bg-foreground text-background px-10 py-5 rounded-full text-base font-semibold hover:bg-primary transition-all duration-500 hover:-translate-y-0.5 shadow-2xl"
-          >
-            Shop VYTAL
+          <Link to="/shop" className="group inline-flex items-center justify-center gap-3 bg-foreground text-background px-10 py-5 rounded-full text-base font-semibold hover:bg-primary transition-all duration-500 hover:-translate-y-0.5 shadow-2xl">
+            {tx.home.finalCta1}
             <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
           </Link>
-          <Link
-            to="/refill"
-            className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full text-base font-semibold border border-foreground/20 hover:bg-background transition-all duration-500"
-          >
-            Explore the system
+          <Link to="/refill" className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full text-base font-semibold border border-foreground/20 hover:bg-background transition-all duration-500">
+            {tx.home.finalCta2}
           </Link>
-          <Link
-            to="/journal"
-            className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full text-base font-semibold text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Read the journal
+          <Link to="/journal" className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full text-base font-semibold text-muted-foreground hover:text-foreground transition-colors">
+            {tx.home.finalCta3}
           </Link>
         </div>
       </div>
