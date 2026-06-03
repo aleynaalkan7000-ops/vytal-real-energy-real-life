@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Minus, Plus, X } from "lucide-react";
 import { useCart, formatPrice } from "@/contexts/cart-context";
+import { useLanguage } from "@/contexts/language-context";
 import {
   Sheet,
   SheetContent,
@@ -10,6 +11,7 @@ import {
 
 export function CartDrawer() {
   const { items, isOpen, close, setQty, remove, subtotal, count } = useCart();
+  const { tx } = useLanguage();
   return (
     <Sheet open={isOpen} onOpenChange={(o) => !o && close()}>
       <SheetContent
@@ -19,26 +21,26 @@ export function CartDrawer() {
         <div className="flex h-full flex-col">
           <SheetHeader className="p-6 border-b border-border">
             <SheetTitle className="font-display text-xl tracking-tight">
-              Your ritual · {count}
+              {tx.cart.title} · {count}
             </SheetTitle>
             <p className="text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground">
-              A calmer cart
+              {tx.cart.subtitle}
             </p>
           </SheetHeader>
 
           <div className="flex-1 overflow-y-auto px-6 py-4">
             {items.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-24">
-                <p className="font-display text-2xl tracking-tight">It's quiet here.</p>
+                <p className="font-display text-2xl tracking-tight">{tx.cart.emptyH2}</p>
                 <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-                  Nothing in your cart yet. Begin with a starter ritual or a single refill.
+                  {tx.cart.emptyDesc}
                 </p>
                 <Link
                   to="/shop"
                   onClick={close}
                   className="mt-8 inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full text-sm hover:bg-primary transition-colors"
                 >
-                  Explore the shop →
+                  {tx.cart.emptyLink}
                 </Link>
               </div>
             ) : (
@@ -97,25 +99,30 @@ export function CartDrawer() {
             <div className="border-t border-border p-6 space-y-4 bg-background/70 backdrop-blur">
               <div className="flex items-baseline justify-between">
                 <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
-                  Subtotal
+                  {tx.cart.subtotalLabel}
                 </span>
                 <span className="font-display text-2xl">{formatPrice(subtotal)}</span>
               </div>
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground">
+                <span>{tx.cart.badgeSecure}</span>
+                <span>{tx.cart.badgeCo2}</span>
+                <span>{tx.cart.badgeDeposit}</span>
+              </div>
               <p className="text-[11px] text-muted-foreground">
-                Shipping and taxes calculated at checkout. Carbon-neutral delivery across the EU.
+                {tx.cart.shippingNote}
               </p>
               <Link
                 to="/checkout"
                 onClick={close}
                 className="block w-full text-center bg-foreground text-background rounded-full py-4 text-sm font-medium hover:bg-primary transition-colors"
               >
-                Continue to checkout →
+                {tx.cart.checkoutCta}
               </Link>
               <button
                 onClick={close}
                 className="block w-full text-center text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
-                Keep browsing
+                {tx.cart.keepBrowsing}
               </button>
             </div>
           )}

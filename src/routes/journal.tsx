@@ -26,7 +26,6 @@ export const Route = createFileRoute("/journal")({
   }),
   component: JournalPage,
 });
-<UnityDropBanner />
 const categories = [
   "Focus",
   "Rituals",

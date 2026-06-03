@@ -2,19 +2,21 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ShoppingBag, User } from "lucide-react";
 import { useCart } from "@/contexts/cart-context";
-
-const links = [
-  { to: "/shop", label: "Shop" },
-  { to: "/refill", label: "Refill System" },
-  { to: "/journal", label: "Journal" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
-] as const;
+import { useLanguage } from "@/contexts/language-context";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { count, toggle } = useCart();
+  const { lang, setLang, tx } = useLanguage();
+
+  const links = [
+    { to: "/shop", label: tx.nav.shop },
+    { to: "/refill", label: tx.nav.refill },
+    { to: "/journal", label: tx.nav.journal },
+    { to: "/about", label: tx.nav.about },
+    { to: "/contact", label: tx.nav.contact },
+  ] as const;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -48,6 +50,16 @@ export function SiteHeader() {
           ))}
         </div>
         <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={() => setLang(lang === "en" ? "de" : "en")}
+            aria-label="Switch language"
+            className="hidden sm:flex items-center gap-0.5 h-8 px-2.5 rounded-full text-[10px] font-mono tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
+          >
+            <span className={lang === "en" ? "text-foreground" : "text-muted-foreground/50"}>EN</span>
+            <span className="mx-0.5 text-border">|</span>
+            <span className={lang === "de" ? "text-foreground" : "text-muted-foreground/50"}>DE</span>
+          </button>
           <Link
             to="/account"
             aria-label="Account"
@@ -94,10 +106,20 @@ export function SiteHeader() {
           <Link
             to="/account"
             onClick={() => setOpen(false)}
-            className="mt-2 border border-border px-5 py-3 rounded-full text-sm font-medium text-center"
+            className="text-base font-medium text-muted-foreground"
+            activeProps={{ className: "text-foreground" }}
           >
             Account
           </Link>
+          <button
+            type="button"
+            onClick={() => setLang(lang === "en" ? "de" : "en")}
+            className="mt-2 flex items-center gap-1.5 text-sm font-mono text-muted-foreground"
+          >
+            <span className={lang === "en" ? "text-foreground font-semibold" : ""}>EN</span>
+            <span className="text-border">|</span>
+            <span className={lang === "de" ? "text-foreground font-semibold" : ""}>DE</span>
+          </button>
         </div>
       )}
     </header>

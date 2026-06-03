@@ -4,14 +4,12 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products } from "@/lib/vytal-products";
 import { useCart, formatPrice } from "@/contexts/cart-context";
-import { UnityDropBanner } from "./unity-drop-banner";
 import shopStarterKit from "@/assets/shop-starter-kit-v2.png";
 import shopRitualDesk from "@/assets/shop-ritual-desk.jpg";
 import shopHeroBottle from "@/assets/shop-hero-bottle-new.png";
 import aluHero from "@/assets/alu-hero.jpg";
 import aluDispense from "@/assets/alu-dispense.jpg";
 
-<UnityDropBanner />
 export const Route = createFileRoute("/shop/starter-kit")({
   head: () => ({
     meta: [
@@ -138,7 +136,7 @@ function StarterKitPage() {
               ← Back to shop
             </Link>
             <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.32em] text-primary reveal">
-              The Starter Kit · Volume 01
+              The Starter Kit · 01
             </p>
             <h1 className="mt-5 font-display text-[clamp(3rem,9vw,8.5rem)] font-extrabold leading-[0.92] tracking-tighter text-balance reveal">
               Begin the<br/>

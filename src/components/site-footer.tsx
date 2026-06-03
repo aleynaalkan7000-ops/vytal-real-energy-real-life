@@ -1,6 +1,11 @@
 import { Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { useLanguage } from "@/contexts/language-context";
 
 export function SiteFooter() {
+  const [email, setEmail] = useState("");
+  const [sent, setSent] = useState(false);
+  const { tx } = useLanguage();
   return (
     <footer className="px-6 pt-20 pb-10 border-t border-border bg-secondary/40">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 mb-16">
@@ -9,53 +14,68 @@ export function SiteFooter() {
             Vytal
           </Link>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Sustainable functional energy and a refill system designed for real life — calm focus,
-            no crash, less waste.
+            {tx.footer.desc}
           </p>
-          <p className="mt-6 italic text-sm text-foreground">(Re)Fuel your day. Not the planet.</p>
+          <p className="mt-6 italic text-sm text-foreground">{tx.footer.tagline}</p>
         </div>
         <div>
           <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-4">
-            Explore
+            {tx.footer.exploreLabel}
           </p>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/shop" className="hover:text-primary">Shop</Link></li>
-            <li><Link to="/refill" className="hover:text-primary">Refill System</Link></li>
-            <li><Link to="/journal" className="hover:text-primary">Journal</Link></li>
-            <li><Link to="/about" className="hover:text-primary">About</Link></li>
-            <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
-            <li><Link to="/imprint" className="hover:text-primary font-bold">Impressum‼️</Link></li>
+            <li><Link to="/shop" className="hover:text-primary">{tx.nav.shop}</Link></li>
+            <li><Link to="/refill" className="hover:text-primary">{tx.nav.refill}</Link></li>
+            <li><Link to="/journal" className="hover:text-primary">{tx.nav.journal}</Link></li>
+            <li><Link to="/about" className="hover:text-primary">{tx.nav.about}</Link></li>
+            <li><Link to="/contact" className="hover:text-primary">{tx.nav.contact}</Link></li>
+            <li><Link to="/imprint" className="hover:text-primary">{tx.footer.imprintLabel}</Link></li>
           </ul>
         </div>
         <div>
           <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-4">
-            Stay in flow
+            {tx.footer.stayLabel}
           </p>
           <p className="text-sm text-muted-foreground mb-3">
-            Slow newsletter. New drops, journal pieces, no spam.
+            {tx.footer.newsletterDesc}
           </p>
-          <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="email"
-              required
-              placeholder="you@calm.day"
-              className="flex-1 bg-background border border-border rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
-            />
-            <button
-              type="submit"
-              className="bg-foreground text-background rounded-full px-4 py-2 text-sm font-medium hover:bg-primary"
+          {sent ? (
+            <p className="text-sm text-muted-foreground">You&rsquo;re on the list.</p>
+          ) : (
+            <form
+              className="flex gap-2"
+              onSubmit={(e) => {
+                e.preventDefault();
+                window.open(
+                  `mailto:hello@vytal.energy?subject=Newsletter&body=Please add me to the VYTAL newsletter: ${email}`,
+                  "_blank"
+                );
+                setSent(true);
+              }}
             >
-              Join
-            </button>
-          </form>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@calm.day"
+                className="flex-1 bg-background border border-border rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+              />
+              <button
+                type="submit"
+                className="bg-foreground text-background rounded-full px-4 py-2 text-sm font-medium hover:bg-primary"
+              >
+                {tx.footer.newsletterCta}
+              </button>
+            </form>
+          )}
         </div>
       </div>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-muted-foreground border-t border-border pt-8">
         <span>© {new Date().getFullYear()} VYTAL — Energy that fits real life.</span>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-foreground">Privacy</a>
-          <a href="#" className="hover:text-foreground">Terms</a>
-          <a href="#" className="hover:text-foreground">Imprint</a>
+          <a href="#" className="hover:text-foreground">{tx.footer.privacyLabel}</a>
+          <a href="#" className="hover:text-foreground">{tx.footer.termsLabel}</a>
+          <Link to="/imprint" className="hover:text-foreground">{tx.footer.imprintLabel}</Link>
         </div>
       </div>
     </footer>

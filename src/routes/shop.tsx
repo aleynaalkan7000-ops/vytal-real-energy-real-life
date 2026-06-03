@@ -1,5 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useLanguage } from "@/contexts/language-context";
 import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products, type Product } from "@/lib/vytal-products";
@@ -18,7 +25,7 @@ export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
       { title: "Shop — VYTAL · The refill ecosystem." },
-      { name: "description", content: "A premium refill-based energy ecosystem. Starter kit, six functional flavors, and the circular VYTAL loop. Designed for modern everyday life." },
+      { name: "description", content: "Refillable plant-based energy tablets — starter kit (€68), six functional flavors, reusable aluminum cylinder. No crash, no plastic, ships to DE & AT." },
       { property: "og:title", content: "Shop — VYTAL · The refill ecosystem." },
       { property: "og:description", content: "Start the ritual. All six flavors, the reusable cylinder, the return loop — one calm system." },
       { property: "og:image", content: shopStarterKit },
@@ -159,10 +166,239 @@ const flavorStrategy: Record<string, {
     quality:
       "A deeper and more mature flavor profile for people who dislike artificial late-night energy drinks.",
 
+
     moment:
       "Made for evening work, studio sessions and finishing things peacefully.",
   },
 };
+
+// ── German flavour emotion overrides ─────────────────────────────────
+const flavorEmotionDe: Record<string, string> = {
+  focus:    "Stille, tiefe, konzentrierte Morgen.",
+  flow:     "Sanfte Wärme, die den ganzen Tag anhält.",
+  refresh:  "Kühle Pause zwischen zwei Meetings.",
+  boost:    "Wach, aufmerksam, nie aggressiv.",
+  balance:  "Ruhige Klarheit für entspanntere Tage.",
+  recharge: "Spät, sanft, endlich ganz dir gehörend.",
+};
+
+const flavorMomentDe: Record<string, string> = {
+  focus:    "Für Bibliotheks-Morgen, Deep-Work-Phasen und lange Lerneinheiten.",
+  flow:     "Für den Pendlerweg, Vorlesungen, langsame Morgen und alltägliche Routinen.",
+  refresh:  "Für Bildschirm-Müdigkeit, heiße Nachmittage und mental überlastete Tage.",
+  boost:    "Für Deadlines, frühe Morgen und überfüllte Terminkalender.",
+  balance:  "Für Planung, Lesen, kreative Arbeit und entspannte Produktivität.",
+  recharge: "Für Abendarbeit, Studio-Sessions und das ruhige Fertigstellen.",
+};
+
+// ── Local shop page translations ──────────────────────────────────────
+function useShopTx() {
+  const { lang } = useLanguage();
+  const isDE = lang === "de";
+  return {
+    isDE,
+    lang,
+    // UNITY Banner
+    limitedDrop: isDE ? "Limitierter Drop" : "Limited Drop",
+    unityDesc: isDE ? "Transparente Collector-Edition, inspiriert von Licht, Ritual und Wiederverwendung." : "Translucent collector edition inspired by light, ritual and reuse.",
+    viewDrop: isDE ? "Drop ansehen →" : "View drop →",
+    // Hero
+    heroKicker: isDE ? "Der Shop · Das Ökosystem" : "The shop · The ecosystem",
+    heroH1b: isDE ? "Nachfüll-Ritual." : "refill ritual.",
+    heroDesc: isDE ? "Ein Starter Kit. Sechs funktionale Geschmäcker. Ein wiederverwendbarer Aluminiumzylinder, der zu uns zurückkommt – und wieder zu dir." : "One starter kit. Six functional flavors. A reusable aluminum cylinder that comes back to us — and to you — again and again.",
+    heroCta1: isDE ? "Mit dem Starter Kit beginnen" : "Begin with the Starter Kit",
+    heroCta2: isDE ? "Geschmäcker entdecken" : "Explore the flavors",
+    heroCta3: isDE ? "Wie der Loop funktioniert →" : "How the loop works →",
+    scrollSlowly: isDE ? "langsam · scrollen" : "scroll · slowly",
+    // Quiet statement
+    quietH2a: isDE ? "Kein Energy-Drink-Shop." : "Not an energy drink shop.",
+    quietH2b: isDE ? "Ein Nachfüll-Ökosystem." : "A refill ecosystem.",
+    quietDesc: isDE ? "Sechs Geschmäcker. Ein wiederverwendbarer Zylinder. Ein Rückgabe-Loop, der sich still hinter jeder Bestellung schließt. Für Routinen, die du bereits lebst." : "Six flavors. One reusable cylinder. A return loop that quietly closes behind every order. Designed for routines you already live.",
+    // Starter kit section
+    starterBadge1: isDE ? "Das Starter Kit · Hero-Produkt" : "The Starter Kit · Hero product",
+    starterBadge2: isDE ? "Alle 6 Geschmäcker · Zylinder inklusive · Pfand inklusive" : "All 6 flavors · cylinder included · deposit included",
+    starterKicker: isDE ? "01 · Das vollständige Ritual" : "01 · The complete ritual",
+    starterH2b: isDE ? "Nachfüll-Ritual." : "refill ritual.",
+    starterDesc: isDE ? "Alles, was du brauchst, um ins System einzusteigen – die Glasflasche, der wiederverwendbare Aluminiumzylinder, alle sechs Geschmäcker und eine Ritual-Karte für den ersten Morgen." : "Everything you need to enter the system — the glass bottle, the reusable aluminum cylinder, all six functional flavors, and a ritual card for the first morning.",
+    starterItems: isDE ? [
+      "1 × 750 ml Borosilikatglas-Flasche",
+      "1 × Matter Aluminium-Nachfüllzylinder",
+      "6 × Nachfüll-Geschmäcker (Focus, Flow, Refresh, Boost, Balance, Recharge)",
+      "1 × Leinenhülle & Tragebeutel",
+      "1 × Onboarding-Ritual-Karte",
+    ] : [
+      "1 × 750ml Borosilicate glass bottle",
+      "1 × Matte aluminum refill cylinder",
+      "6 × Refill flavors (Focus, Flow, Refresh, Boost, Balance, Recharge)",
+      "1 × Linen sleeve & carry pouch",
+      "1 × Onboarding ritual card",
+    ],
+    starterCta: isDE ? "Mit dem Starter Kit beginnen →" : "Begin the Starter Kit →",
+    // Six flavors strip
+    sixFlavorsKicker: isDE ? "Sechs funktionale Stimmungen" : "Six functional moods",
+    sixFlavorsH3: isDE ? "Jedes Kit enthält alle sechs." : "Every kit contains all six.",
+    sixFlavorsDesc: isDE ? "Jeder Geschmack hat seine eigene Intention – probiere alle aus, bevor du deinen Alltags-Liebling findest." : "Each flavor has its own intent — try them all before you choose your everyday.",
+    exploreFlavorLabel: isDE ? "Geschmack entdecken" : "Explore flavor",
+    // Refills section
+    refillsKicker: isDE ? "03 · Die Nachfüllungen" : "03 · The refills",
+    refillsH2a: isDE ? "Die Nachfüllungen." : "The refills.",
+    refillsH2b: isDE ? "Immer im Zylinder." : "Always inside the cylinder.",
+    refillsDesc: isDE ? "Jede Nachfüllung kommt in einem matten Aluminiumzylinder. Jeder Zylinder enthält 8 funktionale Tabletten und beinhaltet ein €4-Pfand. Wenn fünf Zylinder leer sind, schickst du sie zurück und wir sterilisieren und befüllen sie neu." : "Each refill arrives in a reusable matte aluminum cylinder. Every cylinder holds 8 functional tablets and includes a €4 refundable deposit. When five cylinders are empty, send them back, get your deposit credited, and we sterilize and refill them.",
+    inRefillLoop: isDE ? "Im Nachfüll-Kreislauf" : "In refill loop",
+    perCylinder: isDE ? "/ Zylinder" : "/ cylinder",
+    quickAdd: isDE ? "Schnell hinzufügen →" : "Quick add →",
+    added: isDE ? "Hinzugefügt ✓" : "Added ✓",
+    // Return loop (05)
+    loopKicker: isDE ? "05 · Der Rückgabe-Loop" : "05 · The return loop",
+    loopH2a: isDE ? "Wie der VYTAL-" : "How the VYTAL",
+    loopH2b: isDE ? "Loop funktioniert." : "loop works.",
+    loopDesc: isDE ? "Zurückschicken, wann du bereit bist. Ein Briefkasten. Pfand erstattet. Keine Abonnement-Tricks, keine App, kein Greenwashing. Das gesamte System basiert auf einer einzigen ruhigen Bewegung." : "Return whenever you're ready. One postbox. Deposit refunded. No subscription tricks, no app, no greenwashing. The whole system is built around one quiet motion.",
+    loopSteps: isDE
+      ? [
+          { t: "Empfangen", d: "Nachfüllzylinder kommt mit deiner Bestellung. Pfand inklusive." },
+          { t: "Benutzen", d: "Ein Druck. Eine Tablette. Acht Tabletten pro Zylinder." },
+          { t: "Sammeln", d: "Leere Zylinder nach und nach in den Rückgabebeutel legen." },
+          { t: "Zurückschicken", d: "Beutel portofrei in jeden Briefkasten einwerfen. Vorfrankiert. Keine App. Oder einfach behalten und weiterverwenden – du entscheidest." },
+          { t: "Wiederverwenden", d: "Bei Rückgabe sterilisieren wir ihn und befüllen ihn für ein anderes Ritual." },
+        ]
+      : [
+          { t: "Receive", d: "Refill cylinder arrives with your order. Deposit included." },
+          { t: "Use", d: "One press. One tablet. Eight tablets per cylinder." },
+          { t: "Collect", d: "Slip empty cylinders into the return pouch as they're used." },
+          { t: "Return", d: "Drop the pouch unfranked in any postbox. Pre-paid. No app. Or simply keep it to repurpose at home. You decide when the loop closes." },
+          { t: "Reuse", d: "If returned, we sterilize and refill it for someone else's ritual." },
+        ],
+    loopDeposit: isDE ? "Pfand" : "Deposit",
+    loopDepositText: isDE ? "€4 pro Zylinder. Vollständig erstattet bei Rückgabe. Keine Mindestmenge, keine Eile." : "€4 per cylinder. Fully refunded upon return. No minimums, no rush.",
+    loopHygiene: isDE ? "Hygiene" : "Hygiene",
+    loopHygieneText: isDE ? "Zurückgegebene Zylinder werden nach medizinischen Standards sterilisiert, bevor sie neu befüllt werden." : "Returned cylinders are sterilized to medical-grade standards before refilling.",
+    loopReality: isDE ? "Realitäts-Check" : "Reality check",
+    loopRealityText: isDE ? "Deutlich bewusster als Dosen-Drinks. Wir veröffentlichen die Zahlen vierteljährlich." : "Significantly more conscious than canned drinks. We publish the numbers quarterly.",
+    costTitle: isDE ? "Was es pro Monat kostet" : "What it costs per month",
+    costItems: isDE
+      ? [
+          { val: "~€21", desc: "Gelegentliche Nutzung · 1 Tablette/Tag · 8 Tabletten à €2,60 Ø" },
+          { val: "~€52", desc: "Tägliche Nutzung · 20 Werktage · Ø Nachfüllpreis" },
+          { val: "+ €4", desc: "Zylinder-Pfand pro Bestellung – erstattet bei Rückgabe von 5 Leerteilen" },
+        ]
+      : [
+          { val: "~€21", desc: "Occasional use · 1 tablet/day · 8 tablets avg at €2.60" },
+          { val: "~€52", desc: "Daily use · 20 working days · avg refill price" },
+          { val: "+ €4", desc: "Cylinder deposit per order — refunded when you return 5 empties" },
+        ],
+    // Cylinder section (06)
+    cylinderKicker: isDE ? "Das System-Objekt" : "The system object",
+    cylinderH2a: isDE ? "Inklusive bei" : "Included with",
+    cylinderH2b: isDE ? "jeder einzelnen Nachfüllung." : "every single refill.",
+    cylinderDesc: isDE ? "Der matte Aluminiumzylinder ist nicht nur Verpackung – er ist das Gefäß, in dem deine Nachfüllungen ankommen. Jeder Geschmack, den du bestellst, kommt darin. Nutze ihn, leere ihn und entscheide: Schick ihn zurück für eine Pfand-Erstattung – oder behalte ihn für deinen Schreibtisch." : "The matte aluminum cylinder isn't just packaging; it's the vessel your refills travel in. Every flavor you order arrives inside one. Use it, empty it, and decide: return it for a deposit refund so we can close the loop, or keep it to organize your own space.",
+    cylinderSpecs: isDE ? [
+      ["Immer dabei", "Wird automatisch mit jeder Nachfüllung mitgeliefert. Kein Sonderkauf nötig."],
+      ["8 Tabletten", "Fasst einen vollständigen Geschmackszyklus – alles luftdicht und frisch."],
+      ["Leiser Fußabdruck", "Keine Umverpackungen, kein Plastik. Nur die Nachfüllung im Zylinder."],
+      ["Pfand erstattet", "Portofrei zurückschicken – oder als Deko auf dem Schreibtisch behalten."],
+    ] : [
+      ["Already included", "Ships automatically with every refill flavor. No need to buy it separately"],
+      ["Holds 8 refills", "Holds a complete flavor cycle, keeping everything airtight and fresh"],
+      ["A Quiet Footprint", "No wrappers, no plastic, no excess waste. Just the refill inside the cylinder"],
+      ["Refundable Deposit", "Send it back unfranked to claim your deposit, or keep it for your desk, shelf or kitchen counter"],
+    ],
+    discoverDetails: isDE ? "Details entdecken →" : "Discover the details →",
+    browseRefills: isDE ? "Nachfüllungen ansehen →" : "Browse refill packs →",
+    starterKitLink: isDE ? "Starter Kit" : "Starter Kit",
+    // Accessories
+    accessoriesKicker: isDE ? "04 · Flaschen & Behälter" : "04 · Bottles & vessels",
+    accessoriesH3: isDE ? "Flaschen & Behälter." : "Bottles & vessels.",
+    accessoriesDesc: isDE ? "Optionale Erweiterungen des Systems. Alle Nachfüllungen passen." : "Optional extensions of the system. The refills fit them all.",
+    bottleLabel: isDE ? "Flasche · " : "Bottle · ",
+    // Sustainability
+    susKicker: isDE ? "06 · Nachhaltigkeit" : "06 · Sustainability",
+    susH2a: isDE ? "Still ehrlich." : "Quietly honest.",
+    susH2b: isDE ? "Messbar besser." : "Measurably better.",
+    susDesc: isDE ? "Wir behaupten nicht, zero-waste zu sein. Wir veröffentlichen die echten Zahlen, den echten Loop, die echte Material-Kette – und fragen den Planeten mit jeder Nachfüllung etwas weniger." : "We're not pretending to be zero-waste. We're publishing the real numbers, the real loop, the real material trail — and asking less of the planet, one refill at a time.",
+    susStats: isDE ? [
+      { k: "−85%", l: "Versandvolumen vs. Dosen-Drinks" },
+      { k: "0", l: "Einweg-Plastikverpackungen pro Nachfüllung" },
+      { k: "5×", l: "Zylinder pro Rückgabe-Zyklus" },
+      { k: "Q1", l: "Öffentlicher Nachhaltigkeitsbericht pro Quartal" },
+      { k: "100%", l: "Nachverfolgbare Zutaten-Herkunft" },
+      { k: "8", l: "Tabletten pro Zylinder vor Rückgabe" },
+    ] : [
+      { k: "−85%", l: "Shipping volume vs. canned drinks" },
+      { k: "0", l: "Single-use plastic wrappers per refill" },
+      { k: "5×", l: "Cylinders per return cycle" },
+      { k: "Q1", l: "Public sustainability report each quarter" },
+      { k: "100%", l: "Traceable ingredient sourcing" },
+      { k: "8", l: "Tablets per cylinder before return" },
+    ],
+    // Closing
+    closingKicker: isDE ? "Ein langsameres System" : "A slower system",
+    closingH2a: isDE ? "Ein Ritual." : "One ritual.",
+    closingH2b: isDE ? "Endlos nachgefüllt." : "Endlessly refilled.",
+    closingCta1: isDE ? "Mit dem Starter Kit beginnen →" : "Begin the Starter Kit →",
+    closingCta2: isDE ? "Nachfüllungen entdecken" : "Explore the refills",
+    // Reviews
+    reviewsKicker: isDE ? "Community-Stimmen" : "Community voices",
+    reviewsH2: isDE ? "Was andere sagen." : "What people say.",
+    reviewsDesc: isDE ? "Echte Routinen. Echtes Feedback. Vom Bibliotheks-Morgen bis zum Spät-Abend-Schreibtisch." : "Real routines. Real feedback. From mornings in libraries to late-evening desks.",
+    reviewProductLabel: isDE ? "Geschmack" : "flavor",
+    // FAQ
+    faqKicker: isDE ? "Fragen" : "Questions",
+    faqH2: isDE ? "Häufig gestellt." : "Frequently asked.",
+    faqItems: isDE ? [
+      { q: "Was genau ist das VYTAL-System?", a: "VYTAL ist eine nachfüllbasierte Alternative zu Einweg-Energy-Drinks. Du kaufst einmal eine wiederverwendbare Flasche, dann löst du eine pflanzenbasierte Konzentrat-Tablette in kaltem Wasser auf. Die Nachfüllzylinder kommen zu uns zurück, werden sterilisiert und erneut ausgegeben." },
+      { q: "Was steckt in den Tabletten?", a: "Vier Wirkstoffe: L-Theanin (200 mg), Ashwagandha KSM-66 (300 mg), natürliches Grüntee-Koffein (80 mg) und Magnesiumbisglycinat (150 mg). Kein Zucker, keine künstlichen Süßungsmittel, kein synthetisches Koffein." },
+      { q: "Wie viele Tabletten sind in einem Zylinder?", a: "Jeder matte Aluminiumzylinder enthält genau 8 Tabletten – eine pro Drink. Das sind acht ruhige Nachfüllmomente, bevor der Zylinder leer und bereit zur Rückgabe ist." },
+      { q: "Wie funktioniert der Pfand- und Rückgabe-Loop?", a: "Jeder Nachfüllzylinder beinhaltet ein €4-Pfand. Sammle fünf leere Zylinder, wirf sie portofrei mit dem vorfrankierten Rückgabebeutel in jeden Briefkasten. Wir sterilisieren sie und bringen sie zurück in den Kreislauf. Dein Pfand wird mit der nächsten Bestellung verrechnet." },
+      { q: "Was ist, wenn ich die Zylinder nicht zurückgebe?", a: "Keine Pflicht, keine Strafe. Die Zylinder aus Aerospace-Aluminium sind schön genug fürs Regal. Du erhältst einfach das Pfand nicht zurück." },
+      { q: "Ist VYTAL für den täglichen Gebrauch geeignet?", a: "Ja – das Produkt ist für den täglichen Einsatz konzipiert. Die Formel enthält 80 mg natürliches Koffein (ungefähr eine Tasse Kaffee), kombiniert mit L-Theanin für eine gleichmäßige Kurve. Nicht empfohlen für Kinder, Schwangere oder stillende Frauen." },
+      { q: "Welches Wasser soll ich verwenden?", a: "Kaltes Stilles Wasser löst die Tablette am saubersten auf. Sprudelwasser ergibt ein leichteres, erfrischenderes Ergebnis. Heißes Wasser vermeiden – es kann Wirkstoffe beeinflussen." },
+      { q: "Wie lange dauert die Lieferung?", a: "Derzeit versenden wir nach Deutschland und Österreich. Standardlieferung: 2–4 Werktage. Alle Verpackungen sind plastikfrei aus Recycling-Karton." },
+    ] : [
+      { q: "What exactly is the VYTAL system?", a: "VYTAL is a refill-based alternative to disposable energy drinks. You buy a reusable bottle once, then dissolve a plant-based concentrate tablet in cold water. The refill cylinders come back to us, get sterilized, and go out again — a quiet loop designed to waste less from the start." },
+      { q: "What's inside the tablets?", a: "Four active ingredients: L-Theanine (200 mg), Ashwagandha KSM-66 (300 mg), natural Green Tea Caffeine (80 mg), and Magnesium Bisglycinate (150 mg). No sugar, no artificial sweeteners, no synthetic caffeine — just the functional part." },
+      { q: "How many tablets come in a cylinder?", a: "Each matte aluminum refill cylinder holds exactly 8 tablets — one per drink. That's eight calm refill moments before the cylinder is empty and ready to return." },
+      { q: "How does the deposit and return loop work?", a: "Every refill cylinder includes a €4 refundable deposit. Collect five empty cylinders, drop them unfranked in any postbox using the included pre-paid return pouch. We sterilize them and put them back into the loop. Your deposit is credited to your next order. No app needed." },
+      { q: "What if I don't return the cylinders?", a: "No obligation, and no penalty. The cylinders are made from aerospace-grade anodized aluminum — beautiful enough to keep on a shelf or desk. You simply don't receive the deposit back. You decide when the loop closes." },
+      { q: "Is VYTAL suitable for daily use?", a: "Yes — it's designed for everyday use. The formulation contains 80 mg of natural caffeine (roughly equivalent to one cup of coffee), paired with L-Theanine to smooth the curve. Not recommended for children, pregnant or breastfeeding women, or people sensitive to caffeine." },
+      { q: "What water should I use?", a: "Still cold tap water works perfectly. Sparkling water gives a lighter, slightly more refreshing result. Avoid hot water — it can affect the tablet's dissolution and some active ingredients." },
+      { q: "How long does delivery take?", a: "Currently shipping within Germany and Austria. Standard delivery: 2–4 working days. All packaging is plastic-free recycled board." },
+    ],
+    // QuickView
+    qvWhatsInside: isDE ? "Das ist drin" : "What's inside",
+    qvRequiredInfo: isDE ? "Pflichtangaben" : "Required product information",
+    qvSupplement: isDE ? "Nahrungsergänzungsmittel. Kein Ersatz für eine ausgewogene, abwechslungsreiche Ernährung. Von Kindern fernhalten." : "Food supplement. Not a substitute for a balanced and varied diet. Keep out of reach of children.",
+    qvCaffeine: isDE ? "Enthält Koffein. Nicht empfohlen für Kinder, Schwangere oder stillende Frauen." : "Contains caffeine. Not recommended for children, pregnant or breastfeeding women.",
+    qvBottleNote: isDE ? "Flasche und Zylinder sind für kaltes Stilles Wasser und VYTAL-Tabletten ausgelegt. Vor dem ersten Gebrauch reinigen. Nicht verwenden, wenn beschädigt." : "Bottle and cylinder are designed for cold still water and VYTAL tablets. Clean before first use. Do not use if damaged.",
+    qvDepositNote: isDE ? "Pfand inklusive. Rückgabe-Loop gilt für Nachfüllzylinder." : "Deposit included. Return loop applies to refill cylinders.",
+    qvBottleDetails: isDE ? "Flascheneigenschaften & Pflege" : "Bottle details & care",
+    qvFullPage: isDE ? "Zur Produktseite →" : "Full product page →",
+    qvIngredients: isDE ? "Zutaten" : "Ingredients",
+    qvNutrition: isDE ? "Nährwerte pro Portion" : "Nutrition per serving",
+    qvFlavor: isDE ? "Geschmack" : "Flavor",
+    qvAddToCart: isDE ? (price: string) => `In den Warenkorb · ${price}` : (price: string) => `Add to cart · ${price}`,
+    qvAdded: isDE ? "Hinzugefügt ✓" : "Added ✓",
+    qvDepositBreakdown: isDE ? (base: string, dep: string) => `${base} Nachfüllung + ${dep} erstattungsfähiges Zylinder-Pfand.` : (base: string, dep: string) => `${base} refill + ${dep} refundable cylinder deposit.`,
+    // Starter kit quick view
+    skKicker: isDE ? "Starter Kit · Vollständiges Nachfüll-Ritual" : "Starter Kit · Complete refill ritual",
+    skH2: isDE ? "VYTAL Starter Kit" : "VYTAL Starter Kit",
+    skDesc: isDE ? "Der vollständige Einstieg ins VYTAL-Nachfüllsystem: eine wiederverwendbare Flasche, ein Nachfüllzylinder, alle sechs Geschmäcker, Hülle, Beutel und Onboarding-Ritual-Karte." : "The complete entry into the VYTAL refill system: one reusable bottle, one refill cylinder, all six functional flavors, sleeve, pouch and onboarding ritual card.",
+    skItems: isDE ? [
+      "1 × wiederverwendbare Glasflasche",
+      "1 × matter Aluminium-Nachfüllzylinder",
+      "6 × Funktionale Nachfüll-Geschmäcker",
+      "1 × Leinenhülle & Tragebeutel",
+      "1 × Onboarding-Ritual-Karte",
+    ] : [
+      "1 × reusable glass bottle",
+      "1 × matte aluminum refill cylinder",
+      "6 × functional flavor tablets",
+      "1 × linen sleeve & carry pouch",
+      "1 × onboarding ritual card",
+    ],
+    skDepositNote: isDE ? "Pfand inklusive. Rückgabe-Loop gilt für Nachfüllzylinder." : "Deposit included. Return loop applies to refill cylinders.",
+    skAddBtn: isDE ? (price: string) => `In den Warenkorb · ${price}` : (price: string) => `Add to cart · ${price}`,
+  };
+}
 
 function useReveal() {
   useEffect(() => {
@@ -184,6 +420,7 @@ function useReveal() {
 }
 
 function StarterKitQuickView({ onClose }: { onClose: () => void }) {
+  const s = useShopTx();
   const { add } = useCart();
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
@@ -236,17 +473,15 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
 
           <div className="p-6 md:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
-              Starter Kit · Complete refill ritual
+              {s.skKicker}
             </p>
 
             <h2 className="mt-4 font-display text-4xl font-extrabold leading-[0.95]">
-              VYTAL Starter Kit
+              {s.skH2}
             </h2>
 
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              The complete entry into the VYTAL refill system: one reusable bottle,
-              one refill cylinder, all six functional flavors, sleeve, pouch and
-              onboarding ritual card.
+              {s.skDesc}
             </p>
 
             <div className="mt-8 rounded-2xl border border-border p-5 bg-secondary/30">
@@ -254,30 +489,19 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
                 What’s inside
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• 1 × reusable glass bottle</li>
-                <li>• 1 × matte aluminum refill cylinder</li>
-                <li>• 6 × functional flavor tablets</li>
-                <li>• 1 × linen sleeve & carry pouch</li>
-                <li>• 1 × onboarding ritual card</li>
+                {s.skItems.map((item, i) => (
+                  <li key={i}>• {item}</li>
+                ))}
               </ul>
             </div>
 
             <div className="mt-8 rounded-2xl bg-secondary/40 p-5 text-xs text-muted-foreground leading-relaxed">
               <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
-                Required product information
+                {s.qvRequiredInfo}
               </p>
-              <p>
-                Food supplement. Not a substitute for a balanced and varied diet.
-                Keep out of reach of children.
-              </p>
-              <p className="mt-2">
-                Contains caffeine. Not recommended for children, pregnant or
-                breastfeeding women.
-              </p>
-              <p className="mt-2">
-                Bottle and cylinder are designed for cold still water and VYTAL
-                tablets. Clean before first use. Do not use if damaged.
-              </p>
+              <p>{s.qvSupplement}</p>
+              <p className="mt-2">{s.qvCaffeine}</p>
+              <p className="mt-2">{s.qvBottleNote}</p>
             </div>
 
             <div className="mt-8 flex items-center gap-4">
@@ -304,7 +528,7 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
                 onClick={handleAdd}
                 className="flex-1 bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium hover:bg-primary transition-colors"
               >
-                {added ? "Added ✓" : `Add to cart · ${formatPrice(qty * unitPrice)}`}
+                {added ? s.qvAdded : s.qvAddToCart(formatPrice(qty * unitPrice))}
               </button>
             </div>
 
@@ -336,8 +560,37 @@ function useParallax(ref: React.RefObject<HTMLElement | null>, intensity = 0.1) 
   }, [ref, intensity]);
 }
 
+const shopFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "What exactly is the VYTAL system?", acceptedAnswer: { "@type": "Answer", text: "VYTAL is a refill-based alternative to disposable energy drinks. You buy a reusable bottle once, then dissolve a plant-based concentrate tablet in cold water. The refill cylinders come back to us, get sterilized, and go out again — a quiet loop designed to waste less from the start." } },
+    { "@type": "Question", name: "What's inside the tablets?", acceptedAnswer: { "@type": "Answer", text: "Four active ingredients: L-Theanine (200 mg), Ashwagandha KSM-66 (300 mg), natural Green Tea Caffeine (80 mg), and Magnesium Bisglycinate (150 mg). No sugar, no artificial sweeteners, no synthetic caffeine." } },
+    { "@type": "Question", name: "How does the deposit and return loop work?", acceptedAnswer: { "@type": "Answer", text: "Every refill cylinder includes a €4 refundable deposit. Collect five empty cylinders, drop them unfranked in any postbox using the included pre-paid return pouch. We sterilize them and put them back into the loop. Your deposit is credited to your next order." } },
+    { "@type": "Question", name: "Is VYTAL suitable for daily use?", acceptedAnswer: { "@type": "Answer", text: "Yes — it's designed for everyday use. The formulation contains 80 mg of natural caffeine, paired with L-Theanine to smooth the curve. Not recommended for children, pregnant or breastfeeding women, or people sensitive to caffeine." } },
+  ],
+};
+
+const shopSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "VYTAL Shop",
+  description: "Refillable plant-based focus supplements — starter kit, six functional flavors and the circular refill loop.",
+  numberOfItems: 7,
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "VYTAL Starter Kit", url: "https://vytal.energy/shop/starter-kit" },
+    { "@type": "ListItem", position: 2, name: "VYTAL Focus — Matcha Lime", url: "https://vytal.energy/shop/focus" },
+    { "@type": "ListItem", position: 3, name: "VYTAL Flow — Peach Green Tea", url: "https://vytal.energy/shop/flow" },
+    { "@type": "ListItem", position: 4, name: "VYTAL Refresh — Berry Mint", url: "https://vytal.energy/shop/refresh" },
+    { "@type": "ListItem", position: 5, name: "VYTAL Boost — Citrus Ginger", url: "https://vytal.energy/shop/boost" },
+    { "@type": "ListItem", position: 6, name: "VYTAL Balance — Pear Sage", url: "https://vytal.energy/shop/balance" },
+    { "@type": "ListItem", position: 7, name: "VYTAL Recharge — Cherry Black Tea", url: "https://vytal.energy/shop/recharge" },
+  ],
+};
+
 function ShopPage() {
   useReveal();
+  const s = useShopTx();
   const heroImgRef = useRef<HTMLImageElement>(null);
   useParallax(heroImgRef as unknown as React.RefObject<HTMLElement | null>, 0.06);
 
@@ -354,6 +607,14 @@ function ShopPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(shopSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(shopFaqSchema) }}
+      />
       <SiteHeader />
 
 <div className="px-6 md:px-10 mt-10 mb-6">
@@ -368,7 +629,7 @@ function ShopPage() {
       <div className="flex items-center gap-5 flex-wrap">
 
         <span className="rounded-full border border-black/10 bg-white/50 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.28em] text-black/70 backdrop-blur-sm">
-          Limited Drop
+          {s.limitedDrop}
         </span>
 
         <div>
@@ -377,7 +638,7 @@ function ShopPage() {
           </p>
 
           <p className="mt-1 text-sm md:text-base text-black/60">
-            Translucent collector edition inspired by light, ritual and reuse.
+            {s.unityDesc}
           </p>
         </div>
       </div>
@@ -416,14 +677,13 @@ function ShopPage() {
         <div className="relative max-w-7xl mx-auto w-full px-6 md:px-10 pb-24 md:pb-32 pt-40 grid md:grid-cols-12 gap-10">
           <div className="md:col-span-7">
             <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary block mb-8 reveal">
-              Volume 01 · The ecosystem
+              {s.heroKicker}
             </span>
             <h1 className="font-display text-[clamp(3rem,8.5vw,8rem)] font-extrabold leading-[0.92] tracking-tighter text-balance reveal">
-              Start your <em className="not-italic italic font-light text-primary">refill</em> ritual.
+              {s.isDE ? "Starte dein" : "Start your"} <em className="not-italic italic font-light text-primary">{s.heroH1b}</em>
             </h1>
             <p className="mt-8 max-w-lg text-lg md:text-xl text-muted-foreground leading-relaxed reveal">
-              One starter kit. Six functional flavors. A reusable aluminum cylinder that
-              comes back to us — and to you — again and again.
+              {s.heroDesc}
             </p>
 
             <div className="mt-12 flex flex-wrap gap-3 reveal">
@@ -431,7 +691,7 @@ function ShopPage() {
                 onClick={scrollTo("starter")}
                 className="group inline-flex items-center gap-2 bg-foreground text-background px-7 py-4 rounded-full text-sm font-medium hover:bg-primary transition-colors"
               >
-                Begin with the Starter Kit
+                {s.heroCta1}
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </button>
               <button
@@ -463,7 +723,7 @@ function ShopPage() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground/70 reveal">
+        <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground/70 reveal">
           scroll · slowly
         </div>
       </section>
@@ -471,12 +731,11 @@ function ShopPage() {
       {/* QUIET STATEMENT */}
       <section className="px-6 md:px-10 max-w-5xl mx-auto py-28 md:py-44 text-center">
         <p className="font-display text-3xl md:text-5xl leading-[1.15] tracking-tight text-balance reveal">
-          Not an energy drink shop.<br/>
-          <span className="text-muted-foreground">A refill ecosystem.</span>
+          {s.quietH2a}<br/>
+          <span className="text-muted-foreground">{s.quietH2b}</span>
         </p>
         <p className="mt-8 max-w-xl mx-auto text-muted-foreground reveal">
-          Six flavors. One reusable cylinder. A return loop that quietly closes
-          behind every order. Designed for routines you already live.
+          {s.quietDesc}
         </p>
       </section>
 
@@ -500,18 +759,18 @@ function ShopPage() {
   className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1600ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
 />
         <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
-          The Starter Kit · Hero product
+          {s.starterBadge1}
         </span>
 
         <span className="absolute bottom-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-foreground/85 text-background backdrop-blur px-3 py-1.5 rounded-full">
-          All 6 flavors · cylinder included · deposit included
+          {s.starterBadge2}
         </span>
       </div>
 
       <div className="md:col-span-5 p-8 md:p-14 flex flex-col justify-between gap-10">
         <div>
           <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-            Chapter 01 · The complete ritual
+            {s.starterKicker}
           </span>
 
           <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
@@ -522,19 +781,11 @@ function ShopPage() {
           </h2>
 
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-sm">
-            Everything you need to enter the system — the glass bottle, the
-            reusable aluminum cylinder, all six functional flavors, and a
-            ritual card for the first morning.
+            {s.starterDesc}
           </p>
 
           <ul className="mt-8 space-y-2 text-sm">
-            {[
-              "1 × 750ml Borosilicate glass bottle",
-              "1 × Matte aluminum refill cylinder",
-              "6 × Refill flavors (Focus, Flow, Refresh, Boost, Balance, Recharge)",
-              "1 × Linen sleeve & carry pouch",
-              "1 × Onboarding ritual card",
-            ].map((i) => (
+            {s.starterItems.map((i) => (
               <li
                 key={i}
                 className="flex gap-3 text-muted-foreground border-b border-border/60 pb-2"
@@ -546,10 +797,10 @@ function ShopPage() {
           </ul>
           <br></br>
           <button
-            onClick={scrollTo("starter")}
+            onClick={() => setStarterKitOpen(true)}
             className="bg-foreground text-background px-8 py-4 rounded-full text-sm font-medium hover:bg-primary transition-colors"
           >
-            Begin the Starter Kit →
+            {s.starterCta}
           </button>
         </div>
       </div>
@@ -564,15 +815,15 @@ function ShopPage() {
     <div className="flex items-end justify-between gap-6 mb-10 reveal">
       <div>
         <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-          Six functional moods
+          {s.sixFlavorsKicker}
         </span>
         <h3 className="mt-3 font-display text-2xl md:text-3xl font-semibold tracking-tight">
-          Every kit contains all six.
+          {s.sixFlavorsH3}
         </h3>
       </div>
 
       <p className="hidden md:block text-sm text-muted-foreground max-w-xs">
-        Each flavor has its own intent — try them all before you choose your everyday.
+        {s.sixFlavorsDesc}
       </p>
     </div>
 
@@ -610,16 +861,11 @@ function ShopPage() {
                     hover:-translate-y-2
                     hover:shadow-2xl
                     hover:border-primary/30
-                    hover:before:bg-white/[0.02]
                     before:absolute
                     before:inset-0
                     before:bg-white/0
                     before:transition-all
                     before:duration-700
-                    min-h-[420px]
-
-
-
               `}
             >
   
@@ -642,37 +888,12 @@ function ShopPage() {
             </p>
 
             <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
-                {id?.emotion}
+                {s.isDE ? (flavorEmotionDe[r.slug] ?? id?.emotion) : id?.emotion}
               </p>
 
-              <div className="mt-5 pt-5 border-t border-border/60 space-y-4">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary mb-1">
-                  Taste profile
-                </p>
-                <p className="text-xs leading-relaxed text-muted-foreground">
-                  {strategy?.sensory}
-                </p>
-              </div>
-
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary mb-1">
-                  Premium cue
-                </p>
-                <p className="text-xs leading-relaxed text-muted-foreground">
-                  {strategy?.quality}
-                </p>
-              </div>
-
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary mb-1">
-                  Best moment
-                </p>
-                <p className="text-xs leading-relaxed text-muted-foreground">
-                  {strategy?.moment}
-                </p>
-              </div>
-            </div>
+              <p className="mt-3 text-[11px] text-muted-foreground/70 italic leading-relaxed">
+                {s.isDE ? (flavorMomentDe[r.slug] ?? strategy?.moment) : strategy?.moment}
+              </p>
 
               {/* BONUS */}
                <div
@@ -685,7 +906,7 @@ function ShopPage() {
                   className="mt-6 flex items-center justify-between"
                 >
                   <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                    Explore flavor
+                    {s.exploreFlavorLabel}
                   </span>
 
                   <span className="transition-transform duration-500 group-hover:translate-x-1">
@@ -704,21 +925,18 @@ function ShopPage() {
 <section id="refills" className="px-6 md:px-10 max-w-7xl mx-auto pt-28 md:pt-40 pb-20">
   <div className="max-w-3xl mb-14 reveal">
     <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-      Chapter 02 · Reloads
+      {s.refillsKicker}
     </span>
 
     <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-      The refills.<br />
+      {s.refillsH2a}<br />
       <span className="italic font-light text-muted-foreground">
-        Always inside the cylinder.
+        {s.refillsH2b}
       </span>
     </h2>
 
     <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
-      Each refill arrives in a reusable matte aluminum cylinder. Every cylinder
-      holds 8 functional tablets and includes a €4 refundable deposit. When five
-      cylinders are empty, send them back, get your deposit credited, and we
-      sterilize and refill them.
+      {s.refillsDesc}
     </p>
   </div>
 
@@ -756,15 +974,15 @@ function ShopPage() {
             
             {/* Der neue Hover-Button */}
             <span className="absolute bottom-5 right-5 inline-flex items-center gap-2 bg-foreground text-background px-5 py-3 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-              Discover the details →
+              {s.discoverDetails}
             </span>
           </a>
         </div>
         <div className="lg:col-span-6 reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">The system object</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">{s.cylinderKicker}</span>
           <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-            Included with<br/>
-            <span className="italic font-light text-muted-foreground">every single refill.</span>
+            {s.cylinderH2a}<br/>
+            <span className="italic font-light text-muted-foreground">{s.cylinderH2b}</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
             The matte aluminum cylinder isn’t just packaging; it’s the vessel your refills travel in. 
@@ -773,12 +991,7 @@ function ShopPage() {
             return it for a deposit refund so we can close the loop, or keep it to organize your own space.
           </p>
           <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 max-w-md">
-            {[
-              ["Already included", "Ships automatically with every refill flavor. No need to buy it separately"],
-              ["Holds 8 refills", "Holds a complete flavor cycle, keeping everything airtight and fresh"],
-              ["A Quiet Footprint", "No wrappers, no plastic, no excess waste. Just the refill inside the cylinder"],
-              ["Refundable Deposit", "Send it back unfranked to claim your deposit, or keep it for your desk, shelf or kitchen counter"],
-            ].map(([k, v]) => (
+            {s.cylinderSpecs.map(([k, v]) => (
               <div key={k} className="border-t border-border pt-3">
                 <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{k}</dt>
                 <dd className="mt-1.5 font-display text-sm">{v}</dd>
@@ -792,11 +1005,14 @@ function ShopPage() {
       <section id="accessories" className="px-6 md:px-10 max-w-7xl mx-auto pb-24 md:pb-32">
         <div className="flex items-end justify-between gap-6 mb-10 reveal">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary"> Chapter 04 · Accessories</span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">{s.accessoriesKicker}</span>
             <h3 className="mt-3 font-display text-3xl md:text-5xl font-extrabold tracking-tight">
-              Bottles & vessels.
+              {s.accessoriesH3}
             </h3>
           </div>
+          <p className="hidden md:block max-w-xs text-sm text-muted-foreground">
+            {s.accessoriesDesc}
+          </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
           {bottles.map((b) => (
@@ -804,7 +1020,7 @@ function ShopPage() {
               <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
                 <img src={b.image} alt={b.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]" />
                 <div className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/80">
-                  Bottle · {b.color}
+                  {s.bottleLabel}{b.color}
                 </div>
               </div>
               <div className="mt-5 flex items-baseline justify-between">
@@ -821,23 +1037,23 @@ function ShopPage() {
       <section className="bg-foreground text-background py-28 md:py-44 px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5 reveal">
-            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-accent">Chapter 05 · Transparency</span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-accent">{s.susKicker}</span>
             <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-              Quietly honest.<br/>
-              <span className="italic font-light text-background/70">Measurably better.</span>
+              {s.susH2a}<br/>
+              <span className="italic font-light text-background/70">{s.susH2b}</span>
             </h2>
             <p className="mt-8 text-background/70 leading-relaxed max-w-md">
-              We're not pretending to be zero-waste. We're publishing the real
-              numbers, the real loop, the real material trail — and asking less of
-              the planet, one refill at a time.
+              {s.susDesc}
             </p>
           </div>
           <div className="md:col-span-7 grid sm:grid-cols-2 gap-4 reveal">
             {[
               { k: "−85%", l: "Shipping volume vs. canned drinks" },
               { k: "0", l: "Single-use plastic wrappers per refill" },
+              { k: "5×", l: "Cylinders per return cycle" },
+              { k: "Q1", l: "Public sustainability report each quarter" },
               { k: "100%", l: "Traceable ingredient sourcing" },
-              { k: "8", l: "Refills per cylinder" },
+              { k: "8", l: "Tablets per cylinder before return" },
             ].map((m) => (
               <div key={m.l} className="rounded-2xl border border-background/15 p-6 bg-background/5">
                 <p className="font-display text-3xl">{m.k}</p>
@@ -848,6 +1064,12 @@ function ShopPage() {
         </div>
       </section>
 
+      {/* REVIEWS */}
+      <ShopReviews />
+
+      {/* FAQ */}
+      <ShopFAQ />
+
       {/* CLOSING */}
       <section className="relative min-h-[70vh] flex items-center justify-center px-6 md:px-10 overflow-hidden bg-secondary/40">
         <div className="absolute inset-0 -z-10">
@@ -855,20 +1077,20 @@ function ShopPage() {
           <div className="absolute -bottom-40 -right-20 w-[520px] h-[520px] rounded-full bg-accent/25 blur-3xl animate-drift" style={{ animationDelay: "-8s" }} />
         </div>
         <div className="text-center max-w-3xl reveal py-32">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">A slower system</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">{s.closingKicker}</span>
           <h2 className="mt-6 font-display text-5xl md:text-7xl font-extrabold leading-[0.98] tracking-tight text-balance">
-            One ritual.<br/>
-            <span className="italic font-light text-muted-foreground">Endlessly refilled.</span>
+            {s.closingH2a}<br/>
+            <span className="italic font-light text-muted-foreground">{s.closingH2b}</span>
           </h2>
           <div className="mt-12 flex flex-wrap justify-center gap-3">
             <button
                 onClick={scrollTo("starter")}
                 className="bg-foreground text-background px-8 py-4 rounded-full text-sm font-medium hover:bg-primary transition-colors"
               >
-                Begin the Starter Kit →
+                {s.closingCta1}
             </button>
             <button onClick={scrollTo("refills")} className="border border-foreground/15 px-8 py-4 rounded-full text-sm font-medium hover:bg-background transition-colors">
-              Explore the refills
+              {s.closingCta2}
             </button>
           </div>
         </div>
@@ -890,8 +1112,127 @@ function ShopPage() {
     </main>
   );
 }
+// ── Shop reviews ─────────────────────────────────────────────────────
+function ShopReviews() {
+  const s = useShopTx();
+  const items = [
+    { quote: "Finally a focus drink that doesn't make me jittery at 3pm.", name: "Marie L.", role: "Law student · Munich", product: "Focus" },
+    { quote: "It just works, all day. The most boring compliment, but still.", name: "Jonas K.", role: "Engineer · Berlin", product: "Flow" },
+    { quote: "My 4pm reset. Cold sparkling, gone in two minutes.", name: "Anna T.", role: "Designer · Hamburg", product: "Refresh" },
+    { quote: "Replaces my pre-workout AND my 3rd coffee. Smarter.", name: "Leon S.", role: "Master's student · Cologne", product: "Boost" },
+    { quote: "First energy drink I drink for the feeling, not the kick.", name: "Sophie B.", role: "Product designer · Berlin", product: "Balance" },
+    { quote: "I can finish a 10pm writing block and still fall asleep.", name: "Mira H.", role: "PhD candidate · Vienna", product: "Recharge" },
+  ];
+  return (
+    <section className="bg-foreground text-background py-24 md:py-32 px-6 md:px-10">
+      <div className="max-w-7xl mx-auto">
+        <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-background/50 block mb-4">
+              {s.reviewsKicker}
+            </span>
+            <h2 className="font-display text-3xl md:text-5xl font-extrabold leading-[1.02] text-balance">
+              What people say.
+            </h2>
+          </div>
+          <p className="text-background/55 text-sm max-w-xs leading-relaxed">
+            {s.reviewsDesc}
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {items.map((t, i) => (
+            <figure
+              key={t.name}
+              className="reveal rounded-3xl border border-background/10 bg-background/5 p-8 flex flex-col gap-6"
+              style={{ transitionDelay: `${i * 60}ms` }}
+            >
+              <blockquote className="font-display text-xl leading-[1.3] text-balance">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-auto border-t border-background/10 pt-5 flex items-end justify-between gap-3">
+                <div>
+                  <p className="text-sm font-semibold text-background">{t.name}</p>
+                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-background/50 mt-1">{t.role}</p>
+                </div>
+                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-background/30">{t.product}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── Shop FAQ ──────────────────────────────────────────────────────────
+const faqItems = [
+  {
+    q: "What exactly is the VYTAL system?",
+    a: "VYTAL is a refill-based alternative to disposable energy drinks. You buy a reusable bottle once, then dissolve a plant-based concentrate tablet in cold water. The refill cylinders come back to us, get sterilized, and go out again — a quiet loop designed to waste less from the start.",
+  },
+  {
+    q: "What's inside the tablets?",
+    a: "Four active ingredients: L-Theanine (200 mg), Ashwagandha KSM-66 (300 mg), natural Green Tea Caffeine (80 mg), and Magnesium Bisglycinate (150 mg). No sugar, no artificial sweeteners, no synthetic caffeine — just the functional part.",
+  },
+  {
+    q: "How many tablets come in a cylinder?",
+    a: "Each matte aluminum refill cylinder holds exactly 8 tablets — one per drink. That's eight calm refill moments before the cylinder is empty and ready to return.",
+  },
+  {
+    q: "How does the deposit and return loop work?",
+    a: "Every refill cylinder includes a €4 refundable deposit. Collect five empty cylinders, drop them unfranked in any postbox using the included pre-paid return pouch. We sterilize them and put them back into the loop. Your deposit is credited to your next order. No app needed.",
+  },
+  {
+    q: "What if I don't return the cylinders?",
+    a: "No obligation, and no penalty. The cylinders are made from aerospace-grade anodized aluminum — beautiful enough to keep on a shelf or desk. You simply don't receive the deposit back. You decide when the loop closes.",
+  },
+  {
+    q: "Is VYTAL suitable for daily use?",
+    a: "Yes — it's designed for everyday use. The formulation contains 80 mg of natural caffeine (roughly equivalent to one cup of coffee), paired with L-Theanine to smooth the curve. Not recommended for children, pregnant or breastfeeding women, or people sensitive to caffeine.",
+  },
+  {
+    q: "What water should I use?",
+    a: "Still cold tap water works perfectly. Sparkling water gives a lighter, slightly more refreshing result. Avoid hot water — it can affect the tablet's dissolution and some active ingredients.",
+  },
+  {
+    q: "How long does delivery take?",
+    a: "Currently shipping within Germany and Austria. Standard delivery: 2–4 working days. All packaging is plastic-free recycled board.",
+  },
+];
+
+function ShopFAQ() {
+  const s = useShopTx();
+  return (
+    <section className="px-6 md:px-10 max-w-4xl mx-auto py-24 md:py-36">
+      <div className="reveal mb-12">
+        <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">{s.faqKicker}</span>
+        <h2 className="mt-5 font-display text-4xl md:text-5xl font-extrabold leading-[0.98] tracking-tight">
+          Frequently asked.
+        </h2>
+      </div>
+      <Accordion type="single" collapsible className="reveal space-y-2">
+        {s.faqItems.map((item, i) => (
+          <AccordionItem
+            key={i}
+            value={`item-${i}`}
+            className="border border-border rounded-2xl px-6 data-[state=open]:bg-secondary/40 transition-colors duration-300 [&:not(:last-child)]:mb-2 border-b-0 last:border-b-0"
+          >
+            <AccordionTrigger className="font-display text-lg font-semibold text-left py-5 hover:no-underline hover:text-primary transition-colors [&[data-state=open]]:text-primary">
+              {item.q}
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground leading-relaxed pb-5 text-base">
+              {item.a}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </section>
+  );
+}
+
 // ── Refill card ──────────────────────────────────────────────────────
 function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => void }) {
+  const s = useShopTx();
   const id = flavorIdentity[p.slug];
   const { add } = useCart();
   const [added, setAdded] = useState(false);
@@ -947,29 +1288,27 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
           className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 bg-foreground text-background backdrop-blur px-4 py-2.5 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 hover:bg-primary"
           aria-label={`Add ${p.name} refill cylinder to cart`}
         >
-          {added ? "Added ✓" : "Quick add →"}
+          {added ? s.added : s.quickAdd}
         </button>
       </div>
       <div className="mt-6 flex items-baseline justify-between gap-3">
         <p className="font-display text-xl font-semibold tracking-tight">{p.name.replace("VYTAL ", "")}</p>
-        <span className="font-mono text-xs text-muted-foreground">{formatPrice(parsePrice(p.price) + 4)} <span className="text-muted-foreground/60">/ cylinder</span></span>
+        <span className="font-mono text-xs text-muted-foreground">{formatPrice(parsePrice(p.price) + 4)} <span className="text-muted-foreground/60">{s.perCylinder}</span></span>
       </div>
       <p className="text-[13px] font-mono text-primary/80 mt-1">{id?.mood ?? p.flavor}</p>
-      <p className="text-sm text-muted-foreground mt-3 leading-relaxed max-w-sm">{id?.emotion ?? p.tagline}</p>
+      <p className="text-sm text-muted-foreground mt-3 leading-relaxed max-w-sm">{s.isDE ? (flavorEmotionDe[p.slug] ?? id?.emotion ?? p.tagline) : (id?.emotion ?? p.tagline)}</p>
     </div>
   );
 }
 
 // ── Return loop — interactive 5-step ─────────────────────────────────
 function ReturnLoop() {
+  const s = useShopTx();
   const [active, setActive] = useState(0);
-  const steps = [
-    { t: "Receive", d: "Refill cylinder arrives with your order. Deposit included.", img: aluHero },
-    { t: "Use", d: "One press. One tablet. Eight tablets per cylinder.", img: aluDispense }, 
-    { t: "Collect", d: "Slip empty cylinders into the return pouch as they're used.", img: aluLoop },
-    { t: "Return", d: "Drop the pouch unfranked in any postbox. Pre-paid. No app. Or simply keep it to repurpose at home. You decide when the loop closes.", img: aluLoop },
-    { t: "Reuse", d: "If returned, we sterilize and refill it for someone else's ritual.", img: shopRitualDesk },
-  ];
+  const steps = s.loopSteps.map((st, idx) => ({
+    ...st,
+    img: [aluHero, aluDispense, aluLoop, aluLoop, shopRitualDesk][idx],
+  }));
 
   // Cycle automatically
   useEffect(() => {
@@ -981,14 +1320,13 @@ function ReturnLoop() {
     <section id="loop" className="relative bg-[#f3ede2] text-foreground overflow-hidden">
       <div className="px-6 md:px-10 max-w-7xl mx-auto py-32 md:py-44 grid lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-5 lg:sticky lg:top-28 reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">Chapter 03 · The loop</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">{s.loopKicker}</span>
           <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-            How the VYTAL<br/>
-            <span className="italic font-light text-muted-foreground">loop works.</span>
+            {s.loopH2a}<br/>
+            <span className="italic font-light text-muted-foreground">{s.loopH2b}</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
-            Return whenever you're ready. One postbox. Deposit refunded. No subscription tricks,
-            no app, no greenwashing. The whole system is built around one quiet motion.
+            {s.loopDesc}
           </p>
 
           <div className="mt-10 aspect-[4/5] relative overflow-hidden rounded-md bg-background">
@@ -1041,16 +1379,28 @@ function ReturnLoop() {
 
           <div className="mt-10 grid sm:grid-cols-3 gap-3 text-xs text-muted-foreground">
             <div className="rounded-2xl border border-border p-4 bg-background/60">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Deposit</p>
-              <p className="mt-2">4€ per cylinder. Fully refunded upon return. No minimums, no rush.</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">{s.loopDeposit}</p>
+              <p className="mt-2">{s.loopDepositText}</p>
             </div>
             <div className="rounded-2xl border border-border p-4 bg-background/60">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Hygiene</p>
-              <p className="mt-2">Returned cylinders are sterilized to medical-grade standards before refilling.</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">{s.loopHygiene}</p>
+              <p className="mt-2">{s.loopHygieneText}</p>
             </div>
             <div className="rounded-2xl border border-border p-4 bg-background/60">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Reality check</p>
-              <p className="mt-2">Significantly more conscious than canned drinks. We publish the numbers quarterly.</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">{s.loopReality}</p>
+              <p className="mt-2">{s.loopRealityText}</p>
+            </div>
+          </div>
+
+          <div className="mt-6 rounded-2xl border border-border bg-background/60 p-5 text-xs text-muted-foreground">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary mb-3">{s.costTitle}</p>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {s.costItems.map((ci, i) => (
+                <div key={i}>
+                  <p className="font-display text-lg text-foreground">{ci.val}</p>
+                  <p className="mt-1">{ci.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </ol>
@@ -1065,6 +1415,7 @@ function ProductQuickView({
   product: Product;
   onClose: () => void;
 }) {
+  const s = useShopTx();
   const { add } = useCart();
   const [qty, setQty] = useState(1);
   const unitPrice =
@@ -1149,7 +1500,7 @@ function ProductQuickView({
             {product.flavor && (
               <div className="mt-6 rounded-2xl border border-border p-5 bg-secondary/30">
                 <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
-                  Flavor
+                  {s.qvFlavor}
                 </p>
                 <p className="mt-1 font-semibold">{product.flavor}</p>
                 <p className="text-sm text-muted-foreground">
@@ -1160,7 +1511,7 @@ function ProductQuickView({
 
             <div className="mt-8">
               <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
-                Ingredients
+                {s.qvIngredients}
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {product.ingredients?.map((i) => (
@@ -1175,7 +1526,7 @@ function ProductQuickView({
             {product.nutrition?.length > 0 && (
               <div className="mt-8">
                 <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
-                  Nutrition per serving
+                  {s.qvNutrition}
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   {product.nutrition.map((n) => (
@@ -1206,7 +1557,7 @@ function ProductQuickView({
             {product.category === "bottle" && (
   <div className="mt-8 rounded-2xl bg-secondary/40 p-5 text-xs text-muted-foreground leading-relaxed">
     <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
-      Bottle details & care
+      {s.qvBottleDetails}
     </p>
 
     {product.slug === "office-bottle" && (
@@ -1317,11 +1668,11 @@ function ProductQuickView({
                     added ? "scale-[1.03] animate-pulse" : ""
                 }`} 
               >
-                {added ? "Added ✓" : `Add to cart · ${formatPrice(qty * unitPrice)}`}
+                {added ? s.qvAdded : s.qvAddToCart(formatPrice(qty * unitPrice))}
               </button>
               {product.category === "refill" && (
                 <p className="mt-3 text-[11px] text-muted-foreground">
-                  {formatPrice(basePrice)} refill + {formatPrice(deposit)} refundable cylinder deposit.
+                  {s.qvDepositBreakdown(formatPrice(basePrice), formatPrice(deposit))}
                 </p>
               )}
             </div>
@@ -1331,7 +1682,7 @@ function ProductQuickView({
               params={{ slug: product.slug }}
               className="mt-5 inline-flex font-mono text-[10px] uppercase tracking-[0.25em] text-primary hover:text-foreground"
             >
-              Full product page →
+              {s.qvFullPage}
             </Link>
           </div>
         </div>

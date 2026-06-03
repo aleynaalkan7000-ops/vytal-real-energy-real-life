@@ -11,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { CartProvider } from "@/contexts/cart-context";
 import { CartDrawer } from "@/components/cart-drawer";
+import { LanguageProvider } from "@/contexts/language-context";
 
 function NotFoundComponent() {
   return (
@@ -115,10 +116,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <CartProvider>
-        <Outlet />
-        <CartDrawer />
-      </CartProvider>
+      <LanguageProvider>
+        <CartProvider>
+          <Outlet />
+          <CartDrawer />
+        </CartProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }
