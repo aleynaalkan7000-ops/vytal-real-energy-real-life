@@ -302,9 +302,11 @@ function useShopTx() {
       ["A Quiet Footprint", "No wrappers, no plastic, no excess waste. Just the refill inside the cylinder"],
       ["Refundable Deposit", "Send it back unfranked to claim your deposit, or keep it for your desk, shelf or kitchen counter"],
     ],
+    starterH2a: isDE ? "Beginne das" : "Begin the",
     discoverDetails: isDE ? "Details entdecken →" : "Discover the details →",
     browseRefills: isDE ? "Nachfüllungen ansehen →" : "Browse refill packs →",
     starterKitLink: isDE ? "Starter Kit" : "Starter Kit",
+    partOfEveryRefill: isDE ? "Teil jeder Nachfüllung" : "Part of every refill",
     // Accessories
     accessoriesKicker: isDE ? "04 · Flaschen & Behälter" : "04 · Bottles & vessels",
     accessoriesH3: isDE ? "Flaschen & Behälter." : "Bottles & vessels.",
@@ -397,6 +399,110 @@ function useShopTx() {
     ],
     skDepositNote: isDE ? "Pfand inklusive. Rückgabe-Loop gilt für Nachfüllzylinder." : "Deposit included. Return loop applies to refill cylinders.",
     skAddBtn: isDE ? (price: string) => `In den Warenkorb · ${price}` : (price: string) => `Add to cart · ${price}`,
+    // Product quickview — translated product data
+    productFunctionDe: {
+      focus: "Fokus, Konzentration & tiefes Lernen",
+      flow: "Gleichmäßige Energie für lange Sessions",
+      refresh: "Mentale Frische & leichte Aktivierung",
+      boost: "Stärkere Aktivierung & mentale Wachheit",
+      balance: "Ruhige Energie & bewusster Alltag",
+      recharge: "Abendproduktivität & späte Sessions",
+      "go-bottle": "Optimierte To-go-Flasche für schnelle, präzise Nachfüllungen",
+      "flow-bottle": "Längere Nutzung & intelligente Hydration",
+      "office-bottle": "Premium-Flasche für professionelle Umgebungen",
+      "home-container": "Vorratscontainer für Zuhause & flexiblen Einsatz",
+      "unity-bottle": "Community-getriebene Limited Edition",
+      "starter-kit": "Flasche + 6 Nachfüllungen, je einen von jedem Geschmack",
+    } as Record<string, string>,
+    productDescDe: {
+      focus: "FOCUS wurde für lange Tage, volle To-do-Listen und intensive Lernsessions entwickelt. Eine Kombination aus natürlichen Energiequellen und einer ruhigeren Formulierung unterstützt Konzentration und Produktivität – ohne den extremen Charakter klassischer Energy Drinks.",
+      flow: "FLOW wurde für lange Arbeits-, Lern- und Alltagssessions entwickelt. Die Formulierung unterstützt gleichmäßige Energie und einen fokussierten Tag – ohne unnötige Überlastung oder starken Leistungsabfall.",
+      refresh: "REFRESH wurde für Momente entwickelt, in denen neue Energie und mentale Frische gebraucht werden. Ideal unterwegs, zwischen Terminen oder nach langen Stunden vor dem Bildschirm.",
+      boost: "BOOST wurde für stressige Tage, hohe mentale Belastung und Momente mit wenig Schlaf entwickelt. Die stärkere Formulierung liefert intensive, aber bewusst funktionale Energie – ohne künstlich zu wirken.",
+      balance: "BALANCE kombiniert leichte Energie mit einem ruhigeren Konsumgefühl – entwickelt für Menschen, die bewusster konsumieren möchten.",
+      recharge: "RECHARGE wurde für späte Lern- oder Arbeitsphasen entwickelt, in denen Fokus gebraucht wird, ohne den Körper unnötig zu überlasten. Die Formulierung fühlt sich ruhiger an als klassische Energy Drinks.",
+      "go-bottle": "Mit 750 ml Fassungsvermögen, speziell für das VYTAL-Nachfüllsystem entwickelt. Die standardisierte Form ermöglicht dem Dispenser, Größe, Füllstand, Mischverhältnis und gewünschte Intensität automatisch zu erkennen.",
+      "flow-bottle": "Entwickelt für längere Sessions und direkte Arbeit mit dem Nachfüllsystem. Der Dispenser erkennt automatisch Füllstand, Behältergröße und die ideale Intensität für größere Volumina.",
+      "office-bottle": "Mit 750 ml Fassungsvermögen kombiniert diese Flasche Funktionalität mit hochwertiger Ästhetik – speziell für moderne Arbeitsumgebungen entwickelt. Soft-Close-Deckel, fingerabdruckfreie Oberfläche und auslaufsichere Konstruktion.",
+      "home-container": "Entwickelt für größere Nachfüllmengen. Standardisierte Größen ermöglichen präzises Befüllen, automatische Dosierungsanpassung und hygienische Heimnutzung.",
+      "unity-bottle": "Diese limitierte Edition mit 750 ml ist nicht nur funktional — sie ist Teil der Marken- und Community-Erfahrung. Limitierte Drops und exklusive Designs schaffen emotionalen Wert und Sammlerwert.",
+      "starter-kit": "Der einfachste Einstieg in VYTAL. Eine GO BOTTLE und je eine Nachfüllung jedes Geschmacks — finde deinen Tag, deinen Abend, dein Wochenende.",
+    } as Record<string, string>,
+    productFlavorNoteDe: {
+      focus: "Frisch, leicht kräuterig, modern",
+      flow: "Weich, leicht süßlich, calm-modern",
+      refresh: "Frisch, kühl, leicht fruchtig",
+      boost: "Intensiv, leicht scharf, energetisch",
+      balance: "Leicht, natürlich, erwachsen",
+      recharge: "Tief, ruhig, leicht kräutersüß",
+    } as Record<string, string>,
+    ingredientWhyDe: {
+      "Even, steady release of natural caffeine.": "Gleichmäßige, stetige Freisetzung von natürlichem Koffein.",
+      "Plant-based caffeine source.": "Pflanzenbasierte Koffeinquelle.",
+      "Calmer, more balanced focus.": "Ruhigerer, ausgewogenerer Fokus.",
+      "Adaptogen for stress balance.": "Adaptogen für Stressbalance.",
+    } as Record<string, string>,
+    nutritionLabelsDe: {
+      Energy: "Energie",
+      Sugar: "Zucker",
+      Caffeine: "Koffein",
+      Sweetener: "Süßungsmittel",
+    } as Record<string, string>,
+    bottleDetailsDe: {
+      "go-bottle": {
+        intro: "Leichte Alltagsflasche für Bewegung, Campustage und Routinen außer Haus.",
+        bullets: [
+          "Sanftes Tragegefühl für den Alltag.",
+          "Entwickelt für kaltes stilles Wasser und VYTAL-Tabletten.",
+          "Leicht in Taschen und tägliche Setups zu transportieren.",
+          "Handwäsche empfohlen.",
+          "Nicht verwenden, wenn gerissen, undicht oder sichtbar beschädigt.",
+        ],
+      },
+      "flow-bottle": {
+        intro: "Minimale Hydrations-Flasche für ruhigere Alltagsroutinen und langsame Nachfüllrituale.",
+        bullets: [
+          "Klares minimalistisches Design für tägliche Hydration.",
+          "Geeignet für kaltes stilles Wasser und VYTAL-Tabletten.",
+          "Für wiederholten täglichen Gebrauch konzipiert.",
+          "Handwäsche empfohlen zum Schutz der Oberfläche.",
+          "Nicht mit kochenden Flüssigkeiten verwenden.",
+        ],
+      },
+      "office-bottle": {
+        intro: "Gebürstete Edelstahlflasche für Schreibtischarbeit, Pendeln und längere Bürosessions.",
+        bullets: [
+          "Edelstahl-Außenseite mit professionellem Büro-Look.",
+          "Entwickelt für tägliche Hydration und VYTAL-Nachfüllrituale.",
+          "Geeignet für kaltes stilles Wasser und VYTAL-Tabletten.",
+          "Handwäsche empfohlen zum Schutz von Deckel und Oberfläche.",
+          "Nicht verwenden, wenn verbeult, undicht oder sichtbar beschädigt.",
+        ],
+      },
+      "home-container": {
+        intro: "Heimlagerungsgefäß für sichtbare, organisierte und einfach zu teilende Nachfüllroutinen.",
+        bullets: [
+          "Für Heimlagerung und geteilte Routinen gedacht.",
+          "An einem trockenen, kühlen Ort vor direkter Sonneneinstrahlung lagern.",
+          "Geschlossen halten, wenn nicht in Gebrauch.",
+          "Vor dem ersten Gebrauch reinigen.",
+          "Nicht verwenden, wenn gerissen oder sichtbar beschädigt.",
+        ],
+      },
+      "unity-bottle": {
+        intro: "Limitierte visuelle Edition mit transluzentem Sammler-Charakter als saisonale Erweiterung des Nachfüllrituals.",
+        bullets: [
+          "Limitierte visuelle Edition.",
+          "Entwickelt für kaltes stilles Wasser und VYTAL-Tabletten.",
+          "Nachfüllungen werden separat verkauft, sofern nicht in einem Bundle enthalten.",
+          "Handwäsche empfohlen zum Schutz der Oberfläche.",
+          "Nicht verwenden, wenn gerissen, undicht oder sichtbar beschädigt.",
+        ],
+      },
+    } as Record<string, { intro: string; bullets: string[] }>,
+    productMustBeUsed: isDE
+      ? "Das Produkt muss bestimmungsgemäß verwendet werden. Vor dem ersten Gebrauch immer reinigen."
+      : "Product must be used as intended. Always clean before first use.",
   };
 }
 
@@ -486,7 +592,7 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
 
             <div className="mt-8 rounded-2xl border border-border p-5 bg-secondary/30">
               <p className="font-mono text-[10px] uppercase tracking-widest text-primary mb-3">
-                What’s inside
+                {s.qvWhatsInside}
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {s.skItems.map((item, i) => (
@@ -533,7 +639,7 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
             </div>
 
             <p className="mt-3 text-[11px] text-muted-foreground">
-              Deposit included. Return loop applies to refill cylinders.
+              {s.skDepositNote}
             </p>
           </div>
         </div>
@@ -653,7 +759,7 @@ function ShopPage() {
         }}
         className="unity-drop-banner__button"
       >
-        View drop →
+        {s.viewDrop}
       </button>
     </div>
   </div>
@@ -698,13 +804,13 @@ function ShopPage() {
                 onClick={scrollTo("refills")}
                 className="inline-flex items-center gap-2 border border-foreground/15 px-7 py-4 rounded-full text-sm font-medium hover:bg-secondary transition-colors"
               >
-                Explore the flavors
+                {s.heroCta2}
               </button>
               <button
                 onClick={scrollTo("loop")}
                 className="inline-flex items-center gap-2 px-5 py-4 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                How the loop works →
+                {s.heroCta3}
               </button>
             </div>
           </div>
@@ -724,7 +830,7 @@ function ShopPage() {
         </div>
 
         <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground/70 reveal">
-          scroll · slowly
+          {s.scrollSlowly}
         </div>
       </section>
 
@@ -774,9 +880,9 @@ function ShopPage() {
           </span>
 
           <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight">
-            Begin the<br />
+            {s.starterH2a}<br />
             <em className="not-italic italic font-light text-muted-foreground">
-              refill ritual.
+              {s.starterH2b}
             </em>
           </h2>
 
@@ -969,7 +1075,7 @@ function ShopPage() {
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]" 
             />
             <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
-              Part of every refill
+              {s.partOfEveryRefill}
             </span>
             
             {/* Der neue Hover-Button */}
@@ -985,10 +1091,7 @@ function ShopPage() {
             <span className="italic font-light text-muted-foreground">{s.cylinderH2b}</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
-            The matte aluminum cylinder isn’t just packaging; it’s the vessel your refills travel in. 
-            Every flavor you order arrives inside one. 
-            Use it, empty it, and decide: 
-            return it for a deposit refund so we can close the loop, or keep it to organize your own space.
+            {s.cylinderDesc}
           </p>
           <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 max-w-md">
             {s.cylinderSpecs.map(([k, v]) => (
@@ -1047,14 +1150,7 @@ function ShopPage() {
             </p>
           </div>
           <div className="md:col-span-7 grid sm:grid-cols-2 gap-4 reveal">
-            {[
-              { k: "−85%", l: "Shipping volume vs. canned drinks" },
-              { k: "0", l: "Single-use plastic wrappers per refill" },
-              { k: "5×", l: "Cylinders per return cycle" },
-              { k: "Q1", l: "Public sustainability report each quarter" },
-              { k: "100%", l: "Traceable ingredient sourcing" },
-              { k: "8", l: "Tablets per cylinder before return" },
-            ].map((m) => (
+            {s.susStats.map((m) => (
               <div key={m.l} className="rounded-2xl border border-background/15 p-6 bg-background/5">
                 <p className="font-display text-3xl">{m.k}</p>
                 <p className="mt-2 text-xs uppercase tracking-[0.22em] text-background/60 font-mono">{m.l}</p>
@@ -1115,14 +1211,9 @@ function ShopPage() {
 // ── Shop reviews ─────────────────────────────────────────────────────
 function ShopReviews() {
   const s = useShopTx();
-  const items = [
-    { quote: "Finally a focus drink that doesn't make me jittery at 3pm.", name: "Marie L.", role: "Law student · Munich", product: "Focus" },
-    { quote: "It just works, all day. The most boring compliment, but still.", name: "Jonas K.", role: "Engineer · Berlin", product: "Flow" },
-    { quote: "My 4pm reset. Cold sparkling, gone in two minutes.", name: "Anna T.", role: "Designer · Hamburg", product: "Refresh" },
-    { quote: "Replaces my pre-workout AND my 3rd coffee. Smarter.", name: "Leon S.", role: "Master's student · Cologne", product: "Boost" },
-    { quote: "First energy drink I drink for the feeling, not the kick.", name: "Sophie B.", role: "Product designer · Berlin", product: "Balance" },
-    { quote: "I can finish a 10pm writing block and still fall asleep.", name: "Mira H.", role: "PhD candidate · Vienna", product: "Recharge" },
-  ];
+  const { tx } = useLanguage();
+  const productLabels = ["Focus", "Flow", "Refresh", "Boost", "Balance", "Recharge"];
+  const items = tx.home.reviews.map((r, i) => ({ ...r, product: productLabels[i] }));
   return (
     <section className="bg-foreground text-background py-24 md:py-32 px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
@@ -1132,7 +1223,7 @@ function ShopReviews() {
               {s.reviewsKicker}
             </span>
             <h2 className="font-display text-3xl md:text-5xl font-extrabold leading-[1.02] text-balance">
-              What people say.
+              {s.reviewsH2}
             </h2>
           </div>
           <p className="text-background/55 text-sm max-w-xs leading-relaxed">
@@ -1165,41 +1256,6 @@ function ShopReviews() {
 }
 
 // ── Shop FAQ ──────────────────────────────────────────────────────────
-const faqItems = [
-  {
-    q: "What exactly is the VYTAL system?",
-    a: "VYTAL is a refill-based alternative to disposable energy drinks. You buy a reusable bottle once, then dissolve a plant-based concentrate tablet in cold water. The refill cylinders come back to us, get sterilized, and go out again — a quiet loop designed to waste less from the start.",
-  },
-  {
-    q: "What's inside the tablets?",
-    a: "Four active ingredients: L-Theanine (200 mg), Ashwagandha KSM-66 (300 mg), natural Green Tea Caffeine (80 mg), and Magnesium Bisglycinate (150 mg). No sugar, no artificial sweeteners, no synthetic caffeine — just the functional part.",
-  },
-  {
-    q: "How many tablets come in a cylinder?",
-    a: "Each matte aluminum refill cylinder holds exactly 8 tablets — one per drink. That's eight calm refill moments before the cylinder is empty and ready to return.",
-  },
-  {
-    q: "How does the deposit and return loop work?",
-    a: "Every refill cylinder includes a €4 refundable deposit. Collect five empty cylinders, drop them unfranked in any postbox using the included pre-paid return pouch. We sterilize them and put them back into the loop. Your deposit is credited to your next order. No app needed.",
-  },
-  {
-    q: "What if I don't return the cylinders?",
-    a: "No obligation, and no penalty. The cylinders are made from aerospace-grade anodized aluminum — beautiful enough to keep on a shelf or desk. You simply don't receive the deposit back. You decide when the loop closes.",
-  },
-  {
-    q: "Is VYTAL suitable for daily use?",
-    a: "Yes — it's designed for everyday use. The formulation contains 80 mg of natural caffeine (roughly equivalent to one cup of coffee), paired with L-Theanine to smooth the curve. Not recommended for children, pregnant or breastfeeding women, or people sensitive to caffeine.",
-  },
-  {
-    q: "What water should I use?",
-    a: "Still cold tap water works perfectly. Sparkling water gives a lighter, slightly more refreshing result. Avoid hot water — it can affect the tablet's dissolution and some active ingredients.",
-  },
-  {
-    q: "How long does delivery take?",
-    a: "Currently shipping within Germany and Austria. Standard delivery: 2–4 working days. All packaging is plastic-free recycled board.",
-  },
-];
-
 function ShopFAQ() {
   const s = useShopTx();
   return (
@@ -1207,7 +1263,7 @@ function ShopFAQ() {
       <div className="reveal mb-12">
         <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">{s.faqKicker}</span>
         <h2 className="mt-5 font-display text-4xl md:text-5xl font-extrabold leading-[0.98] tracking-tight">
-          Frequently asked.
+          {s.faqH2}
         </h2>
       </div>
       <Accordion type="single" collapsible className="reveal space-y-2">
@@ -1277,7 +1333,7 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
         {/* loop badge */}
         <span className="absolute top-4 left-4 inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.25em] bg-background/85 backdrop-blur px-2.5 py-1.5 rounded-full">
           <span className="size-1.5 rounded-full" style={{ background: id?.hex ?? "var(--primary)" }} />
-          In refill loop
+          {s.inRefillLoop}
         </span>
         <span className="absolute top-4 right-4 font-mono text-[9px] uppercase tracking-[0.25em] bg-foreground/85 text-background backdrop-blur px-2.5 py-1.5 rounded-full">
           {String(i + 1).padStart(2, "0")}
@@ -1486,7 +1542,7 @@ function ProductQuickView({
 
           <div className="p-8 md:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
-              {product.function}
+              {s.isDE ? (s.productFunctionDe[product.slug] ?? product.function) : product.function}
             </p>
 
             <h2 className="mt-4 font-display text-4xl font-extrabold leading-[0.95]">
@@ -1494,7 +1550,7 @@ function ProductQuickView({
             </h2>
 
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              {product.description}
+              {s.isDE ? (s.productDescDe[product.slug] ?? product.description) : product.description}
             </p>
 
             {product.flavor && (
@@ -1504,7 +1560,7 @@ function ProductQuickView({
                 </p>
                 <p className="mt-1 font-semibold">{product.flavor}</p>
                 <p className="text-sm text-muted-foreground">
-                  {product.flavorNote}
+                  {s.isDE ? (s.productFlavorNoteDe[product.slug] ?? product.flavorNote) : product.flavorNote}
                 </p>
               </div>
             )}
@@ -1517,7 +1573,7 @@ function ProductQuickView({
                 {product.ingredients?.map((i) => (
                   <li key={i.name} className="flex justify-between gap-4 border-b border-border pb-2">
                     <span>{i.name}</span>
-                    {i.why && <span className="text-right">{i.why}</span>}
+                    {i.why && <span className="text-right">{s.isDE ? (s.ingredientWhyDe[i.why] ?? i.why) : i.why}</span>}
                   </li>
                 ))}
               </ul>
@@ -1532,7 +1588,7 @@ function ProductQuickView({
                   {product.nutrition.map((n) => (
                     <div key={n.label} className="border border-border rounded-xl p-3">
                       <p className="font-mono text-[10px] uppercase text-muted-foreground">
-                        {n.label}
+                        {s.isDE ? (s.nutritionLabelsDe[n.label] ?? n.label) : n.label}
                       </p>
                       <p className="font-display text-lg">{n.value}</p>
                     </div>
@@ -1543,103 +1599,34 @@ function ProductQuickView({
 
             {product.category === "refill" && (
               <div className="mt-8 rounded-2xl bg-secondary/40 p-5 text-xs text-muted-foreground leading-relaxed">
-                <p>
-                  Food supplement. Not a substitute for a balanced and varied diet.
-                  Keep out of reach of children.
-                </p>
-                <p className="mt-2">
-                  Contains caffeine. Not recommended for children, pregnant or
-                  breastfeeding women.
-                </p>
+                <p>{s.qvSupplement}</p>
+                <p className="mt-2">{s.qvCaffeine}</p>
               </div>
             )}
 
-            {product.category === "bottle" && (
-  <div className="mt-8 rounded-2xl bg-secondary/40 p-5 text-xs text-muted-foreground leading-relaxed">
-    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
-      {s.qvBottleDetails}
-    </p>
-
-    {product.slug === "office-bottle" && (
-      <>
-        <p>
-          Brushed stainless steel bottle designed for desk work, commuting and longer office sessions.
-        </p>
-        <ul className="mt-4 space-y-2">
-          <li>• Stainless steel exterior with professional office look.</li>
-          <li>• Designed for daily hydration and VYTAL refill rituals.</li>
-          <li>• Suitable for cold still water and VYTAL tablets.</li>
-          <li>• Hand-wash recommended to protect lid and finish.</li>
-          <li>• Do not use if dented, leaking or visibly damaged.</li>
-        </ul>
-      </>
-    )}
-
-    {product.slug === "go-bottle" && (
-      <>
-        <p>
-          Lightweight everyday bottle designed for movement, campus days and routines outside the home.
-        </p>
-        <ul className="mt-4 space-y-2">
-          <li>• Soft everyday carry feel.</li>
-          <li>• Designed for cold still water and VYTAL tablets.</li>
-          <li>• Easy to carry in bags and daily setups.</li>
-          <li>• Hand-wash recommended.</li>
-          <li>• Do not use if cracked, leaking or visibly damaged.</li>
-        </ul>
-      </>
-    )}
-
-    {product.slug === "flow-bottle" && (
-      <>
-        <p>
-          Minimal hydration bottle designed for calmer daily routines and slow refill rituals.
-        </p>
-        <ul className="mt-4 space-y-2">
-          <li>• Clean minimal design for everyday hydration.</li>
-          <li>• Suitable for cold still water and VYTAL tablets.</li>
-          <li>• Designed for repeated daily use.</li>
-          <li>• Hand-wash recommended to protect the finish.</li>
-          <li>• Do not use with boiling liquids.</li>
-        </ul>
-      </>
-    )}
-
-    {product.slug === "home-container" && (
-      <>
-        <p>
-          Home storage vessel designed for keeping refill routines visible, organized and easy to share.
-        </p>
-        <ul className="mt-4 space-y-2">
-          <li>• Intended for home storage and shared routines.</li>
-          <li>• Store in a dry, cool place away from direct sunlight.</li>
-          <li>• Keep closed when not in use.</li>
-          <li>• Clean before first use.</li>
-          <li>• Do not use if cracked or visibly damaged.</li>
-        </ul>
-      </>
-    )}
-
-    {product.slug === "unity-bottle" && (
-      <>
-        <p>
-          Limited visual edition with translucent collector character, designed as a seasonal extension of the refill ritual.
-        </p>
-        <ul className="mt-4 space-y-2">
-          <li>• Limited-edition visual finish.</li>
-          <li>• Designed for cold still water and VYTAL tablets.</li>
-          <li>• Refills are sold separately unless included in a bundle.</li>
-          <li>• Hand-wash recommended to protect the surface finish.</li>
-          <li>• Do not use if cracked, leaking or visibly damaged.</li>
-        </ul>
-      </>
-    )}
-
-    <p className="mt-4">
-      Product must be used as intended. Always clean before first use.
-    </p>
-  </div>
-)}
+            {product.category === "bottle" && (() => {
+              const de = s.isDE ? s.bottleDetailsDe[product.slug] : null;
+              const bottleTexts: Record<string, { intro: string; bullets: string[] }> = {
+                "office-bottle": { intro: "Brushed stainless steel bottle designed for desk work, commuting and longer office sessions.", bullets: ["Stainless steel exterior with professional office look.", "Designed for daily hydration and VYTAL refill rituals.", "Suitable for cold still water and VYTAL tablets.", "Hand-wash recommended to protect lid and finish.", "Do not use if dented, leaking or visibly damaged."] },
+                "go-bottle": { intro: "Lightweight everyday bottle designed for movement, campus days and routines outside the home.", bullets: ["Soft everyday carry feel.", "Designed for cold still water and VYTAL tablets.", "Easy to carry in bags and daily setups.", "Hand-wash recommended.", "Do not use if cracked, leaking or visibly damaged."] },
+                "flow-bottle": { intro: "Minimal hydration bottle designed for calmer daily routines and slow refill rituals.", bullets: ["Clean minimal design for everyday hydration.", "Suitable for cold still water and VYTAL tablets.", "Designed for repeated daily use.", "Hand-wash recommended to protect the finish.", "Do not use with boiling liquids."] },
+                "home-container": { intro: "Home storage vessel designed for keeping refill routines visible, organized and easy to share.", bullets: ["Intended for home storage and shared routines.", "Store in a dry, cool place away from direct sunlight.", "Keep closed when not in use.", "Clean before first use.", "Do not use if cracked or visibly damaged."] },
+                "unity-bottle": { intro: "Limited visual edition with translucent collector character, designed as a seasonal extension of the refill ritual.", bullets: ["Limited-edition visual finish.", "Designed for cold still water and VYTAL tablets.", "Refills are sold separately unless included in a bundle.", "Hand-wash recommended to protect the surface finish.", "Do not use if cracked, leaking or visibly damaged."] },
+              };
+              const content = de ?? bottleTexts[product.slug];
+              return content ? (
+                <div className="mt-8 rounded-2xl bg-secondary/40 p-5 text-xs text-muted-foreground leading-relaxed">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
+                    {s.qvBottleDetails}
+                  </p>
+                  <p>{content.intro}</p>
+                  <ul className="mt-4 space-y-2">
+                    {content.bullets.map((b, i) => <li key={i}>• {b}</li>)}
+                  </ul>
+                  <p className="mt-4">{s.productMustBeUsed}</p>
+                </div>
+              ) : null;
+            })()}
 
             <div className="mt-8 flex items-center gap-4">
               <div className="inline-flex items-center border border-border rounded-full">

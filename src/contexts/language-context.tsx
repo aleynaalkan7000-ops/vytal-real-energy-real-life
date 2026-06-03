@@ -103,6 +103,25 @@ export const t = {
       finalCta1: "Shop VYTAL",
       finalCta2: "Explore the system",
       finalCta3: "Read the journal",
+      reviews: [
+        { quote: "Finally a focus drink that doesn't make me jittery at 3pm.", name: "Marie L.", role: "Law student · Munich" },
+        { quote: "It just works, all day. The most boring compliment, but still.", name: "Jonas K.", role: "Engineer · Berlin" },
+        { quote: "My 4pm reset. Cold sparkling, gone in two minutes.", name: "Anna T.", role: "Designer · Hamburg" },
+        { quote: "Replaces my pre-workout AND my 3rd coffee. Smarter.", name: "Leon S.", role: "Master's student · Cologne" },
+        { quote: "First energy drink I drink for the feeling, not the kick.", name: "Sophie B.", role: "Product designer · Berlin" },
+        { quote: "I can finish a 10pm writing block and still fall asleep.", name: "Mira H.", role: "PhD candidate · Vienna" },
+      ],
+      ritualItems: [
+        { label: "08:14 · Café", caption: "The slow start. A pour-over and a cold refill. Two things, no agenda." },
+        { label: "14:42 · Library", caption: "Three hours into a paper. The hum stays steady." },
+        { label: "16:30 · Office", caption: "Back-to-back calls. No spike. No 4pm cliff." },
+        { label: "21:08 · Desk", caption: "One last quiet hour. Then a real evening." },
+      ],
+      journalArticles: [
+        { kicker: "Essay", title: "The myth of productive crashes.", excerpt: "Why the spike-and-collapse cycle has become a personality, and what changes when you finally let it go.", meta: "6 min read" },
+        { kicker: "Field note", title: "Your attention span isn't broken.", excerpt: "It's just outnumbered. A quiet argument for fewer inputs, slower mornings, and one good drink at a time.", meta: "4 min read" },
+        { kicker: "Manifesto", title: "Designing calmer routines.", excerpt: "Three small structural changes that compound into something that actually feels like rest.", meta: "8 min read" },
+      ],
     },
     // ── Shop ─────────────────────────────────────────────────────────────
     shop: {
@@ -268,6 +287,9 @@ export const t = {
       finalCta1: "Start the ritual — €68",
       finalCta2: "Explore the system",
       founded: "Munich · est. 2024",
+      heroH1a: "We're tired of",
+      heroH1b: "being tired.",
+      heroH1c: "And of pretending it's normal.",
     },
     // ── Journal ──────────────────────────────────────────────────────────
     journal: {
@@ -299,6 +321,10 @@ export const t = {
       readCoverEssay: "Read the cover essay →",
       springLabel: "Spring · 2026",
       categories: ["Focus", "Rituals", "Recovery", "Digital Overload", "Modern Work", "Nervous System", "Sustainable Energy"],
+      sectionsLabel: "Sections",
+      coverEssueLabel: "Issue 01 · Cover Essay",
+      coverH2: "The Cover Essay",
+      journalVolumeLine: "VYTAL Journal · Volume 04",
     },
     // ── Contact ──────────────────────────────────────────────────────────
     contact: {
@@ -356,6 +382,8 @@ export const t = {
       closingCta1: "Send a Message",
       closingCta2: "Explore the Journal",
       closingCta3: "Shop VYTAL →",
+      emailSections: { general: "General", collaborations: "Collaborations", press: "Press" },
+      fieldNote: "Field note — Munich studio",
     },
     // ── Cart ─────────────────────────────────────────────────────────────
     cart: {
@@ -435,6 +463,14 @@ export const t = {
       depositNote: "Deposit included. Return loop applies to refill cylinders.",
       bottleDetailsLabel: "Bottle details & care",
       fullPage: "Full product page →",
+    },
+    // ── Account ───────────────────────────────────────────────────────────
+    account: {
+      kicker: "Volume 02 · Account",
+      h1: "A calmer account, coming soon.",
+      desc: "Saved rituals, refill reminders and reorder history will live here. We're finishing the authentication layer next — quietly, intentionally, without breaking the rest of the experience.",
+      cta1: "Browse the shop →",
+      cta2: "Refill system",
     },
   },
   // ═══════════════════════════════════════════════════════════════════════
@@ -537,6 +573,25 @@ export const t = {
       finalCta1: "VYTAL kaufen",
       finalCta2: "Das System entdecken",
       finalCta3: "Journal lesen",
+      reviews: [
+        { quote: "Endlich ein Fokusdrink, der mich um 15 Uhr nicht zittern lässt.", name: "Marie L.", role: "Jurastudentin · München" },
+        { quote: "Er funktioniert einfach, den ganzen Tag. Das langweiligste Kompliment, aber trotzdem.", name: "Jonas K.", role: "Ingenieur · Berlin" },
+        { quote: "Mein 16-Uhr-Reset. Kalt sprudelnd, in zwei Minuten weg.", name: "Anna T.", role: "Designerin · Hamburg" },
+        { quote: "Ersetzt mein Pre-Workout UND meinen dritten Kaffee. Cleverer.", name: "Leon S.", role: "Masterstudent · Köln" },
+        { quote: "Erster Energydrink, den ich wegen des Gefühls trinke, nicht wegen dem Kick.", name: "Sophie B.", role: "Produktdesignerin · Berlin" },
+        { quote: "Ich kann um 22 Uhr noch schreiben und trotzdem einschlafen.", name: "Mira H.", role: "Doktorandin · Wien" },
+      ],
+      ritualItems: [
+        { label: "08:14 · Café", caption: "Der langsame Start. Ein Pour-over und ein kaltes Nachfüllgetränk. Zwei Dinge, kein Programm." },
+        { label: "14:42 · Bibliothek", caption: "Drei Stunden in einer Hausarbeit. Das Summen bleibt gleichmäßig." },
+        { label: "16:30 · Büro", caption: "Meetings am Fließband. Kein Spike. Kein 16-Uhr-Absturz." },
+        { label: "21:08 · Schreibtisch", caption: "Die letzte ruhige Stunde. Dann ein echter Abend." },
+      ],
+      journalArticles: [
+        { kicker: "Essay", title: "Der Mythos des produktiven Absturzes.", excerpt: "Warum der Spike-und-Crash-Zyklus zur Persönlichkeit geworden ist – und was sich ändert, wenn man ihn endlich loslässt.", meta: "6 Min. Lesezeit" },
+        { kicker: "Feldnotiz", title: "Deine Aufmerksamkeitsspanne ist nicht kaputt.", excerpt: "Sie ist nur unterlegen. Ein ruhiges Plädoyer für weniger Inputs, langsamere Morgen und ein gutes Getränk zur Zeit.", meta: "4 Min. Lesezeit" },
+        { kicker: "Manifest", title: "Ruhigere Routinen gestalten.", excerpt: "Drei kleine strukturelle Änderungen, die sich zu etwas summieren, das sich wirklich wie Erholung anfühlt.", meta: "8 Min. Lesezeit" },
+      ],
     },
     shop: {
       metaTitle: "Shop — VYTAL · Das Nachfüll-Ökosystem.",
@@ -699,6 +754,9 @@ export const t = {
       finalCta1: "Das Ritual starten — €68",
       finalCta2: "Das System entdecken",
       founded: "München · gegr. 2024",
+      heroH1a: "Wir sind es leid,",
+      heroH1b: "müde zu sein.",
+      heroH1c: "Und so zu tun, als wäre das normal.",
     },
     journal: {
       heroKicker: "Das Journal — Ausgabe 04 · Frühjahr 2026",
@@ -729,6 +787,10 @@ export const t = {
       readCoverEssay: "Titelessay lesen →",
       springLabel: "Frühjahr · 2026",
       categories: ["Fokus", "Rituale", "Erholung", "Digitale Überlastung", "Moderne Arbeit", "Nervensystem", "Nachhaltige Energie"],
+      sectionsLabel: "Themen",
+      coverEssueLabel: "Ausgabe 01 · Titelessay",
+      coverH2: "Der Titelessay",
+      journalVolumeLine: "VYTAL Journal · Band 04",
     },
     contact: {
       heroKicker: "Ausgabe 05 — Kontakt",
@@ -785,6 +847,8 @@ export const t = {
       closingCta1: "Nachricht senden",
       closingCta2: "Journal entdecken",
       closingCta3: "VYTAL kaufen →",
+      emailSections: { general: "Allgemein", collaborations: "Kooperationen", press: "Presse" },
+      fieldNote: "Feldnotiz — Münchner Studio",
     },
     cart: {
       title: "Dein Ritual",
@@ -860,6 +924,14 @@ export const t = {
       depositNote: "Pfand inklusive. Rückgabe-Loop gilt für Nachfüllzylinder.",
       bottleDetailsLabel: "Flascheneigenschaften & Pflege",
       fullPage: "Zur Produktseite →",
+    },
+    // ── Account ───────────────────────────────────────────────────────────
+    account: {
+      kicker: "Ausgabe 02 · Konto",
+      h1: "Ein ruhigeres Konto — bald verfügbar.",
+      desc: "Gespeicherte Rituale, Nachfüll-Erinnerungen und Bestellhistorie kommen hierher. Wir arbeiten gerade am Authentifizierungssystem — ruhig, mit Absicht, ohne den Rest der Erfahrung zu beeinträchtigen.",
+      cta1: "Shop durchstöbern →",
+      cta2: "Nachfüllsystem",
     },
   },
 } as const;

@@ -74,7 +74,14 @@ heroCta2: isDE ? "Ritual aufbauen" : "Build your ritual",
           { n: "03", t: "Dissolve", d: "Bubbles rise. Color softens. The bottle exhales." },
           { n: "04", t: "Drink", d: "Calm focus, carried with you. No can. No waste." },
         ],
-    ritualQuote: isDE ? '{r.ritualQuote}' : '{r.ritualQuote}',
+    ritualQuote: isDE ? "Dieselbe Flasche. Tag für Tag. Darin liegt etwas still Radikales." : "The same bottle. Day after day. There's something quietly radical about that.",
+    heroChapter: isDE ? "Das Nachfüllsystem — Kapitel 01" : "The refill system — Chapter 01",
+    heroH1a: isDE ? "Nachfüllen," : "Refill,",
+    heroH1b: isDE ? "nicht wiederholen." : "not repeat.",
+    heroDesc: isDE ? "Eine nachfüllbasierte Alternative zu Einweg-Energy-Drinks – konzentrierte Tabletten, eine wiederverwendbare Flasche und ein Rückgabe-Loop, der von Anfang an weniger verschwendet." : "A refill-based alternative to disposable energy drinks — concentrated tablets, a reusable bottle, and a return loop designed to waste less from the start.",
+    partOfEveryRefill: isDE ? "Teil jeder Nachfüllung" : "Part of every refill",
+    refillReuse: isDE ? "Nachfüllen · Wiederverwenden" : "Refill · Reuse",
+    whyItsIncluded: isDE ? "Warum ist er dabei →" : "Why it's included →",
     // Ch04 system
     ch04Kicker: isDE ? "Kapitel 04 — das System" : "Chapter 04 — the system",
     ch04H2a: isDE ? "Eine Flasche." : "One bottle.",
@@ -294,30 +301,29 @@ function RefillPage() {
         <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-10 flex flex-col justify-between py-24">
           <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase text-background/70">
             <span className="size-1.5 rounded-full bg-accent animate-float" />
-            The refill system — Chapter 01
+            {r.heroChapter}
           </div>
 
           <div className="max-w-4xl">
             <h1 className="font-display text-[14vw] md:text-[8.5vw] leading-[0.92] font-extrabold tracking-tighter">
-              Refill,<br/>
-              <span className="italic font-light text-background/85">not repeat.</span>
+              {r.heroH1a}<br/>
+              <span className="italic font-light text-background/85">{r.heroH1b}</span>
             </h1>
             <p className="mt-8 max-w-md text-background/75 text-base md:text-lg leading-relaxed">
-                A refill-based alternative to disposable energy drinks — concentrated tablets,
-                a reusable bottle, and a return loop designed to waste less from the start.
+              {r.heroDesc}
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a href="#ritual" className="inline-flex bg-background text-foreground px-7 py-3.5 rounded-full font-medium hover:bg-accent transition-all">
                 {r.heroCta1}
               </a>
               <Link to="/shop" hash="starter" className="inline-flex border border-background/40 text-background px-7 py-3.5 rounded-full font-medium hover:bg-background/10 transition-all">
-                Build your ritual
+                {r.heroCta2}
               </Link>
             </div>
           </div>
 
           <div className="flex items-end justify-between text-background/60 text-xs font-mono">
-            <span>Scroll to begin</span>
+            <span>{r.heroScrollLabel}</span>
             <span className="hidden md:block max-w-xs text-right text-background/55 italic">
               {r.heroQuote}
             </span>
@@ -445,7 +451,7 @@ function RefillPage() {
 
           <div className="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
             <span className="h-px flex-1 bg-border" />
-            <span>Refill · Reuse</span>
+            <span>{r.refillReuse}</span>
           </div>
         </div>
       </article>
@@ -463,8 +469,8 @@ function RefillPage() {
             {r.ch05Kicker}
           </span>
           <h2 className="mt-6 font-display text-4xl md:text-6xl font-bold leading-[1] text-balance max-w-3xl">
-            The cylinder that<br/>
-            <span className="italic font-light text-muted-foreground">closes the loop.</span>
+            {r.ch05H2a}<br/>
+            <span className="italic font-light text-muted-foreground">{r.ch05H2b}</span>
           </h2>
         </div>
 
@@ -481,7 +487,7 @@ function RefillPage() {
             />
             {/* Das rote Label ist weg! */}
             <span className="absolute bottom-6 right-6 inline-flex items-center gap-2 bg-foreground text-background px-5 py-3 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-              Why it's included →
+              {r.whyItsIncluded}
             </span>
           </a>
 
@@ -576,7 +582,7 @@ function RefillPage() {
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-[1.04]"
             />
             <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
-              Part of every refill
+              {r.partOfEveryRefill}
             </span>
           </div>
         </div>
@@ -613,8 +619,8 @@ function RefillPage() {
         <div className="max-w-5xl mx-auto reveal">
           <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-accent">{r.ch09Kicker}</span>
           <h2 className="mt-6 font-display text-3xl md:text-5xl font-light leading-[1.1] max-w-3xl">
-            We measure what we change.<br/>
-            <span className="italic">We don't decorate the rest.</span>
+            {r.ch09H2a}<br/>
+            <span className="italic">{r.ch09H2b}</span>
           </h2>
           <div className="mt-16 grid sm:grid-cols-3 gap-6">
             {r.ch09Stats.map((s) => (
@@ -637,20 +643,19 @@ function RefillPage() {
           <div className="absolute bottom-0 right-0 size-[40vmax] rounded-full bg-primary/20 blur-3xl animate-float" />
         </div>
         <div className="max-w-3xl mx-auto reveal">
-          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">Built calmly. On purpose.</span>
+          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">{r.finalKicker}</span>
           <h2 className="mt-8 font-display text-5xl md:text-7xl font-extrabold leading-[0.95] tracking-tighter text-balance">
-            A calmer way <br></br> <span className="italic font-light">to refill energy.</span>
+            {r.finalH2a} <br /> <span className="italic font-light">{r.finalH2b}</span>
           </h2>
           <p className="mt-10 text-muted-foreground text-lg max-w-xl mx-auto leading-relaxed">
-            (Re)Fuel your day. Not the planet. Start with one bottle and one tablet —
-            the rest is just repetition you'll come to enjoy.
+            {r.finalDesc}
           </p>
           <div className="mt-12 flex flex-wrap gap-3 justify-center">
             <Link to="/shop/starter-kit" className="inline-flex bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-primary transition-all">
-              Start with the Starter Kit →
+              {r.finalCta1}
             </Link>
             <Link to="/shop" className="inline-flex border border-foreground/20 text-foreground px-8 py-4 rounded-full font-medium hover:bg-foreground hover:text-background transition-all">
-              Browse all flavours
+              {r.finalCta2}
             </Link>
           </div>
         </div>
@@ -754,37 +759,6 @@ function ReturnLoop() {
   );
 }
 
-const refillFaqItems = [
-  {
-    q: "How does the refill system actually work?",
-    a: "Fill your VYTAL bottle with cold water, drop in one tablet, wait about 90 seconds for it to dissolve, and drink. That's it. For regular use, order refill cylinders online — each cylinder holds 8 tablets and includes a €4 refundable deposit.",
-  },
-  {
-    q: "What's in each tablet?",
-    a: "Four active ingredients: L-Theanine (200 mg) for calm focus, Ashwagandha KSM-66 (300 mg) for stress resilience, natural Green Tea Caffeine (80 mg) for steady energy, and Magnesium Bisglycinate (150 mg) for cellular recovery. No sugar, no artificial sweeteners.",
-  },
-  {
-    q: "Is this a food supplement or an energy drink?",
-    a: "VYTAL tablets are classified as a food supplement. They are not a substitute for a balanced and varied diet. Contains caffeine — not recommended for children, pregnant or breastfeeding women.",
-  },
-  {
-    q: "Why tablets instead of a ready-made drink?",
-    a: "Most ready-to-drink energy products are mostly water — you're shipping liquid across the country, packaged in a single-use can. VYTAL only ships the functional concentrate. You add local water. That reduces shipping volume by up to 85% and eliminates single-use packaging per drink.",
-  },
-  {
-    q: "How do I return the empty cylinders?",
-    a: "Collect five empty cylinders, place them in the included pre-paid return pouch, and drop it unfranked in any postbox. We sterilize and refill them. Your €4-per-cylinder deposit is credited to your next order. No app, no return label to print.",
-  },
-  {
-    q: "What water works best?",
-    a: "Cold still water dissolves the tablet most cleanly. Sparkling water works too and gives a slightly lighter, more refreshing result. Avoid hot water — it can degrade some of the active ingredients.",
-  },
-  {
-    q: "Can I use any bottle, or does it have to be VYTAL?",
-    a: "The tablets dissolve in any clean vessel with cold water. The VYTAL bottles are designed for the refill system — with standardised openings for station compatibility and materials chosen for daily long-term use — but you can use the tablets with any bottle you already own.",
-  },
-];
-
 function RefillFAQ() {
   const r = useRefillTx();
   return (
@@ -792,10 +766,10 @@ function RefillFAQ() {
       <div className="reveal mb-12">
         <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">{r.faqKicker}</span>
         <h2 className="mt-5 font-display text-4xl md:text-5xl font-extrabold leading-[0.98] tracking-tight">
-          Frequently asked.
+          {r.faqH2}
         </h2>
         <p className="mt-4 text-muted-foreground max-w-md leading-relaxed">
-          Everything you need to know before starting the refill ritual.
+          {r.faqDesc}
         </p>
       </div>
       <Accordion type="single" collapsible className="reveal space-y-2">

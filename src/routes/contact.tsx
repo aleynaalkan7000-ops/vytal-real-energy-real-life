@@ -43,7 +43,7 @@ function useReveal() {
 function ContactPage() {
   const { tx } = useLanguage();
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", subject: "A thoughtful conversation", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", subjectIdx: 0, message: "" });
   const heroRef = useRef<HTMLDivElement>(null);
   useReveal();
 
@@ -111,19 +111,15 @@ function ContactPage() {
         <div className="grid md:grid-cols-12 gap-12 md:gap-20 items-end">
           <div className="md:col-span-5 reveal opacity-0 translate-y-6 transition-all duration-1000">
             <span className="font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/50">
-              Communication, slowly
+              {tx.contact.commKicker}
             </span>
             <h2 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] font-light">
-              Built for <em className="font-serif italic">conversations</em>,<br />not tickets.
+              {tx.contact.commH2a} <em className="font-serif italic">{tx.contact.commH2b}</em><br />{tx.contact.commH2c}
             </h2>
           </div>
           <div className="md:col-span-6 md:col-start-7 reveal opacity-0 translate-y-6 transition-all duration-1000 delay-150 space-y-6 text-foreground/70 leading-relaxed text-lg">
-            <p>
-              We answer messages the same way we make our products — calmly, with intention, and without performing. No autoresponders pretending to care. No urgent banners. No upsell.
-            </p>
-            <p className="text-foreground/55">
-              Most replies arrive within two working days. Some take a little longer, because we&rsquo;d rather write something honest than something fast.
-            </p>
+            <p>{tx.contact.commBodyA}</p>
+            <p className="text-foreground/55">{tx.contact.commBodyB}</p>
           </div>
         </div>
       </section>
@@ -147,28 +143,28 @@ function ContactPage() {
         <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-12 md:gap-20">
           <div className="md:col-span-5 reveal opacity-0 translate-y-6 transition-all duration-1000">
             <span className="font-mono text-[11px] tracking-[0.32em] uppercase text-background/50">
-              Write to us
+              {tx.contact.formKicker}
             </span>
             <h2 className="mt-6 font-display text-5xl md:text-6xl leading-[0.98] tracking-[-0.02em] font-light">
-              Questions,<br />
-              <em className="font-serif italic font-extralight">thoughts,</em><br />
-              ideas.
+              {tx.contact.formH2a}<br />
+              <em className="font-serif italic font-extralight">{tx.contact.formH2b}</em><br />
+              {tx.contact.formH2c}
             </h2>
             <p className="mt-8 text-background/60 leading-relaxed max-w-md">
-              A quiet inbox, watched by real people. For support, collaborations, press, or a thought you wanted to share out loud.
+              {tx.contact.formDesc}
             </p>
 
             <div className="mt-14 space-y-5 text-sm">
               <a href="mailto:hello@vytal.energy" className="group block">
-                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">General</span>
+                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">{tx.contact.emailSections.general}</span>
                 <div className="mt-1 text-lg font-light group-hover:text-primary transition">hello@vytal.energy</div>
               </a>
               <a href="mailto:partners@vytal.energy" className="group block">
-                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">Collaborations</span>
+                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">{tx.contact.emailSections.collaborations}</span>
                 <div className="mt-1 text-lg font-light group-hover:text-primary transition">partners@vytal.energy</div>
               </a>
               <a href="mailto:press@vytal.energy" className="group block">
-                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">Press</span>
+                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">{tx.contact.emailSections.press}</span>
                 <div className="mt-1 text-lg font-light group-hover:text-primary transition">press@vytal.energy</div>
               </a>
             </div>
@@ -178,7 +174,7 @@ function ContactPage() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                const subject = encodeURIComponent(form.subject);
+                const subject = encodeURIComponent(tx.contact.formSubjects[form.subjectIdx]);
                 const body = encodeURIComponent(`From: ${form.name}\n\n${form.message}`);
                 window.open(`mailto:hello@vytal.energy?subject=${subject}&body=${body}`, "_blank");
                 setSent(true);
@@ -205,12 +201,12 @@ function ContactPage() {
 
               <FormRow label={tx.contact.formSubjectLabel} htmlFor="subject">
                 <div className="flex flex-wrap gap-2 pt-2">
-                  {["A thoughtful conversation", "Support", "Collaboration", "Press", "Hosting a station"].map((s) => (
+                  {tx.contact.formSubjects.map((s, i) => (
                     <button
-                      key={s} type="button"
-                      onClick={() => setForm({ ...form, subject: s })}
+                      key={i} type="button"
+                      onClick={() => setForm({ ...form, subjectIdx: i })}
                       className={`px-4 py-2 rounded-full border text-xs tracking-wide transition ${
-                        form.subject === s
+                        form.subjectIdx === i
                           ? "border-background bg-background text-foreground"
                           : "border-background/20 text-background/70 hover:border-background/50"
                       }`}
@@ -232,7 +228,7 @@ function ContactPage() {
 
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-4">
                 <p className="text-xs text-background/40 leading-relaxed max-w-sm">
-                  We&rsquo;ll only use this to reply. No lists, no sequences, no automations.
+                  {tx.contact.formPrivacy}
                 </p>
                 <button
                   type="submit"
@@ -264,22 +260,22 @@ function ContactPage() {
               />
             </div>
             <figcaption className="mt-4 font-mono text-[10px] tracking-[0.32em] uppercase text-foreground/40">
-              Field note — Munich studio
+              {tx.contact.fieldNote}
             </figcaption>
           </figure>
 
           <div className="md:col-span-5 reveal opacity-0 translate-y-6 transition-all duration-1000 delay-200">
             <span className="font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/50">
-              The way we write
+              {tx.contact.humanKicker}
             </span>
             <h2 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] font-light">
-              We read every message <em className="font-serif italic">thoughtfully.</em>
+              {tx.contact.humanH2}
             </h2>
             <p className="mt-8 text-foreground/65 leading-relaxed">
-              Not because it&rsquo;s a brand promise, but because there are only a handful of us, and we still believe in writing back like a person, not a system.
+              {tx.contact.humanBodyA}
             </p>
             <p className="mt-4 text-foreground/55 leading-relaxed">
-              If something matters to you, it usually matters to us too. Tell us where you&rsquo;re writing from, what you&rsquo;re building, what you&rsquo;re thinking about. The longer the message, the better.
+              {tx.contact.humanBodyB}
             </p>
           </div>
         </div>
@@ -295,18 +291,13 @@ function ContactPage() {
           </div>
 
           <div className="md:col-span-7 reveal opacity-0 translate-y-6 transition-all duration-1000 delay-150 self-center">
-            <span className="font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/50">Practical</span>
+            <span className="font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/50">{tx.contact.logisticsKicker}</span>
             <h2 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] font-light">
-              Calm logistics.
+              {tx.contact.logisticsH2}
             </h2>
 
             <dl className="mt-12 divide-y divide-foreground/10 border-t border-foreground/10">
-              {[
-                ["Studio", "Münchner Freiheit 3 · 80802 München"],
-                ["Hours", "Mon — Fri · 09:00 to 17:00 CET"],
-                ["Reply time", "Usually within two working days"],
-                ["Press kit", "On request — press@vytal.energy"],
-              ].map(([k, v]) => (
+              {tx.contact.logistics.map(([k, v]) => (
                 <div key={k} className="grid grid-cols-3 md:grid-cols-4 gap-6 py-6">
                   <dt className="col-span-1 font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/45">{k}</dt>
                   <dd className="col-span-2 md:col-span-3 text-foreground/85 text-base md:text-lg font-light">{v}</dd>
@@ -326,25 +317,25 @@ function ContactPage() {
           </div>
 
           <span className="reveal opacity-0 translate-y-4 transition-all duration-1000 font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/50">
-            For thoughtful modern living
+            {tx.contact.closingKicker}
           </span>
           <h2 className="reveal opacity-0 translate-y-6 transition-all duration-1200 delay-100 mt-8 font-display text-[10vw] md:text-[6.5vw] leading-[0.95] tracking-[-0.03em] font-light">
-            Built calmly.<br />
-            <em className="font-serif italic font-extralight">On purpose.</em>
+            {tx.contact.closingH2a}<br />
+            <em className="font-serif italic font-extralight">{tx.contact.closingH2b}</em>
           </h2>
           <p className="reveal opacity-0 translate-y-4 transition-all duration-1000 delay-200 mt-10 max-w-xl mx-auto text-foreground/65 leading-relaxed">
-            Whenever you&rsquo;re ready — we&rsquo;re here, quietly, in Munich.
+            {tx.contact.closingDesc}
           </p>
 
           <div className="reveal opacity-0 translate-y-4 transition-all duration-1000 delay-300 mt-12 flex flex-wrap justify-center gap-3">
             <a href="#write" className="px-8 py-3.5 rounded-full bg-foreground text-background text-sm tracking-wide hover:opacity-90 transition">
-              Send a Message
+              {tx.contact.closingCta1}
             </a>
             <a href="/journal" className="px-8 py-3.5 rounded-full border border-foreground/20 text-sm tracking-wide hover:border-foreground/50 transition">
-              Explore the Journal
+              {tx.contact.closingCta2}
             </a>
             <a href="/shop" className="px-8 py-3.5 rounded-full text-sm tracking-wide text-foreground/70 hover:text-foreground transition">
-              Shop VYTAL →
+              {tx.contact.closingCta3}
             </a>
           </div>
         </div>

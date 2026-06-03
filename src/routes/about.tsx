@@ -82,8 +82,8 @@ function AboutPage() {
             <span>About VYTAL — a quieter way of working</span>
           </div>
           <h1 className="reveal mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-extrabold leading-[0.92] tracking-tight text-balance max-w-5xl">
-            We're tired of <em className="italic font-normal text-primary">being tired.</em>
-            <span className="block text-foreground/55">And of pretending it's normal.</span>
+            {tx.about.heroH1a} <em className="italic font-normal text-primary">{tx.about.heroH1b}</em>
+            <span className="block text-foreground/55">{tx.about.heroH1c}</span>
           </h1>
           <p className="reveal mt-8 max-w-xl text-base md:text-lg text-foreground/75 leading-relaxed">
             {tx.about.heroDesc}
@@ -152,15 +152,14 @@ function AboutPage() {
       <section className="relative py-40 md:py-56 bg-secondary/60">
         <div className="max-w-6xl mx-auto px-6 md:px-10 text-center">
           <p className="reveal font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
-            What we believe
+            {tx.about.statementKicker}
           </p>
           <p className="reveal mt-10 font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight font-extrabold text-balance">
-            Energy should <em className="italic font-normal text-primary">support life</em> —
-            not require recovery from it.
+            {tx.about.statementH2a} <em className="italic font-normal text-primary">{tx.about.statementH2b}</em>{" "}
+            {tx.about.statementH2c}
           </p>
           <p className="reveal mt-12 max-w-xl mx-auto text-muted-foreground text-base md:text-lg leading-relaxed">
-            Everything we make is built around that one quiet sentence. The dosage, the bottles,
-            the rituals, the tone, the refill loop. All of it.
+            {tx.about.statementDesc}
           </p>
         </div>
       </section>
@@ -328,7 +327,7 @@ function AboutPage() {
           </div>
 
           <p className="reveal mt-14 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
-            Munich · est. 2024
+            {tx.about.founded}
           </p>
         </div>
       </section>

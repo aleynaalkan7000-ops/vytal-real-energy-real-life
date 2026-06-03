@@ -298,12 +298,8 @@ function InsideBottle() {
 
 function Rituals() {
   const { tx } = useLanguage();
-  const items = [
-    { src: ritualMorning, label: "08:14 · Café", caption: "The slow start. A pour-over and a cold refill. Two things, no agenda." },
-    { src: dailyStudy, label: "14:42 · Library", caption: "Three hours into a paper. The hum stays steady." },
-    { src: dailyOffice, label: "16:30 · Office", caption: "Back-to-back calls. No spike. No 4pm cliff." },
-    { src: ritualNight, label: "21:08 · Desk", caption: "One last quiet hour. Then a real evening." },
-  ];
+  const srcs = [ritualMorning, dailyStudy, dailyOffice, ritualNight];
+  const items = tx.home.ritualItems.map((r, i) => ({ ...r, src: srcs[i] }));
   const spans = ["md:col-span-7", "md:col-span-5", "md:col-span-5", "md:col-span-7"];
   return (
     <section className="relative py-32 md:py-48 px-6 bg-background">
@@ -364,11 +360,8 @@ function ProductTeaser() {
 
 function JournalPreview() {
   const { tx } = useLanguage();
-  const articles = [
-    { slug: "the-myth-of-the-productive-crash", kicker: "Essay", title: "The myth of productive crashes.", excerpt: "Why the spike-and-collapse cycle has become a personality, and what changes when you finally let it go.", meta: "6 min read" },
-    { slug: "your-attention-span-isnt-broken", kicker: "Field note", title: "Your attention span isn't broken.", excerpt: "It's just outnumbered. A quiet argument for fewer inputs, slower mornings, and one good drink at a time.", meta: "4 min read" },
-    { slug: "designing-calmer-mornings", kicker: "Manifesto", title: "Designing calmer routines.", excerpt: "Three small structural changes that compound into something that actually feels like rest.", meta: "8 min read" },
-  ];
+  const slugs = ["the-myth-of-the-productive-crash", "your-attention-span-isnt-broken", "designing-calmer-mornings"];
+  const articles = tx.home.journalArticles.map((a, i) => ({ ...a, slug: slugs[i] }));
   return (
     <section className="py-32 md:py-48 px-6 border-t border-border">
       <div className="max-w-7xl mx-auto">
@@ -402,14 +395,7 @@ function JournalPreview() {
 
 function Reviews() {
   const { tx } = useLanguage();
-  const items = [
-    { quote: "Finally a focus drink that doesn't make me jittery at 3pm.", name: "Marie L.", role: "Law student · Munich" },
-    { quote: "It just works, all day. The most boring compliment, but still.", name: "Jonas K.", role: "Engineer · Berlin" },
-    { quote: "My 4pm reset. Cold sparkling, gone in two minutes.", name: "Anna T.", role: "Designer · Hamburg" },
-    { quote: "Replaces my pre-workout AND my 3rd coffee. Smarter.", name: "Leon S.", role: "Master's student · Cologne" },
-    { quote: "First energy drink I drink for the feeling, not the kick.", name: "Sophie B.", role: "Product designer · Berlin" },
-    { quote: "I can finish a 10pm writing block and still fall asleep.", name: "Mira H.", role: "PhD candidate · Vienna" },
-  ];
+  const items = tx.home.reviews;
   return (
     <section className="py-24 md:py-32 px-6 bg-foreground text-background">
       <div className="max-w-7xl mx-auto">
