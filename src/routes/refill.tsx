@@ -475,46 +475,42 @@ function RefillPage() {
         </div>
 
         <div className="px-6 md:px-10 pb-24 md:pb-32 max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-stretch">
-          <a
-            href="/shop#cylinder"
-            className="group lg:col-span-7 relative aspect-[4/5] lg:aspect-auto lg:min-h-[560px] overflow-hidden rounded-3xl bg-[#f3ede2] reveal"
-          >
+          <div className="group lg:col-span-7 relative aspect-[4/5] lg:aspect-auto lg:min-h-[560px] overflow-hidden rounded-3xl bg-[#f3ede2] reveal">
             <img
               src={aluHeroImg}
               alt="Matte aluminum VYTAL refill cylinder in warm natural light"
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]"
             />
-            {/* Das rote Label ist weg! */}
-            <span className="absolute bottom-6 right-6 inline-flex items-center gap-2 bg-foreground text-background px-5 py-3 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-              {r.whyItsIncluded}
-            </span>
-          </a>
+          </div>
 
           <div className="lg:col-span-5 flex flex-col justify-between gap-10 reveal">
             <div>
               <p className="font-display text-2xl md:text-3xl leading-snug">
                 {r.ch05Intro} <span className="text-muted-foreground">{r.isDE ? "Hygienisch, luftdicht, und gebaut, um zu uns zurückzukommen – nicht in den Müll." : "Hygienic, airtight, and built to come back to us — not the bin."}</span>
               </p>
-              <ul className="mt-10 space-y-5">
-                {r.ch05Specs.map(([t, d]) => (
-                  <li key={t} className="grid grid-cols-[120px_1fr] gap-4 border-t border-foreground/10 pt-4">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mt-1">{t}</span>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{d}</p>
-                  </li>
+              <p className="mt-6 text-muted-foreground leading-relaxed text-sm">
+                {r.ch08Desc}
+              </p>
+              <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5">
+                {r.ch08Specs.map(([k, v]) => (
+                  <div key={k} className="border-t border-foreground/10 pt-4">
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">{k}</dt>
+                    <dd className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{v}</dd>
+                  </div>
                 ))}
-              </ul>
+              </dl>
             </div>
-            
+
             <div className="flex flex-wrap gap-3">
-              <a 
-                href="/shop#loop" 
+              <a
+                href="#loop"
                 className="inline-flex bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium hover:bg-primary transition-colors"
               >
                 {r.loopWorksLink}
               </a>
-              <a 
-                href="/shop#refills" 
+              <a
+                href="/shop#refills"
                 className="inline-flex border border-foreground/15 px-6 py-3 rounded-full text-sm font-medium hover:bg-background transition-colors"
               >
                 {r.refillPacksLink}
@@ -523,46 +519,28 @@ function RefillPage() {
           </div>
         </div>
 
-        {/* WHY TABLETS — useful sustainability logic */}
-<div className="px-6 md:px-10 pb-24 md:pb-32 max-w-7xl mx-auto">
-  <div className="grid lg:grid-cols-12 gap-12 items-start">
-    <div className="lg:col-span-5 reveal">
-      <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
-        {r.ch06Kicker}
-      </span>
-
-      <h3 className="mt-5 font-display text-4xl md:text-6xl font-bold leading-[0.98] text-balance">
-        {r.ch06H3a}<br />
-        <span className="italic font-light text-muted-foreground">
-          {r.ch06H3b}
-        </span>
-      </h3>
-
-      <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
-        {r.ch06Desc}
-      </p>
-    </div>
-
-    <div className="lg:col-span-7 grid md:grid-cols-3 gap-4">
-      {r.ch06Cards.map((c) => (
-        <article
-          key={c.tag}
-          className="rounded-3xl border border-foreground/10 bg-background p-7 hover:bg-secondary/40 transition-colors duration-500"
-        >
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
-            {c.tag}
-          </span>
-
-          <h4 className="mt-4 font-display text-lg font-semibold">
-            {c.title}
-          </h4>
-
-          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            {c.body}
-          </p>
-        </article>
-      ))}
-    </div>
+        {/* WHY TABLETS — compact */}
+<div className="px-6 md:px-10 pb-24 md:pb-32 max-w-4xl mx-auto reveal">
+  <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
+    {r.ch06Kicker}
+  </span>
+  <h3 className="mt-5 font-display text-4xl md:text-5xl font-bold leading-[1.02] text-balance">
+    {r.ch06H3a}<br />
+    <span className="italic font-light text-muted-foreground">{r.ch06H3b}</span>
+  </h3>
+  <p className="mt-6 text-muted-foreground leading-relaxed max-w-2xl">
+    {r.ch06Desc}
+  </p>
+  <div className="mt-8 flex flex-col sm:flex-row gap-6 border-t border-foreground/10 pt-8">
+    {r.ch06Cards.map((c) => (
+      <div key={c.tag} className="flex items-start gap-3 flex-1">
+        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary mt-1 shrink-0">{c.tag}</span>
+        <div>
+          <p className="text-sm font-semibold">{c.title}</p>
+          <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{c.body}</p>
+        </div>
+      </div>
+    ))}
   </div>
 </div>
 
@@ -570,49 +548,6 @@ function RefillPage() {
 
       {/* RETURN LOOP — interactive 5-step */}
       <ReturnLoop />
-
-      {/* THE CYLINDER — system object */}
-      <section className="px-6 md:px-10 max-w-7xl mx-auto py-28 md:py-44 grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-6 reveal relative">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#f1ece1]">
-            <img
-              src={aluHeroImg}
-              alt="The matte aluminum VYTAL refill cylinder"
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-[1.04]"
-            />
-            <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
-              {r.partOfEveryRefill}
-            </span>
-          </div>
-        </div>
-        <div className="lg:col-span-6 reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">{r.ch08Kicker}</span>
-          <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-            {r.ch08H2a}<br/>
-            <span className="italic font-light text-muted-foreground">{r.ch08H2b}</span>
-          </h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
-            {r.ch08Desc}
-          </p>
-          <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 max-w-md">
-            {r.ch08Specs.map(([k, v]) => (
-              <div key={k} className="border-t border-border pt-3">
-                <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{k}</dt>
-                <dd className="mt-1.5 font-display text-sm">{v}</dd>
-              </div>
-            ))}
-          </dl>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link to="/shop" hash="refills" className="inline-flex bg-foreground text-background px-6 py-3 rounded-full text-sm font-medium hover:bg-primary transition-colors">
-              {r.ch08Cta1}
-            </Link>
-            <Link to="/shop/starter-kit" className="inline-flex border border-foreground/15 px-6 py-3 rounded-full text-sm font-medium hover:bg-background transition-colors">
-              Starter Kit
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* TRANSPARENCY — quiet, not preachy */}
       <section className="bg-foreground text-background px-6 md:px-10 py-28 md:py-36">
