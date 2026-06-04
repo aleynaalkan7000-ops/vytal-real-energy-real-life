@@ -16,7 +16,51 @@ export function SiteFooter() {
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             {tx.footer.desc}
           </p>
-          <p className="mt-6 italic text-sm text-foreground">{tx.footer.tagline}</p>
+          <p className="mt-4 italic text-sm text-foreground">{tx.footer.tagline}</p>
+          <div className="mt-6">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-3">
+              {tx.footer.socialLabel}
+            </p>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.instagram.com/vytal.energy"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="VYTAL auf Instagram"
+                className="size-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+                </svg>
+              </a>
+              <a
+                href="https://www.tiktok.com/@vytal.energy"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="VYTAL auf TikTok"
+                className="size-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.77a4.85 4.85 0 0 1-1.01-.08z"/>
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/vytal-energy"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="VYTAL auf LinkedIn"
+                className="size-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
         <div>
           <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-4">

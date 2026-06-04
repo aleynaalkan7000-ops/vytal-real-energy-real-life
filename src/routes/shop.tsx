@@ -277,7 +277,7 @@ function useShopTx() {
     loopHygiene: isDE ? "Hygiene" : "Hygiene",
     loopHygieneText: isDE ? "Zurückgegebene Zylinder werden nach medizinischen Standards sterilisiert, bevor sie neu befüllt werden." : "Returned cylinders are sterilized to medical-grade standards before refilling.",
     loopReality: isDE ? "Realitäts-Check" : "Reality check",
-    loopRealityText: isDE ? "Deutlich bewusster als Dosen-Drinks. Wir veröffentlichen die Zahlen vierteljährlich." : "Significantly more conscious than canned drinks. We publish the numbers quarterly.",
+    loopRealityText: isDE ? "Deutlich bewusster als Dosen-Drinks. Erster öffentlicher Nachhaltigkeitsbericht geplant für Q4 2025." : "Significantly more conscious than canned drinks. First public sustainability report planned for Q4 2025.",
     costTitle: isDE ? "Was es pro Monat kostet" : "What it costs per month",
     costItems: isDE
       ? [
@@ -325,15 +325,15 @@ function useShopTx() {
       { k: "−85%", l: "Versandvolumen vs. Dosen-Drinks" },
       { k: "0", l: "Einweg-Plastikverpackungen pro Nachfüllung" },
       { k: "5×", l: "Zylinder pro Rückgabe-Zyklus" },
-      { k: "Q1", l: "Öffentlicher Nachhaltigkeitsbericht pro Quartal" },
-      { k: "100%", l: "Nachverfolgbare Zutaten-Herkunft" },
+      { k: "Q4 '25", l: "Erster öffentlicher Nachhaltigkeitsbericht geplant" },
+      { k: "100%", l: "Ziel: vollständig nachverfolgbare Zutaten-Herkunft" },
       { k: "8", l: "Tabletten pro Zylinder vor Rückgabe" },
     ] : [
       { k: "−85%", l: "Shipping volume vs. canned drinks" },
       { k: "0", l: "Single-use plastic wrappers per refill" },
       { k: "5×", l: "Cylinders per return cycle" },
-      { k: "Q1", l: "Public sustainability report each quarter" },
-      { k: "100%", l: "Traceable ingredient sourcing" },
+      { k: "Q4 '25", l: "First public sustainability report planned" },
+      { k: "100%", l: "Ingredient transparency goal — sourcing tracked" },
       { k: "8", l: "Tablets per cylinder before return" },
     ],
     // Closing

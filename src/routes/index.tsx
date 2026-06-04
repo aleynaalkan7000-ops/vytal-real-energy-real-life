@@ -82,13 +82,16 @@ function Index() {
         heroImage={cinematicHero}
         heroIndex={0}
       />
+      <SocialProofStrip />
       <Overstimulation />
+      <ComparisonSection />
       <SystemSection />
       <InsideBottle />
       <Rituals />
       <ProductTeaser />
       <Reviews />
       <JournalPreview />
+      <NewsletterSection />
       <FinalCTA />
       <SiteFooter />
     </main>
@@ -112,6 +115,143 @@ function useReveal() {
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
+}
+
+function SocialProofStrip() {
+  const { tx } = useLanguage();
+  const items = tx.home.reviews.slice(0, 3);
+  return (
+    <section className="bg-background border-b border-border py-8 px-6">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-10">
+        <div className="shrink-0 text-center md:text-left">
+          <div className="font-display text-3xl font-extrabold leading-none">4.8</div>
+          <div className="text-amber-400 text-base mt-0.5">★★★★★</div>
+          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-1.5">143 Bewertungen</div>
+        </div>
+        <div className="hidden md:block w-px self-stretch bg-border" />
+        <div className="grid md:grid-cols-3 gap-5 flex-1">
+          {items.map((r) => (
+            <div key={r.name} className="flex flex-col gap-1.5">
+              <div className="text-amber-400 text-xs tracking-wider">★★★★★</div>
+              <p className="text-sm italic text-muted-foreground leading-snug">"{r.quote}"</p>
+              <p className="text-xs font-semibold text-foreground">
+                {r.name} <span className="font-normal text-muted-foreground">· {r.role}</span>
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ComparisonSection() {
+  const { tx } = useLanguage();
+  return (
+    <section className="relative bg-foreground text-background py-24 md:py-36 px-6 overflow-hidden">
+      <div className="max-w-5xl mx-auto">
+        <div className="reveal mb-12">
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/50 block mb-4">
+            {tx.home.comparisonKicker}
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl font-extrabold leading-[1.02] text-balance">
+            {tx.home.comparisonH2a}{" "}
+            <span className="text-primary">{tx.home.comparisonH2b}</span>
+          </h2>
+          <p className="mt-4 text-background/60 text-lg max-w-lg">{tx.home.comparisonDesc}</p>
+        </div>
+        <div className="reveal overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr>
+                {tx.home.comparisonHeaders.map((h, i) => (
+                  <th
+                    key={i}
+                    className={`text-left py-3 px-4 font-mono text-[10px] tracking-[0.2em] uppercase border-b border-background/15 ${
+                      i === 1
+                        ? "text-primary bg-background/8"
+                        : "text-background/40"
+                    }`}
+                  >
+                    {i === 1 ? "✦ " : ""}{h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {tx.home.comparisonRows.map((row, ri) => (
+                <tr key={ri} className="border-b border-background/10 last:border-0">
+                  {row.map((cell, ci) => (
+                    <td
+                      key={ci}
+                      className={`py-3.5 px-4 ${
+                        ci === 0
+                          ? "font-mono text-[10px] tracking-widest uppercase text-background/50"
+                          : ci === 1
+                          ? "font-semibold text-background bg-background/5"
+                          : "text-background/45"
+                      }`}
+                    >
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function NewsletterSection() {
+  const { tx } = useLanguage();
+  const [email, setEmail] = useState("");
+  const [sent, setSent] = useState(false);
+  return (
+    <section className="py-20 md:py-28 px-6 border-t border-border bg-secondary/30">
+      <div className="max-w-xl mx-auto text-center reveal">
+        <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary block mb-5">
+          {tx.home.newsletterKicker}
+        </span>
+        <h2 className="font-display text-3xl md:text-4xl font-extrabold leading-tight mb-4 text-balance">
+          {tx.home.newsletterH2}
+        </h2>
+        <p className="text-muted-foreground mb-8 leading-relaxed">{tx.home.newsletterDesc}</p>
+        {sent ? (
+          <p className="text-sm text-muted-foreground">{tx.home.newsletterSent}</p>
+        ) : (
+          <form
+            className="flex gap-2 max-w-sm mx-auto"
+            onSubmit={(e) => {
+              e.preventDefault();
+              window.open(
+                `mailto:hello@vytal.energy?subject=Newsletter&body=Please add me: ${email}`,
+                "_blank",
+              );
+              setSent(true);
+            }}
+          >
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={tx.home.newsletterPlaceholder}
+              className="flex-1 bg-background border border-border rounded-full px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+            />
+            <button
+              type="submit"
+              className="bg-foreground text-background rounded-full px-5 py-3 text-sm font-semibold hover:bg-primary transition-colors"
+            >
+              {tx.home.newsletterCta}
+            </button>
+          </form>
+        )}
+      </div>
+    </section>
+  );
 }
 
 function AmbientOrbs() {
@@ -173,6 +313,9 @@ function Hero({ heroImage, heroIndex }: { heroImage: string; heroIndex: number }
                 {tx.hero.cta2}
               </Link>
             </div>
+            <p className="animate-reveal [animation-delay:650ms] font-mono text-[10px] tracking-[0.2em] uppercase text-background/45 mt-1">
+              {tx.hero.priceHint}
+            </p>
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-16 flex items-center justify-between text-background/60 font-mono text-[10px] tracking-[0.25em] uppercase">
