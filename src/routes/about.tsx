@@ -261,7 +261,7 @@ function AboutPage() {
               <h2 className="reveal mt-6 font-display text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.06] tracking-tight text-balance">
                 {tx.about.humanH2a} <em className="italic font-normal text-primary">{tx.about.humanH2b}</em>
               </h2>
-              <div className="reveal mt-8 space-y-5 text-muted-foreground text-base leading-relaxed">
+              <div className="reveal mt-8 space-y-5 text-muted-foreground text-base leading-relaxed" >
                 <p>
                   {tx.about.humanBodyA}
                 </p>
