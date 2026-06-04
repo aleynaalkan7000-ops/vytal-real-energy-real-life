@@ -360,7 +360,7 @@ function ProductTeaser() {
 
 function JournalPreview() {
   const { tx } = useLanguage();
-  const slugs = ["the-myth-of-the-productive-crash", "your-attention-span-isnt-broken", "designing-calmer-mornings"];
+  const slugs = ["productive-crash", "attention-span", "calmer-mornings"];
   const articles = tx.home.journalArticles.map((a, i) => ({ ...a, slug: slugs[i] }));
   return (
     <section className="py-32 md:py-48 px-6 border-t border-border">
