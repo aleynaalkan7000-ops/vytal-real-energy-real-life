@@ -220,7 +220,7 @@ function useShopTx() {
     quietDesc: isDE ? "Sechs Geschmäcker. Ein wiederverwendbarer Zylinder. Ein Rückgabe-Loop, der sich still hinter jeder Bestellung schließt. Für Routinen, die du bereits lebst." : "Six flavors. One reusable cylinder. A return loop that quietly closes behind every order. Designed for routines you already live.",
     // Starter kit section
     starterBadge1: isDE ? "Das Starter Kit · Hero-Produkt" : "The Starter Kit · Hero product",
-    starterBadge2: isDE ? "Alle 6 Geschmäcker · Zylinder inklusive · Pfand inklusive" : "All 6 flavors · cylinder included · deposit included",
+    starterBadge2: isDE ? "Alle 6 Geschmäcker · Wähle deine Flaschenfarbe · Zylinder inklusive · Pfand inklusive" : "All 6 flavors · choose your bottle color · cylinder included · deposit included",
     starterKicker: isDE ? "01 · Das vollständige Ritual" : "01 · The complete ritual",
     starterH2b: isDE ? "Nachfüll-Ritual." : "refill ritual.",
     starterDesc: isDE ? "Alles, was du brauchst, um ins System einzusteigen – die Glasflasche, der wiederverwendbare Aluminiumzylinder, alle sechs Geschmäcker und eine Ritual-Karte für den ersten Morgen." : "Everything you need to enter the system — the glass bottle, the reusable aluminum cylinder, all six functional flavors, and a ritual card for the first morning.",
@@ -555,13 +555,13 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
 
   const handleAdd = () => {
   add({
-    id: "starter-kit",
+    id: currentSlug,
     name: "VYTAL Starter Kit",
-    variant: "Complete ritual",
-    image: shopStarterKit,
+    variant: currentColorName,
+    image: currentImage,
     unitPrice,
     qty,
-    href: "/shop/starter-kit",
+    href: `/shop/${currentSlug}`,
   });
 
   setAdded(true);
@@ -742,6 +742,17 @@ function ShopPage() {
   const s = useShopTx();
   const heroImgRef = useRef<HTMLImageElement>(null);
   useParallax(heroImgRef as unknown as React.RefObject<HTMLElement | null>, 0.06);
+  const [heroIndex, setHeroIndex] = useState(0);
+  const starterKit = useMemo(() => products.find((p) => p.slug === "starter-kit"), []);
+  const variants = starterKit?.variants || [];
+
+  useEffect(() => {
+    if (variants.length <= 1) return;
+    const interval = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % variants.length);
+    }, 4000); // Alle 4 Sekunden
+    return () => clearInterval(interval);
+  }, [variants]);
 
   const refills = useMemo(() => products.filter((p) => p.category === "refill"), []);
   const bottles = useMemo(() => products.filter((p) => p.category === "bottle"), []);
@@ -812,12 +823,14 @@ function ShopPage() {
       <section id ="starter-kit"className="relative min-h-[100svh] flex items-end overflow-hidden bg-gradient-to-b from-secondary/70 via-background to-background">
         <div className="absolute inset-0 -z-10">
           <img
-            src={shopStarterKit}
-            alt="The VYTAL Starter Kit — bottle, aluminum refill cylinder, linen sleeve and the full flavor set"
+            // Dynamische Quelle nutzen:
+            src={variants.length > 0 ? variants[heroIndex].image : shopStarterKit}
+            alt="The VYTAL Starter Kit"
             loading="lazy"
             width={1600}
             height={1920}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1600ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
+            // WICHTIG: Die Klasse duration-1000 sorgt für den weichen Übergang
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/75 via-transparent to-transparent" />
@@ -894,13 +907,15 @@ function ShopPage() {
     <div className="grid md:grid-cols-12 gap-0 items-stretch">
       <div className="md:col-span-7 relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden">
         <img
-  src={shopStarterKit}
-  alt="The VYTAL Starter Kit — bottle, aluminum refill cylinder, linen sleeve and the full flavor set"
-  loading="lazy"
-  width={1600}
-  height={1920}
-  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1600ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
-/>
+  // Hier nutzen wir die Variable 'variants' aus deinem ShopPage-Code
+          src={variants.length > 0 ? variants[heroIndex].image : shopStarterKit}
+          alt="The VYTAL Starter Kit"
+          loading="lazy"
+          width={1600}
+          height={1920}
+          // Hier haben wir 'transition-opacity' hinzugefügt für den weichen Wechsel
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out group-hover:scale-[1.03]"
+        />
         <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
           {s.starterBadge1}
         </span>
