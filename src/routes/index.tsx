@@ -254,7 +254,7 @@ function SystemSection() {
             </div>
           ))}
           <div className="reveal">
-            <Link to="/refill" className="group inline-flex items-center gap-3 text-foreground font-semibold border-b border-foreground/40 pb-1 hover:border-foreground transition-colors">
+            <Link to="/refill" hash="cylinder-details" className="group inline-flex items-center gap-3 text-foreground font-semibold border-b border-foreground/40 pb-1 hover:border-foreground transition-colors">
               {tx.home.systemLink}
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
