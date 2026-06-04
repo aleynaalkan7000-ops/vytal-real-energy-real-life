@@ -1082,7 +1082,7 @@ function ShopReviews() {
   const s = useShopTx();
   const { tx } = useLanguage();
   const productLabels = ["Focus", "Flow", "Refresh", "Boost", "Balance", "Recharge"];
-  const items = tx.home.reviews.map((r, i) => ({ ...r, product: productLabels[i] }));
+  const items = tx.home.reviews.slice(0, 6).map((r, i) => ({ ...r, product: productLabels[i] }));
   return (
     <section className="bg-foreground text-background py-24 md:py-32 px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
