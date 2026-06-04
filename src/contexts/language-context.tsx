@@ -129,6 +129,7 @@ export const t = {
         { quote: "Replaces my pre-workout AND my 3rd coffee. Smarter.", name: "Leon S.", role: "Master's student · Cologne" },
         { quote: "First energy drink I drink for the feeling, not the kick.", name: "Sophie B.", role: "Product designer · Berlin" },
         { quote: "I can finish a 10pm writing block and still fall asleep.", name: "Mira H.", role: "PhD candidate · Vienna" },
+        { quote: "Switched from cold brew to this. My hands stopped shaking.", name: "Tom R.", role: "Freelance developer · Zürich" },
       ],
       ritualItems: [
         { label: "08:14 · Café", caption: "The slow start. A pour-over and a cold refill. Two things, no agenda." },
@@ -619,6 +620,7 @@ export const t = {
         { quote: "Ersetzt mein Pre-Workout UND meinen dritten Kaffee. Cleverer.", name: "Leon S.", role: "Masterstudent · Köln" },
         { quote: "Erster Energydrink, den ich wegen des Gefühls trinke, nicht wegen dem Kick.", name: "Sophie B.", role: "Produktdesignerin · Berlin" },
         { quote: "Ich kann um 22 Uhr noch schreiben und trotzdem einschlafen.", name: "Mira H.", role: "Doktorandin · Wien" },
+        { quote: "Hab Cold Brew damit ersetzt. Meine Hände zittern nicht mehr.", name: "Tom R.", role: "Freelance-Entwickler · Zürich" },
       ],
       ritualItems: [
         { label: "08:14 · Café", caption: "Der langsame Start. Ein Pour-over und ein kaltes Nachfüllgetränk. Zwei Dinge, kein Programm." },

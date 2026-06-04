@@ -538,7 +538,7 @@ function JournalPreview() {
 
 function Reviews() {
   const { tx } = useLanguage();
-  const items = tx.home.reviews;
+  const items = tx.home.reviews.slice(3);
   return (
     <section className="py-24 md:py-32 px-6 bg-foreground text-background">
       <div className="max-w-7xl mx-auto">
