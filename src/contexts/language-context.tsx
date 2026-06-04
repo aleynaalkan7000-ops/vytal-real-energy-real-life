@@ -78,7 +78,7 @@ export const t = {
       insideH2b: "Nothing hidden.",
       ingredients: [
         { kicker: "Focus without feeling attacked", name: "L-Theanine", dose: "200 mg", body: "From green tea. Paired with caffeine, it reshapes stimulation into something steadier — clearer attention, without the edge." },
-        { kicker: "Calm under pressure", name: "Ashwagandha (KSM-66)", dose: "300 mg", body: "An adaptogen that helps the body process cortisol. Clinically studied for stress resilience — not gym memes." },
+        { kicker: "Calm under pressure", name: "Ashwagandha (KSM-66)", dose: "300 mg", body: "An adaptogen that helps the body process cortisol. Clinically studied for stress resilience — backed by evidence, not trends." },
         { kicker: "Energy that lasts the workday", name: "Green Tea Caffeine", dose: "80 mg", body: "Slow-release natural caffeine. Roughly one cup of coffee, paired so it doesn't turn against you at 3pm." },
         { kicker: "The quiet co-pilot", name: "Magnesium Bisglycinate", dose: "150 mg", body: "Cellular energy and muscle recovery, in the form your body actually absorbs." },
       ],
