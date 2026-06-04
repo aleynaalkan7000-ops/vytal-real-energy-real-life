@@ -313,7 +313,7 @@ function Rituals() {
         </div>
         <div className="grid md:grid-cols-12 gap-4 md:gap-5">
           {items.map((s, idx) => (
-            <figure key={s.label} className={`reveal relative overflow-hidden rounded-3xl bg-secondary group aspect-[4/5] ${spans[idx]}`} style={{ transitionDelay: `${idx * 80}ms` }}>
+            <figure key={idx} className={`reveal relative overflow-hidden rounded-3xl bg-secondary group aspect-[4/5] ${spans[idx]}`} style={{ transitionDelay: `${idx * 80}ms` }}>
               <img src={s.src} alt={s.label} loading="lazy" width={1280} height={1600} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/75 via-foreground/10 to-transparent" />
               <figcaption className="absolute bottom-6 left-6 right-6 text-background">
