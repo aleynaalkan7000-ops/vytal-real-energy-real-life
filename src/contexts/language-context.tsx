@@ -548,7 +548,7 @@ export const t = {
       insideH2b: "Nichts versteckt.",
       ingredients: [
         { kicker: "Fokus ohne Überwältigung", name: "L-Theanin", dose: "200 mg", body: "Aus grünem Tee. Macht Koffein bekömmlicher – mehr Konzentration, ohne das nervöse Kribbeln." },
-        { kicker: "Ruhe unter Druck", name: "Ashwagandha (KSM-66)", dose: "300 mg", body: "Ein Adaptogen, das dem Körper hilft, Cortisol zu regulieren. Klinisch untersucht für Stressresistenz – keine Gym-Memes." },
+        { kicker: "Ruhe unter Druck", name: "Ashwagandha (KSM-66)", dose: "300 mg", body: "Ein Adaptogen, das dem Körper hilft, Cortisol zu regulieren. Klinisch untersucht für Stressresistenz – gestützt auf Fakten, nicht auf Trends." },
         { kicker: "Energie, die den Arbeitstag überdauert", name: "Grüntee-Koffein", dose: "80 mg", body: "Langsam freigesetztes natürliches Koffein. Ungefähr eine Tasse Kaffee – so kombiniert, dass es nicht um 15 Uhr gegen dich arbeitet." },
         { kicker: "Der stille Co-Pilot", name: "Magnesiumbisglycinat", dose: "150 mg", body: "Zelluläre Energie und Muskelregeneration – in der Form, die dein Körper wirklich aufnimmt." },
       ],
