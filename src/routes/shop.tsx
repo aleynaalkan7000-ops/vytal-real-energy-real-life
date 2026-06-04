@@ -221,7 +221,7 @@ function useShopTx() {
     // Starter kit section
     starterBadge1: isDE ? "Das Starter Kit · Hero-Produkt" : "The Starter Kit · Hero product",
     starterBadge2: isDE ? "Alle 6 Geschmäcker · Wähle deine Flaschenfarbe · Zylinder inklusive · Pfand inklusive" : "All 6 flavors · choose your bottle color · cylinder included · deposit included",
-    starterKicker: isDE ? "01 · Das vollständige Ritual" : "01 · The complete ritual",
+    starterKicker: isDE ? "Das vollständige Ritual" : "The complete ritual",
     starterH2b: isDE ? "Nachfüll-Ritual." : "refill ritual.",
     starterDesc: isDE ? "Alles, was du brauchst, um ins System einzusteigen – die Glasflasche, der wiederverwendbare Aluminiumzylinder, alle sechs Geschmäcker und eine Ritual-Karte für den ersten Morgen." : "Everything you need to enter the system — the glass bottle, the reusable aluminum cylinder, all six functional flavors, and a ritual card for the first morning.",
     starterItems: isDE ? [
@@ -244,7 +244,7 @@ function useShopTx() {
     sixFlavorsDesc: isDE ? "Jeder Geschmack hat seine eigene Intention – probiere alle aus, bevor du deinen Alltags-Liebling findest." : "Each flavor has its own intent — try them all before you choose your everyday.",
     exploreFlavorLabel: isDE ? "Geschmack entdecken" : "Explore flavor",
     // Refills section
-    refillsKicker: isDE ? "03 · Die Nachfüllungen" : "03 · The refills",
+    refillsKicker: isDE ? "Die Nachfüllungen" : "The refills",
     refillsH2a: isDE ? "Die Nachfüllungen." : "The refills.",
     refillsH2b: isDE ? "Immer im Zylinder." : "Always inside the cylinder.",
     refillsDesc: isDE ? "Jede Nachfüllung kommt in einem matten Aluminiumzylinder. Jeder Zylinder enthält 8 funktionale Tabletten und beinhaltet ein €4-Pfand. Wenn fünf Zylinder leer sind, schickst du sie zurück und wir sterilisieren und befüllen sie neu." : "Each refill arrives in a reusable matte aluminum cylinder. Every cylinder holds 8 functional tablets and includes a €4 refundable deposit. When five cylinders are empty, send them back, get your deposit credited, and we sterilize and refill them.",
@@ -312,7 +312,7 @@ function useShopTx() {
     starterKitLink: isDE ? "Starter Kit" : "Starter Kit",
     partOfEveryRefill: isDE ? "Teil jeder Nachfüllung" : "Part of every refill",
     // Accessories
-    accessoriesKicker: isDE ? "04 · Flaschen & Behälter" : "04 · Bottles & vessels",
+    accessoriesKicker: isDE ? "Flaschen & Behälter" : "Bottles & vessels",
     accessoriesH3: isDE ? "Flaschen & Behälter." : "Bottles & vessels.",
     accessoriesDesc: isDE ? "Optionale Erweiterungen des Systems. Alle Nachfüllungen passen." : "Optional extensions of the system. The refills fit them all.",
     bottleLabel: isDE ? "Flasche · " : "Bottle · ",
