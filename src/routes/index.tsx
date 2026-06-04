@@ -278,7 +278,7 @@ function InsideBottle() {
         </div>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {tx.home.ingredients.map((i, idx) => (
-            <article key={i.name} className="reveal group relative overflow-hidden p-10 md:p-12 rounded-3xl bg-secondary/60 border border-border hover:border-primary/40 hover:bg-secondary transition-all duration-700" style={{ transitionDelay: `${idx * 60}ms` }}>
+            <article key={idx} className="reveal group relative overflow-hidden p-10 md:p-12 rounded-3xl bg-secondary/60 border border-border hover:border-primary/40 hover:bg-secondary transition-all duration-700" style={{ transitionDelay: `${idx * 60}ms` }}>
               <div className="absolute -top-20 -right-20 size-64 rounded-full bg-primary/0 group-hover:bg-primary/15 blur-3xl transition-all duration-1000" />
               <div className="relative flex flex-col gap-5">
                 <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">{i.kicker}</span>
