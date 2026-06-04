@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -483,16 +483,26 @@ function useReveal() {
 function JournalPage() {
   useReveal();
   const { tx, lang } = useLanguage();
+  const navigate = useNavigate();
   const heroImgRef = useRef<HTMLDivElement | null>(null);
   const [activeArticle, setActiveArticle] = useState<Article | null>(null);
 
   const articles = lang === "de" ? journalArticlesDe : journalArticlesEn;
   const featured = articles[0];
 
+  const handleClose = () => {
+    setActiveArticle(null);
+    const ref = sessionStorage.getItem("journalRef");
+    if (ref === "home") {
+      sessionStorage.removeItem("journalRef");
+      navigate({ to: "/", hash: "journal-preview" });
+    }
+  };
+
   useEffect(() => {
     if (!activeArticle) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setActiveArticle(null);
+      if (e.key === "Escape") handleClose();
     };
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
@@ -762,7 +772,7 @@ function JournalPage() {
       <SiteFooter />
 
       {activeArticle && (
-        <ArticleModal article={activeArticle} articles={articles} onClose={() => setActiveArticle(null)} />
+        <ArticleModal article={activeArticle} articles={articles} onClose={handleClose} />
       )}
     </main>
   );

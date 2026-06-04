@@ -363,7 +363,7 @@ function JournalPreview() {
   const slugs = ["productive-crash", "attention-span", "calmer-mornings"];
   const articles = tx.home.journalArticles.map((a, i) => ({ ...a, slug: slugs[i] }));
   return (
-    <section className="py-32 md:py-48 px-6 border-t border-border">
+    <section id="journal-preview" className="py-32 md:py-48 px-6 border-t border-border">
       <div className="max-w-7xl mx-auto">
         <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>
@@ -377,7 +377,7 @@ function JournalPreview() {
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {articles.map((a, idx) => (
-            <Link key={a.slug} to="/journal" hash={a.slug} className="reveal group p-10 rounded-3xl bg-secondary/60 border border-border hover:bg-secondary hover:border-primary/30 transition-all duration-700 flex flex-col gap-6 min-h-[20rem]" style={{ transitionDelay: `${idx * 80}ms` }}>
+            <Link key={a.slug} to="/journal" hash={a.slug} onClick={() => sessionStorage.setItem("journalRef", "home")} className="reveal group p-10 rounded-3xl bg-secondary/60 border border-border hover:bg-secondary hover:border-primary/30 transition-all duration-700 flex flex-col gap-6 min-h-[20rem]" style={{ transitionDelay: `${idx * 80}ms` }}>
               <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">{a.kicker}</span>
               <h3 className="font-display text-2xl md:text-3xl font-bold leading-tight">{a.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{a.excerpt}</p>
