@@ -11,8 +11,9 @@ export function SiteFooter() {
     <footer className="px-6 pt-20 pb-10 border-t border-border bg-secondary/40">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 mb-16">
         <div className="md:col-span-2 max-w-sm">
-          <Link to="/" className="font-display text-2xl font-extrabold tracking-tight uppercase">
+          <Link to="/" className="inline-flex items-center gap-3 font-display text-2xl font-extrabold tracking-tight uppercase">
             Vytal
+            <img src={logoTransparent} alt="" aria-hidden className="h-6 opacity-50" />
           </Link>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             {tx.footer.desc}

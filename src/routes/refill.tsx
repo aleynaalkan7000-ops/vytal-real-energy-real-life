@@ -573,6 +573,30 @@ function RefillPage() {
               </div>
             ))}
           </div>
+          <div className="mt-10 flex flex-wrap gap-2">
+            {(r.isDE ? [
+              "Kein Einwegplastik",
+              "Wiederverwendbarer Zylinder",
+              "Pflanzenbasierte Inhaltsstoffe",
+              "Pfand wird erstattet",
+              "−85% Versandvolumen",
+              "Medizinische Sterilisation",
+            ] : [
+              "No single-use plastic",
+              "Reusable cylinder",
+              "Plant-based ingredients",
+              "Deposit refunded",
+              "−85% shipping volume",
+              "Medical-grade sterilisation",
+            ]).map((badge) => (
+              <span
+                key={badge}
+                className="rounded-full border border-background/20 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-background/50"
+              >
+                {badge}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
