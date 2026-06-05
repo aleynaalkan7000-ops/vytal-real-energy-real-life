@@ -985,7 +985,7 @@ function ShopPage() {
     </p>
   </div>
 
-  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-14">
+  <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-8 md:gap-x-6 md:gap-y-14">
     {refills.map((p, i) => (
       <RefillCard
         key={p.slug}
@@ -1010,20 +1010,20 @@ function ShopPage() {
             {s.accessoriesDesc}
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-6 md:gap-x-6 md:gap-y-12">
           {bottles.map((b) => (
-            <button  id={b.slug === "unity-bottle" ? "unity" : undefined} key={b.slug} onClick={() => setSelectedProduct(b)} className="group reveal block text-left">
+            <button id={b.slug === "unity-bottle" ? "unity" : undefined} key={b.slug} onClick={() => setSelectedProduct(b)} className="group reveal block text-left">
               <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
                 <img src={b.image} alt={b.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]" />
-                <div className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/80">
+                <div className="absolute top-3 left-3 md:top-5 md:left-5 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-foreground/80">
                   {s.bottleLabel}{b.color}
                 </div>
               </div>
-              <div className="mt-5 flex items-baseline justify-between">
-                <p className="font-display text-lg font-semibold">{b.name.replace("VYTAL ", "")}</p>
-                <span className="font-mono text-xs text-muted-foreground">{b.price}</span>
+              <div className="mt-3 md:mt-5 flex items-baseline justify-between gap-2">
+                <p className="font-display text-base md:text-lg font-semibold">{b.name.replace("VYTAL ", "")}</p>
+                <span className="font-mono text-[10px] md:text-xs text-muted-foreground shrink-0">{b.price}</span>
               </div>
-              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{s.isDE ? (s.bottleTaglineDe[b.slug] ?? b.tagline) : b.tagline}</p>
+              <p className="hidden md:block text-sm text-muted-foreground mt-2 leading-relaxed">{s.isDE ? (s.bottleTaglineDe[b.slug] ?? b.tagline) : b.tagline}</p>
             </button>
           ))}
         </div>
@@ -1214,20 +1214,20 @@ function RefillCard({ p, i, onOpen }: { p: Product; i: number; onOpen: () => voi
           {added ? s.added : s.quickAdd}
         </button>
       </div>
-      <div className="mt-5 flex items-baseline justify-between gap-3">
+      <div className="mt-3 md:mt-5 flex items-baseline justify-between gap-2">
         <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary/70">
+          <p className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-primary/70">
             {s.isDE ? (flavorAudienceDe[p.slug] ?? strategy?.audience) : strategy?.audience}
           </p>
-          <p className="font-display text-xl font-semibold tracking-tight mt-0.5">{p.name.replace("VYTAL ", "")}</p>
+          <p className="font-display text-base md:text-xl font-semibold tracking-tight mt-0.5">{p.name.replace("VYTAL ", "")}</p>
         </div>
-        <span className="font-mono text-xs text-muted-foreground shrink-0">{formatPrice(parsePrice(p.price) + 4)} <span className="text-muted-foreground/60">{s.perCylinder}</span></span>
+        <span className="font-mono text-[10px] md:text-xs text-muted-foreground shrink-0">{formatPrice(parsePrice(p.price) + 4)}</span>
       </div>
-      <p className="text-[13px] font-mono text-primary/80 mt-1">{id?.mood ?? p.flavor}</p>
-      <p className="text-sm text-muted-foreground mt-2 leading-relaxed max-w-sm">
+      <p className="text-[11px] md:text-[13px] font-mono text-primary/80 mt-1">{id?.mood ?? p.flavor}</p>
+      <p className="hidden md:block text-sm text-muted-foreground mt-2 leading-relaxed max-w-sm">
         {s.isDE ? (flavorSensoryDe[p.slug] ?? strategy?.sensory) : strategy?.sensory}
       </p>
-      <p className="mt-2 text-[11px] text-muted-foreground/65 italic leading-relaxed max-w-sm">
+      <p className="hidden md:block mt-2 text-[11px] text-muted-foreground/65 italic leading-relaxed max-w-sm">
         {s.isDE ? (flavorMomentDe[p.slug] ?? strategy?.moment) : strategy?.moment}
       </p>
     </div>
