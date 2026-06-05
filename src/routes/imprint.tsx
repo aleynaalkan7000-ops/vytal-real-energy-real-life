@@ -52,18 +52,6 @@ function ImprintPage() {
 
           <div>
             <h2 className="font-semibold text-foreground mb-3">
-              Project context
-            </h2>
-
-            <p>
-              The VYTAL concept explores sustainable refill systems, functional
-              beverages and digital brand experiences within the context of
-              student-led design and innovation work.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-semibold text-foreground mb-3">
               University
             </h2>
 
