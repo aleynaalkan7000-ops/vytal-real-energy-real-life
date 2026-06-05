@@ -947,10 +947,15 @@ function ShopPage() {
               </li>
             ))}
           </ul>
-          <br></br>
+          <div className="mt-6 flex items-baseline gap-2">
+            <span className="font-display text-2xl md:text-3xl font-bold">€42</span>
+            <span className="font-mono text-[10px] uppercase text-muted-foreground tracking-[0.2em]">
+              {s.isDE ? "inkl. Pfand" : "incl. deposit"}
+            </span>
+          </div>
           <button
             onClick={() => setStarterKitOpen(true)}
-            className="bg-foreground text-background px-8 py-4 rounded-full text-sm font-medium hover:bg-primary transition-colors"
+            className="mt-4 bg-foreground text-background px-8 py-4 rounded-full text-sm font-medium hover:bg-primary transition-colors"
           >
             {s.starterCta}
           </button>
@@ -1004,7 +1009,7 @@ function ShopPage() {
             {s.accessoriesDesc}
           </p>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-6 md:gap-x-6 md:gap-y-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-6 md:gap-x-6 md:gap-y-12 items-start">
           {bottles.map((b) => (
             <button id={b.slug === "unity-bottle" ? "unity" : undefined} key={b.slug} onClick={() => setSelectedProduct(b)} className="group reveal block text-left">
               <div className="aspect-[4/5] relative overflow-hidden rounded-md bg-secondary/40">
@@ -1017,7 +1022,7 @@ function ShopPage() {
                 <p className="font-display text-base md:text-lg font-semibold">{b.name.replace("VYTAL ", "")}</p>
                 <span className="font-mono text-[10px] md:text-xs text-muted-foreground shrink-0">{b.price}</span>
               </div>
-              <p className="hidden md:block text-sm text-muted-foreground mt-2 leading-relaxed">{s.isDE ? (s.bottleTaglineDe[b.slug] ?? b.tagline) : b.tagline}</p>
+              <p className="text-xs md:text-sm text-muted-foreground mt-1.5 leading-relaxed">{s.isDE ? (s.bottleTaglineDe[b.slug] ?? b.tagline) : b.tagline}</p>
             </button>
           ))}
         </div>
