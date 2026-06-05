@@ -13,7 +13,7 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About VYTAL — a calmer alternative to modern productivity culture" },
-      { name: "description", content: "VYTAL is a Heilbronn-based studio making refillable plant-based energy supplements. No crash, no single-use cans — built calmly, on purpose, since 2024." },
+      { name: "description", content: "VYTAL is a Heilbronn-based studio making refillable plant-based energy supplements. No crash, no single-use cans — built calmly, on purpose, since 2026." },
       { property: "og:title", content: "About VYTAL — built calmly. On purpose." },
       { property: "og:description", content: "Energy should support life — not require recovery from it. Our philosophy, in five quiet lines." },
       { property: "og:image", content: aboutHero },
@@ -275,7 +275,7 @@ function AboutPage() {
               <div className="reveal mt-10 grid grid-cols-2 gap-3 max-w-xs">
                 {[
                   { name: "Aleyna A.", role: "Founder · Brand" },
-                  { name: "VYTAL Studio", role: "München · gegr. 2024" },
+                  { name: "VYTAL Studio", role: "Heilbronn · gegr. 2026" },
                 ].map((m) => (
                   <div key={m.name} className="rounded-2xl border border-border p-4">
                     <p className="font-display text-sm font-semibold">{m.name}</p>

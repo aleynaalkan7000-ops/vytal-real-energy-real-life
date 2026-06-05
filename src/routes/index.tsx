@@ -40,7 +40,7 @@ const organizationSchema = {
   url: "https://vytal.energy",
   description:
     "Refillable plant-based focus supplements for everyday life. Calm energy, no crash, less waste.",
-  foundingDate: "2024",
+  foundingDate: "2026",
   foundingLocation: { "@type": "Place", name: "Heilbronn, Germany" },
   sameAs: [],
 };
