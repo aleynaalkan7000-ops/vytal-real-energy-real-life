@@ -221,7 +221,7 @@ function NewsletterSection() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   return (
-    <section className="py-20 md:py-28 px-6 border-t border-border bg-secondary/30">
+    <section className="pt-6 md:pt-10 pb-20 md:pb-28 px-6 border-t border-border bg-secondary/30">
       <div className="max-w-xl mx-auto text-center reveal">
         <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary block mb-5">
           {tx.home.newsletterKicker}
@@ -422,7 +422,7 @@ function SystemSection() {
 function InsideBottle() {
   const { tx } = useLanguage();
   return (
-    <section id="inside" className="relative py-32 md:py-48 px-6">
+    <section id="inside" className="relative pt-32 md:pt-48 pb-6 md:pb-10 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="reveal max-w-2xl mb-20">
           <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.insideKicker}</span>
@@ -456,7 +456,7 @@ function Rituals() {
   const items = tx.home.ritualItems.map((r, i) => ({ ...r, src: srcs[i] }));
   const spans = ["md:col-span-7", "md:col-span-5", "md:col-span-5", "md:col-span-7"];
   return (
-    <section className="relative py-32 md:py-48 px-6 bg-background">
+    <section className="relative pt-6 md:pt-10 pb-6 md:pb-10 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="reveal grid md:grid-cols-12 gap-10 items-end mb-16">
           <h2 className="md:col-span-7 font-display text-4xl md:text-6xl font-extrabold leading-[1.02] text-balance">
@@ -485,7 +485,7 @@ function Rituals() {
 function ProductTeaser() {
   const { tx } = useLanguage();
   return (
-    <section className="relative py-32 md:py-48 px-6 overflow-hidden bg-secondary">
+    <section className="relative pt-6 md:pt-10 pb-32 md:pb-48 px-6 overflow-hidden bg-secondary">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-5 reveal">
           <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.productKicker}</span>
@@ -517,7 +517,7 @@ function JournalPreview() {
   const slugs = ["productive-crash", "attention-span", "calmer-mornings"];
   const articles = tx.home.journalArticles.map((a, i) => ({ ...a, slug: slugs[i] }));
   return (
-    <section id="journal-preview" className="py-32 md:py-48 px-6 border-t border-border">
+    <section id="journal-preview" className="pt-6 md:pt-10 pb-6 md:pb-10 px-6 border-t border-border">
       <div className="max-w-7xl mx-auto">
         <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>
@@ -551,7 +551,7 @@ function Reviews() {
   const { tx } = useLanguage();
   const items = tx.home.reviews.slice(3);
   return (
-    <section className="py-24 md:py-32 px-6 bg-foreground text-background">
+    <section className="pt-24 md:pt-32 pb-6 md:pb-10 px-6 bg-foreground text-background">
       <div className="max-w-7xl mx-auto">
         <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
