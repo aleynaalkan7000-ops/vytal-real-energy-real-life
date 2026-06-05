@@ -778,26 +778,23 @@ function ShopPage() {
       <SiteHeader />
 
 <div className="px-6 md:px-10 mt-3 mb-3 md:mt-10 md:mb-6">
-  <div className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#f4f1eb] to-[#ebe7df] px-8 py-7 shadow-[0_10px_40px_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-[2px] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+  <div className="group relative overflow-hidden rounded-2xl md:rounded-[32px] border border-white/10 bg-gradient-to-br from-[#f4f1eb] to-[#ebe7df] px-4 py-3 md:px-8 md:py-7 shadow-[0_10px_40px_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-[2px] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
 
     {/* glow */}
     <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-white/40 blur-3xl opacity-60" />
 
     {/* content */}
-    <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div className="relative z-10 flex flex-row items-center justify-between gap-3">
 
-      <div className="flex items-center gap-5 flex-wrap">
-
-        <span className="rounded-full border border-black/10 bg-white/50 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.28em] text-black/70 backdrop-blur-sm">
+      <div className="flex items-center gap-2 md:gap-5 min-w-0">
+        <span className="shrink-0 rounded-full border border-black/10 bg-white/50 px-2.5 py-1.5 md:px-4 md:py-2 text-[9px] md:text-[10px] font-medium uppercase tracking-[0.2em] md:tracking-[0.28em] text-black/70 backdrop-blur-sm whitespace-nowrap">
           {s.limitedDrop}
         </span>
-
-        <div>
-          <p className="text-xl md:text-2xl font-semibold tracking-tight text-black">
+        <div className="min-w-0">
+          <p className="text-sm md:text-2xl font-semibold tracking-tight text-black truncate">
             UNITY Bottle
           </p>
-
-          <p className="mt-1 text-sm md:text-base text-black/60">
+          <p className="hidden md:block mt-1 text-base text-black/60">
             {s.unityDesc}
           </p>
         </div>
@@ -806,12 +803,9 @@ function ShopPage() {
       <button
         onClick={() => {
           const el = document.getElementById("unity");
-          el?.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
+          el?.scrollIntoView({ behavior: "smooth", block: "center" });
         }}
-        className="unity-drop-banner__button"
+        className="unity-drop-banner__button shrink-0"
       >
         {s.viewDrop}
       </button>

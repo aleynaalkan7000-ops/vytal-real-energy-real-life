@@ -370,7 +370,7 @@ function RefillPage() {
 
         {/* Step strip */}
         <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-12 items-center pb-24">
-          <div ref={bubblesRef} className="relative aspect-[3/4] rounded-3xl overflow-hidden bg-secondary will-change-transform">
+          <div ref={bubblesRef} className="relative aspect-[4/3] md:aspect-[3/4] rounded-3xl overflow-hidden bg-secondary will-change-transform">
             <img src={refillTabletDrop} alt="Tablet dropping into water with bubbles" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
           </div>
@@ -388,11 +388,11 @@ function RefillPage() {
         </div>
 
         {/* Fullscreen bubble moment */}
-        <div className="relative h-[45svh] md:h-[80svh] min-h-[280px] w-full overflow-hidden">
+        <div className="relative h-[45svh] md:h-[38svh] min-h-[200px] w-full overflow-hidden">
           <img src={refillBubbles} alt="Bubbles rising through calm water" className="absolute inset-0 w-full h-full object-cover scroll-rise" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
           <div className="relative h-full flex items-center justify-center px-6 text-center">
-            <p className="reveal font-display text-4xl md:text-7xl font-light italic text-background drop-shadow-lg max-w-3xl leading-[1.05]">
+            <p className="reveal font-display text-2xl md:text-3xl font-light italic text-background drop-shadow-lg max-w-3xl leading-[1.05]">
               {r.ritualQuote}
             </p>
           </div>
@@ -400,7 +400,7 @@ function RefillPage() {
       </section>
 
       {/* SYSTEM EXPLANATION — editorial */}
-      <section className="px-6 md:px-10 py-32 md:py-44 max-w-7xl mx-auto">
+      <section className="px-6 md:px-10 pt-12 md:pt-44 pb-6 md:pb-10 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-4 reveal lg:sticky lg:top-24">
             <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase bg-primary/10 text-primary px-3 py-1.5 rounded-full mb-4">
@@ -426,7 +426,7 @@ function RefillPage() {
     {r.ch04Steps.map((step) => (
       <article
         key={step.n}
-        className="group relative overflow-hidden rounded-3xl border border-border bg-secondary/40 p-7 min-h-[340px] transition-all duration-700 hover:-translate-y-1 hover:bg-secondary"
+        className="group relative overflow-hidden rounded-2xl md:rounded-3xl border border-border bg-secondary/40 p-4 md:p-7 min-h-[200px] md:min-h-[340px] transition-all duration-700 hover:-translate-y-1 hover:bg-secondary"
       >
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-primary/10 via-transparent to-transparent" />
 
@@ -436,30 +436,28 @@ function RefillPage() {
               {step.n}
             </span>
 
-              <div className="mt-8 h-28 flex items-center justify-center">
+              <div className="mt-4 md:mt-8 h-16 md:h-28 flex items-center justify-center">
                 {step.icon === "station" && (
-                  <PackageOpen className="size-16 text-primary/70 stroke-[1.5]" />
+                  <PackageOpen className="size-10 md:size-16 text-primary/70 stroke-[1.5]" />
                 )}
-
                 {step.icon === "bottle" && (
-                  <FlaskConical className="size-16 text-primary/70 stroke-[1.5]" />
+                  <FlaskConical className="size-10 md:size-16 text-primary/70 stroke-[1.5]" />
                 )}
-
                 {step.icon === "loop" && (
-                  <Recycle className="size-16 text-primary/70 stroke-[1.5]" />
+                  <Recycle className="size-10 md:size-16 text-primary/70 stroke-[1.5]" />
                 )}
               </div>
-              
-            <h3 className="mt-6 font-display text-2xl font-semibold">
+
+            <h3 className="mt-3 md:mt-6 font-display text-lg md:text-2xl font-semibold">
               {step.title}
             </h3>
 
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+            <p className="mt-2 md:mt-3 text-xs md:text-sm text-muted-foreground leading-relaxed">
               {step.text}
             </p>
           </div>
 
-          <div className="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+          <div className="mt-4 md:mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
             <span className="h-px flex-1 bg-border" />
             <span>{r.refillReuse}</span>
           </div>
@@ -474,7 +472,7 @@ function RefillPage() {
       {/* MATERIALS & DESIGN — luxury object */}
       <section id="cylinder-details" className="relative bg-secondary/60 overflow-hidden">
         {/* THE ALU CYLINDER — system object */}
-        <div className="px-6 md:px-10 pt-32 md:pt-44 pb-8 max-w-7xl mx-auto reveal">
+        <div className="px-6 md:px-10 pt-6 md:pt-44 pb-6 md:pb-8 max-w-7xl mx-auto reveal">
           <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
             {r.ch05Kicker}
           </span>
@@ -484,8 +482,8 @@ function RefillPage() {
           </h2>
         </div>
 
-        <div className="px-6 md:px-10 pb-24 md:pb-32 max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-stretch">
-          <div className="group lg:col-span-7 relative aspect-[4/5] lg:aspect-auto lg:min-h-[560px] overflow-hidden rounded-3xl bg-[#f3ede2] reveal">
+        <div className="px-6 md:px-10 pb-6 md:pb-16 max-w-7xl mx-auto grid lg:grid-cols-12 gap-6 md:gap-10 items-stretch">
+          <div className="group lg:col-span-7 relative aspect-[3/2] lg:aspect-auto lg:min-h-[560px] overflow-hidden rounded-2xl md:rounded-3xl bg-[#f3ede2] reveal">
             <img
               src={aluHeroImg}
               alt="Matte aluminum VYTAL refill cylinder in warm natural light"
@@ -626,7 +624,7 @@ function ReturnLoop() {
 
   return (
     <section id="loop" className="relative bg-[#f3ede2] text-foreground overflow-hidden">
-      <div className="px-6 md:px-10 max-w-7xl mx-auto py-32 md:py-44 grid lg:grid-cols-12 gap-12 items-start">
+      <div className="px-6 md:px-10 max-w-7xl mx-auto pt-6 md:pt-44 pb-16 md:pb-44 grid lg:grid-cols-12 gap-8 md:gap-12 items-start">
         <div className="lg:col-span-5 lg:sticky lg:top-28 reveal">
           <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">{r.ch07Kicker}</span>
           <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
@@ -637,7 +635,7 @@ function ReturnLoop() {
             {r.loopDesc}
           </p>
 
-          <div className="mt-10 aspect-[4/5] relative overflow-hidden rounded-md bg-background">
+          <div className="mt-6 md:mt-10 aspect-[3/2] md:aspect-[4/5] relative overflow-hidden rounded-md bg-background">
             {steps.map((s, i) => (
               <img
                 key={s.t}
@@ -662,17 +660,17 @@ function ReturnLoop() {
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}
                 tabIndex={0}
-                className={`group cursor-pointer rounded-3xl border p-6 md:p-8 transition-all duration-700 ${on ? "border-foreground bg-background shadow-lg" : "border-border bg-background/40 hover:bg-background/80"}`}
+                className={`group cursor-pointer rounded-2xl md:rounded-3xl border p-4 md:p-8 transition-all duration-700 ${on ? "border-foreground bg-background shadow-lg" : "border-border bg-background/40 hover:bg-background/80"}`}
               >
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
-                    <span className={`grid place-items-center size-12 rounded-full font-mono text-xs tracking-widest transition-all duration-700 ${on ? "bg-foreground text-background scale-110" : "bg-secondary text-muted-foreground"}`}>
+                    <span className={`grid place-items-center size-8 md:size-12 rounded-full font-mono text-xs tracking-widest transition-all duration-700 ${on ? "bg-foreground text-background scale-110" : "bg-secondary text-muted-foreground"}`}>
                       0{i + 1}
                     </span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-display text-2xl md:text-3xl font-semibold tracking-tight">{s.t}</h3>
-                    <p className="mt-2 text-muted-foreground leading-relaxed max-w-lg">{s.d}</p>
+                    <h3 className="font-display text-lg md:text-3xl font-semibold tracking-tight">{s.t}</h3>
+                    <p className="mt-1 md:mt-2 text-sm md:text-base text-muted-foreground leading-relaxed max-w-lg">{s.d}</p>
                   </div>
                   {i < 4 && (
                     <div className="hidden md:flex items-center pt-3">
@@ -684,18 +682,18 @@ function ReturnLoop() {
             );
           })}
 
-          <div className="mt-10 grid sm:grid-cols-3 gap-3 text-xs text-muted-foreground">
-            <div className="rounded-2xl border border-border p-4 bg-background/60">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">{r.loopDeposit}</p>
-              <p className="mt-2">{r.loopDepositText}</p>
+          <div className="mt-6 md:mt-10 grid grid-cols-3 gap-2 md:gap-3 text-xs text-muted-foreground">
+            <div className="rounded-xl md:rounded-2xl border border-border p-2.5 md:p-4 bg-background/60">
+              <p className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-primary">{r.loopDeposit}</p>
+              <p className="mt-1 md:mt-2 text-[10px] md:text-xs leading-snug">{r.loopDepositText}</p>
             </div>
-            <div className="rounded-2xl border border-border p-4 bg-background/60">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">{r.loopHygiene}</p>
-              <p className="mt-2">{r.loopHygieneText}</p>
+            <div className="rounded-xl md:rounded-2xl border border-border p-2.5 md:p-4 bg-background/60">
+              <p className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-primary">{r.loopHygiene}</p>
+              <p className="mt-1 md:mt-2 text-[10px] md:text-xs leading-snug">{r.loopHygieneText}</p>
             </div>
-            <div className="rounded-2xl border border-border p-4 bg-background/60">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">{r.loopReality}</p>
-              <p className="mt-2">{r.loopRealityText}</p>
+            <div className="rounded-xl md:rounded-2xl border border-border p-2.5 md:p-4 bg-background/60">
+              <p className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-primary">{r.loopReality}</p>
+              <p className="mt-1 md:mt-2 text-[10px] md:text-xs leading-snug">{r.loopRealityText}</p>
             </div>
           </div>
         </ol>

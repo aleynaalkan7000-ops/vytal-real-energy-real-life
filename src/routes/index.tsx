@@ -132,20 +132,20 @@ function SocialProofStrip() {
   const { tx } = useLanguage();
   const items = tx.home.reviews.slice(0, 3);
   return (
-    <section className="bg-background border-b border-border py-8 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-10">
-        <div className="shrink-0 text-center md:text-left">
-          <div className="font-display text-3xl font-extrabold leading-none">4.8</div>
-          <div className="text-amber-400 text-base mt-0.5">★★★★★</div>
-          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-1.5">143 Bewertungen</div>
+    <section className="bg-secondary/60 border-b border-border/50 py-5 px-6">
+      <div className="max-w-7xl mx-auto flex flex-row items-start md:items-center gap-4 md:gap-10">
+        <div className="shrink-0 text-center">
+          <div className="font-display text-2xl md:text-3xl font-extrabold leading-none">4.8</div>
+          <div className="text-amber-400 text-xs md:text-base mt-0.5">★★★★★</div>
+          <div className="font-mono text-[8px] md:text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-1">143</div>
         </div>
-        <div className="hidden md:block w-px self-stretch bg-border" />
-        <div className="grid md:grid-cols-3 gap-5 flex-1">
+        <div className="w-px self-stretch bg-border shrink-0" />
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-3 md:gap-5 flex-1">
           {items.map((r) => (
-            <div key={r.name} className="flex flex-col gap-1.5">
-              <div className="text-amber-400 text-xs tracking-wider">★★★★★</div>
-              <p className="text-sm italic text-muted-foreground leading-snug">"{r.quote}"</p>
-              <p className="text-xs font-semibold text-foreground">
+            <div key={r.name} className="flex flex-col gap-1">
+              <div className="text-amber-400 text-[10px] tracking-wider">★★★★★</div>
+              <p className="text-xs md:text-sm italic text-muted-foreground leading-snug">"{r.quote}"</p>
+              <p className="text-[10px] md:text-xs font-semibold text-foreground">
                 {r.name} <span className="font-normal text-muted-foreground">· {r.role}</span>
               </p>
             </div>
