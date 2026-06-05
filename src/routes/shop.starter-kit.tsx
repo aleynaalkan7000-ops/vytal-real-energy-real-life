@@ -23,7 +23,7 @@ export const Route = createFileRoute("/shop/starter-kit")({
   component: StarterKitPage,
 });
 
-const KIT_PRICE = 68;
+const KIT_PRICE = 42;
 
 const includedItems = [
   { t: "Glass refill bottle", d: "Borosilicate, soft-touch sleeve, hand-balanced.", img: "" },
@@ -149,7 +149,7 @@ function StarterKitPage() {
             </p>
           </div>
           <div className="md:col-span-4 self-end font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/55 max-w-xs ml-auto text-right reveal">
-            <p>€68 · giftable · deposit included</p>
+            <p>€42 · giftable · deposit included</p>
             <p className="mt-2">Ships in recycled board · plastic-free</p>
           </div>
         </div>
@@ -418,7 +418,7 @@ function StarterKitPage() {
               onClick={handleAdd}
               className="inline-flex bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-primary transition-colors"
             >
-              Add Starter Kit — €68
+              Add Starter Kit — €42
             </button>
             <Link to="/refill" className="inline-flex border border-foreground/20 text-foreground px-8 py-4 rounded-full font-medium hover:bg-foreground hover:text-background transition-all">
               How the system works

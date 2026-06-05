@@ -21,7 +21,7 @@ export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
       { title: "Shop — VYTAL · The refill ecosystem." },
-      { name: "description", content: "Refillable plant-based energy tablets — starter kit (€68), six functional flavors, reusable aluminum cylinder. No crash, no plastic, ships to DE & AT." },
+      { name: "description", content: "Refillable plant-based energy tablets — starter kit (€42), six functional flavors, reusable aluminum cylinder. No crash, no plastic, ships to DE & AT." },
       { property: "og:title", content: "Shop — VYTAL · The refill ecosystem." },
       { property: "og:description", content: "Start the ritual. All six flavors, the reusable cylinder, the return loop — one calm system." },
       { property: "og:image", content: shopStarterKit },
@@ -551,7 +551,7 @@ function StarterKitQuickView({ onClose }: { onClose: () => void }) {
   const currentSlug = activeVariant ? activeVariant.slug : "starter-kit";
   const currentColorName = activeVariant ? activeVariant.colorName : "Complete ritual";
 
-  const unitPrice = 68;
+  const unitPrice = 42;
 
   const handleAdd = () => {
   add({
