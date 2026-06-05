@@ -777,7 +777,7 @@ function ShopPage() {
       />
       <SiteHeader />
 
-<div className="px-6 md:px-10 mt-10 mb-6">
+<div className="px-6 md:px-10 mt-3 mb-3 md:mt-10 md:mb-6">
   <div className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#f4f1eb] to-[#ebe7df] px-8 py-7 shadow-[0_10px_40px_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-[2px] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
 
     {/* glow */}
@@ -885,7 +885,7 @@ function ShopPage() {
       </section>
 
       {/* QUIET STATEMENT */}
-      <section className="px-6 md:px-10 max-w-5xl mx-auto py-28 md:py-44 text-center">
+      <section className="px-6 md:px-10 max-w-5xl mx-auto py-10 md:py-20 text-center">
         <p className="font-display text-3xl md:text-5xl leading-[1.15] tracking-tight text-balance reveal">
           {s.quietH2a}<br/>
           <span className="text-muted-foreground">{s.quietH2b}</span>
@@ -898,14 +898,14 @@ function ShopPage() {
 
 
  {/* STARTER KIT — THE HERO PRODUCT */}
-<section id="starter" className="px-6 md:px-10 max-w-7xl mx-auto pb-28 md:pb-44">
+<section id="starter" className="px-6 md:px-10 max-w-7xl mx-auto pb-10 md:pb-20">
   <button
     type="button"
     onClick={() => setStarterKitOpen(true)}
     className="group reveal block w-full text-left relative overflow-hidden rounded-md bg-[#f3ede2]"
   >
     <div className="grid md:grid-cols-12 gap-0 items-stretch">
-      <div className="md:col-span-7 relative aspect-[4/5] md:aspect-auto md:min-h-[640px] overflow-hidden">
+      <div className="md:col-span-7 relative aspect-[3/2] md:aspect-auto md:min-h-[640px] overflow-hidden">
         <img
   // Hier nutzen wir die Variable 'variants' aus deinem ShopPage-Code
           src={variants.length > 0 ? variants[heroIndex].image : shopStarterKit}
@@ -967,7 +967,7 @@ function ShopPage() {
 </section>
 
       {/* RELOADS / REFILLS — cinematic cards */}
-<section id="refills" className="px-6 md:px-10 max-w-7xl mx-auto pt-28 md:pt-40 pb-20">
+<section id="refills" className="px-6 md:px-10 max-w-7xl mx-auto pt-10 md:pt-20 pb-20">
   <div className="max-w-3xl mb-14 reveal">
     <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
       {s.refillsKicker}
@@ -1099,23 +1099,18 @@ function ShopReviews() {
             {s.reviewsDesc}
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {items.map((t, i) => (
             <figure
               key={t.name}
-              className="reveal rounded-3xl border border-background/10 bg-background/5 p-8 flex flex-col gap-4"
+              className="reveal rounded-2xl md:rounded-3xl border border-background/10 bg-background/5 p-4 md:p-8 flex flex-col gap-3 md:gap-4"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <div className="text-amber-400 text-sm tracking-wider">★★★★★</div>
-              <blockquote className="font-display text-xl leading-[1.3] text-balance">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <figcaption className="mt-auto border-t border-background/10 pt-5 flex items-end justify-between gap-3">
-                <div>
-                  <p className="text-sm font-semibold text-background">{t.name}</p>
-                  <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-background/50 mt-1">{t.role}</p>
-                </div>
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-background/30">{t.product}</span>
+              <div className="text-amber-400 text-xs tracking-wider">★★★★★</div>
+              <blockquote className="font-display text-sm md:text-xl leading-[1.3] text-balance">&ldquo;{t.quote}&rdquo;</blockquote>
+              <figcaption className="mt-auto border-t border-background/10 pt-3 md:pt-5">
+                <p className="text-xs md:text-sm font-semibold text-background">{t.name}</p>
+                <p className="font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-background/50 mt-1">{t.role}</p>
               </figcaption>
             </figure>
           ))}

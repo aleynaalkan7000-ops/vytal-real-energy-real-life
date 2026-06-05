@@ -560,14 +560,14 @@ function Reviews() {
           </div>
           <p className="text-background/55 text-sm max-w-xs leading-relaxed">{tx.home.reviewsDesc}</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {items.map((item, i) => (
-            <figure key={item.name} className="reveal rounded-3xl border border-background/10 bg-background/5 p-8 flex flex-col gap-4" style={{ transitionDelay: `${i * 60}ms` }}>
-              <div className="text-amber-400 text-sm tracking-wider">★★★★★</div>
-              <blockquote className="font-display text-xl leading-[1.3] text-balance">&ldquo;{item.quote}&rdquo;</blockquote>
-              <figcaption className="mt-auto border-t border-background/10 pt-5">
-                <p className="text-sm font-semibold text-background">{item.name}</p>
-                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-background/50 mt-1">{item.role}</p>
+            <figure key={item.name} className="reveal rounded-2xl md:rounded-3xl border border-background/10 bg-background/5 p-4 md:p-8 flex flex-col gap-3 md:gap-4" style={{ transitionDelay: `${i * 60}ms` }}>
+              <div className="text-amber-400 text-xs tracking-wider">★★★★★</div>
+              <blockquote className="font-display text-sm md:text-xl leading-[1.3] text-balance">&ldquo;{item.quote}&rdquo;</blockquote>
+              <figcaption className="mt-auto border-t border-background/10 pt-3 md:pt-5">
+                <p className="text-xs md:text-sm font-semibold text-background">{item.name}</p>
+                <p className="font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-background/50 mt-1">{item.role}</p>
               </figcaption>
             </figure>
           ))}
