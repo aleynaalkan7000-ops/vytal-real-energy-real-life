@@ -914,7 +914,7 @@ function ShopPage() {
           {s.starterBadge1}
         </span>
 
-        <span className="absolute bottom-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-foreground/85 text-background backdrop-blur px-3 py-1.5 rounded-full">
+        <span className="hidden md:inline absolute bottom-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-foreground/85 text-background backdrop-blur px-3 py-1.5 rounded-full">
           {s.starterBadge2}
         </span>
       </div>
