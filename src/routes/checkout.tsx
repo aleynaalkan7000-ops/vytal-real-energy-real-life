@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { useCart, formatPrice } from "@/contexts/cart-context";
 
@@ -17,7 +16,6 @@ function CheckoutPage() {
   const { items, subtotal, setQty, remove } = useCart();
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <SiteHeader />
       <section className="max-w-5xl mx-auto px-6 md:px-10 py-24 md:py-32 grid lg:grid-cols-12 gap-16">
         <div className="lg:col-span-7">
           <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">

@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { useLanguage } from "@/contexts/language-context";
 
@@ -12,7 +11,6 @@ function ImprintPage() {
   const isDE = lang === "de";
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <SiteHeader />
 
       <section className="max-w-3xl mx-auto px-6 py-28">
         <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">

@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import aluHero from "@/assets/alu-hero.jpg";
 import aluMacro from "@/assets/alu-macro.jpg";
@@ -72,8 +71,6 @@ function AluCylinderPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aluCylinderBreadcrumbSchema) }}
       />
-      <SiteHeader />
-
       {/* HERO */}
       <section className="relative min-h-[100svh] flex items-end overflow-hidden bg-[#f3ede2]">
         <img

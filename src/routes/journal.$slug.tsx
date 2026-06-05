@@ -1,6 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { getArticleBySlug, journalArticles } from "@/lib/journal-articles";
 
@@ -27,7 +26,6 @@ export const Route = createFileRoute("/journal/$slug")({
   
   notFoundComponent: () => (
     <main className="min-h-screen bg-background text-foreground">
-      <SiteHeader />
       <section className="max-w-2xl mx-auto px-6 py-40 text-center">
         <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">404</p>
         <h1 className="mt-6 font-display text-4xl md:text-5xl">This essay can't be found.</h1>
@@ -40,7 +38,6 @@ export const Route = createFileRoute("/journal/$slug")({
   ),
   errorComponent: ({ error, reset }) => (
     <main className="min-h-screen bg-background text-foreground">
-      <SiteHeader />
       <section className="max-w-2xl mx-auto px-6 py-40 text-center">
         <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">Something went quiet</p>
         <h1 className="mt-6 font-display text-3xl">{error.message}</h1>
@@ -126,8 +123,6 @@ function ArticlePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbSchema(article)) }}
       />
-      <SiteHeader />
-
       {/* Back link */}
       <div className="max-w-7xl mx-auto px-6 md:px-10 pt-8 md:pt-10">
         <Link

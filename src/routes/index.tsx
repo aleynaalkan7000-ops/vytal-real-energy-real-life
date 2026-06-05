@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products, type Product } from "@/lib/vytal-products";
 import { useLanguage } from "@/contexts/language-context";
@@ -88,7 +87,6 @@ function Index() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
-      <SiteHeader />
       <Hero
         heroImage={cinematicHero}
         heroIndex={0}

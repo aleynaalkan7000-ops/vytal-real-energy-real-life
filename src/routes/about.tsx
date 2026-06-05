@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useLanguage } from "@/contexts/language-context";
 import { useEffect, useRef } from "react";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import aboutHero from "@/assets/about-hero.jpg";
 import aboutRealization from "@/assets/about-realization.png";
@@ -88,8 +87,6 @@ function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutOrganizationSchema) }}
       />
-      <SiteHeader />
-
       {/* ───────────────────────────── HERO ───────────────────────────── */}
       <section className="relative h-[94vh] min-h-[680px] w-full overflow-hidden">
         <div ref={heroImgRef} className="absolute inset-0 will-change-transform">

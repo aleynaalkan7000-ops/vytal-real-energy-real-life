@@ -1,6 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { useLanguage } from "@/contexts/language-context";
 import journalLibrary from "@/assets/journal-library.jpg";
@@ -534,8 +533,6 @@ function JournalPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <SiteHeader />
-
       {/* HERO */}
       <section className="relative h-[92vh] min-h-[640px] w-full overflow-hidden">
         <div ref={heroImgRef} className="absolute inset-0 will-change-transform">

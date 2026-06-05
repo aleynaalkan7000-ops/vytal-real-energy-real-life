@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products } from "@/lib/vytal-products";
 import { useCart, formatPrice } from "@/contexts/cart-context";
@@ -149,8 +148,6 @@ function StarterKitPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(starterKitBreadcrumbSchema) }}
       />
-      <SiteHeader />
-
       {/* HERO */}
       <section className="relative min-h-[100svh] flex items-end overflow-hidden bg-[#f3ede2]">
         <img

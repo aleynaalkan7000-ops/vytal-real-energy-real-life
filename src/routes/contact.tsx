@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useLanguage } from "@/contexts/language-context";
 import { useEffect, useRef, useState } from "react";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import heroImg from "@/assets/contact-hero.jpg";
 import letterImg from "@/assets/contact-letter.jpg";
@@ -88,8 +87,6 @@ function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactOrganizationSchema) }}
       />
-      <SiteHeader />
-
       {/* HERO */}
       <section className="relative h-[100svh] w-full overflow-hidden">
         <div ref={heroRef} className="absolute inset-0 will-change-transform">

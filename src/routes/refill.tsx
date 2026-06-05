@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useLanguage } from "@/contexts/language-context";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import {
   Accordion,
@@ -288,8 +287,6 @@ function RefillPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(refillFaqSchema) }}
       />
-      <SiteHeader />
-
       {/* HERO — cinematic fullscreen */}
       <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-foreground text-background">
         <img

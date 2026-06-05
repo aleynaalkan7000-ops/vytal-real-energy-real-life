@@ -28,7 +28,7 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
         scrolled
           ? "backdrop-blur-xl bg-background/70 border-b border-border/70"
           : "backdrop-blur-md bg-background/40 border-b border-transparent"

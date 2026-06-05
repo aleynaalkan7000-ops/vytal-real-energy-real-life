@@ -7,7 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products, type Product } from "@/lib/vytal-products";
 import { useCart, parsePrice, formatPrice } from "@/contexts/cart-context";
@@ -775,7 +774,6 @@ function ShopPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(shopFaqSchema) }}
       />
-      <SiteHeader />
 
 <div className="px-6 md:px-10 mt-3 mb-3 md:mt-10 md:mb-6">
   <div className="group relative overflow-hidden rounded-2xl md:rounded-[32px] border border-white/10 bg-gradient-to-br from-[#f4f1eb] to-[#ebe7df] px-4 py-3 md:px-8 md:py-7 shadow-[0_10px_40px_rgba(0,0,0,0.06)] transition-all duration-500 hover:-translate-y-[2px] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]">

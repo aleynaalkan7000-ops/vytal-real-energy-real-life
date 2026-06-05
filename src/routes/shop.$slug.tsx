@@ -1,6 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { products, type Product } from "@/lib/vytal-products";
 import { useCart, parsePrice, formatPrice } from "@/contexts/cart-context";
@@ -26,7 +25,6 @@ export const Route = createFileRoute("/shop/$slug")({
       : { meta: [{ title: "Product — VYTAL" }] },
   notFoundComponent: () => (
     <main className="min-h-screen bg-background text-foreground">
-      <SiteHeader />
       <section className="max-w-3xl mx-auto px-6 py-40 text-center">
         <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
           404 · Not in the collection
@@ -141,8 +139,6 @@ function ProductPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbSchema(product)) }}
       />
-      <SiteHeader />
-
       {/* HERO ── product dominates */}
       <section className="relative pt-28 pb-20 md:pt-32 md:pb-28">
         <div className="max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
