@@ -54,6 +54,18 @@ export const Route = createFileRoute("/journal/$slug")({
   component: ArticlePage,
 });
 
+function buildBreadcrumbSchema(a: { title: string; slug: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal.energy" },
+      { "@type": "ListItem", position: 2, name: "Journal", item: "https://vytal.energy/journal" },
+      { "@type": "ListItem", position: 3, name: a.title, item: `https://vytal.energy/journal/${a.slug}` },
+    ],
+  };
+}
+
 function buildArticleSchema(a: { title: string; dek: string; date: string; category: string }) {
   return {
     "@context": "https://schema.org",
@@ -109,6 +121,10 @@ function ArticlePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleSchema(article)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbSchema(article)) }}
       />
       <SiteHeader />
 

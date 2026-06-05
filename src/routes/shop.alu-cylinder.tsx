@@ -8,6 +8,16 @@ import aluDispense from "@/assets/alu-dispense.jpg";
 import aluDesk from "@/assets/alu-desk.jpg";
 import aluLoop from "@/assets/alu-loop.jpg";
 
+const aluCylinderBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal.energy" },
+    { "@type": "ListItem", position: 2, name: "Shop", item: "https://vytal.energy/shop" },
+    { "@type": "ListItem", position: 3, name: "The Cylinder", item: "https://vytal.energy/shop/alu-cylinder" },
+  ],
+};
+
 export const Route = createFileRoute("/shop/alu-cylinder")({
   head: () => ({
     meta: [
@@ -58,6 +68,10 @@ function AluCylinderPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aluCylinderBreadcrumbSchema) }}
+      />
       <SiteHeader />
 
       {/* HERO */}

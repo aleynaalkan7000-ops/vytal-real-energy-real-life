@@ -9,6 +9,25 @@ import aboutPhilosophy from "@/assets/about-philosophy.jpg";
 import aboutDesign from "@/assets/about-design.png";
 import aboutHuman from "@/assets/about-human.jpg";
 
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About VYTAL",
+  description: "VYTAL is a Heilbronn-based studio making refillable plant-based energy supplements. No crash, no single-use cans — built calmly, on purpose, since 2026.",
+  url: "https://vytal.energy/about",
+};
+
+const aboutOrganizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "VYTAL",
+  url: "https://vytal.energy",
+  description: "Refillable plant-based focus supplements for everyday life. Calm energy, no crash, less waste.",
+  foundingDate: "2026",
+  foundingLocation: { "@type": "Place", name: "Heilbronn, Germany" },
+  areaServed: ["DE", "AT"],
+};
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
@@ -61,6 +80,14 @@ function AboutPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutOrganizationSchema) }}
+      />
       <SiteHeader />
 
       {/* ───────────────────────────── HERO ───────────────────────────── */}

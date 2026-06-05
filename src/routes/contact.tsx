@@ -7,6 +7,26 @@ import heroImg from "@/assets/contact-hero.jpg";
 import letterImg from "@/assets/contact-letter.jpg";
 import studioImg from "@/assets/contact-studio.png";
 
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact VYTAL",
+  description: "A calm, human way to reach VYTAL. For collaborations, ideas, support, or simply reaching out.",
+  url: "https://vytal.energy/contact",
+};
+
+const contactOrganizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "VYTAL",
+  url: "https://vytal.energy",
+  contactPoint: [
+    { "@type": "ContactPoint", contactType: "customer support", email: "hello@vytal.energy", areaServed: ["DE", "AT"] },
+    { "@type": "ContactPoint", contactType: "sales", email: "collaborations@vytal.energy", areaServed: ["DE", "AT"] },
+    { "@type": "ContactPoint", contactType: "public relations", email: "press@vytal.energy" },
+  ],
+};
+
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
@@ -60,6 +80,14 @@ function ContactPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground antialiased">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactOrganizationSchema) }}
+      />
       <SiteHeader />
 
       {/* HERO */}

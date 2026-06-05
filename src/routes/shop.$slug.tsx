@@ -58,6 +58,37 @@ export const Route = createFileRoute("/shop/$slug")({
   component: ProductPage,
 });
 
+function buildProductSchema(product: Product) {
+  const price = product.price.replace(/€/g, "").split("/")[0].trim();
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.tagline,
+    image: product.image,
+    brand: { "@type": "Brand", name: "VYTAL" },
+    offers: {
+      "@type": "Offer",
+      price,
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      url: `https://vytal.energy/shop/${product.slug}`,
+    },
+  };
+}
+
+function buildBreadcrumbSchema(product: Product) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal.energy" },
+      { "@type": "ListItem", position: 2, name: "Shop", item: "https://vytal.energy/shop" },
+      { "@type": "ListItem", position: 3, name: product.name, item: `https://vytal.energy/shop/${product.slug}` },
+    ],
+  };
+}
+
 function ProductPage() {
   const { product } = Route.useLoaderData() as { product: Product };
   const { add } = useCart();
@@ -102,6 +133,14 @@ function ProductPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildProductSchema(product)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbSchema(product)) }}
+      />
       <SiteHeader />
 
       {/* HERO ── product dominates */}

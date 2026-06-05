@@ -25,6 +25,32 @@ export const Route = createFileRoute("/shop/starter-kit")({
 
 const KIT_PRICE = 42;
 
+const starterKitProductSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "VYTAL Starter Kit",
+  description:
+    "The complete entry into the VYTAL refill ecosystem: glass bottle, reusable aluminum cylinder, all six functional flavors, linen sleeve and ritual card. Deposit included.",
+  brand: { "@type": "Brand", name: "VYTAL" },
+  offers: {
+    "@type": "Offer",
+    price: "42",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+    url: "https://vytal.energy/shop/starter-kit",
+  },
+};
+
+const starterKitBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal.energy" },
+    { "@type": "ListItem", position: 2, name: "Shop", item: "https://vytal.energy/shop" },
+    { "@type": "ListItem", position: 3, name: "Starter Kit", item: "https://vytal.energy/shop/starter-kit" },
+  ],
+};
+
 const includedItems = [
   { t: "Glass refill bottle", d: "Borosilicate, soft-touch sleeve, hand-balanced.", img: "" },
   { t: "Aluminum refill cylinder", d: "Matte anodized, airtight, 8 tablets per fill.", img: aluHero },
@@ -115,6 +141,14 @@ function StarterKitPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(starterKitProductSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(starterKitBreadcrumbSchema) }}
+      />
       <SiteHeader />
 
       {/* HERO */}

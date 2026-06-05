@@ -33,6 +33,13 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "VYTAL",
+  url: "https://vytal.energy",
+};
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -69,6 +76,10 @@ function Index() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
