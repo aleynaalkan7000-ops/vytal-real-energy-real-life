@@ -19,7 +19,7 @@ export function DiscountBanner() {
         </span>
 
         <span className="discount-banner__text-short">
-          15% off · REFILL15
+          15% off · <strong>REFILL15</strong>
         </span>
         <p className="discount-banner__text">
           {isDE
