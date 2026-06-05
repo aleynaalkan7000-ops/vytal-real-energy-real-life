@@ -343,7 +343,7 @@ function Hero({ heroImage, heroIndex }: { heroImage: string; heroIndex: number }
 function Overstimulation() {
   const { tx } = useLanguage();
   return (
-    <section className="relative bg-foreground text-background py-32 md:py-48 px-6 overflow-hidden">
+    <section className="relative bg-foreground text-background py-16 md:py-28 px-6 overflow-hidden">
       <div aria-hidden className="absolute inset-0 opacity-40 pointer-events-none">
         <div className="absolute top-10 left-10 size-72 rounded-full bg-destructive/15 blur-3xl" />
         <div className="absolute bottom-10 right-10 size-96 rounded-full bg-primary/15 blur-3xl" />
@@ -390,7 +390,7 @@ function SystemSection() {
             </div>
           </div>
         </div>
-        <div className="md:col-span-6 px-6 md:px-16 py-32 md:py-48 space-y-32">
+        <div className="md:col-span-6 px-6 md:px-16 py-16 md:py-28 space-y-12 md:space-y-20">
           <div className="reveal max-w-md">
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.systemKicker}</span>
             <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] mb-6 text-balance">
@@ -467,7 +467,7 @@ function Rituals() {
         </div>
         <div className="grid md:grid-cols-12 gap-4 md:gap-5">
           {items.map((s, idx) => (
-            <figure key={idx} className={`reveal relative overflow-hidden rounded-3xl bg-secondary group aspect-[4/5] ${spans[idx]}`} style={{ transitionDelay: `${idx * 80}ms` }}>
+            <figure key={idx} className={`reveal relative overflow-hidden rounded-3xl bg-secondary group aspect-[3/2] md:aspect-[4/5] ${spans[idx]}`} style={{ transitionDelay: `${idx * 80}ms` }}>
               <img src={s.src} alt={s.label} loading="lazy" width={1280} height={1600} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/75 via-foreground/10 to-transparent" />
               <figcaption className="absolute bottom-6 left-6 right-6 text-background">

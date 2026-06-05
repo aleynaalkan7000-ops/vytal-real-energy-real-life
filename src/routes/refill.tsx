@@ -388,7 +388,7 @@ function RefillPage() {
         </div>
 
         {/* Fullscreen bubble moment */}
-        <div className="relative h-[80svh] min-h-[520px] w-full overflow-hidden">
+        <div className="relative h-[45svh] md:h-[80svh] min-h-[280px] w-full overflow-hidden">
           <img src={refillBubbles} alt="Bubbles rising through calm water" className="absolute inset-0 w-full h-full object-cover scroll-rise" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
           <div className="relative h-full flex items-center justify-center px-6 text-center">
@@ -403,13 +403,23 @@ function RefillPage() {
       <section className="px-6 md:px-10 py-32 md:py-44 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-4 reveal lg:sticky lg:top-24">
-            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">{r.ch04Kicker}</span>
+            <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase bg-primary/10 text-primary px-3 py-1.5 rounded-full mb-4">
+              <span className="size-1.5 rounded-full bg-primary animate-pulse" />
+              {r.isDE ? "Pilotphase · Heilbronn · 2026" : "Pilot · Heilbronn · 2026"}
+            </span>
+            <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary block">{r.ch04Kicker}</span>
             <h2 className="mt-6 font-display text-4xl md:text-5xl font-bold leading-[1]">
               {r.ch04H2a}<br/>{r.ch04H2b}
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
               {r.ch04Desc}
             </p>
+            <a
+              href="/contact"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-foreground transition-colors border-b border-primary/30 pb-0.5"
+            >
+              {r.isDE ? "Für Pilot-Standort vormerken →" : "Register for a pilot location →"}
+            </a>
           </div>
           <div className="lg:col-span-8">
   <div className="grid md:grid-cols-3 gap-5">
