@@ -13,7 +13,7 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About VYTAL — a calmer alternative to modern productivity culture" },
-      { name: "description", content: "VYTAL is a Munich-based studio making refillable plant-based energy supplements. No crash, no single-use cans — built calmly, on purpose, since 2024." },
+      { name: "description", content: "VYTAL is a Heilbronn-based studio making refillable plant-based energy supplements. No crash, no single-use cans — built calmly, on purpose, since 2024." },
       { property: "og:title", content: "About VYTAL — built calmly. On purpose." },
       { property: "og:description", content: "Energy should support life — not require recovery from it. Our philosophy, in five quiet lines." },
       { property: "og:image", content: aboutHero },

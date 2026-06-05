@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Refillable plant-based energy tablets — calm focus, no crash, no single-use cans. Starter kit from €42. Ships to DE & AT. Built in Munich.",
+          "Refillable plant-based energy tablets — calm focus, no crash, no single-use cans. Starter kit from €42. Ships to DE & AT. Built in Heilbronn.",
       },
       { property: "og:title", content: "VYTAL — A calmer system for modern energy" },
       {
@@ -41,7 +41,7 @@ const organizationSchema = {
   description:
     "Refillable plant-based focus supplements for everyday life. Calm energy, no crash, less waste.",
   foundingDate: "2024",
-  foundingLocation: { "@type": "Place", name: "Munich, Germany" },
+  foundingLocation: { "@type": "Place", name: "Heilbronn, Germany" },
   sameAs: [],
 };
 
