@@ -117,7 +117,7 @@ heroCta2: isDE ? "Ritual aufbauen" : "Build your ritual",
     loopWorksLink: isDE ? "Wie der Loop funktioniert →" : "How the loop works →",
     refillPacksLink: isDE ? "Nachfüll-Packs ansehen" : "See refill packs",
     // Ch06 why tablets
-    ch06Kicker: isDE ? "Kapitel 06 — warum Tabletten" : "Chapter 06 — why tablets",
+    /*ch06Kicker: isDE ? "Kapitel 06 — warum Tabletten" : "Chapter 06 — why tablets",
     ch06H3a: isDE ? "Warum Wasser quer" : "Why ship water",
     ch06H3b: isDE ? "durchs Land schicken?" : "across the country?",
     ch06Desc: isDE ? "Die meisten Fertiggetränke bestehen größtenteils aus Wasser. Wir trennen den Drink vom Transport: du fügst lokales Wasser hinzu, wir versenden nur den funktionalen Teil." : "Most ready-to-drink energy products are mostly water. We separate the drink from the transport: you add local water, we only move the functional part.",
@@ -129,9 +129,9 @@ heroCta2: isDE ? "Ritual aufbauen" : "Build your ritual",
       { tag: "01", title: "Less transport volume", body: "Compact tablets take up far less space than ready-made drinks in cans or bottles." },
       { tag: "02", title: "Less disposable material", body: "One bottle stays with you instead of buying a new single-use container for every drink." },
       { tag: "03", title: "Water already exists nearby", body: "At home, on campus, at work or at a station — water does not need to be shipped again and again." },
-    ],
+    ],*/
     // Ch07 return loop (ReturnLoop component)
-    ch07Kicker: isDE ? "Kapitel 07 — der Rückgabe-Loop" : "Chapter 07 — the return loop",
+    ch07Kicker: isDE ? "Kapitel 06 — der Rückgabe-Loop" : "Chapter 06 — the return loop",
     loopSteps: isDE
       ? [
           { t: "Empfangen", d: "Nachfüllzylinder kommt mit deiner Bestellung. Pfand inklusive.", img: "" },
@@ -157,7 +157,7 @@ heroCta2: isDE ? "Ritual aufbauen" : "Build your ritual",
     loopReality: isDE ? "Realitäts-Check" : "Reality check",
     loopRealityText: isDE ? "Deutlich bewusster als Dosen-Drinks. Wir veröffentlichen die Zahlen vierteljährlich." : "Significantly more conscious than canned drinks. We publish the numbers quarterly.",
     // Ch08 system object
-    ch08Kicker: isDE ? "Kapitel 08 — das System-Objekt" : "Chapter 08 — the system object",
+    ch08Kicker: isDE ? "Kapitel 07 — das System-Objekt" : "Chapter 07 — the system object",
     ch08H2a: isDE ? "Inklusive bei" : "Included with",
     ch08H2b: isDE ? "jeder einzelnen Nachfüllung." : "every single refill.",
     ch08Desc: isDE ? "Der matte Aluminiumzylinder ist nicht nur Verpackung – er ist das Gefäß, in dem deine Nachfüllungen ankommen. Nutze ihn, leere ihn und entscheide: Schick ihn zurück für eine Pfand-Erstattung – oder behalte ihn für deinen Schreibtisch." : "The matte aluminum cylinder isn't just packaging; it's the vessel your refills travel in. Every flavor you order arrives inside one. Use it, empty it, and decide: return it for a deposit refund so we can close the loop, or keep it to organize your own space.",
@@ -175,7 +175,7 @@ heroCta2: isDE ? "Ritual aufbauen" : "Build your ritual",
     ch08Cta1: isDE ? "Nachfüllungen ansehen →" : "Browse refill packs →",
     ch08Cta2: isDE ? "Starter Kit" : "Starter Kit",
     // Ch09 sustainability
-    ch09Kicker: isDE ? "Kapitel 09 — Nachhaltigkeit" : "Chapter 09 — sustainability",
+    ch09Kicker: isDE ? "Kapitel 07 — Nachhaltigkeit" : "Chapter 07 — sustainability",
     ch09H2a: isDE ? "Wir messen, was wir verändern." : "We measure what we change.",
     ch09H2b: isDE ? "Den Rest schmücken wir nicht aus." : "We don't decorate the rest.",
     ch09Stats: isDE ? [
@@ -520,7 +520,7 @@ function RefillPage() {
         </div>
 
         {/* WHY TABLETS — compact */}
-<div className="px-6 md:px-10 pb-24 md:pb-32 max-w-4xl mx-auto reveal">
+{/* <div className="px-6 md:px-10 pb-24 md:pb-32 max-w-4xl mx-auto reveal">
   <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
     {r.ch06Kicker}
   </span>
@@ -542,7 +542,7 @@ function RefillPage() {
       </div>
     ))}
   </div>
-</div>
+</div> */}
 
       </section>
 
