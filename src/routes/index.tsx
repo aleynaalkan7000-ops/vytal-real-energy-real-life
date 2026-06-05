@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Refillable plant-based energy tablets — calm focus, no crash, no single-use cans. Starter kit from €42. Ships to DE & AT. Built in Heilbronn.",
+          "Refillable plant-based energy tablets — calm focus, no crash, no single-use cans. Starter kit from €40. Ships to DE & AT. Built in Heilbronn.",
       },
       { property: "og:title", content: "VYTAL — A calmer system for modern energy" },
       {
@@ -61,7 +61,7 @@ const productSchema = {
   brand: { "@type": "Brand", name: "VYTAL" },
   offers: {
     "@type": "Offer",
-    price: "42",
+    price: "40",
     priceCurrency: "EUR",
     availability: "https://schema.org/InStock",
   },

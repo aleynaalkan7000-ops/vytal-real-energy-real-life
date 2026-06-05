@@ -23,7 +23,7 @@ export const Route = createFileRoute("/shop/starter-kit")({
   component: StarterKitPage,
 });
 
-const KIT_PRICE = 42;
+const KIT_PRICE = 40;
 
 const starterKitProductSchema = {
   "@context": "https://schema.org",
@@ -34,7 +34,7 @@ const starterKitProductSchema = {
   brand: { "@type": "Brand", name: "VYTAL" },
   offers: {
     "@type": "Offer",
-    price: "42",
+    price: "40",
     priceCurrency: "EUR",
     availability: "https://schema.org/InStock",
     url: "https://vytal.energy/shop/starter-kit",
@@ -183,7 +183,7 @@ function StarterKitPage() {
             </p>
           </div>
           <div className="md:col-span-4 self-end font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/55 max-w-xs ml-auto text-right reveal">
-            <p>€42 · giftable · deposit included</p>
+            <p>€40 · giftable · deposit included</p>
             <p className="mt-2">Ships in recycled board · plastic-free</p>
           </div>
         </div>
@@ -452,7 +452,7 @@ function StarterKitPage() {
               onClick={handleAdd}
               className="inline-flex bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-primary transition-colors"
             >
-              Add Starter Kit — €42
+              Add Starter Kit — €40
             </button>
             <Link to="/refill" className="inline-flex border border-foreground/20 text-foreground px-8 py-4 rounded-full font-medium hover:bg-foreground hover:text-background transition-all">
               How the system works

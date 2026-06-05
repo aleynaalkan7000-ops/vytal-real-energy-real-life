@@ -1,29 +1,32 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { useLanguage } from "@/contexts/language-context";
 
 export const Route = createFileRoute("/imprint")({
   component: ImprintPage,
 });
 
 function ImprintPage() {
+  const { lang } = useLanguage();
+  const isDE = lang === "de";
   return (
     <main className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
       <section className="max-w-3xl mx-auto px-6 py-28">
         <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-          Legal · Information
+          {isDE ? "Rechtliches · Information" : "Legal · Information"}
         </span>
 
         <h1 className="mt-5 font-display text-5xl font-extrabold tracking-tight">
-          Imprint
+          {isDE ? "Impressum" : "Imprint"}
         </h1>
 
         <div className="mt-12 space-y-10 text-muted-foreground leading-relaxed">
           <div>
             <h2 className="font-semibold text-foreground mb-3">
-              Legal notice
+              {isDE ? "Rechtlicher Hinweis" : "Legal notice"}
             </h2>
 
             <p>
@@ -52,7 +55,7 @@ function ImprintPage() {
 
           <div>
             <h2 className="font-semibold text-foreground mb-3">
-              University
+              {isDE ? "Hochschule" : "University"}
             </h2>
 
             <p>
@@ -65,7 +68,7 @@ function ImprintPage() {
 
           <div>
             <h2 className="font-semibold text-foreground mb-3">
-              Contact
+              {isDE ? "Kontakt" : "Contact"}
             </h2>
 
             <p>

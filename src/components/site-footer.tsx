@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/language-context";
+import logoTransparent from "@/assets/logo-transparent.png";
 
 export function SiteFooter() {
   const [email, setEmail] = useState("");
@@ -116,6 +117,11 @@ export function SiteFooter() {
       </div>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-muted-foreground border-t border-border pt-8">
         <span>© {new Date().getFullYear()} VYTAL — Energy that fits real life.</span>
+        <img
+          src={logoTransparent}
+          alt="VYTAL"
+          className="h-7 opacity-40"
+        />
         <div className="flex gap-6">
           <a href="#" className="hover:text-foreground">{tx.footer.privacyLabel}</a>
           <a href="#" className="hover:text-foreground">{tx.footer.termsLabel}</a>

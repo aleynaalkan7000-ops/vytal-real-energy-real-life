@@ -477,7 +477,7 @@ export const products: Product[] = [
     refillCompat: "All flavors, all stations.",
     crashExplainer: "Designed to help you find the calmest formula for your real day.",
     situations: ["First-time users", "Gifts", "Try-before-subscribe"],
-    price: "€42",
+    price: "€40",
     bundle: "Bottle + 6 refills",
     swatch: "bg-primary",
     color: "Sage starter",
