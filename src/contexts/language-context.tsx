@@ -47,7 +47,7 @@ export const t = {
       stat1: "01 — Calm focus",
       stat2: "02 — Zero crash",
       stat3: "03 — Endless refills",
-      priceHint: "From €28 · ~€2.60 per drink · deposit refunded on return",
+      priceHint: "From €20 · ~€2.60 per drink · deposit refunded on return",
     },
     home: {
       overstimKicker: "The pattern most of us recognise",
@@ -537,7 +537,7 @@ export const t = {
       stat1: "01 — Ruhiger Fokus",
       stat2: "02 — Kein Crash",
       stat3: "03 — Endlos nachfüllen",
-      priceHint: "Ab €28 · ~2,60€ pro Drink · Pfand wird bei Rückgabe erstattet",
+      priceHint: "Ab €20 · ~2,60€ pro Drink · Pfand wird bei Rückgabe erstattet",
     },
     home: {
       overstimKicker: "Das Muster, das die meisten von uns kennen",
