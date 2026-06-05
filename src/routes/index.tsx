@@ -513,7 +513,7 @@ function ProductTeaser() {
 }
 
 function JournalPreview() {
-  const { tx } = useLanguage();
+  const { tx, lang } = useLanguage();
   const slugs = ["productive-crash", "attention-span", "calmer-mornings"];
   const articles = tx.home.journalArticles.map((a, i) => ({ ...a, slug: slugs[i] }));
   return (
@@ -533,7 +533,7 @@ function JournalPreview() {
           {articles.map((a, idx) => (
             <Link key={a.slug} to="/journal" hash={a.slug} onClick={() => sessionStorage.setItem("journalRef", "home")} className="reveal group p-7 rounded-3xl bg-secondary/60 border border-border hover:bg-secondary hover:border-primary/30 transition-all duration-700 flex flex-col gap-4 min-h-[14rem]" style={{ transitionDelay: `${idx * 80}ms` }}>
               <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">{a.kicker}</span>
-              <h3 className="font-display text-2xl md:text-3xl font-bold leading-tight">{a.title}</h3>
+              <h3 className="font-display text-2xl md:text-3xl font-bold leading-tight hyphens-auto" lang={lang}>{a.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{a.excerpt}</p>
               <div className="mt-auto pt-6 border-t border-border flex items-center justify-between text-xs font-mono text-muted-foreground">
                 <span>{a.meta}</span>
