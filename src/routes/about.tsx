@@ -274,7 +274,7 @@ function AboutPage() {
               </div>
               <div className="reveal mt-10 grid grid-cols-2 gap-3 max-w-xs">
                 {[
-                  { name: "Aleyna A.", role: "Founder · Brand" },
+                  { name: "ANEA Strategy", role: "Founder · Brand" },
                   { name: "VYTAL Studio", role: "Heilbronn · gegr. 2026" },
                 ].map((m) => (
                   <div key={m.name} className="rounded-2xl border border-border p-4">
