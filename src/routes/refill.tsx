@@ -497,7 +497,7 @@ function RefillPage() {
               <p className="font-display text-2xl md:text-3xl leading-snug">
                 {r.ch05Intro} <span className="text-muted-foreground">{r.isDE ? "Hygienisch, luftdicht, und gebaut, um zu uns zurückzukommen – nicht in den Müll." : "Hygienic, airtight, and built to come back to us — not the bin."}</span>
               </p>
-              <p className="mt-6 text-muted-foreground leading-relaxed text-sm">
+              <p className="hidden md:block mt-6 text-muted-foreground leading-relaxed text-sm">
                 {r.ch08Desc}
               </p>
               <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5">
@@ -631,7 +631,7 @@ function ReturnLoop() {
             {r.loopH2a}<br/>
             <span className="italic font-light text-muted-foreground">{r.loopH2b}</span>
           </h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
+          <p className="hidden md:block mt-6 text-muted-foreground leading-relaxed max-w-md">
             {r.loopDesc}
           </p>
 
