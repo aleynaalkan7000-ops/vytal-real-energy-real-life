@@ -18,6 +18,9 @@ export function DiscountBanner() {
           {isDE ? "Studentenrabatt" : "Student drop"}
         </span>
 
+        <span className="discount-banner__text-short">
+          15% off · REFILL15
+        </span>
         <p className="discount-banner__text">
           {isDE
             ? <>15% auf dein erstes Nachfüll-Setup mit Code <strong>REFILL15</strong></>
