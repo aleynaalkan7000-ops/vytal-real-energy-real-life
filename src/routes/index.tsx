@@ -390,7 +390,7 @@ function SystemSection() {
             </div>
           </div>
         </div>
-        <div className="md:col-span-6 px-6 md:px-16 py-16 md:py-28 space-y-12 md:space-y-20">
+        <div className="md:col-span-6 px-6 md:px-16 py-16 md:py-20 space-y-6 md:space-y-10">
           <div className="reveal max-w-md">
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.systemKicker}</span>
             <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] mb-6 text-balance">
@@ -562,7 +562,8 @@ function Reviews() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {items.map((item, i) => (
-            <figure key={item.name} className="reveal rounded-3xl border border-background/10 bg-background/5 p-8 flex flex-col gap-6" style={{ transitionDelay: `${i * 60}ms` }}>
+            <figure key={item.name} className="reveal rounded-3xl border border-background/10 bg-background/5 p-8 flex flex-col gap-4" style={{ transitionDelay: `${i * 60}ms` }}>
+              <div className="text-amber-400 text-sm tracking-wider">★★★★★</div>
               <blockquote className="font-display text-xl leading-[1.3] text-balance">&ldquo;{item.quote}&rdquo;</blockquote>
               <figcaption className="mt-auto border-t border-background/10 pt-5">
                 <p className="text-sm font-semibold text-background">{item.name}</p>

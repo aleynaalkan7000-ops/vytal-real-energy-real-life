@@ -1103,9 +1103,10 @@ function ShopReviews() {
           {items.map((t, i) => (
             <figure
               key={t.name}
-              className="reveal rounded-3xl border border-background/10 bg-background/5 p-8 flex flex-col gap-6"
+              className="reveal rounded-3xl border border-background/10 bg-background/5 p-8 flex flex-col gap-4"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
+              <div className="text-amber-400 text-sm tracking-wider">★★★★★</div>
               <blockquote className="font-display text-xl leading-[1.3] text-balance">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
