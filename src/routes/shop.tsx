@@ -820,7 +820,7 @@ function ShopPage() {
 </div>
 
       {/* HERO — Starter Kit leads the entire shop */}
-      <section id ="starter-kit"className="relative min-h-[100svh] flex items-end overflow-hidden bg-gradient-to-b from-secondary/70 via-background to-background">
+      <section id="starter-kit" className="relative min-h-[55svh] md:min-h-[100svh] flex items-end overflow-hidden bg-gradient-to-b from-secondary/70 via-background to-background">
         <div className="absolute inset-0 -z-10">
           <img
             // Dynamische Quelle nutzen:
@@ -836,7 +836,7 @@ function ShopPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-background/75 via-transparent to-transparent" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto w-full px-6 md:px-10 pb-24 md:pb-32 pt-40 grid md:grid-cols-12 gap-10">
+        <div className="relative max-w-7xl mx-auto w-full px-6 md:px-10 pb-10 md:pb-32 pt-16 md:pt-40 grid md:grid-cols-12 gap-10">
           <div className="md:col-span-7">
             <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary block mb-8 reveal">
               {s.heroKicker}
