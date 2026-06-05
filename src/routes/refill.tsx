@@ -21,6 +21,9 @@ import {
   PackageOpen,
   FlaskConical,
   Recycle,
+  Leaf,
+  RotateCcw,
+  Droplets,
 } from "lucide-react";
 
 const refillFaqSchema = {
@@ -573,28 +576,31 @@ function RefillPage() {
               </div>
             ))}
           </div>
-          <div className="mt-10 flex flex-wrap gap-2">
-            {(r.isDE ? [
-              "Kein Einwegplastik",
-              "Wiederverwendbarer Zylinder",
-              "Pflanzenbasierte Inhaltsstoffe",
-              "Pfand wird erstattet",
-              "−85% Versandvolumen",
-              "Medizinische Sterilisation",
-            ] : [
-              "No single-use plastic",
-              "Reusable cylinder",
-              "Plant-based ingredients",
-              "Deposit refunded",
-              "−85% shipping volume",
-              "Medical-grade sterilisation",
-            ]).map((badge) => (
-              <span
-                key={badge}
-                className="rounded-full border border-background/20 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-background/50"
-              >
-                {badge}
-              </span>
+          <div className="mt-12 grid grid-cols-4 gap-4 md:gap-10 max-w-sm md:max-w-lg mx-auto">
+            {[
+              {
+                icon: <Recycle className="size-5 md:size-6 text-background/50" strokeWidth={1.5} />,
+                label: r.isDE ? "Wiederverwendbar" : "Reusable",
+              },
+              {
+                icon: <Leaf className="size-5 md:size-6 text-background/50" strokeWidth={1.5} />,
+                label: r.isDE ? "Pflanzenbasiert" : "Plant-based",
+              },
+              {
+                icon: <RotateCcw className="size-5 md:size-6 text-background/50" strokeWidth={1.5} />,
+                label: r.isDE ? "Rückgabe-Loop" : "Return loop",
+              },
+              {
+                icon: <Droplets className="size-5 md:size-6 text-background/50" strokeWidth={1.5} />,
+                label: r.isDE ? "Kein Plastik" : "No plastic",
+              },
+            ].map(({ icon, label }) => (
+              <div key={label} className="flex flex-col items-center gap-2">
+                {icon}
+                <span className="font-mono text-[8px] md:text-[9px] uppercase tracking-[0.18em] text-background/40 text-center leading-tight">
+                  {label}
+                </span>
+              </div>
             ))}
           </div>
         </div>
