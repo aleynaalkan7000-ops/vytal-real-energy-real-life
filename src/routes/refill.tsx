@@ -390,7 +390,7 @@ function RefillPage() {
         {/* Fullscreen bubble moment */}
         <div className="relative h-[45svh] md:h-[38svh] min-h-[200px] w-full overflow-hidden">
           <img src={refillBubbles} alt="Bubbles rising through calm water" className="absolute inset-0 w-full h-full object-cover scroll-rise" loading="lazy" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background" />
           <div className="relative h-full flex items-center justify-center px-6 text-center">
             <p className="reveal font-display text-2xl md:text-3xl font-light italic text-background drop-shadow-lg max-w-3xl leading-[1.05]">
               {r.ritualQuote}
