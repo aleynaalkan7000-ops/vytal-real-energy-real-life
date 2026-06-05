@@ -531,7 +531,7 @@ function JournalPreview() {
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {articles.map((a, idx) => (
-            <Link key={a.slug} to="/journal" hash={a.slug} onClick={() => sessionStorage.setItem("journalRef", "home")} className="reveal group p-10 rounded-3xl bg-secondary/60 border border-border hover:bg-secondary hover:border-primary/30 transition-all duration-700 flex flex-col gap-6 min-h-[20rem]" style={{ transitionDelay: `${idx * 80}ms` }}>
+            <Link key={a.slug} to="/journal" hash={a.slug} onClick={() => sessionStorage.setItem("journalRef", "home")} className="reveal group p-7 rounded-3xl bg-secondary/60 border border-border hover:bg-secondary hover:border-primary/30 transition-all duration-700 flex flex-col gap-4 min-h-[14rem]" style={{ transitionDelay: `${idx * 80}ms` }}>
               <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">{a.kicker}</span>
               <h3 className="font-display text-2xl md:text-3xl font-bold leading-tight">{a.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{a.excerpt}</p>

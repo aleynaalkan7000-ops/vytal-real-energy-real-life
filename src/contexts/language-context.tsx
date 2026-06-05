@@ -38,7 +38,7 @@ export const t = {
     },
     // ── Homepage ─────────────────────────────────────────────────────────
     hero: {
-      tag: "VYTAL — Refillable focus",
+      tag: "Plant-based energy tablets — refillable · no crash · no can",
       h1a: "We're tired",
       h1b: "of being tired.",
       desc: "Calm focus. No crash. Less noise. A refillable ritual designed for the way you actually live — not the way productivity culture pretends you do.",
@@ -528,7 +528,7 @@ export const t = {
       sendMessage: "Nachricht senden",
     },
     hero: {
-      tag: "VYTAL — Nachfüllbarer Fokus",
+      tag: "Pflanzenbasierte Energie-Tabletten — nachfüllbar · kein Crash · keine Dose",
       h1a: "Wir sind es leid,",
       h1b: "müde zu sein.",
       desc: "Ruhiger Fokus. Kein Crash. Weniger Lärm. Ein nachfüllbares Ritual – für das Leben, das du wirklich lebst.",
