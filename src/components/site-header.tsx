@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, ShoppingBag, User } from "lucide-react";
 import { useCart } from "@/contexts/cart-context";
 import { useLanguage } from "@/contexts/language-context";
+import logo from "@/assets/logo-transparent.png";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -34,7 +35,8 @@ export function SiteHeader() {
       }`}
     >
       <nav className="flex items-center justify-between px-6 md:px-10 py-4 max-w-7xl mx-auto">
-        <Link to="/" className="font-display text-xl font-extrabold tracking-tight uppercase">
+        <Link to="/" className="flex items-center gap-2.5 font-display text-xl font-extrabold tracking-tight uppercase">
+          <img src={logo} alt="VYTAL Logo" className="h-8 w-auto" />
           Vytal
         </Link>
         <div className="hidden md:flex gap-8 text-sm font-medium text-muted-foreground">
