@@ -400,7 +400,7 @@ function RefillPage() {
       </section>
 
       {/* SYSTEM EXPLANATION — editorial */}
-      <section className="px-6 md:px-10 pt-12 md:pt-44 pb-6 md:pb-10 max-w-7xl mx-auto">
+      <section className="px-6 md:px-10 pt-12 md:pt-20 pb-6 md:pb-10 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-4 reveal lg:sticky lg:top-24">
             <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase bg-primary/10 text-primary px-3 py-1.5 rounded-full mb-4">
@@ -472,7 +472,7 @@ function RefillPage() {
       {/* MATERIALS & DESIGN — luxury object */}
       <section id="cylinder-details" className="relative bg-secondary/60 overflow-hidden">
         {/* THE ALU CYLINDER — system object */}
-        <div className="px-6 md:px-10 pt-6 md:pt-44 pb-6 md:pb-8 max-w-7xl mx-auto reveal">
+        <div className="px-6 md:px-10 pt-6 md:pt-20 pb-6 md:pb-8 max-w-7xl mx-auto reveal">
           <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary">
             {r.ch05Kicker}
           </span>
