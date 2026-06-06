@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://vytal.energy/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vytal.energy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vytal.energy/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://vytal.energy/shop</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vytal.energy/shop"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vytal.energy/shop"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://vytal.energy/shop/starter-kit</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vytal.energy/shop/starter-kit"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vytal.energy/shop/starter-kit"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vytal.energy/shop/alu-cylinder</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vytal.energy/shop/alu-cylinder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vytal.energy/shop/alu-cylinder"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://vytal.energy/refill</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vytal.energy/refill"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vytal.energy/refill"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vytal.energy/journal</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vytal.energy/journal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vytal.energy/journal"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://vytal.energy/about</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vytal.energy/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vytal.energy/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://vytal.energy/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vytal.energy/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vytal.energy/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://vytal.energy/imprint</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vytal.energy/imprint"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vytal.energy/imprint"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

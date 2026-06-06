@@ -82,14 +82,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "VYTAL — Energy that actually fits real life." },
       { property: "og:description", content: "Refillable, plant-based focus. No jitters, no crashes — just steady mental clarity." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@vytalenergy" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "canonical", href: "https://vytal.energy" },
+      { rel: "alternate", hrefLang: "de", href: "https://vytal.energy" },
+      { rel: "alternate", hrefLang: "en", href: "https://vytal.energy" },
+      { rel: "alternate", hrefLang: "x-default", href: "https://vytal.energy" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
