@@ -74,7 +74,7 @@ export function SiteFooter() {
             <li><Link to="/journal" className="hover:text-primary">{tx.nav.journal}</Link></li>
             <li><Link to="/about" className="hover:text-primary">{tx.nav.about}</Link></li>
             <li><Link to="/contact" className="hover:text-primary">{tx.nav.contact}</Link></li>
-            <li><Link to="/imprint" className="hover:text-primary">{tx.footer.imprintLabel}</Link></li>
+            <li><Link to="/imprint" className="hover:text-primary font-semibold text-foreground">{tx.footer.imprintLabel}</Link></li>
           </ul>
         </div>
         <div>
@@ -126,7 +126,7 @@ export function SiteFooter() {
         <div className="flex gap-6">
           <a href="#" className="hover:text-foreground">{tx.footer.privacyLabel}</a>
           <a href="#" className="hover:text-foreground">{tx.footer.termsLabel}</a>
-          <Link to="/imprint" className="hover:text-foreground">{tx.footer.imprintLabel}</Link>
+          <Link to="/imprint" className="hover:text-foreground font-semibold text-foreground">{tx.footer.imprintLabel}</Link>
         </div>
       </div>
     </footer>
