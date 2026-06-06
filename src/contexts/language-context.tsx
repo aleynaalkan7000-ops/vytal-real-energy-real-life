@@ -129,6 +129,8 @@ export const t = {
         { quote: "First energy drink I drink for the feeling, not the kick.", name: "Sophie B.", role: "Product designer · Berlin" },
         { quote: "I can finish a 10pm writing block and still fall asleep.", name: "Mira H.", role: "PhD candidate · Vienna" },
         { quote: "Switched from cold brew to this. My hands stopped shaking.", name: "Tom R.", role: "Freelance developer · Zürich" },
+        { quote: "Three months in. Can't imagine starting the day without it.", name: "Lena K.", role: "UX researcher · Frankfurt" },
+        { quote: "The refill system sold me. The taste kept me.", name: "Max F.", role: "Architecture student · Stuttgart" },
       ],
       ritualItems: [
         { label: "08:14 · Café", caption: "The slow start. A pour-over and a cold refill. Two things, no agenda." },
@@ -619,6 +621,8 @@ export const t = {
         { quote: "Erster Energydrink, den ich wegen des Gefühls trinke, nicht wegen dem Kick.", name: "Sophie B.", role: "Produktdesignerin · Berlin" },
         { quote: "Ich kann um 22 Uhr noch schreiben und trotzdem einschlafen.", name: "Mira H.", role: "Doktorandin · Wien" },
         { quote: "Hab Cold Brew damit ersetzt. Meine Hände zittern nicht mehr.", name: "Tom R.", role: "Freelance-Entwickler · Zürich" },
+        { quote: "Seit drei Monaten dabei. Kann mir den Morgen ohne nicht mehr vorstellen.", name: "Lena K.", role: "UX-Researcherin · Frankfurt" },
+        { quote: "Das Nachfüllsystem hat mich überzeugt. Der Geschmack hat mich gehalten.", name: "Max F.", role: "Architekturstudent · Stuttgart" },
       ],
       ritualItems: [
         { label: "08:14 · Café", caption: "Der langsame Start. Ein Pour-over und ein kaltes Nachfüllgetränk. Zwei Dinge, kein Programm." },

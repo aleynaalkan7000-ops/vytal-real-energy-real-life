@@ -569,7 +569,7 @@ function Reviews() {
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {items.map((item, i) => (
-            <figure key={item.name} className="reveal rounded-2xl md:rounded-3xl border border-background/10 bg-background/5 p-4 md:p-8 flex flex-col gap-3 md:gap-4" style={{ transitionDelay: `${i * 60}ms` }}>
+            <figure key={item.name} className={`reveal rounded-2xl md:rounded-3xl border border-background/10 bg-background/5 p-4 md:p-8 flex flex-col gap-3 md:gap-4${i >= 4 ? " hidden lg:flex" : ""}`} style={{ transitionDelay: `${i * 60}ms` }}>
               <div className="text-amber-400 text-xs tracking-wider">★★★★★</div>
               <blockquote className="font-display text-sm md:text-xl leading-[1.3] text-balance">&ldquo;{item.quote}&rdquo;</blockquote>
               <figcaption className="mt-auto border-t border-background/10 pt-3 md:pt-5">
