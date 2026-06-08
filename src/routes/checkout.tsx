@@ -19,7 +19,7 @@ function CheckoutPage() {
       <section className="max-w-5xl mx-auto px-6 md:px-10 py-24 md:py-32 grid lg:grid-cols-12 gap-16">
         <div className="lg:col-span-7">
           <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-            Checkout · Volume 03
+            Checkout 
           </span>
           <h1 className="mt-6 font-display text-5xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
             A calm checkout.

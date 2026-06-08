@@ -314,7 +314,7 @@ export const t = {
     },
     // ── Journal ──────────────────────────────────────────────────────────
     journal: {
-      heroKicker: "The Journal — Volume 04 · Spring 2026",
+      heroKicker: "The Journal · Spring 2026",
       heroH1a: "Thoughts for",
       heroH1b: "calmer",
       heroH1c: "modern living.",
@@ -349,7 +349,7 @@ export const t = {
     },
     // ── Contact ──────────────────────────────────────────────────────────
     contact: {
-      heroKicker: "Volume 05 — Contact",
+      heroKicker: "Contact",
       heroH1a: "Tell us",
       heroH1b: "what you're",
       heroH1c: "working on.",
@@ -488,7 +488,7 @@ export const t = {
     },
     // ── Account ───────────────────────────────────────────────────────────
     account: {
-      kicker: "Volume 02 · Account",
+      kicker: "Account",
       h1: "A calmer account, coming soon.",
       desc: "Saved rituals, refill reminders and reorder history will live here. We're finishing the authentication layer next — quietly, intentionally, without breaking the rest of the experience.",
       cta1: "Browse the shop →",
@@ -802,7 +802,7 @@ export const t = {
       heroH1c: "Und so zu tun, als wäre das normal.",
     },
     journal: {
-      heroKicker: "Das Journal — Ausgabe 04 · Frühjahr 2026",
+      heroKicker: "Das Journal · Frühjahr 2026",
       heroH1a: "Gedanken für",
       heroH1b: "ruhigeres",
       heroH1c: "modernes Leben.",
@@ -836,7 +836,7 @@ export const t = {
       journalVolumeLine: "VYTAL Journal · Band 04",
     },
     contact: {
-      heroKicker: "Ausgabe 05 — Kontakt",
+      heroKicker: "Kontakt",
       heroH1a: "Erzähl uns,",
       heroH1b: "woran du",
       heroH1c: "arbeitest.",
@@ -971,7 +971,7 @@ export const t = {
     },
     // ── Account ───────────────────────────────────────────────────────────
     account: {
-      kicker: "Ausgabe 02 · Konto",
+      kicker: "Konto",
       h1: "Ein ruhigeres Konto — bald verfügbar.",
       desc: "Gespeicherte Rituale, Nachfüll-Erinnerungen und Bestellhistorie kommen hierher. Wir arbeiten gerade am Authentifizierungssystem — ruhig, mit Absicht, ohne den Rest der Erfahrung zu beeinträchtigen.",
       cta1: "Shop durchstöbern →",

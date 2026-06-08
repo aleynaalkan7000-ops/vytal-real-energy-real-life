@@ -90,7 +90,7 @@ function AluCylinderPage() {
               ← Back to shop
             </Link>
             <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.32em] text-primary reveal">
-              The system object · Volume 04
+              The system object 
             </p>
             <h1 className="mt-5 font-display text-[clamp(3rem,9vw,8rem)] font-extrabold leading-[0.92] tracking-tighter text-balance reveal">
               The vessel,<br/>
