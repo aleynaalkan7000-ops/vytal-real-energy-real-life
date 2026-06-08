@@ -36,11 +36,11 @@ export const Route = createFileRoute("/journal/$slug")({
       <SiteFooter />
     </main>
   ),
-  errorComponent: ({ error, reset }) => (
+  errorComponent: ({ reset }) => (
     <main className="min-h-screen bg-background text-foreground">
       <section className="max-w-2xl mx-auto px-6 py-40 text-center">
         <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">Something went quiet</p>
-        <h1 className="mt-6 font-display text-3xl">{error.message}</h1>
+        <h1 className="mt-6 font-display text-3xl">This essay couldn't be loaded.</h1>
         <button onClick={reset} className="mt-8 font-mono text-xs uppercase tracking-[0.24em] border-b border-foreground/40 pb-1">
           Try again
         </button>
