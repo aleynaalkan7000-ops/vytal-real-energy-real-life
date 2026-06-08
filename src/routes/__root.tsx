@@ -79,11 +79,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "VYTAL — Energie, die wirklich zum Leben passt." },
       { name: "description", content: "Nachhaltige funktionale Energie und Nachfüllflaschen für Studierende und Young Professionals. Ruhiger Fokus, kein Crash." },
       { name: "author", content: "VYTAL" },
-      { property: "og:title", content: "VYTAL — Energy that actually fits real life." },
-      { property: "og:description", content: "Refillable, plant-based focus. No jitters, no crashes — just steady mental clarity." },
+      { property: "og:title", content: "VYTAL — Energie, die wirklich zum Leben passt." },
+      { property: "og:description", content: "Nachhaltige funktionale Energie und Nachfüllflaschen für Studierende und Young Professionals. Ruhiger Fokus, kein Crash." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@vytalenergy" },
+      { name: "twitter:title", content: "VYTAL — Energie, die wirklich zum Leben passt." },
+      { name: "twitter:description", content: "Nachhaltige funktionale Energie und Nachfüllflaschen für Studierende und Young Professionals. Ruhiger Fokus, kein Crash." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/1c4ws6p5MXPwwujUbziYClwyGNr1/social-images/social-1780930255767-Screenshot_2026-06-08_at_16.38.13.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/1c4ws6p5MXPwwujUbziYClwyGNr1/social-images/social-1780930255767-Screenshot_2026-06-08_at_16.38.13.webp" },
     ],
     links: [
       {
