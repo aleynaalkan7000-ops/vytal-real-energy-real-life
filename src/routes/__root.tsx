@@ -90,8 +90,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "canonical", href: "https://vytal.energy" },
-      { rel: "alternate", hrefLang: "x-default", href: "https://vytal.energy" },
+      { rel: "canonical", href: "https://vytal-energy.de" },
+      { rel: "alternate", hrefLang: "x-default", href: "https://vytal-energy.de" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
