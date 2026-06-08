@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vytal.energy/sitemap.xml
+Sitemap: https://vytal-energy.de/sitemap.xml
