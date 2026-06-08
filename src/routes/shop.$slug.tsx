@@ -70,7 +70,7 @@ function buildProductSchema(product: Product) {
       price,
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
-      url: `https://vytal.energy/shop/${product.slug}`,
+      url: `https://vytal-energy.de/shop/${product.slug}`,
     },
   };
 }
@@ -80,9 +80,9 @@ function buildBreadcrumbSchema(product: Product) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal.energy" },
-      { "@type": "ListItem", position: 2, name: "Shop", item: "https://vytal.energy/shop" },
-      { "@type": "ListItem", position: 3, name: product.name, item: `https://vytal.energy/shop/${product.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal-energy.de" },
+      { "@type": "ListItem", position: 2, name: "Shop", item: "https://vytal-energy.de/shop" },
+      { "@type": "ListItem", position: 3, name: product.name, item: `https://vytal-energy.de/shop/${product.slug}` },
     ],
   };
 }

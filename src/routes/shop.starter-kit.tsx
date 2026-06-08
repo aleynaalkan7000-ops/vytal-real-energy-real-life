@@ -36,7 +36,7 @@ const starterKitProductSchema = {
     price: "40",
     priceCurrency: "EUR",
     availability: "https://schema.org/InStock",
-    url: "https://vytal.energy/shop/starter-kit",
+    url: "https://vytal-energy.de/shop/starter-kit",
   },
 };
 
@@ -44,9 +44,9 @@ const starterKitBreadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal.energy" },
-    { "@type": "ListItem", position: 2, name: "Shop", item: "https://vytal.energy/shop" },
-    { "@type": "ListItem", position: 3, name: "Starter Kit", item: "https://vytal.energy/shop/starter-kit" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal-energy.de" },
+    { "@type": "ListItem", position: 2, name: "Shop", item: "https://vytal-energy.de/shop" },
+    { "@type": "ListItem", position: 3, name: "Starter Kit", item: "https://vytal-energy.de/shop/starter-kit" },
   ],
 };
 

@@ -36,14 +36,14 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "VYTAL",
-  url: "https://vytal.energy",
+  url: "https://vytal-energy.de",
 };
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "VYTAL",
-  url: "https://vytal.energy",
+  url: "https://vytal-energy.de",
   description:
     "Refillable plant-based focus supplements for everyday life. Calm energy, no crash, less waste.",
   foundingDate: "2026",

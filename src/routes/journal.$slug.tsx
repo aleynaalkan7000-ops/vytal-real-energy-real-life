@@ -56,9 +56,9 @@ function buildBreadcrumbSchema(a: { title: string; slug: string }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal.energy" },
-      { "@type": "ListItem", position: 2, name: "Journal", item: "https://vytal.energy/journal" },
-      { "@type": "ListItem", position: 3, name: a.title, item: `https://vytal.energy/journal/${a.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal-energy.de" },
+      { "@type": "ListItem", position: 2, name: "Journal", item: "https://vytal-energy.de/journal" },
+      { "@type": "ListItem", position: 3, name: a.title, item: `https://vytal-energy.de/journal/${a.slug}` },
     ],
   };
 }
@@ -72,7 +72,7 @@ function buildArticleSchema(a: { title: string; dek: string; date: string; categ
     datePublished: a.date,
     articleSection: a.category,
     author: { "@type": "Organization", name: "VYTAL" },
-    publisher: { "@type": "Organization", name: "VYTAL", url: "https://vytal.energy" },
+    publisher: { "@type": "Organization", name: "VYTAL", url: "https://vytal-energy.de" },
   };
 }
 function ArticlePage() {

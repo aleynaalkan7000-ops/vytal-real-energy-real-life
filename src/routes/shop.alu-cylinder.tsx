@@ -11,9 +11,9 @@ const aluCylinderBreadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal.energy" },
-    { "@type": "ListItem", position: 2, name: "Shop", item: "https://vytal.energy/shop" },
-    { "@type": "ListItem", position: 3, name: "The Cylinder", item: "https://vytal.energy/shop/alu-cylinder" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal-energy.de" },
+    { "@type": "ListItem", position: 2, name: "Shop", item: "https://vytal-energy.de/shop" },
+    { "@type": "ListItem", position: 3, name: "The Cylinder", item: "https://vytal-energy.de/shop/alu-cylinder" },
   ],
 };
 

@@ -11,14 +11,14 @@ const contactPageSchema = {
   "@type": "ContactPage",
   name: "Contact VYTAL",
   description: "A calm, human way to reach VYTAL. For collaborations, ideas, support, or simply reaching out.",
-  url: "https://vytal.energy/contact",
+  url: "https://vytal-energy.de/contact",
 };
 
 const contactOrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "VYTAL",
-  url: "https://vytal.energy",
+  url: "https://vytal-energy.de",
   contactPoint: [
     { "@type": "ContactPoint", contactType: "customer support", email: "hello@vytal.energy", areaServed: ["DE", "AT"] },
     { "@type": "ContactPoint", contactType: "sales", email: "collaborations@vytal.energy", areaServed: ["DE", "AT"] },

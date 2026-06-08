@@ -726,13 +726,13 @@ const shopSchema = {
   description: "Refillable plant-based focus supplements — starter kit, six functional flavors and the circular refill loop.",
   numberOfItems: 7,
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "VYTAL Starter Kit", url: "https://vytal.energy/shop/starter-kit" },
-    { "@type": "ListItem", position: 2, name: "VYTAL Focus — Matcha Lime", url: "https://vytal.energy/shop/focus" },
-    { "@type": "ListItem", position: 3, name: "VYTAL Flow — Peach Green Tea", url: "https://vytal.energy/shop/flow" },
-    { "@type": "ListItem", position: 4, name: "VYTAL Refresh — Berry Mint", url: "https://vytal.energy/shop/refresh" },
-    { "@type": "ListItem", position: 5, name: "VYTAL Boost — Citrus Ginger", url: "https://vytal.energy/shop/boost" },
-    { "@type": "ListItem", position: 6, name: "VYTAL Balance — Pear Sage", url: "https://vytal.energy/shop/balance" },
-    { "@type": "ListItem", position: 7, name: "VYTAL Recharge — Cherry Black Tea", url: "https://vytal.energy/shop/recharge" },
+    { "@type": "ListItem", position: 1, name: "VYTAL Starter Kit", url: "https://vytal-energy.de/shop/starter-kit" },
+    { "@type": "ListItem", position: 2, name: "VYTAL Focus — Matcha Lime", url: "https://vytal-energy.de/shop/focus" },
+    { "@type": "ListItem", position: 3, name: "VYTAL Flow — Peach Green Tea", url: "https://vytal-energy.de/shop/flow" },
+    { "@type": "ListItem", position: 4, name: "VYTAL Refresh — Berry Mint", url: "https://vytal-energy.de/shop/refresh" },
+    { "@type": "ListItem", position: 5, name: "VYTAL Boost — Citrus Ginger", url: "https://vytal-energy.de/shop/boost" },
+    { "@type": "ListItem", position: 6, name: "VYTAL Balance — Pear Sage", url: "https://vytal-energy.de/shop/balance" },
+    { "@type": "ListItem", position: 7, name: "VYTAL Recharge — Cherry Black Tea", url: "https://vytal-energy.de/shop/recharge" },
   ],
 };
 

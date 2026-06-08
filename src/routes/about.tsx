@@ -13,14 +13,14 @@ const aboutPageSchema = {
   "@type": "AboutPage",
   name: "About VYTAL",
   description: "VYTAL is a Heilbronn-based studio making refillable plant-based energy supplements. No crash, no single-use cans — built calmly, on purpose, since 2026.",
-  url: "https://vytal.energy/about",
+  url: "https://vytal-energy.de/about",
 };
 
 const aboutOrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "VYTAL",
-  url: "https://vytal.energy",
+  url: "https://vytal-energy.de",
   description: "Refillable plant-based focus supplements for everyday life. Calm energy, no crash, less waste.",
   foundingDate: "2026",
   foundingLocation: { "@type": "Place", name: "Heilbronn, Germany" },
