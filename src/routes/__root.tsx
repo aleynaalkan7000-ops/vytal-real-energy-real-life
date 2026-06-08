@@ -76,8 +76,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "VYTAL — Energy that actually fits real life." },
-      { name: "description", content: "Sustainable functional energy and refill bottles for students and young professionals. Calm focus without the crash." },
+      { title: "VYTAL — Energie, die wirklich zum Leben passt." },
+      { name: "description", content: "Nachhaltige funktionale Energie und Nachfüllflaschen für Studierende und Young Professionals. Ruhiger Fokus, kein Crash." },
       { name: "author", content: "VYTAL" },
       { property: "og:title", content: "VYTAL — Energy that actually fits real life." },
       { property: "og:description", content: "Refillable, plant-based focus. No jitters, no crashes — just steady mental clarity." },
@@ -91,8 +91,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "canonical", href: "https://vytal.energy" },
-      { rel: "alternate", hrefLang: "de", href: "https://vytal.energy" },
-      { rel: "alternate", hrefLang: "en", href: "https://vytal.energy" },
       { rel: "alternate", hrefLang: "x-default", href: "https://vytal.energy" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -110,7 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
         <HeadContent />
       </head>
