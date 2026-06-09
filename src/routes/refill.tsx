@@ -223,10 +223,10 @@ heroCta2: isDE ? "Ritual aufbauen" : "Build your ritual",
 export const Route = createFileRoute("/refill")({
   head: () => ({
     meta: [
-      { title: "Refill, not repeat — VYTAL" },
-      { name: "description", content: "Refillable energy tablets instead of disposable cans. One bottle, plant-based concentrate tablets, a return loop — 85% less shipping volume. How VYTAL works." },
-      { property: "og:title", content: "Refill, not repeat — VYTAL" },
-      { property: "og:description", content: "A calming refill ritual designed for slower routines and less disposable habits." },
+      { title: "Nachfüllen, nicht wegwerfen — VYTAL" },
+      { name: "description", content: "Nachfüllbare Energie-Tablets statt Einwegdosen. Eine Flasche, pflanzliche Konzentrat-Tablets, ein Rückgabe-Loop — 85 % weniger Versandvolumen. So funktioniert VYTAL." },
+      { property: "og:title", content: "Nachfüllen, nicht wegwerfen — VYTAL" },
+      { property: "og:description", content: "Ein nachhaltiges Nachfüll-Ritual für ruhigere Routinen und weniger Wegwerfgewohnheiten." },
     ],
   }),
   component: RefillPage,

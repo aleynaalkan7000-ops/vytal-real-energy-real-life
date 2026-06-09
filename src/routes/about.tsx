@@ -30,10 +30,10 @@ const aboutOrganizationSchema = {
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About VYTAL — a calmer alternative to modern productivity culture" },
-      { name: "description", content: "VYTAL is a Heilbronn-based studio making refillable plant-based energy supplements. No crash, no single-use cans — built calmly, on purpose, since 2026." },
-      { property: "og:title", content: "About VYTAL — built calmly. On purpose." },
-      { property: "og:description", content: "Energy should support life — not require recovery from it. Our philosophy, in five quiet lines." },
+      { title: "Über VYTAL — Energie, die wirklich zum Leben passt." },
+      { name: "description", content: "VYTAL ist ein Studio aus Heilbronn und stellt nachfüllbare pflanzliche Energie-Tablets her. Kein Crash, keine Einwegdosen — ruhig gebaut, mit Absicht, seit 2026." },
+      { property: "og:title", content: "Über VYTAL — ruhig gebaut. Mit Absicht." },
+      { property: "og:description", content: "Energie soll das Leben unterstützen — nicht zur Erholung danach zwingen. Unsere Philosophie." },
       { property: "og:image", content: aboutHero },
       { name: "twitter:image", content: aboutHero },
     ],

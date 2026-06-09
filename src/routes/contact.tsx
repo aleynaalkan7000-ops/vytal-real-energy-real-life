@@ -29,10 +29,10 @@ const contactOrganizationSchema = {
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — VYTAL · Built for thoughtful conversations" },
-      { name: "description", content: "A calm, human way to reach VYTAL. For collaborations, ideas, support, or simply reaching out. We read every message thoughtfully." },
-      { property: "og:title", content: "Contact VYTAL — Built for thoughtful conversations" },
-      { property: "og:description", content: "Real people. Calm communication. Built for conversations, not tickets." },
+      { title: "Kontakt — VYTAL · Echte Menschen. Ruhige Kommunikation." },
+      { name: "description", content: "Schreib uns — für Kooperationen, Ideen, Support oder einfach so. Wir lesen jede Nachricht sorgfältig." },
+      { property: "og:title", content: "Kontakt VYTAL — Echte Menschen. Ruhige Kommunikation." },
+      { property: "og:description", content: "Echte Menschen. Ruhige Kommunikation. Für Gespräche gebaut, nicht für Tickets." },
       { property: "og:image", content: heroImg },
       { name: "twitter:image", content: heroImg },
     ],

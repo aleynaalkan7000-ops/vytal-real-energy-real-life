@@ -19,10 +19,10 @@ import { DiscountBanner } from "./discount-banner";
 export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
-      { title: "Shop — VYTAL · The refill ecosystem." },
-      { name: "description", content: "Refillable plant-based energy tablets — starter kit (€40), six functional flavors, reusable aluminum cylinder. No crash, no plastic, ships to DE & AT." },
-      { property: "og:title", content: "Shop — VYTAL · The refill ecosystem." },
-      { property: "og:description", content: "Start the ritual. All six flavors, the reusable cylinder, the return loop — one calm system." },
+      { title: "Shop — VYTAL · Nachhaltige Energie-Tablets. Kein Crash." },
+      { name: "description", content: "Nachfüllbare pflanzliche Energie-Tablets als Alternative zu Energydrinks — ruhiger Fokus, kein Crash, kein Plastik. Starter Kit ab 40 €. Lieferung nach DE & AT." },
+      { property: "og:title", content: "Shop — VYTAL · Nachhaltige Energie-Tablets. Kein Crash." },
+      { property: "og:description", content: "Sechs pflanzliche Energie-Geschmäcker. Ein wiederverwendbarer Zylinder. Die nachhaltige Alternative zu Energydrinks — ohne Crash, ohne Einwegdosen." },
       { property: "og:image", content: shopStarterKit },
     ],
   }),

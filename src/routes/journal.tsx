@@ -15,10 +15,10 @@ import ritualMorning from "@/assets/ritual-morning.png";
 export const Route = createFileRoute("/journal")({
   head: () => ({
     meta: [
-      { title: "Journal — thoughts for calmer modern living | VYTAL" },
-      { name: "description", content: "An editorial journal on focus, nervous-system recovery, ritual design and a calmer alternative to modern productivity culture." },
-      { property: "og:title", content: "VYTAL Journal — thoughts for calmer modern living" },
-      { property: "og:description", content: "Reflections on focus, energy, attention and calmer routines. A quiet space inside an overstimulated internet." },
+      { title: "Journal — Gedanken für einen ruhigeren Alltag | VYTAL" },
+      { name: "description", content: "Ein redaktionelles Journal über Fokus, Nervensystem-Erholung, Ritual-Design und eine ruhigere Alternative zur modernen Produktivitätskultur." },
+      { property: "og:title", content: "VYTAL Journal — Gedanken für einen ruhigeren Alltag" },
+      { property: "og:description", content: "Reflexionen über Fokus, Energie, Aufmerksamkeit und ruhigere Routinen. Ein ruhiger Ort im überstimulierten Internet." },
       { property: "og:image", content: journalHero },
       { name: "twitter:image", content: journalHero },
     ],

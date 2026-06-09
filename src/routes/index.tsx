@@ -16,16 +16,16 @@ import productLineup from "@/assets/product-lineup-new.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VYTAL — A calmer system for modern energy" },
+      { title: "VYTAL — Nachhaltige Energie-Tablets. Kein Crash. Kein Einwegmüll." },
       {
         name: "description",
         content:
           "Nachfüllbare pflanzliche Energie-Tablets — ruhiger Fokus, kein Crash, keine Einwegdosen. Starter Kit ab 40 €. Lieferung nach DE & AT. Made in Heilbronn.",
       },
-      { property: "og:title", content: "VYTAL — A calmer system for modern energy" },
+      { property: "og:title", content: "VYTAL — Nachhaltige Energie-Tablets. Kein Crash. Kein Einwegmüll." },
       {
         property: "og:description",
-        content: "Calm focus. No crash. Less noise. The refillable ritual built for real life.",
+        content: "Ruhiger Fokus. Kein Crash. Weniger Lärm. Das nachfüllbare Energie-Ritual für den Alltag.",
       },
     ],
   }),
