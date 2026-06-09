@@ -998,9 +998,9 @@ const LanguageContext = createContext<LanguageContextValue>({
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
     if (typeof window !== "undefined") {
-      return (localStorage.getItem("vytal-lang") as Lang) ?? "en";
+      return (localStorage.getItem("vytal-lang") as Lang) ?? "de";
     }
-    return "en";
+    return "de";
   });
 
   const setLang = (l: Lang) => {
