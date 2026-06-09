@@ -538,7 +538,7 @@ function JournalPage() {
         <div ref={heroImgRef} className="absolute inset-0 will-change-transform">
           <img
             src={journalHero}
-            alt="A quiet morning desk with notebook, matcha and a glass of water"
+            alt="Ruhiger Morgen-Schreibtisch mit Notizbuch, Matcha und einem Glas Wasser"
             className="h-full w-full object-cover"
             width={1792}
             height={1024}

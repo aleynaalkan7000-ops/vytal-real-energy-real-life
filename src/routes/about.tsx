@@ -92,7 +92,7 @@ function AboutPage() {
         <div ref={heroImgRef} className="absolute inset-0 will-change-transform">
           <img
             src={aboutHero}
-            alt="A quiet late-evening workspace, lit by a single desk lamp"
+            alt="Ruhiger Spätabend-Arbeitsplatz, beleuchtet von einer einzelnen Schreibtischlampe"
             className="h-full w-full object-cover"
             width={1792}
             height={1024}
@@ -142,7 +142,7 @@ function AboutPage() {
             <div className="overflow-hidden rounded-sm aspect-[4/5]">
               <img
                 src={aboutRealization}
-                alt="A quiet hand beside an empty energy can on a wooden table"
+                alt="Eine ruhige Hand neben einer leeren Energiedose auf einem Holztisch"
                 loading="lazy"
                 width={1280}
                 height={1280}
@@ -237,7 +237,7 @@ function AboutPage() {
             <div className="reveal mt-10 overflow-hidden rounded-sm aspect-[4/5] lg:aspect-[3/4]">
               <img
                 src={aboutDesign}
-                alt="Brushed steel refill bottle resting on linen beside a tablet"
+                alt="Gebürstete Stahl-Nachfüllflasche liegt auf Leinen neben einer Energie-Tablette"
                 loading="lazy"
                 width={1280}
                 height={1280}
@@ -270,7 +270,7 @@ function AboutPage() {
           <div className="lg:col-span-7 relative h-[60vh] lg:h-auto">
             <img
               src={aboutHuman}
-              alt="A sunlit table near a window with a single ceramic cup and dried branches"
+              alt="Sonnenbeschienener Tisch nahe einem Fenster mit einer einzelnen Keramiktasse und getrockneten Ästen"
               loading="lazy"
               width={1600}
               height={1024}

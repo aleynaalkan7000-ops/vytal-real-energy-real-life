@@ -153,7 +153,7 @@ function StarterKitPage() {
         <img
           ref={heroRef}
           src={shopStarterKit}
-          alt="The VYTAL Starter Kit laid out on warm stone — bottle, aluminum cylinder, six flavors, linen sleeve"
+          alt="Das VYTAL Starter Kit auf warmem Stein — Flasche, Aluminiumzylinder, sechs Geschmäcker, Leinenhülle"
           width={1600}
           height={1920}
           className="absolute inset-0 w-full h-full object-cover will-change-transform"
@@ -379,7 +379,7 @@ function StarterKitPage() {
       <section className="relative px-6 md:px-10 max-w-7xl mx-auto py-28 md:py-40 grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-6 reveal">
           <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#f1ece1]">
-            <img src={aluHero} alt="The aluminum refill cylinder included in every starter kit" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <img src={aluHero} alt="Der Aluminium-Nachfüllzylinder, der jedem Starter Kit beiliegt" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
             <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
               Included · part of the loop
             </span>
@@ -414,7 +414,7 @@ function StarterKitPage() {
       {/* RITUAL CARD */}
       <section className="relative overflow-hidden">
         <div className="relative h-[80svh] min-h-[560px] w-full">
-          <img src={shopRitualDesk} alt="A calm morning desk with the VYTAL bottle, cylinder, and the printed ritual card" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={shopRitualDesk} alt="Ruhiger Morgen-Schreibtisch mit der VYTAL Flasche, dem Zylinder und der gedruckten Ritual-Karte" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
         </div>
         <div className="absolute inset-0 flex items-end">

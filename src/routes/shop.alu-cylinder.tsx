@@ -76,7 +76,7 @@ function AluCylinderPage() {
         <img
           ref={heroRef}
           src={aluHero}
-          alt="Matte aluminum VYTAL refill cylinder on warm stone in soft light"
+          alt="Matter Aluminium-Nachfüllzylinder von VYTAL auf warmem Stein in weichem Licht"
           width={1600}
           height={1920}
           className="absolute inset-0 w-full h-full object-cover will-change-transform"
@@ -182,7 +182,7 @@ function AluCylinderPage() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#f1ece1]">
             <img
               src={aluDispense}
-              alt="A tablet falling from the matte aluminum cylinder into a sage VYTAL glass bottle"
+              alt="Eine Tablette fällt aus dem matten Aluminiumzylinder in eine salbeigrüne VYTAL Glasflasche"
               loading="lazy"
               width={1080}
               height={1350}
@@ -203,7 +203,7 @@ function AluCylinderPage() {
       <section className="relative bg-foreground text-background overflow-hidden">
         <div className="grid lg:grid-cols-2">
           <div className="relative aspect-[16/12] lg:aspect-auto lg:min-h-[680px] overflow-hidden">
-            <img src={aluMacro} alt="Macro detail of the brushed aluminum surface and circular press button" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <img src={aluMacro} alt="Makrodetail der gebürsteten Aluminiumoberfläche und des runden Druckknopfes" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
           </div>
           <div className="px-6 md:px-12 lg:px-16 py-24 md:py-32 lg:py-44 flex flex-col justify-center">
             <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-accent reveal">02 · Material</span>
@@ -257,7 +257,7 @@ function AluCylinderPage() {
 
           <div className="lg:col-span-7">
             <div className="relative aspect-[16/10] overflow-hidden rounded-md mb-6 reveal">
-              <img src={aluLoop} alt="Five empty matte aluminum cylinders arranged in a row" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+              <img src={aluLoop} alt="Fünf leere matte Aluminiumzylinder in einer Reihe" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
             </div>
             <ol className="grid sm:grid-cols-2 gap-4">
               {[
@@ -280,7 +280,7 @@ function AluCylinderPage() {
       {/* DESK / LIFESTYLE */}
       <section className="relative overflow-hidden">
         <div className="relative h-[80svh] min-h-[560px] w-full">
-          <img src={aluDesk} alt="A calm desk with notebook, ceramic cup, the aluminum cylinder and a small sage bottle in warm morning light" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={aluDesk} alt="Ruhiger Schreibtisch mit Notizbuch, Keramiktasse, Aluminiumzylinder und kleiner salbeigrüner Flasche im warmen Morgenlicht" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
         </div>
         <div className="absolute inset-0 flex items-end">

@@ -92,7 +92,7 @@ function ContactPage() {
         <div ref={heroRef} className="absolute inset-0 will-change-transform">
           <img
             src={heroImg}
-            alt="Calm dusk workspace with linen, a ceramic cup and an open notebook"
+            alt="Ruhiger Abend-Arbeitsplatz mit Leinen, einer Keramiktasse und einem offenen Notizbuch"
             className="h-full w-full object-cover"
             width={1920}
             height={1080}
@@ -277,7 +277,7 @@ function ContactPage() {
             <div className="overflow-hidden rounded-[2rem]">
               <img
                 src={letterImg}
-                alt="Hands holding a handwritten letter near a sunlit window"
+                alt="Hände halten einen handgeschriebenen Brief an einem sonnigen Fenster"
                 loading="lazy"
                 width={1600}
                 height={1200}
@@ -311,7 +311,7 @@ function ContactPage() {
         <div className="grid md:grid-cols-12 gap-12 md:gap-16">
           <div className="md:col-span-5 reveal opacity-0 translate-y-6 transition-all duration-1000">
             <div className="aspect-[4/5] overflow-hidden rounded-[2rem]">
-              <img src={studioImg} alt="Linen curtain diffusing evening light against an olive wall" loading="lazy" width={1080} height={1920} className="w-full h-full object-cover" />
+              <img src={studioImg} alt="Leinenvorhang streut Abendlicht an einer olivfarbenen Wand" loading="lazy" width={1080} height={1920} className="w-full h-full object-cover" />
             </div>
           </div>
 

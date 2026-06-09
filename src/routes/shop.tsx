@@ -817,7 +817,7 @@ function ShopPage() {
           <img
             // Dynamische Quelle nutzen:
             src={variants.length > 0 ? variants[heroIndex].image : shopStarterKit}
-            alt="The VYTAL Starter Kit"
+            alt="Das VYTAL Starter Kit"
             loading="lazy"
             width={1600}
             height={1920}
@@ -861,7 +861,7 @@ function ShopPage() {
             <div className="relative aspect-[3/4] reveal">
               <img
                 src={shopHeroBottle}
-                alt="A translucent sage VYTAL bottle with dissolving tablets"
+                alt="Eine durchscheinende salbeigrüne VYTAL Flasche mit sich auflösenden Energie-Tabletten"
                 width={1200}
                 height={1600}
                 className="absolute inset-0 h-full w-full object-cover rounded-md shadow-2xl animate-float"
@@ -901,7 +901,7 @@ function ShopPage() {
         <img
   // Hier nutzen wir die Variable 'variants' aus deinem ShopPage-Code
           src={variants.length > 0 ? variants[heroIndex].image : shopStarterKit}
-          alt="The VYTAL Starter Kit"
+          alt="Das VYTAL Starter Kit"
           loading="lazy"
           width={1600}
           height={1920}

@@ -292,7 +292,7 @@ function Hero({ heroImage, heroIndex }: { heroImage: string; heroIndex: number }
       <img
         key={heroIndex}
         src={heroImage}
-        alt="VYTAL Starter Kit — refillable plant-based energy tablet dissolving in a glass bottle on a calm desk"
+        alt="VYTAL Starter Kit — pflanzliche Energie-Tablette löst sich in einer Glasflasche auf einem ruhigen Schreibtisch auf"
         width={1920}
         height={1080}
         className="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity duration-1000 ease-in-out"
@@ -389,7 +389,7 @@ function SystemSection() {
       <div className="relative md:grid md:grid-cols-12">
         <div className="md:col-span-6 md:sticky md:top-0 md:h-screen flex items-center justify-center bg-gradient-to-b from-background to-secondary p-10">
           <div className="relative w-full max-w-md aspect-[3/4] rounded-3xl overflow-hidden bg-foreground/90 shadow-[0_40px_120px_-20px_rgba(0,0,0,0.35)]">
-            <img src={tabletDissolve} alt="A sage tablet dissolving in a glass of water" loading="lazy" width={1024} height={1408} className="absolute inset-0 w-full h-full object-cover" />
+            <img src={tabletDissolve} alt="Eine salbeigrüne Tablette löst sich in einem Glas Wasser auf" loading="lazy" width={1024} height={1408} className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-background/80 font-mono text-[10px] tracking-[0.25em] uppercase">
               <span>The VYTAL System</span>
@@ -510,7 +510,7 @@ function ProductTeaser() {
         </div>
         <div className="lg:col-span-7 reveal">
           <div className="relative aspect-[5/4] rounded-3xl overflow-hidden bg-background shadow-[0_40px_120px_-20px_rgba(0,0,0,0.25)]">
-            <img src={productLineup} alt="The VYTAL bottle lineup" loading="lazy" width={1600} height={1280} className="absolute inset-0 w-full h-full object-cover" />
+            <img src={productLineup} alt="Die VYTAL Flaschenkollektion" loading="lazy" width={1600} height={1280} className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md text-[10px] font-mono tracking-widest text-muted-foreground">VYTAL · STARTER KIT</div>
           </div>
         </div>

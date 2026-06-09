@@ -292,7 +292,7 @@ function RefillPage() {
         <img
           ref={heroImgRef}
           src={refillHero}
-          alt="Glass bottle filled with clear water, soft warm light"
+          alt="Glasflasche gefüllt mit klarem Wasser im weichen warmen Licht"
           className="absolute inset-0 w-full h-full object-cover scale-110 opacity-90 will-change-transform"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/10 to-foreground/80" />
@@ -371,7 +371,7 @@ function RefillPage() {
         {/* Step strip */}
         <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-12 items-center pb-24">
           <div ref={bubblesRef} className="relative aspect-[4/3] md:aspect-[3/4] rounded-3xl overflow-hidden bg-secondary will-change-transform">
-            <img src={refillTabletDrop} alt="Tablet dropping into water with bubbles" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+            <img src={refillTabletDrop} alt="Tablette fällt mit Blasen ins Wasser" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
           </div>
           <ol className="space-y-12">
@@ -389,7 +389,7 @@ function RefillPage() {
 
         {/* Fullscreen bubble moment */}
         <div className="relative h-[45svh] md:h-[38svh] min-h-[200px] w-full overflow-hidden">
-          <img src={refillBubbles} alt="Bubbles rising through calm water" className="absolute inset-0 w-full h-full object-cover scroll-rise" loading="lazy" />
+          <img src={refillBubbles} alt="Blasen steigen durch ruhiges Wasser auf" className="absolute inset-0 w-full h-full object-cover scroll-rise" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background" />
           <div className="relative h-full flex items-center justify-center px-6 text-center">
             <p className="reveal font-display text-2xl md:text-3xl font-light italic text-background drop-shadow-lg max-w-3xl leading-[1.05]">
@@ -486,7 +486,7 @@ function RefillPage() {
           <div className="group lg:col-span-7 relative aspect-[3/2] lg:aspect-auto lg:min-h-[560px] overflow-hidden rounded-2xl md:rounded-3xl bg-[#f3ede2] reveal">
             <img
               src={aluHeroImg}
-              alt="Matte aluminum VYTAL refill cylinder in warm natural light"
+              alt="Matter Aluminium-Nachfüllzylinder von VYTAL in warmem natürlichem Licht"
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.04]"
             />
