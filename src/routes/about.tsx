@@ -11,7 +11,7 @@ import aboutHuman from "@/assets/about-human.jpg";
 const aboutPageSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  name: "About VYTAL",
+  name: "About VYTAL Energy",
   description: "VYTAL is a Heilbronn-based studio making refillable plant-based energy supplements. No crash, no single-use cans — built calmly, on purpose, since 2026.",
   url: "https://vytal-energy.de/about",
 };
@@ -19,7 +19,7 @@ const aboutPageSchema = {
 const aboutOrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "VYTAL",
+  name: "VYTAL Energy",
   url: "https://vytal-energy.de",
   description: "Refillable plant-based focus supplements for everyday life. Calm energy, no crash, less waste.",
   foundingDate: "2026",
@@ -30,9 +30,9 @@ const aboutOrganizationSchema = {
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Über VYTAL — Energie, die wirklich zum Leben passt." },
-      { name: "description", content: "VYTAL ist ein Studio aus Heilbronn und stellt nachfüllbare pflanzliche Energie-Tablets her. Kein Crash, keine Einwegdosen — ruhig gebaut, mit Absicht, seit 2026." },
-      { property: "og:title", content: "Über VYTAL — ruhig gebaut. Mit Absicht." },
+      { title: "Über VYTAL Energy — Energie, die wirklich zum Leben passt." },
+      { name: "description", content: "VYTAL Energy ist ein Studio aus Heilbronn und stellt nachfüllbare pflanzliche Energie-Tablets her. Kein Crash, keine Einwegdosen — ruhig gebaut, mit Absicht, seit 2026." },
+      { property: "og:title", content: "Über VYTAL Energy — ruhig gebaut. Mit Absicht." },
       { property: "og:description", content: "Energie soll das Leben unterstützen — nicht zur Erholung danach zwingen. Unsere Philosophie." },
       { property: "og:image", content: aboutHero },
       { name: "twitter:image", content: aboutHero },

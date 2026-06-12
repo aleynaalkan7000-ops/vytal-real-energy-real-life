@@ -16,13 +16,13 @@ import productLineup from "@/assets/product-lineup-new.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VYTAL – Pflanzenbasierte Energie für Fokus." },
+      { title: "VYTAL Energy – Pflanzenbasierte Energie für Fokus." },
       {
         name: "description",
         content:
           "Nachfüllbare pflanzliche Energie-Tablets — ruhiger Fokus, kein Crash, keine Einwegdosen. Starter Kit ab 40 €. Lieferung nach DE & AT. Made in Heilbronn.",
       },
-      { property: "og:title", content: "VYTAL – Pflanzenbasierte Energie für Fokus." },
+      { property: "og:title", content: "VYTAL Energy – Pflanzenbasierte Energie für Fokus." },
       {
         property: "og:description",
         content: "Ruhiger Fokus. Kein Crash. Weniger Lärm. Das nachfüllbare Energie-Ritual für den Alltag.",
@@ -35,14 +35,14 @@ export const Route = createFileRoute("/")({
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "VYTAL",
+  name: "VYTAL Energy",
   url: "https://vytal-energy.de",
 };
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "VYTAL",
+  name: "VYTAL Energy",
   url: "https://vytal-energy.de",
   description:
     "Refillable plant-based focus supplements for everyday life. Calm energy, no crash, less waste.",
