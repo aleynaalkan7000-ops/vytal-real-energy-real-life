@@ -600,6 +600,25 @@ function useShopTx() {
       balance: "Leicht, natürlich, erwachsen",
       recharge: "Tief, ruhig, leicht kräutersüß",
     } as Record<string, string>,
+    ingredientNameDe: {
+      "Borosilicate glass body": "Borosilikatglas-Korpus",
+      "Soft-touch silicone sleeve": "Weiche Silikonhülle",
+      "NFC / QR tag": "NFC / QR-Tag",
+      "Stainless steel lid": "Edelstahldeckel",
+      "Soft-matte sleeve": "Weiche Mattoberflächen-Hülle",
+      "Interchangeable bottom cap": "Wechselbarer Bodenverschluss",
+      "Smart lid compatible": "Smart-Deckel kompatibel",
+      "Stainless steel body": "Edelstahl-Korpus",
+      "Soft-matte coating": "Weiche Mattbeschichtung",
+      "Soft-close lid": "Sanft schließender Deckel",
+      "NFC login": "NFC-Login",
+      "Glass body": "Glaskörper",
+      "Soft-matte base": "Weiche Mattbasis",
+      "Modular stackable design": "Modulares stapelbares Design",
+      "Translucent body": "Transparenter Korpus",
+      "Holographic accents": "Holografische Akzente",
+      "Numbered edition": "Nummerierte Edition",
+    } as Record<string, string>,
     ingredientWhyDe: {
       "Even, steady release of natural caffeine.":
         "Gleichmäßige, stetige Freisetzung von natürlichem Koffein.",
@@ -1618,7 +1637,7 @@ function ProductQuickView({ product, onClose }: { product: Product; onClose: () 
                     key={i.name}
                     className="flex justify-between gap-4 border-b border-border pb-2"
                   >
-                    <span>{i.name}</span>
+                    <span>{s.isDE ? (s.ingredientNameDe[i.name] ?? i.name) : i.name}</span>
                     {i.why && (
                       <span className="text-right">
                         {s.isDE ? (s.ingredientWhyDe[i.why] ?? i.why) : i.why}
