@@ -792,7 +792,7 @@ export const t = {
       systemLink: "Sieh, wie ein Nachfüllpaket ankommt",
       insideKicker: "In der Flasche",
       insideH2a: "Vier Zutaten.",
-      insideH2b: "Nichts versteckt.",
+      insideH2b: "Vollständig transparent.",
       ingredients: [
         {
           kicker: "Fokus ohne Überwältigung",
@@ -807,7 +807,7 @@ export const t = {
           body: "Ein Adaptogen, das dem Körper hilft, Cortisol zu regulieren. Klinisch untersucht für Stressresistenz – gestützt auf Fakten, nicht auf Trends.",
         },
         {
-          kicker: "Energie, die den Arbeitstag überdauert",
+          kicker: "Energie für den ganzen Arbeitstag",
           name: "Grüntee-Koffein",
           dose: "80 mg",
           body: "Langsam freigesetztes natürliches Koffein. Ungefähr eine Tasse Kaffee – so kombiniert, dass es nicht um 15 Uhr gegen dich arbeitet.",
@@ -891,7 +891,7 @@ export const t = {
           role: "Produktdesignerin · Berlin",
         },
         {
-          quote: "Ich kann um 22 Uhr noch schreiben und trotzdem einschlafen.",
+          quote: "Ich kann um 22 Uhr noch eine Schreibsession beenden und danach trotzdem schlafen.",
           name: "Mira H.",
           role: "Doktorandin · Wien",
         },
@@ -915,11 +915,11 @@ export const t = {
         {
           label: "08:14 · Café",
           caption:
-            "Der langsame Start. Ein Pour-over und ein kaltes Nachfüllgetränk. Zwei Dinge, kein Programm.",
+            "Langsam beginnen. Ein Pour-over, ein kalter VYTAL-Drink. Zwei Dinge, kein Stress.",
         },
         {
           label: "14:42 · Bibliothek",
-          caption: "Drei Stunden in einer Hausarbeit. Das Summen bleibt gleichmäßig.",
+          caption: "Drei Stunden in einer Hausarbeit. Der Flow bleibt.",
         },
         {
           label: "16:30 · Büro",
