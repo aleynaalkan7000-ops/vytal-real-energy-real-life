@@ -2,12 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Minus, Plus, X } from "lucide-react";
 import { useCart, formatPrice } from "@/contexts/cart-context";
 import { useLanguage } from "@/contexts/language-context";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 export function CartDrawer() {
   const { items, isOpen, close, setQty, remove, subtotal, count } = useCart();
@@ -32,9 +27,7 @@ export function CartDrawer() {
             {items.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-24">
                 <p className="font-display text-2xl tracking-tight">{tx.cart.emptyH2}</p>
-                <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-                  {tx.cart.emptyDesc}
-                </p>
+                <p className="mt-3 text-sm text-muted-foreground max-w-xs">{tx.cart.emptyDesc}</p>
                 <Link
                   to="/shop"
                   onClick={close}
@@ -108,9 +101,7 @@ export function CartDrawer() {
                 <span>{tx.cart.badgeCo2}</span>
                 <span>{tx.cart.badgeDeposit}</span>
               </div>
-              <p className="text-[11px] text-muted-foreground">
-                {tx.cart.shippingNote}
-              </p>
+              <p className="text-[11px] text-muted-foreground">{tx.cart.shippingNote}</p>
               <Link
                 to="/checkout"
                 onClick={close}

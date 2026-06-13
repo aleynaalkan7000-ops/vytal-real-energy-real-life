@@ -82,7 +82,12 @@ function buildBreadcrumbSchema(product: Product) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal-energy.de" },
       { "@type": "ListItem", position: 2, name: "Shop", item: "https://vytal-energy.de/shop" },
-      { "@type": "ListItem", position: 3, name: product.name, item: `https://vytal-energy.de/shop/${product.slug}` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.name,
+        item: `https://vytal-energy.de/shop/${product.slug}`,
+      },
     ],
   };
 }
@@ -154,7 +159,10 @@ function ProductPage() {
               </div>
             </div>
             <div className="pointer-events-none absolute -top-10 -left-10 size-72 rounded-full bg-primary/15 blur-3xl animate-drift" />
-            <div className="pointer-events-none absolute -bottom-16 -right-10 size-80 rounded-full bg-accent/25 blur-3xl animate-drift" style={{ animationDelay: "-6s" }} />
+            <div
+              className="pointer-events-none absolute -bottom-16 -right-10 size-80 rounded-full bg-accent/25 blur-3xl animate-drift"
+              style={{ animationDelay: "-6s" }}
+            />
           </div>
 
           <div className="lg:col-span-5 reveal">
@@ -171,11 +179,15 @@ function ProductPage() {
               {product.name.replace("VYTAL ", "")}.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">{product.tagline}</p>
-            <p className="mt-6 text-sm text-muted-foreground leading-relaxed">{product.description}</p>
+            <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
+              {product.description}
+            </p>
 
             {product.flavor && (
               <div className="mt-8 rounded-2xl border border-border p-5 bg-secondary/40">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-primary">Flavor</p>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
+                  Flavor
+                </p>
                 <p className="mt-1 font-semibold">{product.flavor}</p>
                 <p className="text-sm text-muted-foreground">{product.flavorNote}</p>
               </div>
@@ -203,10 +215,14 @@ function ProductPage() {
                 onClick={handleAdd}
                 className="flex-1 group relative overflow-hidden bg-foreground text-background rounded-full py-4 px-6 text-sm font-medium hover:bg-primary transition-colors"
               >
-                <span className={`block transition-all duration-500 ${added ? "-translate-y-8 opacity-0" : ""}`}>
+                <span
+                  className={`block transition-all duration-500 ${added ? "-translate-y-8 opacity-0" : ""}`}
+                >
                   Add to ritual · {formatPrice(qty * unitPrice)}
                 </span>
-                <span className={`absolute inset-0 grid place-items-center transition-all duration-500 ${added ? "" : "translate-y-8 opacity-0"}`}>
+                <span
+                  className={`absolute inset-0 grid place-items-center transition-all duration-500 ${added ? "" : "translate-y-8 opacity-0"}`}
+                >
                   Added to your ritual ✓
                 </span>
               </button>
@@ -221,7 +237,9 @@ function ProductPage() {
       {/* INGREDIENTS + BENEFITS */}
       <section className="px-6 md:px-10 max-w-7xl mx-auto py-24 md:py-32 grid md:grid-cols-2 gap-16">
         <div className="reveal">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-6">Inside</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-6">
+            Inside
+          </p>
           <h2 className="font-display text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
             Six ingredients. One calm intent.
           </h2>
@@ -230,14 +248,18 @@ function ProductPage() {
               <li key={i.name} className="py-4 flex justify-between gap-6">
                 <span className="font-display font-medium">{i.name}</span>
                 {i.why && (
-                  <span className="text-sm text-muted-foreground text-right max-w-[60%]">{i.why}</span>
+                  <span className="text-sm text-muted-foreground text-right max-w-[60%]">
+                    {i.why}
+                  </span>
                 )}
               </li>
             ))}
           </ul>
         </div>
         <div className="reveal">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-6">What it does</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-6">
+            What it does
+          </p>
           <h2 className="font-display text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
             Steady. Not spiky.
           </h2>
@@ -259,7 +281,9 @@ function ProductPage() {
       <section className="bg-foreground text-background py-24 md:py-32 px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5 reveal">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6">The ritual</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6">
+              The ritual
+            </p>
             <h2 className="font-display text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
               How it's used.
             </h2>
@@ -283,7 +307,9 @@ function ProductPage() {
                 <dl className="grid grid-cols-2 gap-4">
                   {product.nutrition.map((n) => (
                     <div key={n.label} className="border-t border-background/20 pt-4">
-                      <dt className="font-mono text-[10px] uppercase tracking-widest text-background/60">{n.label}</dt>
+                      <dt className="font-mono text-[10px] uppercase tracking-widest text-background/60">
+                        {n.label}
+                      </dt>
                       <dd className="mt-1 font-display text-xl">{n.value}</dd>
                     </div>
                   ))}
@@ -291,10 +317,15 @@ function ProductPage() {
               </>
             )}
             <div className="mt-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6">When to use</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6">
+                When to use
+              </p>
               <div className="flex flex-wrap gap-2">
                 {product.situations.map((s) => (
-                  <span key={s} className="px-4 py-2 rounded-full border border-background/20 text-sm">
+                  <span
+                    key={s}
+                    className="px-4 py-2 rounded-full border border-background/20 text-sm"
+                  >
                     {s}
                   </span>
                 ))}
@@ -308,7 +339,9 @@ function ProductPage() {
       <section className="max-w-4xl mx-auto px-6 md:px-10 py-32 md:py-40 text-center">
         {product.reviews.map((r) => (
           <div key={r.name} className="reveal">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-8">In the field</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-8">
+              In the field
+            </p>
             <blockquote className="font-display text-3xl md:text-5xl leading-[1.15] tracking-tight text-balance">
               "{r.quote}"
             </blockquote>
@@ -341,8 +374,12 @@ function ProductPage() {
                   />
                 </div>
                 <div className="mt-5 flex items-baseline justify-between">
-                  <p className="font-display text-lg font-semibold">{p.name.replace("VYTAL ", "")}</p>
-                  <span className="font-mono text-xs text-muted-foreground">{p.price.split("/")[0].trim()}</span>
+                  <p className="font-display text-lg font-semibold">
+                    {p.name.replace("VYTAL ", "")}
+                  </p>
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {p.price.split("/")[0].trim()}
+                  </span>
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">{p.tagline}</p>
               </Link>

@@ -12,7 +12,6 @@ import dailyStudy from "@/assets/daily-study.jpg";
 import dailyOffice from "@/assets/daily-office.jpg";
 import productLineup from "@/assets/product-lineup-new.png";
 
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -25,7 +24,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "VYTAL Energy – Pflanzenbasierte Energie für Fokus." },
       {
         property: "og:description",
-        content: "Ruhiger Fokus. Kein Crash. Weniger Lärm. Das nachfüllbare Energie-Ritual für den Alltag.",
+        content:
+          "Ruhiger Fokus. Kein Crash. Weniger Lärm. Das nachfüllbare Energie-Ritual für den Alltag.",
       },
     ],
   }),
@@ -87,10 +87,7 @@ function Index() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
-      <Hero
-        heroImage={cinematicHero}
-        heroIndex={0}
-      />
+      <Hero heroImage={cinematicHero} heroIndex={0} />
       <SocialProofStrip />
       <Overstimulation />
       <ComparisonSection />
@@ -134,16 +131,22 @@ function SocialProofStrip() {
       <div className="max-w-7xl mx-auto flex flex-row items-center gap-4 md:gap-10">
         {/* Mobile: compact single-line badge */}
         <div className="flex md:hidden items-center gap-3 w-full justify-center">
-          <span className="font-display text-lg font-extrabold text-foreground leading-none">4.8</span>
+          <span className="font-display text-lg font-extrabold text-foreground leading-none">
+            4.8
+          </span>
           <span className="text-amber-400 text-sm tracking-wider">★★★★★</span>
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">· 143 Bewertungen</span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
+            · 143 Bewertungen
+          </span>
         </div>
         {/* Desktop: full layout */}
         <div className="hidden md:flex flex-row items-center gap-10 w-full">
           <div className="shrink-0 text-center">
             <div className="font-display text-3xl font-extrabold leading-none">4.8</div>
             <div className="text-amber-400 text-base mt-0.5">★★★★★</div>
-            <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-1">143</div>
+            <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-1">
+              143
+            </div>
           </div>
           <div className="w-px self-stretch bg-border shrink-0" />
           <div className="grid grid-cols-3 gap-5 flex-1">
@@ -173,8 +176,7 @@ function ComparisonSection() {
             {tx.home.comparisonKicker}
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-extrabold leading-[1.02] text-balance">
-            {tx.home.comparisonH2a}{" "}
-            <span className="text-primary">{tx.home.comparisonH2b}</span>
+            {tx.home.comparisonH2a} <span className="text-primary">{tx.home.comparisonH2b}</span>
           </h2>
           <p className="mt-4 text-background/60 text-lg max-w-lg">{tx.home.comparisonDesc}</p>
         </div>
@@ -186,12 +188,11 @@ function ComparisonSection() {
                   <th
                     key={i}
                     className={`text-left py-3 px-4 font-mono text-[10px] tracking-[0.2em] uppercase border-b border-background/15 ${
-                      i === 1
-                        ? "text-primary bg-background/8"
-                        : "text-background/40"
+                      i === 1 ? "text-primary bg-background/8" : "text-background/40"
                     }`}
                   >
-                    {i === 1 ? "✦ " : ""}{h}
+                    {i === 1 ? "✦ " : ""}
+                    {h}
                   </th>
                 ))}
               </tr>
@@ -206,8 +207,8 @@ function ComparisonSection() {
                         ci === 0
                           ? "font-mono text-[10px] tracking-widest uppercase text-background/50"
                           : ci === 1
-                          ? "font-semibold text-background bg-background/5"
-                          : "text-background/45"
+                            ? "font-semibold text-background bg-background/5"
+                            : "text-background/45"
                       }`}
                     >
                       {cell}
@@ -322,7 +323,9 @@ function Hero({ heroImage, heroIndex }: { heroImage: string; heroIndex: number }
                 className="group relative inline-flex items-center justify-center gap-2 bg-background text-foreground px-7 py-4 rounded-full text-sm font-semibold transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.4)] hover:-translate-y-0.5"
               >
                 {tx.hero.cta1}
-                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">
+                  →
+                </span>
               </Link>
               <Link
                 to="/refill"
@@ -362,7 +365,11 @@ function Overstimulation() {
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
           <ul className="space-y-4 font-display text-3xl md:text-5xl font-bold leading-[1.05]">
             {tx.home.overstimLines.map((l, i) => (
-              <li key={i} className="reveal text-background/40 hover:text-background transition-colors duration-700" style={{ transitionDelay: `${i * 80}ms` }}>
+              <li
+                key={i}
+                className="reveal text-background/40 hover:text-background transition-colors duration-700"
+                style={{ transitionDelay: `${i * 80}ms` }}
+              >
                 {l}
               </li>
             ))}
@@ -389,7 +396,14 @@ function SystemSection() {
       <div className="relative md:grid md:grid-cols-12">
         <div className="md:col-span-6 md:sticky md:top-0 md:h-screen flex items-center justify-center bg-gradient-to-b from-background to-secondary p-10">
           <div className="relative w-full max-w-md aspect-[3/4] rounded-3xl overflow-hidden bg-foreground/90 shadow-[0_40px_120px_-20px_rgba(0,0,0,0.35)]">
-            <img src={tabletDissolve} alt="Eine salbeigrüne Tablette löst sich in einem Glas Wasser auf" loading="lazy" width={1024} height={1408} className="absolute inset-0 w-full h-full object-cover" />
+            <img
+              src={tabletDissolve}
+              alt="Eine salbeigrüne Tablette löst sich in einem Glas Wasser auf"
+              loading="lazy"
+              width={1024}
+              height={1408}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-background/80 font-mono text-[10px] tracking-[0.25em] uppercase">
               <span>The VYTAL System</span>
@@ -399,9 +413,13 @@ function SystemSection() {
         </div>
         <div className="md:col-span-6 px-6 md:px-16 py-16 md:py-20 space-y-6 md:space-y-10">
           <div className="reveal max-w-md">
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.systemKicker}</span>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">
+              {tx.home.systemKicker}
+            </span>
             <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] mb-6 text-balance">
-              {tx.home.systemH2a}<br />{tx.home.systemH2b}
+              {tx.home.systemH2a}
+              <br />
+              {tx.home.systemH2b}
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">{tx.home.systemDesc}</p>
           </div>
@@ -415,9 +433,15 @@ function SystemSection() {
             </div>
           ))}
           <div className="reveal">
-            <Link to="/refill" hash="cylinder-details" className="group inline-flex items-center gap-3 text-foreground font-semibold border-b border-foreground/40 pb-1 hover:border-foreground transition-colors">
+            <Link
+              to="/refill"
+              hash="cylinder-details"
+              className="group inline-flex items-center gap-3 text-foreground font-semibold border-b border-foreground/40 pb-1 hover:border-foreground transition-colors"
+            >
               {tx.home.systemLink}
-              <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+              <span aria-hidden className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
             </Link>
           </div>
         </div>
@@ -432,17 +456,25 @@ function InsideBottle() {
     <section id="inside" className="relative pt-32 md:pt-48 pb-6 md:pb-10 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="reveal max-w-2xl mb-20">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.insideKicker}</span>
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">
+            {tx.home.insideKicker}
+          </span>
           <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] text-balance">
-            {tx.home.insideH2a}{" "}<span className="text-muted-foreground">{tx.home.insideH2b}</span>
+            {tx.home.insideH2a} <span className="text-muted-foreground">{tx.home.insideH2b}</span>
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {tx.home.ingredients.map((i, idx) => (
-            <article key={idx} className="reveal group relative overflow-hidden p-10 md:p-12 rounded-3xl bg-secondary/60 border border-border hover:border-primary/40 hover:bg-secondary transition-all duration-700" style={{ transitionDelay: `${idx * 60}ms` }}>
+            <article
+              key={idx}
+              className="reveal group relative overflow-hidden p-10 md:p-12 rounded-3xl bg-secondary/60 border border-border hover:border-primary/40 hover:bg-secondary transition-all duration-700"
+              style={{ transitionDelay: `${idx * 60}ms` }}
+            >
               <div className="absolute -top-20 -right-20 size-64 rounded-full bg-primary/0 group-hover:bg-primary/15 blur-3xl transition-all duration-1000" />
               <div className="relative flex flex-col gap-5">
-                <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">{i.kicker}</span>
+                <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">
+                  {i.kicker}
+                </span>
                 <div className="flex items-baseline justify-between gap-4 pb-4 border-b border-border">
                   <h3 className="font-display text-3xl md:text-4xl font-bold">{i.name}</h3>
                   <span className="font-mono text-xs text-muted-foreground">{i.dose}</span>
@@ -467,19 +499,37 @@ function Rituals() {
       <div className="max-w-7xl mx-auto">
         <div className="reveal grid md:grid-cols-12 gap-10 items-end mb-16">
           <h2 className="md:col-span-7 font-display text-4xl md:text-6xl font-extrabold leading-[1.02] text-balance">
-            {tx.home.ritualsH2a}<br />
+            {tx.home.ritualsH2a}
+            <br />
             <span className="italic font-light text-muted-foreground">{tx.home.ritualsH2b}</span>
           </h2>
-          <p className="md:col-span-4 md:col-start-9 text-muted-foreground text-lg leading-relaxed">{tx.home.ritualsDesc}</p>
+          <p className="md:col-span-4 md:col-start-9 text-muted-foreground text-lg leading-relaxed">
+            {tx.home.ritualsDesc}
+          </p>
         </div>
         <div className="grid md:grid-cols-12 gap-4 md:gap-5">
           {items.map((s, idx) => (
-            <figure key={idx} className={`reveal relative overflow-hidden rounded-3xl bg-secondary group aspect-[3/2] md:aspect-[4/5] ${spans[idx]}`} style={{ transitionDelay: `${idx * 80}ms` }}>
-              <img src={s.src} alt={s.label} loading="lazy" width={1280} height={1600} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-105" />
+            <figure
+              key={idx}
+              className={`reveal relative overflow-hidden rounded-3xl bg-secondary group aspect-[3/2] md:aspect-[4/5] ${spans[idx]}`}
+              style={{ transitionDelay: `${idx * 80}ms` }}
+            >
+              <img
+                src={s.src}
+                alt={s.label}
+                loading="lazy"
+                width={1280}
+                height={1600}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/75 via-foreground/10 to-transparent" />
               <figcaption className="absolute bottom-6 left-6 right-6 text-background">
-                <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-background/70 mb-2">{s.label}</p>
-                <p className="font-display text-2xl md:text-3xl font-semibold leading-tight">{s.caption}</p>
+                <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-background/70 mb-2">
+                  {s.label}
+                </p>
+                <p className="font-display text-2xl md:text-3xl font-semibold leading-tight">
+                  {s.caption}
+                </p>
               </figcaption>
             </figure>
           ))}
@@ -495,23 +545,48 @@ function ProductTeaser() {
     <section className="relative pt-6 md:pt-10 pb-32 md:pb-48 px-6 overflow-hidden bg-secondary">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-5 reveal">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.productKicker}</span>
-          <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] mb-6 text-balance">{tx.home.productH2}</h2>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-md">{tx.home.productDesc}</p>
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">
+            {tx.home.productKicker}
+          </span>
+          <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] mb-6 text-balance">
+            {tx.home.productH2}
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-md">
+            {tx.home.productDesc}
+          </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Link to="/shop" hash="starter" className="group inline-flex items-center justify-center gap-2 bg-foreground text-background px-7 py-4 rounded-full text-sm font-semibold hover:bg-primary transition-all duration-500 hover:-translate-y-0.5 shadow-lg">
+            <Link
+              to="/shop"
+              hash="starter"
+              className="group inline-flex items-center justify-center gap-2 bg-foreground text-background px-7 py-4 rounded-full text-sm font-semibold hover:bg-primary transition-all duration-500 hover:-translate-y-0.5 shadow-lg"
+            >
               {tx.home.productCta1}
-              <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+              <span aria-hidden className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
             </Link>
-            <Link to="/shop" hash="refills" className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold border border-foreground/20 hover:bg-background/50 transition-all duration-500">
+            <Link
+              to="/shop"
+              hash="refills"
+              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold border border-foreground/20 hover:bg-background/50 transition-all duration-500"
+            >
               {tx.home.productCta2}
             </Link>
           </div>
         </div>
         <div className="lg:col-span-7 reveal">
           <div className="relative aspect-[5/4] rounded-3xl overflow-hidden bg-background shadow-[0_40px_120px_-20px_rgba(0,0,0,0.25)]">
-            <img src={productLineup} alt="Die VYTAL Flaschenkollektion" loading="lazy" width={1600} height={1280} className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md text-[10px] font-mono tracking-widest text-muted-foreground">VYTAL · STARTER KIT</div>
+            <img
+              src={productLineup}
+              alt="Die VYTAL Flaschenkollektion"
+              loading="lazy"
+              width={1600}
+              height={1280}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md text-[10px] font-mono tracking-widest text-muted-foreground">
+              VYTAL · STARTER KIT
+            </div>
           </div>
         </div>
       </div>
@@ -524,27 +599,55 @@ function JournalPreview() {
   const slugs = ["productive-crash", "attention-span", "calmer-mornings"];
   const articles = tx.home.journalArticles.map((a, i) => ({ ...a, slug: slugs[i] }));
   return (
-    <section id="journal-preview" className="pt-6 md:pt-10 pb-6 md:pb-10 px-6 border-t border-border">
+    <section
+      id="journal-preview"
+      className="pt-6 md:pt-10 pb-6 md:pb-10 px-6 border-t border-border"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">{tx.home.journalKicker}</span>
-            <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] text-balance">{tx.home.journalH2}</h2>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-6 block">
+              {tx.home.journalKicker}
+            </span>
+            <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.02] text-balance">
+              {tx.home.journalH2}
+            </h2>
           </div>
-          <Link to="/journal" className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link
+            to="/journal"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
             {tx.home.journalAllArticles}
-            <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+            <span aria-hidden className="transition-transform group-hover:translate-x-1">
+              →
+            </span>
           </Link>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {articles.map((a, idx) => (
-            <Link key={a.slug} to="/journal" hash={a.slug} onClick={() => sessionStorage.setItem("journalRef", "home")} className="reveal group p-7 rounded-3xl bg-secondary/60 border border-border hover:bg-secondary hover:border-primary/30 transition-all duration-700 flex flex-col gap-4 min-h-[14rem]" style={{ transitionDelay: `${idx * 80}ms` }}>
-              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">{a.kicker}</span>
-              <h3 className="font-display text-2xl md:text-3xl font-bold leading-tight hyphens-auto" lang={lang}>{a.title}</h3>
+            <Link
+              key={a.slug}
+              to="/journal"
+              hash={a.slug}
+              onClick={() => sessionStorage.setItem("journalRef", "home")}
+              className="reveal group p-7 rounded-3xl bg-secondary/60 border border-border hover:bg-secondary hover:border-primary/30 transition-all duration-700 flex flex-col gap-4 min-h-[14rem]"
+              style={{ transitionDelay: `${idx * 80}ms` }}
+            >
+              <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-primary">
+                {a.kicker}
+              </span>
+              <h3
+                className="font-display text-2xl md:text-3xl font-bold leading-tight hyphens-auto"
+                lang={lang}
+              >
+                {a.title}
+              </h3>
               <p className="text-muted-foreground leading-relaxed">{a.excerpt}</p>
               <div className="mt-auto pt-6 border-t border-border flex items-center justify-between text-xs font-mono text-muted-foreground">
                 <span>{a.meta}</span>
-                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">
+                  →
+                </span>
               </div>
             </Link>
           ))}
@@ -562,19 +665,33 @@ function Reviews() {
       <div className="max-w-7xl mx-auto">
         <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/50 block mb-4">{tx.home.reviewsKicker}</span>
-            <h2 className="font-display text-3xl md:text-5xl font-extrabold leading-[1.02] text-balance">{tx.home.reviewsH2}</h2>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-background/50 block mb-4">
+              {tx.home.reviewsKicker}
+            </span>
+            <h2 className="font-display text-3xl md:text-5xl font-extrabold leading-[1.02] text-balance">
+              {tx.home.reviewsH2}
+            </h2>
           </div>
-          <p className="text-background/55 text-sm max-w-xs leading-relaxed">{tx.home.reviewsDesc}</p>
+          <p className="text-background/55 text-sm max-w-xs leading-relaxed">
+            {tx.home.reviewsDesc}
+          </p>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {items.map((item, i) => (
-            <figure key={item.name} className={`reveal rounded-2xl md:rounded-3xl border border-background/10 bg-background/5 p-4 md:p-8 flex flex-col gap-3 md:gap-4${i >= 4 ? " hidden lg:flex" : ""}`} style={{ transitionDelay: `${i * 60}ms` }}>
+            <figure
+              key={item.name}
+              className={`reveal rounded-2xl md:rounded-3xl border border-background/10 bg-background/5 p-4 md:p-8 flex flex-col gap-3 md:gap-4${i >= 4 ? " hidden lg:flex" : ""}`}
+              style={{ transitionDelay: `${i * 60}ms` }}
+            >
               <div className="text-amber-400 text-xs tracking-wider">★★★★★</div>
-              <blockquote className="font-display text-sm md:text-xl leading-[1.3] text-balance">&ldquo;{item.quote}&rdquo;</blockquote>
+              <blockquote className="font-display text-sm md:text-xl leading-[1.3] text-balance">
+                &ldquo;{item.quote}&rdquo;
+              </blockquote>
               <figcaption className="mt-auto border-t border-background/10 pt-3 md:pt-5">
                 <p className="text-xs md:text-sm font-semibold text-background">{item.name}</p>
-                <p className="font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-background/50 mt-1">{item.role}</p>
+                <p className="font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-background/50 mt-1">
+                  {item.role}
+                </p>
               </figcaption>
             </figure>
           ))}
@@ -593,20 +710,37 @@ function FinalCTA() {
         <div className="absolute bottom-1/4 right-1/4 size-[28rem] rounded-full bg-accent/25 blur-3xl animate-drift [animation-delay:-10s]" />
       </div>
       <div className="relative max-w-3xl mx-auto">
-        <span className="reveal font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-8 block">{tx.home.finalKicker}</span>
+        <span className="reveal font-mono text-[10px] tracking-[0.3em] uppercase text-primary mb-8 block">
+          {tx.home.finalKicker}
+        </span>
         <h2 className="reveal font-display text-5xl md:text-7xl font-extrabold leading-[0.95] mb-10 text-balance">
-          {tx.home.finalH2a}<br />{tx.home.finalH2b}
+          {tx.home.finalH2a}
+          <br />
+          {tx.home.finalH2b}
         </h2>
-        <p className="reveal text-muted-foreground text-lg md:text-xl mb-14 max-w-xl mx-auto leading-relaxed">{tx.home.finalDesc}</p>
+        <p className="reveal text-muted-foreground text-lg md:text-xl mb-14 max-w-xl mx-auto leading-relaxed">
+          {tx.home.finalDesc}
+        </p>
         <div className="reveal flex flex-col sm:flex-row gap-3 justify-center">
-          <Link to="/shop" className="group inline-flex items-center justify-center gap-3 bg-foreground text-background px-10 py-5 rounded-full text-base font-semibold hover:bg-primary transition-all duration-500 hover:-translate-y-0.5 shadow-2xl">
+          <Link
+            to="/shop"
+            className="group inline-flex items-center justify-center gap-3 bg-foreground text-background px-10 py-5 rounded-full text-base font-semibold hover:bg-primary transition-all duration-500 hover:-translate-y-0.5 shadow-2xl"
+          >
             {tx.home.finalCta1}
-            <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+            <span aria-hidden className="transition-transform group-hover:translate-x-1">
+              →
+            </span>
           </Link>
-          <Link to="/refill" className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full text-base font-semibold border border-foreground/20 hover:bg-background transition-all duration-500">
+          <Link
+            to="/refill"
+            className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full text-base font-semibold border border-foreground/20 hover:bg-background transition-all duration-500"
+          >
             {tx.home.finalCta2}
           </Link>
-          <Link to="/journal" className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full text-base font-semibold text-muted-foreground hover:text-foreground transition-colors">
+          <Link
+            to="/journal"
+            className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full text-base font-semibold text-muted-foreground hover:text-foreground transition-colors"
+          >
             {tx.home.finalCta3}
           </Link>
         </div>

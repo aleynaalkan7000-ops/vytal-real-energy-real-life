@@ -16,9 +16,17 @@ export const Route = createFileRoute("/journal")({
   head: () => ({
     meta: [
       { title: "Journal — Gedanken für einen ruhigeren Alltag | VYTAL" },
-      { name: "description", content: "Ein redaktionelles Journal über Fokus, Nervensystem-Erholung, Ritual-Design und eine ruhigere Alternative zur modernen Produktivitätskultur." },
+      {
+        name: "description",
+        content:
+          "Ein redaktionelles Journal über Fokus, Nervensystem-Erholung, Ritual-Design und eine ruhigere Alternative zur modernen Produktivitätskultur.",
+      },
       { property: "og:title", content: "VYTAL Journal — Gedanken für einen ruhigeren Alltag" },
-      { property: "og:description", content: "Reflexionen über Fokus, Energie, Aufmerksamkeit und ruhigere Routinen. Ein ruhiger Ort im überstimulierten Internet." },
+      {
+        property: "og:description",
+        content:
+          "Reflexionen über Fokus, Energie, Aufmerksamkeit und ruhigere Routinen. Ein ruhiger Ort im überstimulierten Internet.",
+      },
       { property: "og:image", content: journalHero },
       { name: "twitter:image", content: journalHero },
     ],
@@ -57,7 +65,8 @@ const journalArticlesEn: Article[] = [
     category: "Focus",
     date: "May 2026",
     image: journalFeatured,
-    excerpt: "The way modern life is designed — endless inputs, endless tabs, endless small emergencies — was never something a nervous system was supposed to hold.",
+    excerpt:
+      "The way modern life is designed — endless inputs, endless tabs, endless small emergencies — was never something a nervous system was supposed to hold.",
     content: [
       "The modern digital landscape is an environment our nervous systems were never evolved to sustain. Every notification, infinite scroll feed, algorithmic recommendation and blinking red badge competes for the same limited cognitive bandwidth.",
       "Yet modern culture keeps framing distraction as a personal moral failure. We are told that if we cannot focus, we simply lack discipline. That our inability to concentrate is proof that we are lazy, unmotivated or mentally weak.",
@@ -80,7 +89,8 @@ const journalArticlesEn: Article[] = [
     category: "Recovery",
     date: "May 18, 2026",
     image: journalRitual,
-    excerpt: "Why the cycle of spikes and collapses isn't a personality trait — and what calmer energy actually looks like across a real week.",
+    excerpt:
+      "Why the cycle of spikes and collapses isn't a personality trait — and what calmer energy actually looks like across a real week.",
     content: [
       "Modern culture has normalized a strange relationship with energy. Feeling constantly overstimulated, emotionally drained and physically exhausted is often treated as proof that someone is ambitious enough, disciplined enough or simply working hard enough.",
       "The productive crash has become so common that many people no longer question it. The afternoon fog. The sudden irritability. The inability to focus despite consuming more caffeine. The feeling of being mentally wired while physically exhausted.",
@@ -105,7 +115,8 @@ const journalArticlesEn: Article[] = [
     category: "Rituals",
     date: "May 11, 2026",
     image: journalMorning,
-    excerpt: "Not 5 a.m. wake-ups. Not ice baths. Three small, repeatable shifts that change the temperature of a day.",
+    excerpt:
+      "Not 5 a.m. wake-ups. Not ice baths. Three small, repeatable shifts that change the temperature of a day.",
     content: [
       "Modern mornings have quietly become performances. Wake up at 5 a.m. Cold plunge. Journal. Meditate. Train. Optimize. Track. Improve. The first hour of the day is increasingly treated like a productivity competition rather than a biological transition into consciousness.",
       "But for many people, these routines do not create calm. They create pressure.",
@@ -130,7 +141,8 @@ const journalArticlesEn: Article[] = [
     category: "Digital Overload",
     date: "May 03, 2026",
     image: journalCafe,
-    excerpt: "Notes on building one un-interrupted hour a day — and why it matters more than any productivity system.",
+    excerpt:
+      "Notes on building one un-interrupted hour a day — and why it matters more than any productivity system.",
     content: [
       "The modern internet was not designed to protect attention. It was designed to capture it.",
       "Every platform, notification system and algorithm competes for the same limited psychological resource: your ability to stay mentally present with one thing long enough for depth to emerge.",
@@ -156,7 +168,8 @@ const journalArticlesEn: Article[] = [
     category: "Modern Work",
     date: "Apr 26, 2026",
     image: journalLibrary,
-    excerpt: "The continuous performance of optimization has turned work into an emotional burden that no amount of sleep alone can repair.",
+    excerpt:
+      "The continuous performance of optimization has turned work into an emotional burden that no amount of sleep alone can repair.",
     content: [
       "Modern productivity was originally supposed to help people work more effectively. Somewhere along the way, it quietly became something far more personal.",
       "Today, productivity is no longer treated as a tool. It has become an identity.",
@@ -182,7 +195,8 @@ const journalArticlesEn: Article[] = [
     category: "Sustainable Energy",
     date: "Apr 19, 2026",
     image: journalStillife,
-    excerpt: "Why botanical balance — caffeine paired with L-Theanine — produces a long, calm plateau instead of a jagged spike.",
+    excerpt:
+      "Why botanical balance — caffeine paired with L-Theanine — produces a long, calm plateau instead of a jagged spike.",
     content: [
       "Caffeine has become one of the most normalized performance tools in modern life. It exists everywhere — offices, libraries, train stations, morning routines, late-night deadlines. Entire work cultures quietly run on it.",
       "But the experience of caffeine is rarely just about caffeine itself.",
@@ -208,7 +222,8 @@ const journalArticlesEn: Article[] = [
     category: "Modern Work",
     date: "Apr 12, 2026",
     image: journalTrain,
-    excerpt: "A quiet survival kit for office afternoons without the burnout — built from micro-breaks, real light and slow hydration.",
+    excerpt:
+      "A quiet survival kit for office afternoons without the burnout — built from micro-breaks, real light and slow hydration.",
     content: [
       "By mid-afternoon, modern work begins to feel strangely heavy. Concentration weakens. Motivation drops. Thoughts become slower, yet the nervous system often still feels overstimulated at the same time.",
       "The famous '3 p.m. dip' is so common that many people treat it as a personal weakness — something to fight through with more caffeine, more sugar or more pressure.",
@@ -233,7 +248,8 @@ const journalArticlesEn: Article[] = [
     category: "Nervous System",
     date: "Apr 05, 2026",
     image: ritualMorning,
-    excerpt: "Most frameworks treat the mind like a machine. A calmer week begins by reading the body's actual signals first.",
+    excerpt:
+      "Most frameworks treat the mind like a machine. A calmer week begins by reading the body's actual signals first.",
     content: [
       "Most modern productivity systems are built on the assumption that the human mind should function like a machine. Wake up. Optimize output. Maintain consistency. Push through resistance. Repeat.",
       "But human beings are not emotionally neutral operating systems capable of producing the same level of focus every hour of every day.",
@@ -263,7 +279,8 @@ const journalArticlesDe: Article[] = [
     category: "Fokus",
     date: "Mai 2026",
     image: journalFeatured,
-    excerpt: "Die Art, wie das moderne Leben gestaltet ist — endlose Inputs, endlose Tabs, endlose kleine Notfälle — war nie etwas, das ein Nervensystem aushalten sollte.",
+    excerpt:
+      "Die Art, wie das moderne Leben gestaltet ist — endlose Inputs, endlose Tabs, endlose kleine Notfälle — war nie etwas, das ein Nervensystem aushalten sollte.",
     content: [
       "Die digitale Welt von heute ist eine Umgebung, für die unsere Nervensysteme nie ausgelegt waren. Jede Benachrichtigung, jeder endlose Scroll-Feed, jede algorithmische Empfehlung und jedes blinkende rote Abzeichen konkurriert um dieselbe begrenzte kognitive Kapazität.",
       "Dennoch rahmt die moderne Kultur Ablenkung ständig als persönliches moralisches Versagen. Wir werden uns gesagt, dass wir uns einfach an Disziplin mangeln, wenn wir uns nicht konzentrieren können. Dass unsere Unfähigkeit, uns zu konzentrieren, beweist, dass wir faul, unmotiviert oder geistig schwach sind.",
@@ -286,7 +303,8 @@ const journalArticlesDe: Article[] = [
     category: "Erholung",
     date: "18. Mai 2026",
     image: journalRitual,
-    excerpt: "Warum der Zyklus aus Spikes und Zusammenbrüchen kein Persönlichkeitsmerkmal ist — und wie ruhigere Energie über eine echte Woche tatsächlich aussieht.",
+    excerpt:
+      "Warum der Zyklus aus Spikes und Zusammenbrüchen kein Persönlichkeitsmerkmal ist — und wie ruhigere Energie über eine echte Woche tatsächlich aussieht.",
     content: [
       "Die moderne Kultur hat eine merkwürdige Beziehung zur Energie normalisiert. Sich ständig überstimuliert, emotional erschöpft und körperlich ausgelaugt zu fühlen, wird oft als Beweis behandelt, dass jemand ehrgeizig genug, diszipliniert genug oder einfach hart genug arbeitet.",
       "Der produktive Absturz ist so häufig geworden, dass viele Menschen ihn nicht mehr hinterfragen. Der Nachmittagsnebel. Die plötzliche Reizbarkeit. Die Unfähigkeit, sich zu konzentrieren, trotz mehr Koffein. Das Gefühl, mental aufgedreht und körperlich erschöpft gleichzeitig zu sein.",
@@ -311,7 +329,8 @@ const journalArticlesDe: Article[] = [
     category: "Rituale",
     date: "11. Mai 2026",
     image: journalMorning,
-    excerpt: "Nicht um 5 Uhr aufstehen. Kein Eisbad. Drei kleine, wiederholbare Veränderungen, die die Temperatur eines Tages verändern.",
+    excerpt:
+      "Nicht um 5 Uhr aufstehen. Kein Eisbad. Drei kleine, wiederholbare Veränderungen, die die Temperatur eines Tages verändern.",
     content: [
       "Morgenratschläge haben sich still in Aufführungen verwandelt. Um 5 Uhr aufwachen. Kalt duschen. Journalen. Meditieren. Trainieren. Optimieren. Die erste Stunde des Tages wird zunehmend wie ein Produktivitätswettbewerb behandelt, anstatt wie ein biologischer Übergang ins Bewusstsein.",
       "Aber für viele Menschen erzeugen diese Routinen keine Ruhe. Sie erzeugen Druck.",
@@ -336,7 +355,8 @@ const journalArticlesDe: Article[] = [
     category: "Digitale Überlastung",
     date: "3. Mai 2026",
     image: journalCafe,
-    excerpt: "Notizen dazu, wie man täglich eine ununterbrochene Stunde aufbaut — und warum das wichtiger ist als jedes Produktivitätssystem.",
+    excerpt:
+      "Notizen dazu, wie man täglich eine ununterbrochene Stunde aufbaut — und warum das wichtiger ist als jedes Produktivitätssystem.",
     content: [
       "Das moderne Internet wurde nicht dafür entworfen, Aufmerksamkeit zu schützen. Es wurde entworfen, sie zu erfassen.",
       "Jede Plattform, jedes Benachrichtigungssystem und jeder Algorithmus konkurriert um dieselbe begrenzte psychologische Ressource: deine Fähigkeit, mental präsent bei einer Sache zu bleiben, lange genug damit Tiefe entstehen kann.",
@@ -362,7 +382,8 @@ const journalArticlesDe: Article[] = [
     category: "Moderne Arbeit",
     date: "26. Apr. 2026",
     image: journalLibrary,
-    excerpt: "Die ständige Darbietung der Optimierung hat Arbeit zu einer emotionalen Last gemacht, die kein Schlaf allein reparieren kann.",
+    excerpt:
+      "Die ständige Darbietung der Optimierung hat Arbeit zu einer emotionalen Last gemacht, die kein Schlaf allein reparieren kann.",
     content: [
       "Moderne Produktivität sollte ursprünglich helfen, effektiver zu arbeiten. Irgendwo auf dem Weg ist sie still zu etwas viel Persönlicherem geworden.",
       "Heute wird Produktivität nicht mehr als Werkzeug behandelt. Sie ist zur Identität geworden.",
@@ -388,7 +409,8 @@ const journalArticlesDe: Article[] = [
     category: "Nachhaltige Energie",
     date: "19. Apr. 2026",
     image: journalStillife,
-    excerpt: "Warum botanisches Gleichgewicht — Koffein gepaart mit L-Theanin — ein langes, ruhiges Plateau erzeugt statt eines gezackten Spikes.",
+    excerpt:
+      "Warum botanisches Gleichgewicht — Koffein gepaart mit L-Theanin — ein langes, ruhiges Plateau erzeugt statt eines gezackten Spikes.",
     content: [
       "Koffein ist zu einem der normalisiertesten Leistungswerkzeuge im modernen Leben geworden. Es ist überall — in Büros, Bibliotheken, Bahnhöfen, Morgenroutinen, nächtlichen Fristen. Ganze Arbeitskulturen laufen still darauf.",
       "Aber die Erfahrung mit Koffein ist selten nur Koffein selbst.",
@@ -414,7 +436,8 @@ const journalArticlesDe: Article[] = [
     category: "Moderne Arbeit",
     date: "12. Apr. 2026",
     image: journalTrain,
-    excerpt: "Ein ruhiges Überlebenskit für Büro-Nachmittage ohne Burnout — aus Mikropausen, echtem Licht und langsamer Hydration.",
+    excerpt:
+      "Ein ruhiges Überlebenskit für Büro-Nachmittage ohne Burnout — aus Mikropausen, echtem Licht und langsamer Hydration.",
     content: [
       "Am frühen Nachmittag beginnt sich moderne Arbeit merkwürdig schwer anzufühlen. Die Konzentration schwächt sich. Die Motivation sinkt. Gedanken werden langsamer, doch das Nervensystem fühlt sich oft gleichzeitig noch überstimuliert an.",
       "Der berühmte '15-Uhr-Einbruch' ist so häufig, dass viele Menschen ihn als persönliche Schwäche behandeln — etwas, das mit mehr Koffein, mehr Zucker oder mehr Druck durchgehalten werden muss.",
@@ -439,7 +462,8 @@ const journalArticlesDe: Article[] = [
     category: "Nervensystem",
     date: "5. Apr. 2026",
     image: ritualMorning,
-    excerpt: "Die meisten Systeme behandeln den Geist wie eine Maschine. Eine ruhigere Woche beginnt damit, die echten Signale des Körpers zuerst zu lesen.",
+    excerpt:
+      "Die meisten Systeme behandeln den Geist wie eine Maschine. Eine ruhigere Woche beginnt damit, die echten Signale des Körpers zuerst zu lesen.",
     content: [
       "Die meisten modernen Produktivitätssysteme basieren auf der Annahme, dass der menschliche Geist wie eine Maschine funktionieren sollte. Aufwachen. Output optimieren. Konsistenz wahren. Widerstand überwinden. Wiederholen.",
       "Aber Menschen sind keine emotional neutralen Betriebssysteme, die jede Stunde jedes Tages dasselbe Fokussierungsniveau produzieren können.",
@@ -552,7 +576,8 @@ function JournalPage() {
             <span>{tx.journal.heroKicker}</span>
           </div>
           <h1 className="reveal mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-extrabold leading-[0.92] tracking-tight text-balance max-w-5xl">
-            {tx.journal.heroH1a} <em className="italic font-normal text-primary">{tx.journal.heroH1b}</em>{" "}
+            {tx.journal.heroH1a}{" "}
+            <em className="italic font-normal text-primary">{tx.journal.heroH1b}</em>{" "}
             {tx.journal.heroH1c}
           </h1>
           <p className="reveal mt-8 max-w-xl text-base md:text-lg text-foreground/75 leading-relaxed">
@@ -717,7 +742,13 @@ function JournalPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[articles[5], articles[6], articles[7]].map((p) => (
-              <ArticleCard key={p.id} article={p} ratio="aspect-[4/5]" compact onOpen={setActiveArticle} />
+              <ArticleCard
+                key={p.id}
+                article={p}
+                ratio="aspect-[4/5]"
+                compact
+                onOpen={setActiveArticle}
+              />
             ))}
           </div>
         </div>
@@ -726,7 +757,13 @@ function JournalPage() {
       {/* FINAL CTA */}
       <section className="relative py-32 md:py-48 overflow-hidden border-t border-border">
         <div className="absolute inset-0 -z-10">
-          <img src={journalStillife} alt="" aria-hidden className="h-full w-full object-cover opacity-25" loading="lazy" />
+          <img
+            src={journalStillife}
+            alt=""
+            aria-hidden
+            className="h-full w-full object-cover opacity-25"
+            loading="lazy"
+          />
           <div className="absolute inset-0 bg-background/85" />
         </div>
         <div className="max-w-3xl mx-auto px-6 md:px-10 text-center">
@@ -740,7 +777,10 @@ function JournalPage() {
             {tx.journal.continueDesc}
           </p>
 
-          <form onSubmit={(e) => e.preventDefault()} className="reveal mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="reveal mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+          >
             <input
               type="email"
               required
@@ -864,7 +904,9 @@ function ArticleModal({
         <article className="px-6 sm:px-12 md:px-20 py-12 md:py-20">
           <div className="flex justify-between gap-6 font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
             <span>{tx.journal.modalIssue}</span>
-            <span>{displayIndex} / {displayTotal}</span>
+            <span>
+              {displayIndex} / {displayTotal}
+            </span>
           </div>
 
           <p className="mt-16 font-mono text-[11px] uppercase tracking-[0.24em] text-primary">

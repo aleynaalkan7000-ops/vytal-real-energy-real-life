@@ -19,7 +19,7 @@ function CheckoutPage() {
       <section className="max-w-5xl mx-auto px-6 md:px-10 py-24 md:py-32 grid lg:grid-cols-12 gap-16">
         <div className="lg:col-span-7">
           <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-            Checkout 
+            Checkout
           </span>
           <h1 className="mt-6 font-display text-5xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
             A calm checkout.
@@ -59,14 +59,20 @@ function CheckoutPage() {
                       <button
                         onClick={() => setQty(i.id, i.qty - 1)}
                         className="size-7 grid place-items-center hover:bg-secondary rounded-l-full"
-                      >−</button>
+                      >
+                        −
+                      </button>
                       <span className="w-6 text-center text-xs font-mono">{i.qty}</span>
                       <button
                         onClick={() => setQty(i.id, i.qty + 1)}
                         className="size-7 grid place-items-center hover:bg-secondary rounded-r-full"
-                      >+</button>
+                      >
+                        +
+                      </button>
                     </div>
-                    <p className="font-mono text-sm w-20 text-right">{formatPrice(i.qty * i.unitPrice)}</p>
+                    <p className="font-mono text-sm w-20 text-right">
+                      {formatPrice(i.qty * i.unitPrice)}
+                    </p>
                     <button
                       onClick={() => remove(i.id)}
                       className="text-muted-foreground hover:text-foreground text-xs font-mono"

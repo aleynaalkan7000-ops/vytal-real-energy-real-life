@@ -12,7 +12,8 @@ const aboutPageSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "About VYTAL Energy",
-  description: "VYTAL is a Heilbronn-based studio making refillable plant-based energy supplements. No crash, no single-use cans — built calmly, on purpose, since 2026.",
+  description:
+    "VYTAL is a Heilbronn-based studio making refillable plant-based energy supplements. No crash, no single-use cans — built calmly, on purpose, since 2026.",
   url: "https://vytal-energy.de/about",
 };
 
@@ -21,7 +22,8 @@ const aboutOrganizationSchema = {
   "@type": "Organization",
   name: "VYTAL Energy",
   url: "https://vytal-energy.de",
-  description: "Refillable plant-based focus supplements for everyday life. Calm energy, no crash, less waste.",
+  description:
+    "Refillable plant-based focus supplements for everyday life. Calm energy, no crash, less waste.",
   foundingDate: "2026",
   foundingLocation: { "@type": "Place", name: "Heilbronn, Germany" },
   areaServed: ["DE", "AT"],
@@ -31,9 +33,17 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "Über VYTAL Energy — Energie, die wirklich zum Leben passt." },
-      { name: "description", content: "VYTAL Energy ist ein Studio aus Heilbronn und stellt nachfüllbare pflanzliche Energie-Tablets her. Kein Crash, keine Einwegdosen — ruhig gebaut, mit Absicht, seit 2026." },
+      {
+        name: "description",
+        content:
+          "VYTAL Energy ist ein Studio aus Heilbronn und stellt nachfüllbare pflanzliche Energie-Tablets her. Kein Crash, keine Einwegdosen — ruhig gebaut, mit Absicht, seit 2026.",
+      },
       { property: "og:title", content: "Über VYTAL Energy — ruhig gebaut. Mit Absicht." },
-      { property: "og:description", content: "Energie soll das Leben unterstützen — nicht zur Erholung danach zwingen. Unsere Philosophie." },
+      {
+        property: "og:description",
+        content:
+          "Energie soll das Leben unterstützen — nicht zur Erholung danach zwingen. Unsere Philosophie.",
+      },
       { property: "og:image", content: aboutHero },
       { name: "twitter:image", content: aboutHero },
     ],
@@ -106,7 +116,8 @@ function AboutPage() {
             <span>About VYTAL — a quieter way of working</span>
           </div>
           <h1 className="reveal mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-extrabold leading-[0.92] tracking-tight text-balance max-w-5xl">
-            {tx.about.heroH1a} <em className="italic font-normal text-primary">{tx.about.heroH1b}</em>
+            {tx.about.heroH1a}{" "}
+            <em className="italic font-normal text-primary">{tx.about.heroH1b}</em>
             <span className="block text-foreground/55">{tx.about.heroH1c}</span>
           </h1>
           <p className="reveal mt-8 max-w-xl text-base md:text-lg text-foreground/75 leading-relaxed">
@@ -155,18 +166,13 @@ function AboutPage() {
               {tx.about.realizationKicker}
             </p>
             <h2 className="reveal mt-6 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.04] tracking-tight text-balance">
-              {tx.about.realizationH2a} <em className="italic font-normal text-primary">{tx.about.realizationH2b}</em>
+              {tx.about.realizationH2a}{" "}
+              <em className="italic font-normal text-primary">{tx.about.realizationH2b}</em>
             </h2>
             <div className="reveal mt-10 space-y-6 text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl">
-              <p>
-                {tx.about.realizationBodyA}
-              </p>
-              <p>
-                {tx.about.realizationBodyB}
-              </p>
-              <p className="text-foreground">
-                {tx.about.realizationBodyC}
-              </p>
+              <p>{tx.about.realizationBodyA}</p>
+              <p>{tx.about.realizationBodyB}</p>
+              <p className="text-foreground">{tx.about.realizationBodyC}</p>
             </div>
           </div>
         </div>
@@ -179,7 +185,8 @@ function AboutPage() {
             {tx.about.statementKicker}
           </p>
           <p className="reveal mt-10 font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight font-extrabold text-balance">
-            {tx.about.statementH2a} <em className="italic font-normal text-primary">{tx.about.statementH2b}</em>{" "}
+            {tx.about.statementH2a}{" "}
+            <em className="italic font-normal text-primary">{tx.about.statementH2b}</em>{" "}
             {tx.about.statementH2c}
           </p>
           <p className="reveal mt-12 max-w-xl mx-auto text-muted-foreground text-base md:text-lg leading-relaxed">
@@ -209,9 +216,7 @@ function AboutPage() {
                 key={line}
                 className="reveal grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-14 items-baseline py-8 md:py-10"
               >
-                <span className="font-mono text-xs text-primary/80">
-                  0{i + 1}
-                </span>
+                <span className="font-mono text-xs text-primary/80">0{i + 1}</span>
                 <p className="font-display text-2xl md:text-3xl lg:text-4xl leading-[1.18] tracking-tight text-balance">
                   {line}
                 </p>
@@ -229,7 +234,9 @@ function AboutPage() {
               {tx.about.designKicker}
             </p>
             <h2 className="reveal mt-6 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.02] tracking-tight text-balance">
-              {tx.about.designH2a} <em className="italic font-normal text-primary">{tx.about.designH2b}</em> {tx.about.designH2c}
+              {tx.about.designH2a}{" "}
+              <em className="italic font-normal text-primary">{tx.about.designH2b}</em>{" "}
+              {tx.about.designH2c}
             </h2>
             <p className="reveal mt-8 text-muted-foreground text-base md:text-lg leading-relaxed max-w-md">
               {tx.about.designDesc}
@@ -283,18 +290,13 @@ function AboutPage() {
                 {tx.about.humanKicker}
               </p>
               <h2 className="reveal mt-6 font-display text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.06] tracking-tight text-balance">
-                {tx.about.humanH2a} <em className="italic font-normal text-primary">{tx.about.humanH2b}</em>
+                {tx.about.humanH2a}{" "}
+                <em className="italic font-normal text-primary">{tx.about.humanH2b}</em>
               </h2>
-              <div className="reveal mt-8 space-y-5 text-muted-foreground text-base leading-relaxed" >
-                <p>
-                  {tx.about.humanBodyA}
-                </p>
-                <p>
-                  {tx.about.humanBodyB}
-                </p>
-                <p className="text-foreground">
-                  {tx.about.humanBodyC}
-                </p>
+              <div className="reveal mt-8 space-y-5 text-muted-foreground text-base leading-relaxed">
+                <p>{tx.about.humanBodyA}</p>
+                <p>{tx.about.humanBodyB}</p>
+                <p className="text-foreground">{tx.about.humanBodyC}</p>
               </div>
               <div className="reveal mt-10 grid grid-cols-2 gap-3 max-w-xs">
                 {[
@@ -303,7 +305,9 @@ function AboutPage() {
                 ].map((m) => (
                   <div key={m.name} className="rounded-2xl border border-border p-4">
                     <p className="font-display text-sm font-semibold">{m.name}</p>
-                    <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-1">{m.role}</p>
+                    <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-1">
+                      {m.role}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -329,7 +333,8 @@ function AboutPage() {
             {tx.about.finalKicker}
           </p>
           <h2 className="reveal mt-6 font-display text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.02] tracking-tight text-balance">
-            {tx.about.finalH2a} <span className="italic font-normal text-primary">{tx.about.finalH2b}</span>
+            {tx.about.finalH2a}{" "}
+            <span className="italic font-normal text-primary">{tx.about.finalH2b}</span>
           </h2>
           <p className="reveal mt-8 text-muted-foreground text-base md:text-lg leading-relaxed">
             {tx.about.finalDesc}

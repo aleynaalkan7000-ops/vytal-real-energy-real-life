@@ -10,7 +10,8 @@ const contactPageSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: "Contact VYTAL",
-  description: "A calm, human way to reach VYTAL. For collaborations, ideas, support, or simply reaching out.",
+  description:
+    "A calm, human way to reach VYTAL. For collaborations, ideas, support, or simply reaching out.",
   url: "https://vytal-energy.de/contact",
 };
 
@@ -20,8 +21,18 @@ const contactOrganizationSchema = {
   name: "VYTAL",
   url: "https://vytal-energy.de",
   contactPoint: [
-    { "@type": "ContactPoint", contactType: "customer support", email: "hello@vytal.energy", areaServed: ["DE", "AT"] },
-    { "@type": "ContactPoint", contactType: "sales", email: "collaborations@vytal.energy", areaServed: ["DE", "AT"] },
+    {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: "hello@vytal.energy",
+      areaServed: ["DE", "AT"],
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: "collaborations@vytal.energy",
+      areaServed: ["DE", "AT"],
+    },
     { "@type": "ContactPoint", contactType: "public relations", email: "press@vytal.energy" },
   ],
 };
@@ -30,9 +41,16 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Kontakt — VYTAL · Echte Menschen. Ruhige Kommunikation." },
-      { name: "description", content: "Schreib uns — für Kooperationen, Ideen, Support oder einfach so. Wir lesen jede Nachricht sorgfältig." },
+      {
+        name: "description",
+        content:
+          "Schreib uns — für Kooperationen, Ideen, Support oder einfach so. Wir lesen jede Nachricht sorgfältig.",
+      },
       { property: "og:title", content: "Kontakt VYTAL — Echte Menschen. Ruhige Kommunikation." },
-      { property: "og:description", content: "Echte Menschen. Ruhige Kommunikation. Für Gespräche gebaut, nicht für Tickets." },
+      {
+        property: "og:description",
+        content: "Echte Menschen. Ruhige Kommunikation. Für Gespräche gebaut, nicht für Tickets.",
+      },
       { property: "og:image", content: heroImg },
       { name: "twitter:image", content: heroImg },
     ],
@@ -52,7 +70,7 @@ function useReveal() {
           }
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
@@ -107,28 +125,42 @@ function ContactPage() {
             </span>
           </div>
           <h1 className="reveal opacity-0 translate-y-8 transition-all duration-[1600ms] delay-150 ease-out mt-6 font-display text-[12vw] md:text-[8.5vw] leading-[0.95] tracking-[-0.03em] font-light">
-            {tx.contact.heroH1a}<br />
-            <em className="font-serif italic font-extralight">{tx.contact.heroH1b}</em> {tx.contact.heroH1c}
+            {tx.contact.heroH1a}
+            <br />
+            <em className="font-serif italic font-extralight">{tx.contact.heroH1b}</em>{" "}
+            {tx.contact.heroH1c}
           </h1>
           <p className="reveal opacity-0 translate-y-4 transition-all duration-[1400ms] delay-300 ease-out mt-8 max-w-xl text-base md:text-lg text-foreground/70 leading-relaxed">
             {tx.contact.heroDesc}
           </p>
 
           <div className="reveal opacity-0 translate-y-4 transition-all duration-[1200ms] delay-500 ease-out mt-10 flex flex-wrap gap-3">
-            <a href="#write" className="px-7 py-3.5 rounded-full bg-foreground text-background text-sm tracking-wide hover:opacity-90 transition">
+            <a
+              href="#write"
+              className="px-7 py-3.5 rounded-full bg-foreground text-background text-sm tracking-wide hover:opacity-90 transition"
+            >
               {tx.contact.heroCta1}
             </a>
-            <a href="/journal" className="px-7 py-3.5 rounded-full border border-foreground/20 text-sm tracking-wide hover:border-foreground/50 transition">
+            <a
+              href="/journal"
+              className="px-7 py-3.5 rounded-full border border-foreground/20 text-sm tracking-wide hover:border-foreground/50 transition"
+            >
               {tx.contact.heroCta2}
             </a>
-            <a href="/shop" className="px-7 py-3.5 rounded-full text-sm tracking-wide text-foreground/70 hover:text-foreground transition">
+            <a
+              href="/shop"
+              className="px-7 py-3.5 rounded-full text-sm tracking-wide text-foreground/70 hover:text-foreground transition"
+            >
               {tx.contact.heroCta3}
             </a>
           </div>
         </div>
 
         {/* ambient drift */}
-        <div className="pointer-events-none absolute -top-32 -right-32 w-[40rem] h-[40rem] rounded-full bg-primary/10 blur-3xl animate-pulse" style={{ animationDuration: "9s" }} />
+        <div
+          className="pointer-events-none absolute -top-32 -right-32 w-[40rem] h-[40rem] rounded-full bg-primary/10 blur-3xl animate-pulse"
+          style={{ animationDuration: "9s" }}
+        />
       </section>
 
       {/* PHILOSOPHY */}
@@ -139,7 +171,9 @@ function ContactPage() {
               {tx.contact.commKicker}
             </span>
             <h2 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] font-light">
-              {tx.contact.commH2a} <em className="font-serif italic">{tx.contact.commH2b}</em><br />{tx.contact.commH2c}
+              {tx.contact.commH2a} <em className="font-serif italic">{tx.contact.commH2b}</em>
+              <br />
+              {tx.contact.commH2c}
             </h2>
           </div>
           <div className="md:col-span-6 md:col-start-7 reveal opacity-0 translate-y-6 transition-all duration-1000 delay-150 space-y-6 text-foreground/70 leading-relaxed text-lg">
@@ -153,9 +187,17 @@ function ContactPage() {
       <section className="px-6 md:px-12 pb-32 md:pb-48 max-w-[1400px] mx-auto">
         <div className="grid md:grid-cols-3 gap-px bg-foreground/10 rounded-3xl overflow-hidden">
           {tx.contact.pillars.map((p, i) => (
-            <div key={p.k} className="reveal opacity-0 translate-y-4 transition-all duration-1000 bg-background p-10 md:p-12" style={{ transitionDelay: `${i * 120}ms` }}>
-              <span className="font-mono text-[11px] tracking-[0.32em] text-foreground/40">{p.k}</span>
-              <h3 className="mt-6 font-display text-2xl md:text-3xl font-light tracking-tight">{p.t}</h3>
+            <div
+              key={p.k}
+              className="reveal opacity-0 translate-y-4 transition-all duration-1000 bg-background p-10 md:p-12"
+              style={{ transitionDelay: `${i * 120}ms` }}
+            >
+              <span className="font-mono text-[11px] tracking-[0.32em] text-foreground/40">
+                {p.k}
+              </span>
+              <h3 className="mt-6 font-display text-2xl md:text-3xl font-light tracking-tight">
+                {p.t}
+              </h3>
               <p className="mt-4 text-foreground/60 leading-relaxed">{p.d}</p>
             </div>
           ))}
@@ -163,16 +205,27 @@ function ContactPage() {
       </section>
 
       {/* CONTACT FORM — editorial split */}
-      <section id="write" className="relative bg-foreground text-background py-32 md:py-48 overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, hsl(var(--background)) 0, transparent 50%), radial-gradient(circle at 70% 80%, hsl(var(--primary)) 0, transparent 55%)" }} />
+      <section
+        id="write"
+        className="relative bg-foreground text-background py-32 md:py-48 overflow-hidden"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 30% 20%, hsl(var(--background)) 0, transparent 50%), radial-gradient(circle at 70% 80%, hsl(var(--primary)) 0, transparent 55%)",
+          }}
+        />
         <div className="relative max-w-[1400px] mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-12 md:gap-20">
           <div className="md:col-span-5 reveal opacity-0 translate-y-6 transition-all duration-1000">
             <span className="font-mono text-[11px] tracking-[0.32em] uppercase text-background/50">
               {tx.contact.formKicker}
             </span>
             <h2 className="mt-6 font-display text-5xl md:text-6xl leading-[0.98] tracking-[-0.02em] font-light">
-              {tx.contact.formH2a}<br />
-              <em className="font-serif italic font-extralight">{tx.contact.formH2b}</em><br />
+              {tx.contact.formH2a}
+              <br />
+              <em className="font-serif italic font-extralight">{tx.contact.formH2b}</em>
+              <br />
               {tx.contact.formH2c}
             </h2>
             <p className="mt-8 text-background/60 leading-relaxed max-w-md">
@@ -181,16 +234,28 @@ function ContactPage() {
 
             <div className="mt-14 space-y-5 text-sm">
               <a href="mailto:hello@vytal.energy" className="group block">
-                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">{tx.contact.emailSections.general}</span>
-                <div className="mt-1 text-lg font-light group-hover:text-primary transition">hello@vytal.energy</div>
+                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">
+                  {tx.contact.emailSections.general}
+                </span>
+                <div className="mt-1 text-lg font-light group-hover:text-primary transition">
+                  hello@vytal.energy
+                </div>
               </a>
               <a href="mailto:partners@vytal.energy" className="group block">
-                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">{tx.contact.emailSections.collaborations}</span>
-                <div className="mt-1 text-lg font-light group-hover:text-primary transition">partners@vytal.energy</div>
+                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">
+                  {tx.contact.emailSections.collaborations}
+                </span>
+                <div className="mt-1 text-lg font-light group-hover:text-primary transition">
+                  partners@vytal.energy
+                </div>
               </a>
               <a href="mailto:press@vytal.energy" className="group block">
-                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">{tx.contact.emailSections.press}</span>
-                <div className="mt-1 text-lg font-light group-hover:text-primary transition">press@vytal.energy</div>
+                <span className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/40">
+                  {tx.contact.emailSections.press}
+                </span>
+                <div className="mt-1 text-lg font-light group-hover:text-primary transition">
+                  press@vytal.energy
+                </div>
               </a>
             </div>
           </div>
@@ -208,7 +273,9 @@ function ContactPage() {
             >
               <FormRow label={tx.contact.formNameLabel} htmlFor="name">
                 <input
-                  id="name" required value={form.name}
+                  id="name"
+                  required
+                  value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder={tx.contact.formNamePlaceholder}
                   className="w-full bg-transparent border-b border-background/15 focus:border-background/60 outline-none py-3 text-lg font-light text-background placeholder:text-background/30 transition"
@@ -217,7 +284,10 @@ function ContactPage() {
 
               <FormRow label={tx.contact.formEmailLabel} htmlFor="email">
                 <input
-                  id="email" type="email" required value={form.email}
+                  id="email"
+                  type="email"
+                  required
+                  value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder={tx.contact.formEmailPlaceholder}
                   className="w-full bg-transparent border-b border-background/15 focus:border-background/60 outline-none py-3 text-lg font-light text-background placeholder:text-background/30 transition"
@@ -228,7 +298,8 @@ function ContactPage() {
                 <div className="flex flex-wrap gap-2 pt-2">
                   {tx.contact.formSubjects.map((s, i) => (
                     <button
-                      key={i} type="button"
+                      key={i}
+                      type="button"
                       onClick={() => setForm({ ...form, subjectIdx: i })}
                       className={`px-4 py-2 rounded-full border text-xs tracking-wide transition ${
                         form.subjectIdx === i
@@ -244,7 +315,10 @@ function ContactPage() {
 
               <FormRow label={tx.contact.formMessageLabel} htmlFor="message">
                 <textarea
-                  id="message" required rows={5} value={form.message}
+                  id="message"
+                  required
+                  rows={5}
+                  value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder={tx.contact.formMessagePlaceholder}
                   className="w-full bg-transparent border-b border-background/15 focus:border-background/60 outline-none py-3 text-lg font-light text-background placeholder:text-background/30 resize-none transition"
@@ -296,12 +370,8 @@ function ContactPage() {
             <h2 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] font-light">
               {tx.contact.humanH2}
             </h2>
-            <p className="mt-8 text-foreground/65 leading-relaxed">
-              {tx.contact.humanBodyA}
-            </p>
-            <p className="mt-4 text-foreground/55 leading-relaxed">
-              {tx.contact.humanBodyB}
-            </p>
+            <p className="mt-8 text-foreground/65 leading-relaxed">{tx.contact.humanBodyA}</p>
+            <p className="mt-4 text-foreground/55 leading-relaxed">{tx.contact.humanBodyB}</p>
           </div>
         </div>
       </section>
@@ -311,12 +381,21 @@ function ContactPage() {
         <div className="grid md:grid-cols-12 gap-12 md:gap-16">
           <div className="md:col-span-5 reveal opacity-0 translate-y-6 transition-all duration-1000">
             <div className="aspect-[4/5] overflow-hidden rounded-[2rem]">
-              <img src={studioImg} alt="Leinenvorhang streut Abendlicht an einer olivfarbenen Wand" loading="lazy" width={1080} height={1920} className="w-full h-full object-cover" />
+              <img
+                src={studioImg}
+                alt="Leinenvorhang streut Abendlicht an einer olivfarbenen Wand"
+                loading="lazy"
+                width={1080}
+                height={1920}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
           <div className="md:col-span-7 reveal opacity-0 translate-y-6 transition-all duration-1000 delay-150 self-center">
-            <span className="font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/50">{tx.contact.logisticsKicker}</span>
+            <span className="font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/50">
+              {tx.contact.logisticsKicker}
+            </span>
             <h2 className="mt-6 font-display text-4xl md:text-5xl leading-[1.05] tracking-[-0.02em] font-light">
               {tx.contact.logisticsH2}
             </h2>
@@ -324,8 +403,12 @@ function ContactPage() {
             <dl className="mt-12 divide-y divide-foreground/10 border-t border-foreground/10">
               {tx.contact.logistics.map(([k, v]) => (
                 <div key={k} className="grid grid-cols-3 md:grid-cols-4 gap-6 py-6">
-                  <dt className="col-span-1 font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/45">{k}</dt>
-                  <dd className="col-span-2 md:col-span-3 text-foreground/85 text-base md:text-lg font-light">{v}</dd>
+                  <dt className="col-span-1 font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/45">
+                    {k}
+                  </dt>
+                  <dd className="col-span-2 md:col-span-3 text-foreground/85 text-base md:text-lg font-light">
+                    {v}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -337,15 +420,22 @@ function ContactPage() {
       <section className="relative overflow-hidden">
         <div className="relative px-6 md:px-12 py-40 md:py-56 max-w-[1400px] mx-auto text-center">
           <div className="pointer-events-none absolute inset-0 -z-10">
-            <div className="absolute top-1/3 left-1/4 w-[28rem] h-[28rem] rounded-full bg-primary/15 blur-3xl animate-pulse" style={{ animationDuration: "11s" }} />
-            <div className="absolute bottom-0 right-1/4 w-[24rem] h-[24rem] rounded-full bg-accent/20 blur-3xl animate-pulse" style={{ animationDuration: "13s" }} />
+            <div
+              className="absolute top-1/3 left-1/4 w-[28rem] h-[28rem] rounded-full bg-primary/15 blur-3xl animate-pulse"
+              style={{ animationDuration: "11s" }}
+            />
+            <div
+              className="absolute bottom-0 right-1/4 w-[24rem] h-[24rem] rounded-full bg-accent/20 blur-3xl animate-pulse"
+              style={{ animationDuration: "13s" }}
+            />
           </div>
 
           <span className="reveal opacity-0 translate-y-4 transition-all duration-1000 font-mono text-[11px] tracking-[0.32em] uppercase text-foreground/50">
             {tx.contact.closingKicker}
           </span>
           <h2 className="reveal opacity-0 translate-y-6 transition-all duration-1200 delay-100 mt-8 font-display text-[10vw] md:text-[6.5vw] leading-[0.95] tracking-[-0.03em] font-light">
-            {tx.contact.closingH2a}<br />
+            {tx.contact.closingH2a}
+            <br />
             <em className="font-serif italic font-extralight">{tx.contact.closingH2b}</em>
           </h2>
           <p className="reveal opacity-0 translate-y-4 transition-all duration-1000 delay-200 mt-10 max-w-xl mx-auto text-foreground/65 leading-relaxed">
@@ -353,13 +443,22 @@ function ContactPage() {
           </p>
 
           <div className="reveal opacity-0 translate-y-4 transition-all duration-1000 delay-300 mt-12 flex flex-wrap justify-center gap-3">
-            <a href="#write" className="px-8 py-3.5 rounded-full bg-foreground text-background text-sm tracking-wide hover:opacity-90 transition">
+            <a
+              href="#write"
+              className="px-8 py-3.5 rounded-full bg-foreground text-background text-sm tracking-wide hover:opacity-90 transition"
+            >
               {tx.contact.closingCta1}
             </a>
-            <a href="/journal" className="px-8 py-3.5 rounded-full border border-foreground/20 text-sm tracking-wide hover:border-foreground/50 transition">
+            <a
+              href="/journal"
+              className="px-8 py-3.5 rounded-full border border-foreground/20 text-sm tracking-wide hover:border-foreground/50 transition"
+            >
               {tx.contact.closingCta2}
             </a>
-            <a href="/shop" className="px-8 py-3.5 rounded-full text-sm tracking-wide text-foreground/70 hover:text-foreground transition">
+            <a
+              href="/shop"
+              className="px-8 py-3.5 rounded-full text-sm tracking-wide text-foreground/70 hover:text-foreground transition"
+            >
               {tx.contact.closingCta3}
             </a>
           </div>
@@ -375,10 +474,21 @@ function ContactPage() {
   );
 }
 
-function FormRow({ label, htmlFor, children }: { label: string; htmlFor: string; children: React.ReactNode }) {
+function FormRow({
+  label,
+  htmlFor,
+  children,
+}: {
+  label: string;
+  htmlFor: string;
+  children: React.ReactNode;
+}) {
   return (
     <div>
-      <label htmlFor={htmlFor} className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/45">
+      <label
+        htmlFor={htmlFor}
+        className="font-mono text-[10px] tracking-[0.32em] uppercase text-background/45"
+      >
         {label}
       </label>
       <div className="mt-2">{children}</div>

@@ -134,7 +134,11 @@ export const products: Product[] = [
     swatch: "bg-clay",
     color: "Peach sand",
     reviews: [
-      { quote: "It's the most boring compliment but: it just works, all day.", name: "Jonas K.", role: "Engineer · Berlin" },
+      {
+        quote: "It's the most boring compliment but: it just works, all day.",
+        name: "Jonas K.",
+        role: "Engineer · Berlin",
+      },
     ],
   },
   {
@@ -170,7 +174,11 @@ export const products: Product[] = [
     swatch: "bg-accent",
     color: "Berry mint",
     reviews: [
-      { quote: "My 4pm reset. Cold sparkling, gone in two minutes.", name: "Anna T.", role: "Designer · Hamburg" },
+      {
+        quote: "My 4pm reset. Cold sparkling, gone in two minutes.",
+        name: "Anna T.",
+        role: "Designer · Hamburg",
+      },
     ],
   },
   {
@@ -192,8 +200,16 @@ export const products: Product[] = [
       { name: "Vitamin B12" },
       { name: "Natural caffeine" },
     ],
-    benefits: ["Stronger activation for demanding days", "Functional, not jittery", "Clean ingredients"],
-    nutrition: [...baseNutrition.slice(0, 2), { label: "Caffeine", value: "120 mg" }, baseNutrition[3]],
+    benefits: [
+      "Stronger activation for demanding days",
+      "Functional, not jittery",
+      "Clean ingredients",
+    ],
+    nutrition: [
+      ...baseNutrition.slice(0, 2),
+      { label: "Caffeine", value: "120 mg" },
+      baseNutrition[3],
+    ],
     usage: ["Insert container", "Pick intensity", "Start refill", "Use immediately or take away"],
     sustainability:
       "Reusable bottles and compact refill capsules reduce packaging waste and transport volume compared to classic energy drinks.",
@@ -206,7 +222,11 @@ export const products: Product[] = [
     swatch: "bg-clay",
     color: "Citrus orange",
     reviews: [
-      { quote: "Replaces my pre-workout AND my 3rd coffee. Smarter.", name: "Leon S.", role: "Master's student · Cologne" },
+      {
+        quote: "Replaces my pre-workout AND my 3rd coffee. Smarter.",
+        name: "Leon S.",
+        role: "Master's student · Cologne",
+      },
     ],
   },
   {
@@ -229,8 +249,17 @@ export const products: Product[] = [
       { name: "Magnesium" },
     ],
     benefits: ["Soft, balanced activation", "Adaptogen-supported", "Easy on the stomach"],
-    nutrition: [...baseNutrition.slice(0, 2), { label: "Caffeine", value: "50 mg" }, baseNutrition[3]],
-    usage: ["Choose refill", "Set intensity", "Fill container", "Use flexibly at home or on the go"],
+    nutrition: [
+      ...baseNutrition.slice(0, 2),
+      { label: "Caffeine", value: "50 mg" },
+      baseNutrition[3],
+    ],
+    usage: [
+      "Choose refill",
+      "Set intensity",
+      "Fill container",
+      "Use flexibly at home or on the go",
+    ],
     sustainability:
       "The system relies on long-lasting bottles, reduced packaging and more flexible consumption instead of classic single-use products.",
     refillCompat: "Compatible with all VYTAL bottles.",
@@ -242,7 +271,11 @@ export const products: Product[] = [
     swatch: "bg-primary/40",
     color: "Sage natural",
     reviews: [
-      { quote: "First energy drink I drink for the feeling, not the kick.", name: "Sophie B.", role: "Product designer · Berlin" },
+      {
+        quote: "First energy drink I drink for the feeling, not the kick.",
+        name: "Sophie B.",
+        role: "Product designer · Berlin",
+      },
     ],
   },
   {
@@ -264,7 +297,11 @@ export const products: Product[] = [
       { name: "Magnesium" },
       { name: "Plant extracts" },
     ],
-    benefits: ["Late-evening focus without jitter", "Magnesium for muscle ease", "Deeper, calmer flavor"],
+    benefits: [
+      "Late-evening focus without jitter",
+      "Magnesium for muscle ease",
+      "Deeper, calmer flavor",
+    ],
     nutrition: baseNutrition,
     usage: ["Choose flavor", "Start refill", "Drink or take away", "Ideal for long evenings"],
     sustainability:
@@ -278,7 +315,11 @@ export const products: Product[] = [
     swatch: "bg-foreground/70",
     color: "Bordeaux night",
     reviews: [
-      { quote: "I can finish a 10pm writing block and still fall asleep.", name: "Mira H.", role: "PhD candidate · Vienna" },
+      {
+        quote: "I can finish a 10pm writing block and still fall asleep.",
+        name: "Mira H.",
+        role: "PhD candidate · Vienna",
+      },
     ],
   },
   // Bottles
@@ -305,8 +346,7 @@ export const products: Product[] = [
     ],
     nutrition: [],
     usage: ["Place at station", "Tap NFC to load profile", "Refill", "Go"],
-    sustainability:
-      "Made to last years. Replaces hundreds of single-use cans over its lifetime.",
+    sustainability: "Made to last years. Replaces hundreds of single-use cans over its lifetime.",
     material: "Borosilicate glass + recycled silicone sleeve.",
     refillCompat: "Compatible with all VYTAL stations and refills.",
     crashExplainer:
@@ -322,7 +362,11 @@ export const products: Product[] = [
       { slug: "go-bottle-beige", colorName: "Matte Beige", hex: "#dcd3c6", image: goBottleBeige },
     ],
     reviews: [
-      { quote: "The NFC thing genuinely changes the experience.", name: "Niko P.", role: "Student · Leipzig" },
+      {
+        quote: "The NFC thing genuinely changes the experience.",
+        name: "Niko P.",
+        role: "Student · Leipzig",
+      },
     ],
   },
   {
@@ -340,7 +384,11 @@ export const products: Product[] = [
       { name: "Interchangeable bottom cap" },
       { name: "Smart lid compatible" },
     ],
-    benefits: ["Optimised recipe for 750ml", "Better thermal performance", "Ergonomic to drink while typing"],
+    benefits: [
+      "Optimised recipe for 750ml",
+      "Better thermal performance",
+      "Ergonomic to drink while typing",
+    ],
     nutrition: [],
     usage: ["Place at station", "Auto-detected", "Refill", "Use through the day"],
     sustainability: "Modular caps mean broken parts can be replaced instead of the whole bottle.",
@@ -356,10 +404,19 @@ export const products: Product[] = [
     variants: [
       { slug: "flow-bottle", colorName: "Sage Soft", hex: "#d1d5c6", image: bottleFlow },
       { slug: "flow-bottle-beige", colorName: "Matte Oat", hex: "#e8dec7", image: flowBottleBeige },
-      { slug: "flow-bottle-olive", colorName: "Soft Olive", hex: "#8a9a83", image: flowBottleOlive },
+      {
+        slug: "flow-bottle-olive",
+        colorName: "Soft Olive",
+        hex: "#8a9a83",
+        image: flowBottleOlive,
+      },
     ],
     reviews: [
-      { quote: "Looks beautiful on my desk and never leaks.", name: "Ines W.", role: "PM · Munich" },
+      {
+        quote: "Looks beautiful on my desk and never leaks.",
+        name: "Ines W.",
+        role: "PM · Munich",
+      },
     ],
   },
   {
@@ -390,7 +447,11 @@ export const products: Product[] = [
     swatch: "bg-foreground/80",
     color: "Monochrome steel",
     reviews: [
-      { quote: "It feels like Notion + a bottle. Calm, precise.", name: "Tom R.", role: "Consultant · Frankfurt" },
+      {
+        quote: "It feels like Notion + a bottle. Calm, precise.",
+        name: "Tom R.",
+        role: "Consultant · Frankfurt",
+      },
     ],
   },
   {
@@ -407,20 +468,29 @@ export const products: Product[] = [
       { name: "Soft-matte base" },
       { name: "Modular stackable design" },
     ],
-    benefits: ["Pantry-mode at the station", "Stackable in kitchen shelves", "Ideal for home office or shared flats"],
+    benefits: [
+      "Pantry-mode at the station",
+      "Stackable in kitchen shelves",
+      "Ideal for home office or shared flats",
+    ],
     nutrition: [],
     usage: ["Place at station in pantry mode", "Fill", "Store", "Pour to bottle as needed"],
     sustainability: "Reduces individual refill trips and packaging by ~70%.",
     material: "Borosilicate glass + cork base.",
     refillCompat: "Pantry mode at VYTAL stations.",
-    crashExplainer: "Lets you build a calm refill ritual at home — no more late-night corner-shop runs.",
+    crashExplainer:
+      "Lets you build a calm refill ritual at home — no more late-night corner-shop runs.",
     situations: ["Home office", "Shared flats", "Weekend stock"],
     price: "€18",
     bundle: "Container + 10 refills · €52",
     swatch: "bg-secondary",
     color: "Natural glass",
     reviews: [
-      { quote: "We share one in the flat and refill on weekends.", name: "Ben & Lara", role: "WG Berlin" },
+      {
+        quote: "We share one in the flat and refill on weekends.",
+        name: "Ben & Lara",
+        role: "WG Berlin",
+      },
     ],
   },
   {
@@ -440,8 +510,7 @@ export const products: Product[] = [
     benefits: ["Seasonal drops", "App badge unlocks", "Compatible with special flavors"],
     nutrition: [],
     usage: ["Limited release", "Numbered", "Same refill flow as GO BOTTLE"],
-    sustainability:
-      "Same long-life materials as the core line — collected, not discarded.",
+    sustainability: "Same long-life materials as the core line — collected, not discarded.",
     material: "Translucent borosilicate + holographic film.",
     refillCompat: "Same as GO BOTTLE.",
     crashExplainer: "Reduces 'novelty buys' — you reach for the bottle you already love.",
@@ -450,9 +519,7 @@ export const products: Product[] = [
     bundle: "Limited edition · numbered",
     swatch: "bg-accent",
     color: "Aurora translucent",
-    reviews: [
-      { quote: "Mine's #043. Yes, I checked.", name: "Kai L.", role: "Community member" },
-    ],
+    reviews: [{ quote: "Mine's #043. Yes, I checked.", name: "Kai L.", role: "Community member" }],
   },
   // Bundles
   {
@@ -483,8 +550,18 @@ export const products: Product[] = [
     color: "Sage starter",
     variants: [
       { slug: "starter-kit", colorName: "Sage Soft", hex: "#8a9a83", image: shopStarterKit },
-      { slug: "starter-kit-brown", colorName: "Matte Brown", hex: "#8c7a6b", image: shopStarterKitBrown },
-      { slug: "starter-kit-beige", colorName: "Matte Beige", hex: "#dcd3c6", image: shopStarterKitBeige },
+      {
+        slug: "starter-kit-brown",
+        colorName: "Matte Brown",
+        hex: "#8c7a6b",
+        image: shopStarterKitBrown,
+      },
+      {
+        slug: "starter-kit-beige",
+        colorName: "Matte Beige",
+        hex: "#dcd3c6",
+        image: shopStarterKitBeige,
+      },
     ],
     reviews: [
       { quote: "I gifted three of these last month.", name: "Lena F.", role: "VYTAL early user" },

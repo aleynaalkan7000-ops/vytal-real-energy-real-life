@@ -14,17 +14,21 @@ export function DiscountBanner() {
       <div className="discount-banner__glow" />
 
       <div className="discount-banner__content">
-        <span className="discount-banner__label">
-          {isDE ? "Studentenrabatt" : "Student drop"}
-        </span>
+        <span className="discount-banner__label">{isDE ? "Studentenrabatt" : "Student drop"}</span>
 
         <span className="discount-banner__text-short">
           15% off · <strong>REFILL15</strong>
         </span>
         <p className="discount-banner__text">
-          {isDE
-            ? <>15% auf dein erstes Nachfüll-Setup mit Code <strong>REFILL15</strong></>
-            : <>15% off your first refill setup with code <strong>REFILL15</strong></>}
+          {isDE ? (
+            <>
+              15% auf dein erstes Nachfüll-Setup mit Code <strong>REFILL15</strong>
+            </>
+          ) : (
+            <>
+              15% off your first refill setup with code <strong>REFILL15</strong>
+            </>
+          )}
         </p>
 
         <a href="/shop#starter" className="discount-banner__button">

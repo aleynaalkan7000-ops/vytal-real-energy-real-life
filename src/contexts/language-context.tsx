@@ -58,36 +58,76 @@ export const t = {
         "A 3pm crash.",
         "An evening you can't feel.",
       ],
-      overstimBodyA: "Modern productivity demands 110% — and calls the burnout a personality. Energy drinks are built for that loop: spike, crash, repeat.",
+      overstimBodyA:
+        "Modern productivity demands 110% — and calls the burnout a personality. Energy drinks are built for that loop: spike, crash, repeat.",
       overstimBodyB: "VYTAL was made because we stopped believing in it.",
       overstimH2a: "Maybe the problem",
       overstimH2b: "isn't motivation.",
       systemKicker: "The system",
       systemH2a: "One bottle.",
       systemH2b: "A quieter ritual.",
-      systemDesc: "We replaced the can with a ritual. Each VYTAL tablet dissolves into a slow, considered drink — calm technology designed for real life, not extreme life.",
+      systemDesc:
+        "We replaced the can with a ritual. Each VYTAL tablet dissolves into a slow, considered drink — calm technology designed for real life, not extreme life.",
       systemSteps: [
-        { n: "01", t: "Pour", d: "Fill your VYTAL bottle with cold water — tap, sparkling, however you like it." },
-        { n: "02", t: "Drop", d: "Add a single plant-based concentrate tablet. No sugar, no plastic, no fuss." },
-        { n: "03", t: "Dissolve", d: "Watch it disappear in 90 seconds. Slow-release focus, calm and ready." },
-        { n: "04", t: "Refill", d: "When you're low, refills arrive at your door in compostable paper." },
+        {
+          n: "01",
+          t: "Pour",
+          d: "Fill your VYTAL bottle with cold water — tap, sparkling, however you like it.",
+        },
+        {
+          n: "02",
+          t: "Drop",
+          d: "Add a single plant-based concentrate tablet. No sugar, no plastic, no fuss.",
+        },
+        {
+          n: "03",
+          t: "Dissolve",
+          d: "Watch it disappear in 90 seconds. Slow-release focus, calm and ready.",
+        },
+        {
+          n: "04",
+          t: "Refill",
+          d: "When you're low, refills arrive at your door in compostable paper.",
+        },
       ],
       systemLink: "See how a refill arrives",
       insideKicker: "Inside the bottle",
       insideH2a: "Four ingredients.",
       insideH2b: "Nothing hidden.",
       ingredients: [
-        { kicker: "Focus without feeling attacked", name: "L-Theanine", dose: "200 mg", body: "From green tea. Paired with caffeine, it reshapes stimulation into something steadier — clearer attention, without the edge." },
-        { kicker: "Calm under pressure", name: "Ashwagandha (KSM-66)", dose: "300 mg", body: "An adaptogen that helps the body process cortisol. Clinically studied for stress resilience — backed by evidence, not trends." },
-        { kicker: "Energy that lasts the workday", name: "Green Tea Caffeine", dose: "80 mg", body: "Slow-release natural caffeine. Roughly one cup of coffee, paired so it doesn't turn against you at 3pm." },
-        { kicker: "The quiet co-pilot", name: "Magnesium Bisglycinate", dose: "150 mg", body: "Cellular energy and muscle recovery, in the form your body actually absorbs." },
+        {
+          kicker: "Focus without feeling attacked",
+          name: "L-Theanine",
+          dose: "200 mg",
+          body: "From green tea. Paired with caffeine, it reshapes stimulation into something steadier — clearer attention, without the edge.",
+        },
+        {
+          kicker: "Calm under pressure",
+          name: "Ashwagandha (KSM-66)",
+          dose: "300 mg",
+          body: "An adaptogen that helps the body process cortisol. Clinically studied for stress resilience — backed by evidence, not trends.",
+        },
+        {
+          kicker: "Energy that lasts the workday",
+          name: "Green Tea Caffeine",
+          dose: "80 mg",
+          body: "Slow-release natural caffeine. Roughly one cup of coffee, paired so it doesn't turn against you at 3pm.",
+        },
+        {
+          kicker: "The quiet co-pilot",
+          name: "Magnesium Bisglycinate",
+          dose: "150 mg",
+          body: "Cellular energy and muscle recovery, in the form your body actually absorbs.",
+        },
       ],
       ritualsH2a: "Small rituals,",
       ritualsH2b: "instead of extreme optimisation.",
-      ritualsDesc: "VYTAL doesn't live in a stadium. It lives in libraries, commutes, quiet cafés, and 9pm desks. Real life, not extreme life.",
+      ritualsDesc:
+        "VYTAL doesn't live in a stadium. It lives in libraries, commutes, quiet cafés, and 9pm desks. Real life, not extreme life.",
       productKicker: "Start here",
       productH2: "The starter ritual.",
-      productDesc: "One bottle, six flavours, a month of focus. Designed to be the only thing you need to begin — and the only thing left on your desk a year later.",
+      productDesc:
+        "One bottle, six flavours, a month of focus. Designed to be the only thing you need to begin — and the only thing left on your desk a year later.",
       productCta1: "Shop the starter kit",
       productCta2: "Browse all flavours",
       journalKicker: "The Journal",
@@ -99,13 +139,15 @@ export const t = {
       finalKicker: "Built calmly. On purpose.",
       finalH2a: "A slower system",
       finalH2b: "for modern energy.",
-      finalDesc: "Start with a bottle. Refill forever. Trade burnout for something quieter — and finally, actually enjoyable.",
+      finalDesc:
+        "Start with a bottle. Refill forever. Trade burnout for something quieter — and finally, actually enjoyable.",
       finalCta1: "Shop VYTAL",
       finalCta2: "Explore the system",
       finalCta3: "Read the journal",
       newsletterKicker: "Stay in the loop",
       newsletterH2: "One slow newsletter.",
-      newsletterDesc: "New drops, journal essays, no noise — sent when it matters, never when it doesn't.",
+      newsletterDesc:
+        "New drops, journal essays, no noise — sent when it matters, never when it doesn't.",
       newsletterPlaceholder: "you@calm.day",
       newsletterCta: "Join quietly",
       newsletterSent: "You're on the list. We'll write when it matters.",
@@ -122,26 +164,83 @@ export const t = {
         ["Price / drink", "~€2.60", "~€2.50", "~€3.50"],
       ],
       reviews: [
-        { quote: "Finally a focus drink that doesn't make me jittery at 3pm.", name: "Marie L.", role: "Law student · Munich" },
-        { quote: "It just works, all day. The most boring compliment, but still.", name: "Jonas K.", role: "Engineer · Berlin" },
-        { quote: "My 4pm reset. Cold sparkling, gone in two minutes.", name: "Anna T.", role: "Designer · Hamburg" },
-        { quote: "Replaces my pre-workout AND my 3rd coffee. Smarter.", name: "Leon S.", role: "Master's student · Cologne" },
-        { quote: "First energy drink I drink for the feeling, not the kick.", name: "Sophie B.", role: "Product designer · Berlin" },
-        { quote: "I can finish a 10pm writing block and still fall asleep.", name: "Mira H.", role: "PhD candidate · Vienna" },
-        { quote: "Switched from cold brew to this. My hands stopped shaking.", name: "Tom R.", role: "Freelance developer · Zürich" },
-        { quote: "Three months in. Can't imagine starting the day without it.", name: "Lena K.", role: "UX researcher · Frankfurt" },
-        { quote: "The refill system sold me. The taste kept me.", name: "Max F.", role: "Architecture student · Stuttgart" },
+        {
+          quote: "Finally a focus drink that doesn't make me jittery at 3pm.",
+          name: "Marie L.",
+          role: "Law student · Munich",
+        },
+        {
+          quote: "It just works, all day. The most boring compliment, but still.",
+          name: "Jonas K.",
+          role: "Engineer · Berlin",
+        },
+        {
+          quote: "My 4pm reset. Cold sparkling, gone in two minutes.",
+          name: "Anna T.",
+          role: "Designer · Hamburg",
+        },
+        {
+          quote: "Replaces my pre-workout AND my 3rd coffee. Smarter.",
+          name: "Leon S.",
+          role: "Master's student · Cologne",
+        },
+        {
+          quote: "First energy drink I drink for the feeling, not the kick.",
+          name: "Sophie B.",
+          role: "Product designer · Berlin",
+        },
+        {
+          quote: "I can finish a 10pm writing block and still fall asleep.",
+          name: "Mira H.",
+          role: "PhD candidate · Vienna",
+        },
+        {
+          quote: "Switched from cold brew to this. My hands stopped shaking.",
+          name: "Tom R.",
+          role: "Freelance developer · Zürich",
+        },
+        {
+          quote: "Three months in. Can't imagine starting the day without it.",
+          name: "Lena K.",
+          role: "UX researcher · Frankfurt",
+        },
+        {
+          quote: "The refill system sold me. The taste kept me.",
+          name: "Max F.",
+          role: "Architecture student · Stuttgart",
+        },
       ],
       ritualItems: [
-        { label: "08:14 · Café", caption: "The slow start. A pour-over and a cold refill. Two things, no agenda." },
+        {
+          label: "08:14 · Café",
+          caption: "The slow start. A pour-over and a cold refill. Two things, no agenda.",
+        },
         { label: "14:42 · Library", caption: "Three hours into a paper. The hum stays steady." },
         { label: "16:30 · Office", caption: "Back-to-back calls. No spike. No 4pm cliff." },
         { label: "21:08 · Desk", caption: "One last quiet hour. Then a real evening." },
       ],
       journalArticles: [
-        { kicker: "Essay", title: "The myth of productive crashes.", excerpt: "Why the spike-and-collapse cycle has become a personality, and what changes when you finally let it go.", meta: "6 min read" },
-        { kicker: "Field note", title: "Your attention span isn't broken.", excerpt: "It's just outnumbered. A quiet argument for fewer inputs, slower mornings, and one good drink at a time.", meta: "4 min read" },
-        { kicker: "Manifesto", title: "Designing calmer routines.", excerpt: "Three small structural changes that compound into something that actually feels like rest.", meta: "8 min read" },
+        {
+          kicker: "Essay",
+          title: "The myth of productive crashes.",
+          excerpt:
+            "Why the spike-and-collapse cycle has become a personality, and what changes when you finally let it go.",
+          meta: "6 min read",
+        },
+        {
+          kicker: "Field note",
+          title: "Your attention span isn't broken.",
+          excerpt:
+            "It's just outnumbered. A quiet argument for fewer inputs, slower mornings, and one good drink at a time.",
+          meta: "4 min read",
+        },
+        {
+          kicker: "Manifesto",
+          title: "Designing calmer routines.",
+          excerpt:
+            "Three small structural changes that compound into something that actually feels like rest.",
+          meta: "8 min read",
+        },
       ],
     },
     // ── Shop ─────────────────────────────────────────────────────────────
@@ -150,17 +249,20 @@ export const t = {
       heroKicker: "The shop · The ecosystem",
       heroH1a: "Start your",
       heroH1b: "refill ritual.",
-      heroDesc: "One starter kit. Six functional flavors. A reusable aluminum cylinder that comes back to us — and to you — again and again.",
+      heroDesc:
+        "One starter kit. Six functional flavors. A reusable aluminum cylinder that comes back to us — and to you — again and again.",
       heroCta1: "Begin with the Starter Kit",
       heroCta2: "Explore the flavors",
       heroCta3: "How the loop works →",
       quietH2a: "Not an energy drink shop.",
       quietH2b: "A refill ecosystem.",
-      quietDesc: "Six flavors. One reusable cylinder. A return loop that quietly closes behind every order. Designed for routines you already live.",
+      quietDesc:
+        "Six flavors. One reusable cylinder. A return loop that quietly closes behind every order. Designed for routines you already live.",
       starterKicker: "01 · The complete ritual",
       starterH2a: "Begin the",
       starterH2b: "refill ritual.",
-      starterDesc: "Everything you need to enter the system — the glass bottle, the reusable aluminum cylinder, all six functional flavors, and a ritual card for the first morning.",
+      starterDesc:
+        "Everything you need to enter the system — the glass bottle, the reusable aluminum cylinder, all six functional flavors, and a ritual card for the first morning.",
       starterItems: [
         "1 × 750ml Borosilicate glass bottle",
         "1 × Matte aluminum refill cylinder",
@@ -171,17 +273,20 @@ export const t = {
       starterCta: "Begin the Starter Kit →",
       sixFlavorsKicker: "Six functional moods",
       sixFlavorsH3: "Every kit contains all six.",
-      sixFlavorsDesc: "Each flavor has its own intent — try them all before you choose your everyday.",
+      sixFlavorsDesc:
+        "Each flavor has its own intent — try them all before you choose your everyday.",
       exploreFlavorLabel: "Explore flavor",
       refillsKicker: "03 · The refills",
       refillsH2a: "The refills.",
       refillsH2b: "Always inside the cylinder.",
-      refillsDesc: "Each refill arrives in a reusable matte aluminum cylinder. Every cylinder holds 8 functional tablets and includes a €4 refundable deposit. When five cylinders are empty, send them back, get your deposit credited, and we sterilize and refill them.",
+      refillsDesc:
+        "Each refill arrives in a reusable matte aluminum cylinder. Every cylinder holds 8 functional tablets and includes a €4 refundable deposit. When five cylinders are empty, send them back, get your deposit credited, and we sterilize and refill them.",
       inRefillLoop: "In refill loop",
       loopKicker: "05 · The return loop",
       loopH2a: "How the VYTAL",
       loopH2b: "loop works.",
-      loopDesc: "Return whenever you're ready. One postbox. Deposit refunded. No subscription tricks, no app, no greenwashing. The whole system is built around one quiet motion.",
+      loopDesc:
+        "Return whenever you're ready. One postbox. Deposit refunded. No subscription tricks, no app, no greenwashing. The whole system is built around one quiet motion.",
       loopSteps: ["Receive", "Use", "Collect", "Return", "Reuse"],
       loopStepDescs: [
         "Refill cylinder arrives with your order. Deposit included.",
@@ -193,19 +298,31 @@ export const t = {
       loopDeposit: "Deposit",
       loopDepositText: "€4 per cylinder. Fully refunded upon return. No minimums, no rush.",
       loopHygiene: "Hygiene",
-      loopHygieneText: "Returned cylinders are sterilized to medical-grade standards before refilling.",
+      loopHygieneText:
+        "Returned cylinders are sterilized to medical-grade standards before refilling.",
       loopReality: "Reality check",
-      loopRealityText: "Significantly more conscious than canned drinks. We publish the numbers quarterly.",
+      loopRealityText:
+        "Significantly more conscious than canned drinks. We publish the numbers quarterly.",
       costTitle: "What it costs per month",
       cylinderKicker: "The system object",
       cylinderH2a: "Included with",
       cylinderH2b: "every single refill.",
-      cylinderDesc: "The matte aluminum cylinder isn't just packaging; it's the vessel your refills travel in. Every flavor you order arrives inside one. Use it, empty it, and decide: return it for a deposit refund so we can close the loop, or keep it to organize your own space.",
+      cylinderDesc:
+        "The matte aluminum cylinder isn't just packaging; it's the vessel your refills travel in. Every flavor you order arrives inside one. Use it, empty it, and decide: return it for a deposit refund so we can close the loop, or keep it to organize your own space.",
       cylinderSpecs: [
-        ["Already included", "Ships automatically with every refill flavor. No need to buy it separately"],
+        [
+          "Already included",
+          "Ships automatically with every refill flavor. No need to buy it separately",
+        ],
         ["Holds 8 refills", "Holds a complete flavor cycle, keeping everything airtight and fresh"],
-        ["A Quiet Footprint", "No wrappers, no plastic, no excess waste. Just the refill inside the cylinder"],
-        ["Refundable Deposit", "Send it back unfranked to claim your deposit, or keep it for your desk, shelf or kitchen counter"],
+        [
+          "A Quiet Footprint",
+          "No wrappers, no plastic, no excess waste. Just the refill inside the cylinder",
+        ],
+        [
+          "Refundable Deposit",
+          "Send it back unfranked to claim your deposit, or keep it for your desk, shelf or kitchen counter",
+        ],
       ],
       accessoriesKicker: "04 · Bottles & vessels",
       accessoriesH3: "Bottles & vessels.",
@@ -213,7 +330,8 @@ export const t = {
       susKicker: "06 · Sustainability",
       susH2a: "Quietly honest.",
       susH2b: "Measurably better.",
-      susDesc: "We're not pretending to be zero-waste. We're publishing the real numbers, the real loop, the real material trail — and asking less of the planet, one refill at a time.",
+      susDesc:
+        "We're not pretending to be zero-waste. We're publishing the real numbers, the real loop, the real material trail — and asking less of the planet, one refill at a time.",
       closingKicker: "A slower system",
       closingH2a: "One ritual.",
       closingH2b: "Endlessly refilled.",
@@ -221,7 +339,8 @@ export const t = {
       closingCta2: "Explore the refills",
       reviewsKicker: "Community voices",
       reviewsH2: "What people say.",
-      reviewsDesc: "Real routines. Real feedback. From mornings in libraries to late-evening desks.",
+      reviewsDesc:
+        "Real routines. Real feedback. From mornings in libraries to late-evening desks.",
       faqKicker: "Questions",
       faqH2: "Frequently asked.",
     },
@@ -240,7 +359,8 @@ export const t = {
       finalKicker: "Built calmly. On purpose.",
       finalH2a: "A calmer way",
       finalH2b: "to refill energy.",
-      finalDesc: "(Re)Fuel your day. Not the planet. Start with one bottle and one tablet — the rest is just repetition you'll come to enjoy.",
+      finalDesc:
+        "(Re)Fuel your day. Not the planet. Start with one bottle and one tablet — the rest is just repetition you'll come to enjoy.",
       finalCta1: "Start with the Starter Kit →",
       finalCta2: "Browse all flavours",
       returnCta1: "How the loop works →",
@@ -249,35 +369,62 @@ export const t = {
       faqH2: "Frequently asked.",
       faqDesc: "Everything you need to know before starting the refill ritual.",
       faqItems: [
-        { q: "How does the refill system actually work?", a: "Fill your VYTAL bottle with cold water, drop in one tablet, wait about 90 seconds for it to dissolve, and drink. For regular use, order refill cylinders online — each cylinder holds 8 tablets and includes a €4 refundable deposit." },
-        { q: "What's in each tablet?", a: "Four active ingredients: L-Theanine (200 mg) for calm focus, Ashwagandha KSM-66 (300 mg) for stress resilience, natural Green Tea Caffeine (80 mg) for steady energy, and Magnesium Bisglycinate (150 mg) for cellular recovery. No sugar, no artificial sweeteners." },
-        { q: "Is this a food supplement or an energy drink?", a: "VYTAL tablets are classified as a food supplement. They are not a substitute for a balanced and varied diet. Contains caffeine — not recommended for children, pregnant or breastfeeding women." },
-        { q: "Why tablets instead of a ready-made drink?", a: "Most ready-to-drink energy products are mostly water — you're shipping liquid across the country, packaged in a single-use can. VYTAL only ships the functional concentrate. You add local water. That reduces shipping volume by up to 85% and eliminates single-use packaging per drink." },
-        { q: "How do I return the empty cylinders?", a: "Collect five empty cylinders, place them in the included pre-paid return pouch, and drop it unfranked in any postbox. We sterilize and refill them. Your €4-per-cylinder deposit is credited to your next order." },
-        { q: "What water works best?", a: "Cold still water dissolves the tablet most cleanly. Sparkling water works too and gives a slightly lighter, more refreshing result. Avoid hot water — it can degrade some of the active ingredients." },
-        { q: "Can I use any bottle, or does it have to be VYTAL?", a: "The tablets dissolve in any clean vessel with cold water. The VYTAL bottles are designed for the refill system — with standardised openings for station compatibility and materials chosen for daily long-term use — but you can use the tablets with any bottle you already own." },
+        {
+          q: "How does the refill system actually work?",
+          a: "Fill your VYTAL bottle with cold water, drop in one tablet, wait about 90 seconds for it to dissolve, and drink. For regular use, order refill cylinders online — each cylinder holds 8 tablets and includes a €4 refundable deposit.",
+        },
+        {
+          q: "What's in each tablet?",
+          a: "Four active ingredients: L-Theanine (200 mg) for calm focus, Ashwagandha KSM-66 (300 mg) for stress resilience, natural Green Tea Caffeine (80 mg) for steady energy, and Magnesium Bisglycinate (150 mg) for cellular recovery. No sugar, no artificial sweeteners.",
+        },
+        {
+          q: "Is this a food supplement or an energy drink?",
+          a: "VYTAL tablets are classified as a food supplement. They are not a substitute for a balanced and varied diet. Contains caffeine — not recommended for children, pregnant or breastfeeding women.",
+        },
+        {
+          q: "Why tablets instead of a ready-made drink?",
+          a: "Most ready-to-drink energy products are mostly water — you're shipping liquid across the country, packaged in a single-use can. VYTAL only ships the functional concentrate. You add local water. That reduces shipping volume by up to 85% and eliminates single-use packaging per drink.",
+        },
+        {
+          q: "How do I return the empty cylinders?",
+          a: "Collect five empty cylinders, place them in the included pre-paid return pouch, and drop it unfranked in any postbox. We sterilize and refill them. Your €4-per-cylinder deposit is credited to your next order.",
+        },
+        {
+          q: "What water works best?",
+          a: "Cold still water dissolves the tablet most cleanly. Sparkling water works too and gives a slightly lighter, more refreshing result. Avoid hot water — it can degrade some of the active ingredients.",
+        },
+        {
+          q: "Can I use any bottle, or does it have to be VYTAL?",
+          a: "The tablets dissolve in any clean vessel with cold water. The VYTAL bottles are designed for the refill system — with standardised openings for station compatibility and materials chosen for daily long-term use — but you can use the tablets with any bottle you already own.",
+        },
       ],
     },
     // ── About ────────────────────────────────────────────────────────────
     about: {
-      heroDesc: "A calmer alternative to modern productivity culture — built for people who'd rather live a day than survive it.",
+      heroDesc:
+        "A calmer alternative to modern productivity culture — built for people who'd rather live a day than survive it.",
       heroCta1: "Explore the system",
       heroCta2: "Read the journal",
       heroCta3: "Shop VYTAL →",
       realizationKicker: "A small realization",
       realizationH2a: "Maybe the problem",
       realizationH2b: "isn't motivation.",
-      realizationBodyA: "We built VYTAL after a few too many late evenings ending the same way — a half-crushed can, a half-finished sentence, a head that wouldn't quiet down.",
-      realizationBodyB: "It wasn't a discipline problem. It wasn't a productivity hack we hadn't found yet. It was a culture telling us that exhaustion is just the price of being useful.",
-      realizationBodyC: "Maybe modern energy culture was simply never sustainable — for the body, for the nervous system, or for the planet asked to produce it.",
+      realizationBodyA:
+        "We built VYTAL after a few too many late evenings ending the same way — a half-crushed can, a half-finished sentence, a head that wouldn't quiet down.",
+      realizationBodyB:
+        "It wasn't a discipline problem. It wasn't a productivity hack we hadn't found yet. It was a culture telling us that exhaustion is just the price of being useful.",
+      realizationBodyC:
+        "Maybe modern energy culture was simply never sustainable — for the body, for the nervous system, or for the planet asked to produce it.",
       statementKicker: "What we believe",
       statementH2a: "Energy should",
       statementH2b: "support life —",
       statementH2c: "not require recovery from it.",
-      statementDesc: "Everything we make is built around that one quiet sentence. The dosage, the bottles, the rituals, the tone, the refill loop. All of it.",
+      statementDesc:
+        "Everything we make is built around that one quiet sentence. The dosage, the bottles, the rituals, the tone, the refill loop. All of it.",
       philosophyKicker: "The philosophy",
       philosophyH2: "Our philosophy, in five quiet lines.",
-      philosophyDesc: "Not a manifesto. Not a mission statement. Just five things we keep coming back to when we decide what to make — and what to refuse to make.",
+      philosophyDesc:
+        "Not a manifesto. Not a mission statement. Just five things we keep coming back to when we decide what to make — and what to refuse to make.",
       philosophyLines: [
         "Energy should support life — not require recovery from it.",
         "Transparency beats marketing.",
@@ -289,17 +436,32 @@ export const t = {
       designH2a: "Why we built it",
       designH2b: "this",
       designH2c: "way.",
-      designDesc: "VYTAL isn't a product line. It's a small set of decisions about how a quieter version of modern energy might actually look — in the hand, in the morning, in the bin.",
+      designDesc:
+        "VYTAL isn't a product line. It's a small set of decisions about how a quieter version of modern energy might actually look — in the hand, in the morning, in the bin.",
       intentions: [
-        { n: "01", t: "Designed around real attention.", d: "Our tablets are dosed for the way a real day actually unfolds — not for a 20-minute spike a marketing team can chart." },
-        { n: "02", t: "Built to be reused, not replaced.", d: "One bottle. Refilled quietly for years. Modular parts replaced individually instead of the whole object thrown away." },
-        { n: "03", t: "Quiet by default.", d: "No neon, no edges, no urgency. The packaging, the tone, the rituals — all written to make a day a little less loud." },
+        {
+          n: "01",
+          t: "Designed around real attention.",
+          d: "Our tablets are dosed for the way a real day actually unfolds — not for a 20-minute spike a marketing team can chart.",
+        },
+        {
+          n: "02",
+          t: "Built to be reused, not replaced.",
+          d: "One bottle. Refilled quietly for years. Modular parts replaced individually instead of the whole object thrown away.",
+        },
+        {
+          n: "03",
+          t: "Quiet by default.",
+          d: "No neon, no edges, no urgency. The packaging, the tone, the rituals — all written to make a day a little less loud.",
+        },
       ],
       humanKicker: "The human side",
       humanH2a: "A small studio.",
       humanH2b: "Slow on purpose.",
-      humanBodyA: "We're a small team based in Heilbronn. No growth-at-all-costs deck. No twenty-person marketing floor. Just a quiet studio, a long table, and a stubborn belief that brands made calmly tend to age better.",
-      humanBodyB: "We share rituals more than we share opinions. A glass of water in the morning. A walk between meetings. A working day that ends when it ends.",
+      humanBodyA:
+        "We're a small team based in Heilbronn. No growth-at-all-costs deck. No twenty-person marketing floor. Just a quiet studio, a long table, and a stubborn belief that brands made calmly tend to age better.",
+      humanBodyB:
+        "We share rituals more than we share opinions. A glass of water in the morning. A walk between meetings. A working day that ends when it ends.",
       humanBodyC: "Nothing radical. Just life, treated like it matters.",
       finalKicker: "(Re)Fuel your day. Not the planet.",
       finalH2a: "Built calmly.",
@@ -318,22 +480,27 @@ export const t = {
       heroH1a: "Thoughts for",
       heroH1b: "calmer",
       heroH1c: "modern living.",
-      heroDesc: "Editorial reflections on focus, recovery, attention and ritual — a quiet space inside an overstimulated internet.",
+      heroDesc:
+        "Editorial reflections on focus, recovery, attention and ritual — a quiet space inside an overstimulated internet.",
       heroCta1: "Read the journal",
       heroCta2: "Explore rituals",
       heroCta3: "Discover VYTAL →",
       editorKicker: "A note from the editor",
-      editorBody: "We started this journal because the loudest voices in modern productivity rarely speak about how any of it actually feels. So we made a quieter one.",
-      editorBodySub: "Slow essays, honest observations, and small rituals — written for the kind of attention modern life keeps trying to take away. No life hacks. No dopamine bait. Just notes on living a little more calmly, on purpose.",
+      editorBody:
+        "We started this journal because the loudest voices in modern productivity rarely speak about how any of it actually feels. So we made a quieter one.",
+      editorBodySub:
+        "Slow essays, honest observations, and small rituals — written for the kind of attention modern life keeps trying to take away. No life hacks. No dopamine bait. Just notes on living a little more calmly, on purpose.",
       featuredKicker: "The cover essay",
       featuredLabel: "01 /",
-      pullQuote: "A calmer life isn't a slower one. It's a more honest one — one that admits how much energy attention actually costs.",
+      pullQuote:
+        "A calmer life isn't a slower one. It's a more honest one — one that admits how much energy attention actually costs.",
       pullQuoteSource: "— From the editor's notes, Issue 04",
       gridH2: "Essays from the current volume.",
       shorterNotes: "Shorter notes",
       continueKicker: "Continue reading",
       continueH2: "Built calmly. On purpose.",
-      continueDesc: "One slow newsletter, once a month. One essay. One ritual. One small update from inside the VYTAL system. No life hacks, no urgency.",
+      continueDesc:
+        "One slow newsletter, once a month. One essay. One ritual. One small update from inside the VYTAL system. No life hacks, no urgency.",
       newsletterPlaceholder: "you@calm.day",
       newsletterCta: "Join quietly",
       newsletterSent: "You're on the list. We'll write when it matters.",
@@ -341,7 +508,15 @@ export const t = {
       modalIssue: "Issue 04 · Editorial Journal",
       readCoverEssay: "Read the cover essay →",
       springLabel: "Spring · 2026",
-      categories: ["Focus", "Rituals", "Recovery", "Digital Overload", "Modern Work", "Nervous System", "Sustainable Energy"],
+      categories: [
+        "Focus",
+        "Rituals",
+        "Recovery",
+        "Digital Overload",
+        "Modern Work",
+        "Nervous System",
+        "Sustainable Energy",
+      ],
       sectionsLabel: "Sections",
       coverEssueLabel: "Issue 01 · Cover Essay",
       coverH2: "The Cover Essay",
@@ -353,7 +528,8 @@ export const t = {
       heroH1a: "Tell us",
       heroH1b: "what you're",
       heroH1c: "working on.",
-      heroDesc: "For collaborations, ideas, support, or simply reaching out. We read every message thoughtfully — there is no queue, no ticket, no script.",
+      heroDesc:
+        "For collaborations, ideas, support, or simply reaching out. We read every message thoughtfully — there is no queue, no ticket, no script.",
       heroCta1: "Contact VYTAL",
       heroCta2: "Explore the Journal",
       heroCta3: "Shop VYTAL →",
@@ -361,24 +537,45 @@ export const t = {
       commH2a: "Built for",
       commH2b: "conversations,",
       commH2c: "not tickets.",
-      commBodyA: "We answer messages the same way we make our products — calmly, with intention, and without performing. No autoresponders pretending to care. No urgent banners. No upsell.",
-      commBodyB: "Most replies arrive within two working days. Some take a little longer, because we'd rather write something honest than something fast.",
+      commBodyA:
+        "We answer messages the same way we make our products — calmly, with intention, and without performing. No autoresponders pretending to care. No urgent banners. No upsell.",
+      commBodyB:
+        "Most replies arrive within two working days. Some take a little longer, because we'd rather write something honest than something fast.",
       pillars: [
-        { k: "01", t: "Real people", d: "Written by a small team in Heilbronn. No outsourced support, no scripts." },
-        { k: "02", t: "Read thoughtfully", d: "Every message is opened by a person before it's answered or routed." },
-        { k: "03", t: "Calm by default", d: "We don't chase, we don't nudge. You'll hear from us once, and well." },
+        {
+          k: "01",
+          t: "Real people",
+          d: "Written by a small team in Heilbronn. No outsourced support, no scripts.",
+        },
+        {
+          k: "02",
+          t: "Read thoughtfully",
+          d: "Every message is opened by a person before it's answered or routed.",
+        },
+        {
+          k: "03",
+          t: "Calm by default",
+          d: "We don't chase, we don't nudge. You'll hear from us once, and well.",
+        },
       ],
       formKicker: "Write to us",
       formH2a: "Questions,",
       formH2b: "thoughts,",
       formH2c: "ideas.",
-      formDesc: "A quiet inbox, watched by real people. For support, collaborations, press, or a thought you wanted to share out loud.",
+      formDesc:
+        "A quiet inbox, watched by real people. For support, collaborations, press, or a thought you wanted to share out loud.",
       formNameLabel: "Your name",
       formNamePlaceholder: "How should we call you?",
       formEmailLabel: "Email",
       formEmailPlaceholder: "you@quiet-inbox.com",
       formSubjectLabel: "The conversation is about",
-      formSubjects: ["A thoughtful conversation", "Support", "Collaboration", "Press", "Hosting a station"],
+      formSubjects: [
+        "A thoughtful conversation",
+        "Support",
+        "Collaboration",
+        "Press",
+        "Hosting a station",
+      ],
       formMessageLabel: "Your message",
       formMessagePlaceholder: "Take your time. We will.",
       formPrivacy: "We'll only use this to reply. No lists, no sequences, no automations.",
@@ -386,8 +583,10 @@ export const t = {
       formSent: "Thank you — we'll write back soon.",
       humanKicker: "The way we write",
       humanH2: "We read every message thoughtfully.",
-      humanBodyA: "Not because it's a brand promise, but because there are only a handful of us, and we still believe in writing back like a person, not a system.",
-      humanBodyB: "If something matters to you, it usually matters to us too. Tell us where you're writing from, what you're building, what you're thinking about. The longer the message, the better.",
+      humanBodyA:
+        "Not because it's a brand promise, but because there are only a handful of us, and we still believe in writing back like a person, not a system.",
+      humanBodyB:
+        "If something matters to you, it usually matters to us too. Tell us where you're writing from, what you're building, what you're thinking about. The longer the message, the better.",
       logisticsKicker: "Practical",
       logisticsH2: "Calm logistics.",
       logistics: [
@@ -449,23 +648,28 @@ export const t = {
       addCta: "Begin the ritual →",
       quietH2a: "Not tablets in a box.",
       quietH2b: "A system in a box.",
-      quietDesc: "Open it once. Use the bottle for years. Refill the cylinder for a lifetime. The kit is the doorway — not the destination.",
+      quietDesc:
+        "Open it once. Use the bottle for years. Refill the cylinder for a lifetime. The kit is the doorway — not the destination.",
       insideKicker: "01 · Inside the box",
       insideH2a: "Six things.",
       insideH2b: "One ritual.",
-      insideDesc: "Each piece earns its place. Nothing decorative. The cylinder isn't a standalone product — it's the vessel that brings every refill home.",
+      insideDesc:
+        "Each piece earns its place. Nothing decorative. The cylinder isn't a standalone product — it's the vessel that brings every refill home.",
       flavorKicker: "02 · The six flavors",
       flavorH2a: "Every flavor.",
       flavorH2b: "Inside every kit.",
-      flavorDesc: "You don't have to commit before you've tried them. The kit ships with all six — explore each one, find the two or three you'll reorder.",
+      flavorDesc:
+        "You don't have to commit before you've tried them. The kit ships with all six — explore each one, find the two or three you'll reorder.",
       cylinderKicker: "03 · The cylinder",
       cylinderH2a: "Reusable.",
       cylinderH2b: "Returnable. Refined.",
-      cylinderDesc: "The matte aluminum cylinder is included with the kit — but it belongs to the system. Return it with four others, get your deposit back, and the cylinder begins another life.",
+      cylinderDesc:
+        "The matte aluminum cylinder is included with the kit — but it belongs to the system. Return it with four others, get your deposit back, and the cylinder begins another life.",
       ritualKicker: "04 · The first morning",
       ritualH2a: "The printed",
       ritualH2b: "ritual card.",
-      ritualDesc: "A small folded card lives inside the kit. Three steps for the first morning. After that, it lives on your shelf — quiet, unbranded, yours.",
+      ritualDesc:
+        "A small folded card lives inside the kit. Three steps for the first morning. After that, it lives on your shelf — quiet, unbranded, yours.",
       finalKicker: "A box that opens once",
       finalH2a: "Open it once.",
       finalH2b: "Refill it forever.",
@@ -479,9 +683,12 @@ export const t = {
     quickView: {
       whatsInside: "What's inside",
       requiredInfo: "Required product information",
-      supplementNote: "Food supplement. Not a substitute for a balanced and varied diet. Keep out of reach of children.",
-      caffeineNote: "Contains caffeine. Not recommended for children, pregnant or breastfeeding women.",
-      bottleNote: "Bottle and cylinder are designed for cold still water and VYTAL tablets. Clean before first use. Do not use if damaged.",
+      supplementNote:
+        "Food supplement. Not a substitute for a balanced and varied diet. Keep out of reach of children.",
+      caffeineNote:
+        "Contains caffeine. Not recommended for children, pregnant or breastfeeding women.",
+      bottleNote:
+        "Bottle and cylinder are designed for cold still water and VYTAL tablets. Clean before first use. Do not use if damaged.",
       depositNote: "Deposit included. Return loop applies to refill cylinders.",
       bottleDetailsLabel: "Bottle details & care",
       fullPage: "Full product page →",
@@ -550,36 +757,76 @@ export const t = {
         "Der 15-Uhr-Absturz.",
         "Ein Abend, den du nicht mehr spürst.",
       ],
-      overstimBodyA: "Moderne Produktivitätskultur fordert 110 % – und nennt den Burnout Persönlichkeit. Energy Drinks sind für diesen Kreislauf gemacht: Spike, Crash, wiederholen.",
+      overstimBodyA:
+        "Moderne Produktivitätskultur fordert 110 % – und nennt den Burnout Persönlichkeit. Energy Drinks sind für diesen Kreislauf gemacht: Spike, Crash, wiederholen.",
       overstimBodyB: "VYTAL entstand, weil wir aufgehört haben, daran zu glauben.",
       overstimH2a: "Vielleicht liegt das",
       overstimH2b: "Problem nicht an Motivation.",
       systemKicker: "Das System",
       systemH2a: "Eine Flasche.",
       systemH2b: "Ein ruhigeres Ritual.",
-      systemDesc: "Wir haben die Dose durch ein Ritual ersetzt. Jede VYTAL-Tablette löst sich langsam auf – ruhige Technologie für das echte Leben, nicht das extreme.",
+      systemDesc:
+        "Wir haben die Dose durch ein Ritual ersetzt. Jede VYTAL-Tablette löst sich langsam auf – ruhige Technologie für das echte Leben, nicht das extreme.",
       systemSteps: [
-        { n: "01", t: "Einschenken", d: "Fülle deine VYTAL-Flasche mit kaltem Wasser – Leitungswasser, Sprudelwasser, ganz wie du magst." },
-        { n: "02", t: "Einwerfen", d: "Eine pflanzenbasierte Konzentrat-Tablette. Kein Zucker, kein Plastik, kein Aufwand." },
-        { n: "03", t: "Auflösen", d: "In 90 Sekunden aufgelöst. Langsam freigesetzter Fokus – ruhig und bereit." },
-        { n: "04", t: "Nachfüllen", d: "Wenn der Vorrat knapp wird, kommen Nachfüllungen in kompostierbarem Papier zu dir." },
+        {
+          n: "01",
+          t: "Einschenken",
+          d: "Fülle deine VYTAL-Flasche mit kaltem Wasser – Leitungswasser, Sprudelwasser, ganz wie du magst.",
+        },
+        {
+          n: "02",
+          t: "Einwerfen",
+          d: "Eine pflanzenbasierte Konzentrat-Tablette. Kein Zucker, kein Plastik, kein Aufwand.",
+        },
+        {
+          n: "03",
+          t: "Auflösen",
+          d: "In 90 Sekunden aufgelöst. Langsam freigesetzter Fokus – ruhig und bereit.",
+        },
+        {
+          n: "04",
+          t: "Nachfüllen",
+          d: "Wenn der Vorrat knapp wird, kommen Nachfüllungen in kompostierbarem Papier zu dir.",
+        },
       ],
       systemLink: "Sieh, wie ein Nachfüllpaket ankommt",
       insideKicker: "In der Flasche",
       insideH2a: "Vier Zutaten.",
       insideH2b: "Nichts versteckt.",
       ingredients: [
-        { kicker: "Fokus ohne Überwältigung", name: "L-Theanin", dose: "200 mg", body: "Aus grünem Tee. Macht Koffein bekömmlicher – mehr Konzentration, ohne das nervöse Kribbeln." },
-        { kicker: "Ruhe unter Druck", name: "Ashwagandha (KSM-66)", dose: "300 mg", body: "Ein Adaptogen, das dem Körper hilft, Cortisol zu regulieren. Klinisch untersucht für Stressresistenz – gestützt auf Fakten, nicht auf Trends." },
-        { kicker: "Energie, die den Arbeitstag überdauert", name: "Grüntee-Koffein", dose: "80 mg", body: "Langsam freigesetztes natürliches Koffein. Ungefähr eine Tasse Kaffee – so kombiniert, dass es nicht um 15 Uhr gegen dich arbeitet." },
-        { kicker: "Der stille Co-Pilot", name: "Magnesiumbisglycinat", dose: "150 mg", body: "Zelluläre Energie und Muskelregeneration – in der Form, die dein Körper wirklich aufnimmt." },
+        {
+          kicker: "Fokus ohne Überwältigung",
+          name: "L-Theanin",
+          dose: "200 mg",
+          body: "Aus grünem Tee. Macht Koffein bekömmlicher – mehr Konzentration, ohne das nervöse Kribbeln.",
+        },
+        {
+          kicker: "Ruhe unter Druck",
+          name: "Ashwagandha (KSM-66)",
+          dose: "300 mg",
+          body: "Ein Adaptogen, das dem Körper hilft, Cortisol zu regulieren. Klinisch untersucht für Stressresistenz – gestützt auf Fakten, nicht auf Trends.",
+        },
+        {
+          kicker: "Energie, die den Arbeitstag überdauert",
+          name: "Grüntee-Koffein",
+          dose: "80 mg",
+          body: "Langsam freigesetztes natürliches Koffein. Ungefähr eine Tasse Kaffee – so kombiniert, dass es nicht um 15 Uhr gegen dich arbeitet.",
+        },
+        {
+          kicker: "Der stille Co-Pilot",
+          name: "Magnesiumbisglycinat",
+          dose: "150 mg",
+          body: "Zelluläre Energie und Muskelregeneration – in der Form, die dein Körper wirklich aufnimmt.",
+        },
       ],
       ritualsH2a: "Kleine Rituale,",
       ritualsH2b: "statt radikaler Optimierung.",
-      ritualsDesc: "VYTAL lebt nicht im Stadion. Es lebt in Bibliotheken, im Pendlerverkehr, in ruhigen Cafés und am 21-Uhr-Schreibtisch. Echtes Leben, nicht extremes Leben.",
+      ritualsDesc:
+        "VYTAL lebt nicht im Stadion. Es lebt in Bibliotheken, im Pendlerverkehr, in ruhigen Cafés und am 21-Uhr-Schreibtisch. Echtes Leben, nicht extremes Leben.",
       productKicker: "Hier starten",
       productH2: "Das Starter-Ritual.",
-      productDesc: "Eine Flasche, sechs Geschmäcker, ein Monat Fokus. Konzipiert als das Einzige, was du zum Anfangen brauchst – und das Einzige, das ein Jahr später noch auf deinem Schreibtisch steht.",
+      productDesc:
+        "Eine Flasche, sechs Geschmäcker, ein Monat Fokus. Konzipiert als das Einzige, was du zum Anfangen brauchst – und das Einzige, das ein Jahr später noch auf deinem Schreibtisch steht.",
       productCta1: "Starter Kit kaufen",
       productCta2: "Alle Geschmäcker ansehen",
       journalKicker: "Das Journal",
@@ -587,17 +834,20 @@ export const t = {
       journalAllArticles: "Alle Artikel",
       reviewsKicker: "Community-Stimmen",
       reviewsH2: "Was andere sagen.",
-      reviewsDesc: "Echte Menschen in echten Routinen – von Bibliotheks-Morgen bis zum 22-Uhr-Schreibtisch.",
+      reviewsDesc:
+        "Echte Menschen in echten Routinen – von Bibliotheks-Morgen bis zum 22-Uhr-Schreibtisch.",
       finalKicker: "Ruhig gebaut. Mit Absicht.",
       finalH2a: "Ein langsameres System",
       finalH2b: "für moderne Energie.",
-      finalDesc: "Starte mit einer Flasche. Fülle sie immer wieder nach. Tausche Burnout gegen etwas Ruhigeres – und endlich, echten Genuss.",
+      finalDesc:
+        "Starte mit einer Flasche. Fülle sie immer wieder nach. Tausche Burnout gegen etwas Ruhigeres – und endlich, echten Genuss.",
       finalCta1: "VYTAL kaufen",
       finalCta2: "Das System entdecken",
       finalCta3: "Journal lesen",
       newsletterKicker: "Im Loop bleiben",
       newsletterH2: "Ein langsamer Newsletter.",
-      newsletterDesc: "Neue Drops, Journal-Essays, kein Lärm — geschrieben, wenn es sich lohnt, nie wenn nicht.",
+      newsletterDesc:
+        "Neue Drops, Journal-Essays, kein Lärm — geschrieben, wenn es sich lohnt, nie wenn nicht.",
       newsletterPlaceholder: "du@ruhiger-tag.de",
       newsletterCta: "Leise anmelden",
       newsletterSent: "Du bist auf der Liste. Wir schreiben, wenn es sich lohnt.",
@@ -614,26 +864,94 @@ export const t = {
         ["Preis / Drink", "~2,60€", "~2,50€", "~3,50€"],
       ],
       reviews: [
-        { quote: "Endlich ein Fokusdrink, der mich um 15 Uhr nicht zittern lässt.", name: "Marie L.", role: "Jurastudentin · München" },
-        { quote: "Er funktioniert einfach, den ganzen Tag. Das langweiligste Kompliment, aber trotzdem.", name: "Jonas K.", role: "Ingenieur · Berlin" },
-        { quote: "Mein 16-Uhr-Reset. Kalt sprudelnd, in zwei Minuten weg.", name: "Anna T.", role: "Designerin · Hamburg" },
-        { quote: "Ersetzt mein Pre-Workout UND meinen dritten Kaffee. Cleverer.", name: "Leon S.", role: "Masterstudent · Köln" },
-        { quote: "Erster Energydrink, den ich wegen des Gefühls trinke, nicht wegen dem Kick.", name: "Sophie B.", role: "Produktdesignerin · Berlin" },
-        { quote: "Ich kann um 22 Uhr noch schreiben und trotzdem einschlafen.", name: "Mira H.", role: "Doktorandin · Wien" },
-        { quote: "Hab Cold Brew damit ersetzt. Meine Hände zittern nicht mehr.", name: "Tom R.", role: "Freelance-Entwickler · Zürich" },
-        { quote: "Seit drei Monaten dabei. Kann mir den Morgen ohne nicht mehr vorstellen.", name: "Lena K.", role: "UX-Researcherin · Frankfurt" },
-        { quote: "Das Nachfüllsystem hat mich überzeugt. Der Geschmack hat mich gehalten.", name: "Max F.", role: "Architekturstudent · Stuttgart" },
+        {
+          quote: "Endlich ein Fokusdrink, der mich um 15 Uhr nicht zittern lässt.",
+          name: "Marie L.",
+          role: "Jurastudentin · München",
+        },
+        {
+          quote:
+            "Er funktioniert einfach, den ganzen Tag. Das langweiligste Kompliment, aber trotzdem.",
+          name: "Jonas K.",
+          role: "Ingenieur · Berlin",
+        },
+        {
+          quote: "Mein 16-Uhr-Reset. Kalt sprudelnd, in zwei Minuten weg.",
+          name: "Anna T.",
+          role: "Designerin · Hamburg",
+        },
+        {
+          quote: "Ersetzt mein Pre-Workout UND meinen dritten Kaffee. Cleverer.",
+          name: "Leon S.",
+          role: "Masterstudent · Köln",
+        },
+        {
+          quote: "Erster Energydrink, den ich wegen des Gefühls trinke, nicht wegen dem Kick.",
+          name: "Sophie B.",
+          role: "Produktdesignerin · Berlin",
+        },
+        {
+          quote: "Ich kann um 22 Uhr noch schreiben und trotzdem einschlafen.",
+          name: "Mira H.",
+          role: "Doktorandin · Wien",
+        },
+        {
+          quote: "Hab Cold Brew damit ersetzt. Meine Hände zittern nicht mehr.",
+          name: "Tom R.",
+          role: "Freelance-Entwickler · Zürich",
+        },
+        {
+          quote: "Seit drei Monaten dabei. Kann mir den Morgen ohne nicht mehr vorstellen.",
+          name: "Lena K.",
+          role: "UX-Researcherin · Frankfurt",
+        },
+        {
+          quote: "Das Nachfüllsystem hat mich überzeugt. Der Geschmack hat mich gehalten.",
+          name: "Max F.",
+          role: "Architekturstudent · Stuttgart",
+        },
       ],
       ritualItems: [
-        { label: "08:14 · Café", caption: "Der langsame Start. Ein Pour-over und ein kaltes Nachfüllgetränk. Zwei Dinge, kein Programm." },
-        { label: "14:42 · Bibliothek", caption: "Drei Stunden in einer Hausarbeit. Das Summen bleibt gleichmäßig." },
-        { label: "16:30 · Büro", caption: "Meetings am Fließband. Kein Spike. Kein 16-Uhr-Absturz." },
-        { label: "21:08 · Schreibtisch", caption: "Die letzte ruhige Stunde. Dann ein echter Abend." },
+        {
+          label: "08:14 · Café",
+          caption:
+            "Der langsame Start. Ein Pour-over und ein kaltes Nachfüllgetränk. Zwei Dinge, kein Programm.",
+        },
+        {
+          label: "14:42 · Bibliothek",
+          caption: "Drei Stunden in einer Hausarbeit. Das Summen bleibt gleichmäßig.",
+        },
+        {
+          label: "16:30 · Büro",
+          caption: "Meetings am Fließband. Kein Spike. Kein 16-Uhr-Absturz.",
+        },
+        {
+          label: "21:08 · Schreibtisch",
+          caption: "Die letzte ruhige Stunde. Dann ein echter Abend.",
+        },
       ],
       journalArticles: [
-        { kicker: "Essay", title: "Der Mythos des produktiven Absturzes.", excerpt: "Warum der Spike-und-Crash-Zyklus zur Persönlichkeit geworden ist – und was sich ändert, wenn man ihn endlich loslässt.", meta: "6 Min. Lesezeit" },
-        { kicker: "Feldnotiz", title: "Deine Aufmerksamkeitsspanne ist nicht kaputt.", excerpt: "Sie ist nur unterlegen. Ein ruhiges Plädoyer für weniger Inputs, langsamere Morgen und ein gutes Getränk zur Zeit.", meta: "4 Min. Lesezeit" },
-        { kicker: "Manifest", title: "Ruhigere Routinen gestalten.", excerpt: "Drei kleine strukturelle Änderungen, die sich zu etwas summieren, das sich wirklich wie Erholung anfühlt.", meta: "8 Min. Lesezeit" },
+        {
+          kicker: "Essay",
+          title: "Der Mythos des produktiven Absturzes.",
+          excerpt:
+            "Warum der Spike-und-Crash-Zyklus zur Persönlichkeit geworden ist – und was sich ändert, wenn man ihn endlich loslässt.",
+          meta: "6 Min. Lesezeit",
+        },
+        {
+          kicker: "Feldnotiz",
+          title: "Deine Aufmerksamkeitsspanne ist nicht kaputt.",
+          excerpt:
+            "Sie ist nur unterlegen. Ein ruhiges Plädoyer für weniger Inputs, langsamere Morgen und ein gutes Getränk zur Zeit.",
+          meta: "4 Min. Lesezeit",
+        },
+        {
+          kicker: "Manifest",
+          title: "Ruhigere Routinen gestalten.",
+          excerpt:
+            "Drei kleine strukturelle Änderungen, die sich zu etwas summieren, das sich wirklich wie Erholung anfühlt.",
+          meta: "8 Min. Lesezeit",
+        },
       ],
     },
     shop: {
@@ -641,17 +959,20 @@ export const t = {
       heroKicker: "Der Shop · Das Ökosystem",
       heroH1a: "Starte dein",
       heroH1b: "Nachfüll-Ritual.",
-      heroDesc: "Ein Starter Kit. Sechs funktionale Geschmäcker. Ein wiederverwendbarer Aluminiumzylinder, der zu uns zurückkommt – und wieder zu dir.",
+      heroDesc:
+        "Ein Starter Kit. Sechs funktionale Geschmäcker. Ein wiederverwendbarer Aluminiumzylinder, der zu uns zurückkommt – und wieder zu dir.",
       heroCta1: "Mit dem Starter Kit beginnen",
       heroCta2: "Geschmäcker entdecken",
       heroCta3: "Wie der Loop funktioniert →",
       quietH2a: "Kein Energy-Drink-Shop.",
       quietH2b: "Ein Nachfüll-Ökosystem.",
-      quietDesc: "Sechs Geschmäcker. Ein wiederverwendbarer Zylinder. Ein Rückgabe-Loop, der sich still hinter jeder Bestellung schließt. Für Routinen, die du bereits lebst.",
+      quietDesc:
+        "Sechs Geschmäcker. Ein wiederverwendbarer Zylinder. Ein Rückgabe-Loop, der sich still hinter jeder Bestellung schließt. Für Routinen, die du bereits lebst.",
       starterKicker: "01 · Das vollständige Ritual",
       starterH2a: "Beginne das",
       starterH2b: "Nachfüll-Ritual.",
-      starterDesc: "Alles, was du brauchst, um ins System einzusteigen – die Glasflasche, der wiederverwendbare Aluminiumzylinder, alle sechs Geschmäcker und eine Ritual-Karte für den ersten Morgen.",
+      starterDesc:
+        "Alles, was du brauchst, um ins System einzusteigen – die Glasflasche, der wiederverwendbare Aluminiumzylinder, alle sechs Geschmäcker und eine Ritual-Karte für den ersten Morgen.",
       starterItems: [
         "1 × 750 ml Borosilikatglas-Flasche",
         "1 × Matter Aluminium-Nachfüllzylinder",
@@ -662,17 +983,20 @@ export const t = {
       starterCta: "Mit dem Starter Kit beginnen →",
       sixFlavorsKicker: "Sechs funktionale Stimmungen",
       sixFlavorsH3: "Jedes Kit enthält alle sechs.",
-      sixFlavorsDesc: "Jeder Geschmack hat seine eigene Intention – probiere alle aus, bevor du deinen Alltags-Liebling findest.",
+      sixFlavorsDesc:
+        "Jeder Geschmack hat seine eigene Intention – probiere alle aus, bevor du deinen Alltags-Liebling findest.",
       exploreFlavorLabel: "Geschmack entdecken",
       refillsKicker: "03 · Die Nachfüllungen",
       refillsH2a: "Die Nachfüllungen.",
       refillsH2b: "Immer im Zylinder.",
-      refillsDesc: "Jede Nachfüllung kommt in einem matten Aluminiumzylinder. Jeder Zylinder enthält 8 funktionale Tabletten und beinhaltet ein €4-Pfand. Wenn fünf Zylinder leer sind, schickst du sie zurück und wir sterilisieren und befüllen sie neu.",
+      refillsDesc:
+        "Jede Nachfüllung kommt in einem matten Aluminiumzylinder. Jeder Zylinder enthält 8 funktionale Tabletten und beinhaltet ein €4-Pfand. Wenn fünf Zylinder leer sind, schickst du sie zurück und wir sterilisieren und befüllen sie neu.",
       inRefillLoop: "Im Nachfüll-Kreislauf",
       loopKicker: "05 · Der Rückgabe-Loop",
       loopH2a: "Wie der VYTAL-",
       loopH2b: "Loop funktioniert.",
-      loopDesc: "Zurückschicken, wann du bereit bist. Ein Briefkasten. Pfand erstattet. Keine Abonnement-Tricks, keine App, kein Greenwashing. Das gesamte System basiert auf einer einzigen ruhigen Bewegung.",
+      loopDesc:
+        "Zurückschicken, wann du bereit bist. Ein Briefkasten. Pfand erstattet. Keine Abonnement-Tricks, keine App, kein Greenwashing. Das gesamte System basiert auf einer einzigen ruhigen Bewegung.",
       loopSteps: ["Empfangen", "Benutzen", "Sammeln", "Zurückschicken", "Wiederverwenden"],
       loopStepDescs: [
         "Nachfüllzylinder kommt mit deiner Bestellung. Pfand inklusive.",
@@ -682,21 +1006,34 @@ export const t = {
         "Bei Rückgabe sterilisieren wir ihn und befüllen ihn für ein anderes Ritual.",
       ],
       loopDeposit: "Pfand",
-      loopDepositText: "€4 pro Zylinder. Vollständig erstattet bei Rückgabe. Keine Mindestmenge, keine Eile.",
+      loopDepositText:
+        "€4 pro Zylinder. Vollständig erstattet bei Rückgabe. Keine Mindestmenge, keine Eile.",
       loopHygiene: "Hygiene",
-      loopHygieneText: "Zurückgegebene Zylinder werden nach medizinischen Standards sterilisiert, bevor sie neu befüllt werden.",
+      loopHygieneText:
+        "Zurückgegebene Zylinder werden nach medizinischen Standards sterilisiert, bevor sie neu befüllt werden.",
       loopReality: "Realitäts-Check",
-      loopRealityText: "Deutlich bewusster als Dosen-Drinks. Wir veröffentlichen die Zahlen vierteljährlich.",
+      loopRealityText:
+        "Deutlich bewusster als Dosen-Drinks. Wir veröffentlichen die Zahlen vierteljährlich.",
       costTitle: "Was es pro Monat kostet",
       cylinderKicker: "Das System-Objekt",
       cylinderH2a: "Inklusive bei",
       cylinderH2b: "jeder einzelnen Nachfüllung.",
-      cylinderDesc: "Der matte Aluminiumzylinder ist nicht nur Verpackung – er ist das Gefäß, in dem deine Nachfüllungen ankommen. Jeder Geschmack, den du bestellst, kommt darin. Nutze ihn, leere ihn und entscheide: Schick ihn zurück für eine Pfand-Erstattung – oder behalte ihn für deinen Schreibtisch.",
+      cylinderDesc:
+        "Der matte Aluminiumzylinder ist nicht nur Verpackung – er ist das Gefäß, in dem deine Nachfüllungen ankommen. Jeder Geschmack, den du bestellst, kommt darin. Nutze ihn, leere ihn und entscheide: Schick ihn zurück für eine Pfand-Erstattung – oder behalte ihn für deinen Schreibtisch.",
       cylinderSpecs: [
-        ["Immer dabei", "Wird automatisch mit jeder Nachfüllung mitgeliefert. Muss nicht separat gekauft werden."],
+        [
+          "Immer dabei",
+          "Wird automatisch mit jeder Nachfüllung mitgeliefert. Muss nicht separat gekauft werden.",
+        ],
         ["8 Tabletten", "Fasst einen vollständigen Geschmackszyklus – alles luftdicht und frisch."],
-        ["Leiser Fußabdruck", "Keine Umverpackungen, kein Plastik, kein überflüssiger Müll. Nur die Nachfüllung im Zylinder."],
-        ["Pfand erstattet", "Portofrei zurückschicken für die Pfand-Erstattung – oder als Deko auf dem Schreibtisch behalten."],
+        [
+          "Leiser Fußabdruck",
+          "Keine Umverpackungen, kein Plastik, kein überflüssiger Müll. Nur die Nachfüllung im Zylinder.",
+        ],
+        [
+          "Pfand erstattet",
+          "Portofrei zurückschicken für die Pfand-Erstattung – oder als Deko auf dem Schreibtisch behalten.",
+        ],
       ],
       accessoriesKicker: "04 · Flaschen & Behälter",
       accessoriesH3: "Flaschen & Behälter.",
@@ -704,7 +1041,8 @@ export const t = {
       susKicker: "06 · Nachhaltigkeit",
       susH2a: "Still ehrlich.",
       susH2b: "Messbar besser.",
-      susDesc: "Wir behaupten nicht, zero-waste zu sein. Wir veröffentlichen die echten Zahlen, den echten Loop, die echte Material-Kette – und fragen den Planeten mit jeder Nachfüllung etwas weniger.",
+      susDesc:
+        "Wir behaupten nicht, zero-waste zu sein. Wir veröffentlichen die echten Zahlen, den echten Loop, die echte Material-Kette – und fragen den Planeten mit jeder Nachfüllung etwas weniger.",
       closingKicker: "Ein langsameres System",
       closingH2a: "Ein Ritual.",
       closingH2b: "Endlos nachgefüllt.",
@@ -712,7 +1050,8 @@ export const t = {
       closingCta2: "Nachfüllungen entdecken",
       reviewsKicker: "Community-Stimmen",
       reviewsH2: "Was andere sagen.",
-      reviewsDesc: "Echte Routinen. Echtes Feedback. Vom Bibliotheks-Morgen bis zum Spät-Abend-Schreibtisch.",
+      reviewsDesc:
+        "Echte Routinen. Echtes Feedback. Vom Bibliotheks-Morgen bis zum Spät-Abend-Schreibtisch.",
       faqKicker: "Fragen",
       faqH2: "Häufig gestellt.",
     },
@@ -730,7 +1069,8 @@ export const t = {
       finalKicker: "Ruhig gebaut. Mit Absicht.",
       finalH2a: "Eine ruhigere Art,",
       finalH2b: "Energie nachzufüllen.",
-      finalDesc: "(Re)Fuel deinen Tag. Nicht den Planeten. Starte mit einer Flasche und einer Tablette – der Rest ist Wiederholung, die du genießen wirst.",
+      finalDesc:
+        "(Re)Fuel deinen Tag. Nicht den Planeten. Starte mit einer Flasche und einer Tablette – der Rest ist Wiederholung, die du genießen wirst.",
       finalCta1: "Mit dem Starter Kit starten →",
       finalCta2: "Alle Geschmäcker ansehen",
       returnCta1: "Wie der Loop funktioniert →",
@@ -739,34 +1079,61 @@ export const t = {
       faqH2: "Häufig gestellt.",
       faqDesc: "Alles, was du wissen musst, bevor du mit dem Nachfüll-Ritual beginnst.",
       faqItems: [
-        { q: "Wie funktioniert das Nachfüllsystem?", a: "Fülle deine VYTAL-Flasche mit kaltem Wasser, wirf eine Tablette hinein, warte ca. 90 Sekunden bis sie sich aufgelöst hat, und trink. Für regelmäßige Nutzung: Nachfüllzylinder online bestellen – jeder Zylinder enthält 8 Tabletten und beinhaltet ein €4-Pfand." },
-        { q: "Was steckt in jeder Tablette?", a: "Vier Wirkstoffe: L-Theanin (200 mg) für ruhigen Fokus, Ashwagandha KSM-66 (300 mg) für Stressresistenz, natürliches Grüntee-Koffein (80 mg) für gleichmäßige Energie, und Magnesiumbisglycinat (150 mg) für zelluläre Erholung. Kein Zucker, keine künstlichen Süßungsmittel." },
-        { q: "Ist das ein Nahrungsergänzungsmittel oder ein Energy Drink?", a: "VYTAL-Tabletten sind als Nahrungsergänzungsmittel eingestuft. Kein Ersatz für eine ausgewogene, abwechslungsreiche Ernährung. Enthält Koffein – nicht empfohlen für Kinder, Schwangere oder stillende Frauen." },
-        { q: "Warum Tabletten statt eines fertigen Drinks?", a: "Die meisten trinkfertigen Energy-Produkte bestehen größtenteils aus Wasser – Flüssigkeit in Einwegdosen durch das Land schicken. VYTAL schickt nur das funktionale Konzentrat. Du fügst lokales Wasser hinzu. Das reduziert das Transportvolumen um bis zu 85 % und eliminiert Einwegverpackungen pro Drink." },
-        { q: "Wie gebe ich die leeren Zylinder zurück?", a: "Sammle fünf leere Zylinder, lege sie in den mitgelieferten vorfrankierten Rückgabebeutel und werfe ihn portofrei in jeden Briefkasten. Wir sterilisieren und befüllen sie neu. Dein €4-Pfand pro Zylinder wird mit der nächsten Bestellung verrechnet." },
-        { q: "Welches Wasser eignet sich am besten?", a: "Kaltes Stilles Wasser löst die Tablette am besten auf. Sprudelwasser funktioniert auch und ergibt ein leichteres, erfrischenderes Ergebnis. Heißes Wasser vermeiden – es kann einige Wirkstoffe beeinträchtigen." },
-        { q: "Muss ich eine VYTAL-Flasche verwenden?", a: "Die Tabletten lösen sich in jedem sauberen Behälter mit kaltem Wasser auf. Die VYTAL-Flaschen sind für das Nachfüllsystem ausgelegt – aber du kannst die Tabletten auch mit einer bereits vorhandenen Flasche nutzen." },
+        {
+          q: "Wie funktioniert das Nachfüllsystem?",
+          a: "Fülle deine VYTAL-Flasche mit kaltem Wasser, wirf eine Tablette hinein, warte ca. 90 Sekunden bis sie sich aufgelöst hat, und trink. Für regelmäßige Nutzung: Nachfüllzylinder online bestellen – jeder Zylinder enthält 8 Tabletten und beinhaltet ein €4-Pfand.",
+        },
+        {
+          q: "Was steckt in jeder Tablette?",
+          a: "Vier Wirkstoffe: L-Theanin (200 mg) für ruhigen Fokus, Ashwagandha KSM-66 (300 mg) für Stressresistenz, natürliches Grüntee-Koffein (80 mg) für gleichmäßige Energie, und Magnesiumbisglycinat (150 mg) für zelluläre Erholung. Kein Zucker, keine künstlichen Süßungsmittel.",
+        },
+        {
+          q: "Ist das ein Nahrungsergänzungsmittel oder ein Energy Drink?",
+          a: "VYTAL-Tabletten sind als Nahrungsergänzungsmittel eingestuft. Kein Ersatz für eine ausgewogene, abwechslungsreiche Ernährung. Enthält Koffein – nicht empfohlen für Kinder, Schwangere oder stillende Frauen.",
+        },
+        {
+          q: "Warum Tabletten statt eines fertigen Drinks?",
+          a: "Die meisten trinkfertigen Energy-Produkte bestehen größtenteils aus Wasser – Flüssigkeit in Einwegdosen durch das Land schicken. VYTAL schickt nur das funktionale Konzentrat. Du fügst lokales Wasser hinzu. Das reduziert das Transportvolumen um bis zu 85 % und eliminiert Einwegverpackungen pro Drink.",
+        },
+        {
+          q: "Wie gebe ich die leeren Zylinder zurück?",
+          a: "Sammle fünf leere Zylinder, lege sie in den mitgelieferten vorfrankierten Rückgabebeutel und werfe ihn portofrei in jeden Briefkasten. Wir sterilisieren und befüllen sie neu. Dein €4-Pfand pro Zylinder wird mit der nächsten Bestellung verrechnet.",
+        },
+        {
+          q: "Welches Wasser eignet sich am besten?",
+          a: "Kaltes Stilles Wasser löst die Tablette am besten auf. Sprudelwasser funktioniert auch und ergibt ein leichteres, erfrischenderes Ergebnis. Heißes Wasser vermeiden – es kann einige Wirkstoffe beeinträchtigen.",
+        },
+        {
+          q: "Muss ich eine VYTAL-Flasche verwenden?",
+          a: "Die Tabletten lösen sich in jedem sauberen Behälter mit kaltem Wasser auf. Die VYTAL-Flaschen sind für das Nachfüllsystem ausgelegt – aber du kannst die Tabletten auch mit einer bereits vorhandenen Flasche nutzen.",
+        },
       ],
     },
     about: {
-      heroDesc: "Eine ruhigere Alternative zur modernen Produktivitätskultur – gebaut für Menschen, die einen Tag lieber leben als überleben.",
+      heroDesc:
+        "Eine ruhigere Alternative zur modernen Produktivitätskultur – gebaut für Menschen, die einen Tag lieber leben als überleben.",
       heroCta1: "Das System entdecken",
       heroCta2: "Journal lesen",
       heroCta3: "VYTAL kaufen →",
       realizationKicker: "Eine kleine Erkenntnis",
       realizationH2a: "Vielleicht liegt das",
       realizationH2b: "Problem nicht an Motivation.",
-      realizationBodyA: "Wir haben VYTAL nach zu vielen späten Abenden gebaut, die alle gleich endeten – eine zerdrückte Dose, ein halbfertiger Satz, ein Kopf, der nicht zur Ruhe kam.",
-      realizationBodyB: "Es war kein Disziplinproblem. Es war kein Produktivitäts-Hack, den wir noch nicht gefunden hatten. Es war eine Kultur, die uns sagte, Erschöpfung sei einfach der Preis für Nützlichkeit.",
-      realizationBodyC: "Vielleicht war die moderne Energy-Kultur schlicht nie nachhaltig – weder für den Körper, noch für das Nervensystem, noch für den Planeten, der sie produziert.",
+      realizationBodyA:
+        "Wir haben VYTAL nach zu vielen späten Abenden gebaut, die alle gleich endeten – eine zerdrückte Dose, ein halbfertiger Satz, ein Kopf, der nicht zur Ruhe kam.",
+      realizationBodyB:
+        "Es war kein Disziplinproblem. Es war kein Produktivitäts-Hack, den wir noch nicht gefunden hatten. Es war eine Kultur, die uns sagte, Erschöpfung sei einfach der Preis für Nützlichkeit.",
+      realizationBodyC:
+        "Vielleicht war die moderne Energy-Kultur schlicht nie nachhaltig – weder für den Körper, noch für das Nervensystem, noch für den Planeten, der sie produziert.",
       statementKicker: "Was wir glauben",
       statementH2a: "Energie sollte das",
       statementH2b: "Leben unterstützen –",
       statementH2c: "nicht davon erholen lassen.",
-      statementDesc: "Alles, was wir machen, ist um diesen einen ruhigen Satz herum gebaut. Die Dosierung, die Flaschen, die Rituale, der Ton, der Nachfüll-Loop. Alles davon.",
+      statementDesc:
+        "Alles, was wir machen, ist um diesen einen ruhigen Satz herum gebaut. Die Dosierung, die Flaschen, die Rituale, der Ton, der Nachfüll-Loop. Alles davon.",
       philosophyKicker: "Die Philosophie",
       philosophyH2: "Unsere Philosophie, in fünf ruhigen Sätzen.",
-      philosophyDesc: "Kein Manifest. Kein Mission Statement. Nur fünf Dinge, auf die wir immer wieder zurückkommen, wenn wir entscheiden, was wir machen – und was wir verweigern.",
+      philosophyDesc:
+        "Kein Manifest. Kein Mission Statement. Nur fünf Dinge, auf die wir immer wieder zurückkommen, wenn wir entscheiden, was wir machen – und was wir verweigern.",
       philosophyLines: [
         "Energie sollte das Leben unterstützen – nicht davon erholen lassen.",
         "Transparenz schlägt Marketing.",
@@ -778,22 +1145,38 @@ export const t = {
       designH2a: "Warum wir es",
       designH2b: "so",
       designH2c: "gebaut haben.",
-      designDesc: "VYTAL ist keine Produktlinie. Es ist ein kleines Set von Entscheidungen darüber, wie eine ruhigere Version moderner Energie tatsächlich aussehen könnte – in der Hand, am Morgen, im Müll.",
+      designDesc:
+        "VYTAL ist keine Produktlinie. Es ist ein kleines Set von Entscheidungen darüber, wie eine ruhigere Version moderner Energie tatsächlich aussehen könnte – in der Hand, am Morgen, im Müll.",
       intentions: [
-        { n: "01", t: "Gestaltet für echte Aufmerksamkeit.", d: "Unsere Tabletten sind für die Art dosiert, wie ein echter Tag tatsächlich verläuft – nicht für einen 20-Minuten-Spike, den ein Marketing-Team grafisch darstellen kann." },
-        { n: "02", t: "Gebaut zum Wiederverwenden, nicht Ersetzen.", d: "Eine Flasche. Jahrelang ruhig nachgefüllt. Einzelne Teile werden ersetzt, anstatt das gesamte Objekt wegzuwerfen." },
-        { n: "03", t: "Still als Standard.", d: "Kein Neon, keine Kanten, keine Dringlichkeit. Verpackung, Ton, Rituale – alles geschrieben, um einen Tag ein bisschen leiser zu machen." },
+        {
+          n: "01",
+          t: "Gestaltet für echte Aufmerksamkeit.",
+          d: "Unsere Tabletten sind für die Art dosiert, wie ein echter Tag tatsächlich verläuft – nicht für einen 20-Minuten-Spike, den ein Marketing-Team grafisch darstellen kann.",
+        },
+        {
+          n: "02",
+          t: "Gebaut zum Wiederverwenden, nicht Ersetzen.",
+          d: "Eine Flasche. Jahrelang ruhig nachgefüllt. Einzelne Teile werden ersetzt, anstatt das gesamte Objekt wegzuwerfen.",
+        },
+        {
+          n: "03",
+          t: "Still als Standard.",
+          d: "Kein Neon, keine Kanten, keine Dringlichkeit. Verpackung, Ton, Rituale – alles geschrieben, um einen Tag ein bisschen leiser zu machen.",
+        },
       ],
       humanKicker: "Die menschliche Seite",
       humanH2a: "Ein kleines Studio.",
       humanH2b: "Bewusst langsam.",
-      humanBodyA: "Wir sind ein kleines Team in Heilbronn. Kein Wachstum-um-jeden-Preis-Deck. Kein zwanzigköpfiger Marketing-Floor. Nur ein ruhiges Studio, ein langer Tisch und die hartnäckige Überzeugung, dass ruhig gemachte Marken besser altern.",
-      humanBodyB: "Wir teilen lieber Rituale als Meinungen. Ein Glas Wasser morgens. Ein Spaziergang zwischen Meetings. Ein Arbeitstag, der endet, wenn er endet.",
+      humanBodyA:
+        "Wir sind ein kleines Team in Heilbronn. Kein Wachstum-um-jeden-Preis-Deck. Kein zwanzigköpfiger Marketing-Floor. Nur ein ruhiges Studio, ein langer Tisch und die hartnäckige Überzeugung, dass ruhig gemachte Marken besser altern.",
+      humanBodyB:
+        "Wir teilen lieber Rituale als Meinungen. Ein Glas Wasser morgens. Ein Spaziergang zwischen Meetings. Ein Arbeitstag, der endet, wenn er endet.",
       humanBodyC: "Nichts Radikales. Einfach das Leben, behandelt als würde es zählen.",
       finalKicker: "(Re)Fuel deinen Tag. Nicht den Planeten.",
       finalH2a: "Ruhig gebaut.",
       finalH2b: "Mit Absicht.",
-      finalDesc: "Ein langsameres System für moderne Energie. Für Menschen, die leise müde sind von der Erholungskultur.",
+      finalDesc:
+        "Ein langsameres System für moderne Energie. Für Menschen, die leise müde sind von der Erholungskultur.",
       finalCta1: "Das Ritual starten — €40",
       finalCta2: "Das System entdecken",
       founded: "Heilbronn · gegr. 2026",
@@ -806,22 +1189,27 @@ export const t = {
       heroH1a: "Gedanken für",
       heroH1b: "ruhigeres",
       heroH1c: "modernes Leben.",
-      heroDesc: "Redaktionelle Betrachtungen zu Fokus, Erholung, Aufmerksamkeit und Ritualen – ein ruhiger Ort in einem überstimulierten Internet.",
+      heroDesc:
+        "Redaktionelle Betrachtungen zu Fokus, Erholung, Aufmerksamkeit und Ritualen – ein ruhiger Ort in einem überstimulierten Internet.",
       heroCta1: "Journal lesen",
       heroCta2: "Rituale entdecken",
       heroCta3: "VYTAL entdecken →",
       editorKicker: "Eine Notiz der Redaktion",
-      editorBody: "Wir haben dieses Journal begonnen, weil die lautesten Stimmen der modernen Produktivität selten darüber sprechen, wie sich das alles tatsächlich anfühlt. Also haben wir ein ruhigeres gemacht.",
-      editorBodySub: "Langsame Essays, ehrliche Beobachtungen und kleine Rituale – geschrieben für die Art von Aufmerksamkeit, die das moderne Leben ständig wegzunehmen versucht. Keine Lifehacks. Kein Dopamin-Köder. Nur Notizen darüber, wie man ein bisschen ruhiger lebt – mit Absicht.",
+      editorBody:
+        "Wir haben dieses Journal begonnen, weil die lautesten Stimmen der modernen Produktivität selten darüber sprechen, wie sich das alles tatsächlich anfühlt. Also haben wir ein ruhigeres gemacht.",
+      editorBodySub:
+        "Langsame Essays, ehrliche Beobachtungen und kleine Rituale – geschrieben für die Art von Aufmerksamkeit, die das moderne Leben ständig wegzunehmen versucht. Keine Lifehacks. Kein Dopamin-Köder. Nur Notizen darüber, wie man ein bisschen ruhiger lebt – mit Absicht.",
       featuredKicker: "Der Titelessay",
       featuredLabel: "01 /",
-      pullQuote: "Ein ruhigeres Leben ist kein langsameres. Es ist ein ehrlicheres – eines, das zugibt, wie viel Energie Aufmerksamkeit wirklich kostet.",
+      pullQuote:
+        "Ein ruhigeres Leben ist kein langsameres. Es ist ein ehrlicheres – eines, das zugibt, wie viel Energie Aufmerksamkeit wirklich kostet.",
       pullQuoteSource: "— Aus den Redaktionsnotizen, Ausgabe 04",
       gridH2: "Essays aus dem aktuellen Band.",
       shorterNotes: "Kürzere Notizen",
       continueKicker: "Weiterlesen",
       continueH2: "Ruhig gebaut. Mit Absicht.",
-      continueDesc: "Ein langsamer Newsletter, einmal im Monat. Ein Essay. Ein Ritual. Ein kleines Update aus dem VYTAL-System. Keine Lifehacks, keine Dringlichkeit.",
+      continueDesc:
+        "Ein langsamer Newsletter, einmal im Monat. Ein Essay. Ein Ritual. Ein kleines Update aus dem VYTAL-System. Keine Lifehacks, keine Dringlichkeit.",
       newsletterPlaceholder: "du@calm.day",
       newsletterCta: "Leise beitreten",
       newsletterSent: "Du bist dabei. Wir schreiben, wenn es zählt.",
@@ -829,7 +1217,15 @@ export const t = {
       modalIssue: "Ausgabe 04 · Redaktionelles Journal",
       readCoverEssay: "Titelessay lesen →",
       springLabel: "Frühjahr · 2026",
-      categories: ["Fokus", "Rituale", "Erholung", "Digitale Überlastung", "Moderne Arbeit", "Nervensystem", "Nachhaltige Energie"],
+      categories: [
+        "Fokus",
+        "Rituale",
+        "Erholung",
+        "Digitale Überlastung",
+        "Moderne Arbeit",
+        "Nervensystem",
+        "Nachhaltige Energie",
+      ],
       sectionsLabel: "Themen",
       coverEssueLabel: "Ausgabe 01 · Titelessay",
       coverH2: "Der Titelessay",
@@ -840,7 +1236,8 @@ export const t = {
       heroH1a: "Erzähl uns,",
       heroH1b: "woran du",
       heroH1c: "arbeitest.",
-      heroDesc: "Für Kooperationen, Ideen, Support oder einfach um Kontakt aufzunehmen. Wir lesen jede Nachricht aufmerksam – keine Warteschlange, kein Ticket, kein Script.",
+      heroDesc:
+        "Für Kooperationen, Ideen, Support oder einfach um Kontakt aufzunehmen. Wir lesen jede Nachricht aufmerksam – keine Warteschlange, kein Ticket, kein Script.",
       heroCta1: "VYTAL kontaktieren",
       heroCta2: "Journal entdecken",
       heroCta3: "VYTAL kaufen →",
@@ -848,33 +1245,57 @@ export const t = {
       commH2a: "Gebaut für",
       commH2b: "Gespräche,",
       commH2c: "nicht Tickets.",
-      commBodyA: "Wir beantworten Nachrichten so, wie wir unsere Produkte machen – ruhig, mit Intention und ohne Aufführung. Keine Autoresponder, die Fürsorge vortäuschen. Keine dringenden Banner. Kein Upsell.",
-      commBodyB: "Die meisten Antworten kommen innerhalb von zwei Werktagen. Manche dauern etwas länger, weil wir lieber etwas Ehrliches schreiben als etwas Schnelles.",
+      commBodyA:
+        "Wir beantworten Nachrichten so, wie wir unsere Produkte machen – ruhig, mit Intention und ohne Aufführung. Keine Autoresponder, die Fürsorge vortäuschen. Keine dringenden Banner. Kein Upsell.",
+      commBodyB:
+        "Die meisten Antworten kommen innerhalb von zwei Werktagen. Manche dauern etwas länger, weil wir lieber etwas Ehrliches schreiben als etwas Schnelles.",
       pillars: [
-        { k: "01", t: "Echte Menschen", d: "Geschrieben von einem kleinen Team in Heilbronn. Kein ausgelagerter Support, keine Scripts." },
-        { k: "02", t: "Aufmerksam gelesen", d: "Jede Nachricht wird von einer Person geöffnet, bevor sie beantwortet oder weitergeleitet wird." },
-        { k: "03", t: "Still als Standard", d: "Wir haken nicht nach. Du hörst von uns einmal, und ordentlich." },
+        {
+          k: "01",
+          t: "Echte Menschen",
+          d: "Geschrieben von einem kleinen Team in Heilbronn. Kein ausgelagerter Support, keine Scripts.",
+        },
+        {
+          k: "02",
+          t: "Aufmerksam gelesen",
+          d: "Jede Nachricht wird von einer Person geöffnet, bevor sie beantwortet oder weitergeleitet wird.",
+        },
+        {
+          k: "03",
+          t: "Still als Standard",
+          d: "Wir haken nicht nach. Du hörst von uns einmal, und ordentlich.",
+        },
       ],
       formKicker: "Schreib uns",
       formH2a: "Fragen,",
       formH2b: "Gedanken,",
       formH2c: "Ideen.",
-      formDesc: "Ein ruhiges Postfach, bewacht von echten Menschen. Für Support, Kooperationen, Presse oder einen Gedanken, den du laut teilen wolltest.",
+      formDesc:
+        "Ein ruhiges Postfach, bewacht von echten Menschen. Für Support, Kooperationen, Presse oder einen Gedanken, den du laut teilen wolltest.",
       formNameLabel: "Dein Name",
       formNamePlaceholder: "Wie sollen wir dich nennen?",
       formEmailLabel: "E-Mail",
       formEmailPlaceholder: "du@ruhiges-postfach.de",
       formSubjectLabel: "Das Gespräch dreht sich um",
-      formSubjects: ["Ein nachdenkliches Gespräch", "Support", "Kooperation", "Presse", "Station hosten"],
+      formSubjects: [
+        "Ein nachdenkliches Gespräch",
+        "Support",
+        "Kooperation",
+        "Presse",
+        "Station hosten",
+      ],
       formMessageLabel: "Deine Nachricht",
       formMessagePlaceholder: "Nimm dir Zeit. Wir auch.",
-      formPrivacy: "Wir nutzen das nur für die Antwort. Keine Listen, keine Sequenzen, keine Automationen.",
+      formPrivacy:
+        "Wir nutzen das nur für die Antwort. Keine Listen, keine Sequenzen, keine Automationen.",
       formCta: "Nachricht senden",
       formSent: "Danke – wir melden uns bald.",
       humanKicker: "Wie wir schreiben",
       humanH2: "Wir lesen jede Nachricht aufmerksam.",
-      humanBodyA: "Nicht weil es ein Markenversprechen ist, sondern weil wir nur eine Handvoll sind und immer noch daran glauben, wie ein Mensch zu antworten – nicht wie ein System.",
-      humanBodyB: "Wenn dir etwas wichtig ist, ist es uns meistens auch wichtig. Erzähl uns, woher du schreibst, woran du baust, worüber du nachdenkst. Je länger die Nachricht, desto besser.",
+      humanBodyA:
+        "Nicht weil es ein Markenversprechen ist, sondern weil wir nur eine Handvoll sind und immer noch daran glauben, wie ein Mensch zu antworten – nicht wie ein System.",
+      humanBodyB:
+        "Wenn dir etwas wichtig ist, ist es uns meistens auch wichtig. Erzähl uns, woher du schreibst, woran du baust, worüber du nachdenkst. Je länger die Nachricht, desto besser.",
       logisticsKicker: "Praktisch",
       logisticsH2: "Ruhige Logistik.",
       logistics: [
@@ -897,10 +1318,12 @@ export const t = {
       title: "Dein Ritual",
       subtitle: "Ein ruhiger Warenkorb",
       emptyH2: "Hier ist es still.",
-      emptyDesc: "Noch nichts im Warenkorb. Starte mit einem Starter-Ritual oder einer einzelnen Nachfüllung.",
+      emptyDesc:
+        "Noch nichts im Warenkorb. Starte mit einem Starter-Ritual oder einer einzelnen Nachfüllung.",
       emptyLink: "Shop entdecken →",
       subtotalLabel: "Zwischensumme",
-      shippingNote: "Versand wird beim Checkout berechnet. Zylinder-Pfand wird vollständig erstattet.",
+      shippingNote:
+        "Versand wird beim Checkout berechnet. Zylinder-Pfand wird vollständig erstattet.",
       badgeSecure: "🔒 Sicherer Checkout",
       badgeCo2: "♻ CO₂-neutraler Versand",
       badgeDeposit: "↩ Pfand bei Rückgabe erstattet",
@@ -933,23 +1356,28 @@ export const t = {
       addCta: "Das Ritual beginnen →",
       quietH2a: "Keine Tabletten in einer Schachtel.",
       quietH2b: "Ein System in einer Schachtel.",
-      quietDesc: "Einmal öffnen. Die Flasche jahrelang nutzen. Den Zylinder ein Leben lang nachfüllen. Das Kit ist die Tür – nicht das Ziel.",
+      quietDesc:
+        "Einmal öffnen. Die Flasche jahrelang nutzen. Den Zylinder ein Leben lang nachfüllen. Das Kit ist die Tür – nicht das Ziel.",
       insideKicker: "01 · Der Inhalt",
       insideH2a: "Sechs Dinge.",
       insideH2b: "Ein Ritual.",
-      insideDesc: "Jedes Teil verdient seinen Platz. Nichts Dekoratives. Der Zylinder ist kein eigenständiges Produkt – er ist das Gefäß, das jede Nachfüllung nach Hause bringt.",
+      insideDesc:
+        "Jedes Teil verdient seinen Platz. Nichts Dekoratives. Der Zylinder ist kein eigenständiges Produkt – er ist das Gefäß, das jede Nachfüllung nach Hause bringt.",
       flavorKicker: "02 · Die sechs Geschmäcker",
       flavorH2a: "Jeder Geschmack.",
       flavorH2b: "In jedem Kit.",
-      flavorDesc: "Du musst dich nicht festlegen, bevor du sie probiert hast. Das Kit wird mit allen sechs geliefert – entdecke jeden einzelnen und finde die zwei oder drei, die du nachbestellst.",
+      flavorDesc:
+        "Du musst dich nicht festlegen, bevor du sie probiert hast. Das Kit wird mit allen sechs geliefert – entdecke jeden einzelnen und finde die zwei oder drei, die du nachbestellst.",
       cylinderKicker: "03 · Der Zylinder",
       cylinderH2a: "Wiederverwendbar.",
       cylinderH2b: "Rückgabefähig. Raffiniert.",
-      cylinderDesc: "Der matte Aluminiumzylinder ist im Kit enthalten – aber er gehört zum System. Gib ihn mit vier anderen zurück, erhalte dein Pfand zurück, und der Zylinder beginnt ein neues Leben.",
+      cylinderDesc:
+        "Der matte Aluminiumzylinder ist im Kit enthalten – aber er gehört zum System. Gib ihn mit vier anderen zurück, erhalte dein Pfand zurück, und der Zylinder beginnt ein neues Leben.",
       ritualKicker: "04 · Der erste Morgen",
       ritualH2a: "Die gedruckte",
       ritualH2b: "Ritual-Karte.",
-      ritualDesc: "Im Kit liegt eine kleine gefaltete Karte. Drei Schritte für den ersten Morgen. Danach liegt sie in deinem Regal – ruhig, ungebrandmarkt, ganz dein.",
+      ritualDesc:
+        "Im Kit liegt eine kleine gefaltete Karte. Drei Schritte für den ersten Morgen. Danach liegt sie in deinem Regal – ruhig, ungebrandmarkt, ganz dein.",
       finalKicker: "Eine Schachtel, die einmal geöffnet wird",
       finalH2a: "Einmal öffnen.",
       finalH2b: "Endlos nachfüllen.",
@@ -962,9 +1390,12 @@ export const t = {
     quickView: {
       whatsInside: "Das ist drin",
       requiredInfo: "Pflichtangaben",
-      supplementNote: "Nahrungsergänzungsmittel. Kein Ersatz für eine ausgewogene, abwechslungsreiche Ernährung. Von Kindern fernhalten.",
-      caffeineNote: "Enthält Koffein. Nicht empfohlen für Kinder, Schwangere oder stillende Frauen.",
-      bottleNote: "Flasche und Zylinder sind für kaltes Stilles Wasser und VYTAL-Tabletten ausgelegt. Vor dem ersten Gebrauch reinigen. Nicht verwenden, wenn beschädigt.",
+      supplementNote:
+        "Nahrungsergänzungsmittel. Kein Ersatz für eine ausgewogene, abwechslungsreiche Ernährung. Von Kindern fernhalten.",
+      caffeineNote:
+        "Enthält Koffein. Nicht empfohlen für Kinder, Schwangere oder stillende Frauen.",
+      bottleNote:
+        "Flasche und Zylinder sind für kaltes Stilles Wasser und VYTAL-Tabletten ausgelegt. Vor dem ersten Gebrauch reinigen. Nicht verwenden, wenn beschädigt.",
       depositNote: "Pfand inklusive. Rückgabe-Loop gilt für Nachfüllzylinder.",
       bottleDetailsLabel: "Flascheneigenschaften & Pflege",
       fullPage: "Zur Produktseite →",

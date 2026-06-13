@@ -13,9 +13,17 @@ export const Route = createFileRoute("/shop/starter-kit")({
   head: () => ({
     meta: [
       { title: "The VYTAL Starter Kit — Begin the refill ritual." },
-      { name: "description", content: "The complete entry into the VYTAL refill ecosystem: glass bottle, reusable aluminum cylinder, all six functional flavors, linen sleeve and ritual card. Deposit included." },
+      {
+        name: "description",
+        content:
+          "The complete entry into the VYTAL refill ecosystem: glass bottle, reusable aluminum cylinder, all six functional flavors, linen sleeve and ritual card. Deposit included.",
+      },
       { property: "og:title", content: "The VYTAL Starter Kit — Begin the refill ritual." },
-      { property: "og:description", content: "Start the refill ritual. All six flavors, the reusable cylinder, the loop — one calm box." },
+      {
+        property: "og:description",
+        content:
+          "Start the refill ritual. All six flavors, the reusable cylinder, the loop — one calm box.",
+      },
       { property: "og:image", content: shopStarterKit },
     ],
   }),
@@ -46,26 +54,74 @@ const starterKitBreadcrumbSchema = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal-energy.de" },
     { "@type": "ListItem", position: 2, name: "Shop", item: "https://vytal-energy.de/shop" },
-    { "@type": "ListItem", position: 3, name: "Starter Kit", item: "https://vytal-energy.de/shop/starter-kit" },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Starter Kit",
+      item: "https://vytal-energy.de/shop/starter-kit",
+    },
   ],
 };
 
 const includedItems = [
   { t: "Glass refill bottle", d: "Borosilicate, soft-touch sleeve, hand-balanced.", img: "" },
-  { t: "Aluminum refill cylinder", d: "Matte anodized, airtight, 8 tablets per fill.", img: aluHero },
-  { t: "All six refill flavors", d: "Focus · Flow · Refresh · Boost · Balance · Recharge.", img: "" },
+  {
+    t: "Aluminum refill cylinder",
+    d: "Matte anodized, airtight, 8 tablets per fill.",
+    img: aluHero,
+  },
+  {
+    t: "All six refill flavors",
+    d: "Focus · Flow · Refresh · Boost · Balance · Recharge.",
+    img: "",
+  },
   { t: "Linen sleeve & pouch", d: "Carry the bottle and cylinder quietly. Washable.", img: "" },
   { t: "Onboarding ritual card", d: "A small printed guide for the first calm morning.", img: "" },
-  
 ];
 
 const flavors = [
-  { slug: "focus",    name: "Focus",    mood: "Matcha Lime",      hex: "#A8C49D", line: "For long days and full to-do lists." },
-  { slug: "flow",     name: "Flow",     mood: "Peach Green Tea",  hex: "#E8C6A4", line: "Steady energy, morning to evening." },
-  { slug: "refresh",  name: "Refresh",  mood: "Berry Mint",       hex: "#C8D9E4", line: "Reset between meetings and screens." },
-  { slug: "boost",    name: "Boost",    mood: "Citrus Ginger",    hex: "#E8A86A", line: "For the days that ask more of you." },
-  { slug: "balance",  name: "Balance",  mood: "Pear Sage",        hex: "#BCC8AE", line: "Energy that knows when to be quiet." },
-  { slug: "recharge", name: "Recharge", mood: "Cherry Black Tea", hex: "#A88494", line: "Late sessions, without overdoing it." },
+  {
+    slug: "focus",
+    name: "Focus",
+    mood: "Matcha Lime",
+    hex: "#A8C49D",
+    line: "For long days and full to-do lists.",
+  },
+  {
+    slug: "flow",
+    name: "Flow",
+    mood: "Peach Green Tea",
+    hex: "#E8C6A4",
+    line: "Steady energy, morning to evening.",
+  },
+  {
+    slug: "refresh",
+    name: "Refresh",
+    mood: "Berry Mint",
+    hex: "#C8D9E4",
+    line: "Reset between meetings and screens.",
+  },
+  {
+    slug: "boost",
+    name: "Boost",
+    mood: "Citrus Ginger",
+    hex: "#E8A86A",
+    line: "For the days that ask more of you.",
+  },
+  {
+    slug: "balance",
+    name: "Balance",
+    mood: "Pear Sage",
+    hex: "#BCC8AE",
+    line: "Energy that knows when to be quiet.",
+  },
+  {
+    slug: "recharge",
+    name: "Recharge",
+    mood: "Cherry Black Tea",
+    hex: "#A88494",
+    line: "Late sessions, without overdoing it.",
+  },
 ];
 
 function useReveal() {
@@ -123,20 +179,20 @@ function StarterKitPage() {
   const flavorProducts = products.filter((p) => p.category === "refill");
 
   const handleAdd = () => {
-  const bottle = bottleOptions.find((b) => b.slug === selectedBottle);
-  const set = flavorSetOptions.find((s) => s.slug === selectedSet);
+    const bottle = bottleOptions.find((b) => b.slug === selectedBottle);
+    const set = flavorSetOptions.find((s) => s.slug === selectedSet);
 
-  add({
-    id: `starter-kit-v2-${selectedBottle}-${selectedSet}`,
-    name: "VYTAL Starter Kit",
-    variant: `${bottle?.name ?? "Bottle"} · ${set?.name ?? "Mixed Set"} · Cylinder · Deposit included`,
-    image: shopStarterKit,
-    unitPrice: KIT_PRICE,
-  });
+    add({
+      id: `starter-kit-v2-${selectedBottle}-${selectedSet}`,
+      name: "VYTAL Starter Kit",
+      variant: `${bottle?.name ?? "Bottle"} · ${set?.name ?? "Mixed Set"} · Cylinder · Deposit included`,
+      image: shopStarterKit,
+      unitPrice: KIT_PRICE,
+    });
 
-  setAdded(true);
-  setTimeout(() => setAdded(false), 1600);
-};
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1600);
+  };
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -163,20 +219,23 @@ function StarterKitPage() {
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-32 grid md:grid-cols-12 gap-8">
           <div className="md:col-span-8">
-            <Link to="/shop" className="font-mono text-[11px] uppercase tracking-[0.32em] text-foreground/60 hover:text-foreground transition-colors">
+            <Link
+              to="/shop"
+              className="font-mono text-[11px] uppercase tracking-[0.32em] text-foreground/60 hover:text-foreground transition-colors"
+            >
               ← Back to shop
             </Link>
             <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.32em] text-primary reveal">
               The Starter Kit · 01
             </p>
             <h1 className="mt-5 font-display text-[clamp(3rem,9vw,8.5rem)] font-extrabold leading-[0.92] tracking-tighter text-balance reveal">
-              Begin the<br/>
+              Begin the
+              <br />
               <em className="not-italic font-light italic text-foreground/70">refill ritual.</em>
             </h1>
             <p className="mt-8 max-w-lg text-lg text-foreground/75 leading-relaxed reveal">
-              Everything you need to enter the system. One bottle. The reusable
-              cylinder. All six flavors — because the ritual begins with exploring
-              every one of them.
+              Everything you need to enter the system. One bottle. The reusable cylinder. All six
+              flavors — because the ritual begins with exploring every one of them.
             </p>
           </div>
           <div className="md:col-span-4 self-end font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/55 max-w-xs ml-auto text-right reveal">
@@ -191,14 +250,20 @@ function StarterKitPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-5 flex flex-wrap items-center justify-between gap-6">
           <div className="flex items-center gap-5">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">The complete kit</p>
-              <p className="mt-0.5 font-display text-base font-semibold">Bottle · Cylinder · 6 flavors</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+                The complete kit
+              </p>
+              <p className="mt-0.5 font-display text-base font-semibold">
+                Bottle · Cylinder · 6 flavors
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-4 ml-auto">
             <div className="text-right">
               <p className="font-display text-2xl leading-none">{formatPrice(KIT_PRICE)}</p>
-              <p className="mt-2 text-xs text-muted-foreground">Includes reusable cylinder deposit.</p>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Includes reusable cylinder deposit.
+              </p>
               <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-1">
                 Deposit included · returns refunded
               </p>
@@ -238,14 +303,18 @@ function StarterKitPage() {
                 ))}
               </div>
             </div>
-                        <button
+            <button
               onClick={handleAdd}
               className="relative overflow-hidden bg-foreground text-background rounded-full px-7 py-3.5 text-sm font-medium hover:bg-primary transition-colors"
             >
-              <span className={`block transition-all duration-500 ${added ? "-translate-y-8 opacity-0" : ""}`}>
+              <span
+                className={`block transition-all duration-500 ${added ? "-translate-y-8 opacity-0" : ""}`}
+              >
                 Begin the ritual →
               </span>
-              <span className={`absolute inset-0 grid place-items-center transition-all duration-500 ${added ? "" : "translate-y-8 opacity-0"}`}>
+              <span
+                className={`absolute inset-0 grid place-items-center transition-all duration-500 ${added ? "" : "translate-y-8 opacity-0"}`}
+              >
                 Added ✓
               </span>
             </button>
@@ -256,33 +325,42 @@ function StarterKitPage() {
       {/* QUIET STATEMENT */}
       <section className="px-6 md:px-10 max-w-4xl mx-auto py-28 md:py-40 text-center">
         <p className="reveal font-display text-3xl md:text-5xl leading-[1.15] tracking-tight text-balance">
-          Not tablets in a box.<br/>
+          Not tablets in a box.
+          <br />
           <span className="text-muted-foreground">A system in a box.</span>
         </p>
         <p className="reveal mt-8 max-w-xl mx-auto text-muted-foreground leading-relaxed">
-          Open it once. Use the bottle for years. Refill the cylinder for a
-          lifetime. The kit is the doorway — not the destination.
+          Open it once. Use the bottle for years. Refill the cylinder for a lifetime. The kit is the
+          doorway — not the destination.
         </p>
       </section>
 
       {/* WHAT'S INSIDE */}
       <section className="px-6 md:px-10 max-w-7xl mx-auto pb-28 md:pb-40 grid lg:grid-cols-12 gap-12 lg:gap-20">
         <div className="lg:col-span-5 reveal lg:sticky lg:top-32 self-start">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">01 · Inside the box</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
+            01 · Inside the box
+          </span>
           <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-            Six things.<br/>
+            Six things.
+            <br />
             <span className="italic font-light text-muted-foreground">One ritual.</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
-            Each piece earns its place. Nothing decorative. The cylinder isn't a
-            standalone product — it's the vessel that brings every refill home.
+            Each piece earns its place. Nothing decorative. The cylinder isn't a standalone product
+            — it's the vessel that brings every refill home.
           </p>
         </div>
         <ol className="lg:col-span-7 space-y-3">
           {includedItems.map((it, i) => (
-            <li key={it.t} className="reveal group rounded-3xl border border-border bg-secondary/40 p-6 md:p-7 hover:bg-secondary transition-colors duration-500">
+            <li
+              key={it.t}
+              className="reveal group rounded-3xl border border-border bg-secondary/40 p-6 md:p-7 hover:bg-secondary transition-colors duration-500"
+            >
               <div className="flex items-start gap-5">
-                <span className="font-mono text-xs tracking-widest text-primary mt-1 w-8">0{i + 1}</span>
+                <span className="font-mono text-xs tracking-widest text-primary mt-1 w-8">
+                  0{i + 1}
+                </span>
                 <div className="flex-1">
                   <p className="font-display text-xl font-semibold">{it.t}</p>
                   <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{it.d}</p>
@@ -297,27 +375,30 @@ function StarterKitPage() {
       <section className="relative bg-secondary/40 border-y border-border/60 py-28 md:py-40 overflow-hidden">
         <div
           className="absolute inset-0 -z-10 transition-all duration-[1800ms] ease-[cubic-bezier(0.32,0.72,0,1)] opacity-50"
-          style={{ background: `radial-gradient(60% 80% at 50% 30%, ${activeFlavor.hex}55, transparent 70%)` }}
+          style={{
+            background: `radial-gradient(60% 80% at 50% 30%, ${activeFlavor.hex}55, transparent 70%)`,
+          }}
         />
         <div className="px-6 md:px-10 max-w-7xl mx-auto">
           <div className="max-w-3xl mb-14 reveal">
-            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">02 · The six flavors</span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
+              02 · The six flavors
+            </span>
             <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-              Every flavor.<br/>
+              Every flavor.
+              <br />
               <span className="italic font-light text-muted-foreground">Inside every kit.</span>
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed max-w-xl">
-              You don't have to commit before you've tried them. The kit ships with
-              all six — explore each one, find the two or three you'll reorder.
+              You don't have to commit before you've tried them. The kit ships with all six —
+              explore each one, find the two or three you'll reorder.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-12 gap-10 items-start">
             {/* tablet preview */}
             <div className="lg:col-span-5 lg:sticky lg:top-32 self-start reveal">
-              <div
-                className="relative aspect-[4/5] overflow-hidden rounded-md transition-all duration-[1500ms] ease-[cubic-bezier(0.32,0.72,0,1)] bg-secondary/80"
-              >
+              <div className="relative aspect-[4/5] overflow-hidden rounded-md transition-all duration-[1500ms] ease-[cubic-bezier(0.32,0.72,0,1)] bg-secondary/80">
                 {/* Product Float Shot */}
                 <div className="absolute inset-0 flex items-center justify-center p-8">
                   <img
@@ -326,7 +407,7 @@ function StarterKitPage() {
                     className="w-full h-auto max-h-full object-contain animate-float drop-shadow-2xl transition-all duration-[1400ms]"
                   />
                 </div>
-                
+
                 <div className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
                   {activeFlavor.mood}
                 </div>
@@ -344,18 +425,23 @@ function StarterKitPage() {
                 const on = active === f.slug;
                 return (
                   <Link
-                      to="/shop/$slug"
-                      params={{ slug: f.slug }}
+                    to="/shop/$slug"
+                    params={{ slug: f.slug }}
                     key={f.slug}
                     onMouseEnter={() => setActive(f.slug)}
                     onFocus={() => setActive(f.slug)}
                     className={`text-left p-6 rounded-2xl border transition-all duration-700 ${on ? "border-foreground bg-background shadow-2xl ring-1 ring-primary/20 -translate-y-1" : "border-border bg-background/40 hover:bg-background/80"}`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className={`size-9 rounded-full transition-transform duration-700 ${on ? "scale-110" : ""}`} style={{ background: f.hex }} />
+                      <span
+                        className={`size-9 rounded-full transition-transform duration-700 ${on ? "scale-110" : ""}`}
+                        style={{ background: f.hex }}
+                      />
                       <div className="flex-1">
                         <p className="font-display text-lg font-semibold">{f.name}</p>
-                        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mt-0.5">{f.mood}</p>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mt-0.5">
+                          {f.mood}
+                        </p>
                       </div>
                     </div>
                     <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{f.line}</p>
@@ -379,22 +465,29 @@ function StarterKitPage() {
       <section className="relative px-6 md:px-10 max-w-7xl mx-auto py-28 md:py-40 grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-6 reveal">
           <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#f1ece1]">
-            <img src={aluHero} alt="Der Aluminium-Nachfüllzylinder, der jedem Starter Kit beiliegt" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <img
+              src={aluHero}
+              alt="Der Aluminium-Nachfüllzylinder, der jedem Starter Kit beiliegt"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
             <span className="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.3em] bg-background/85 backdrop-blur px-3 py-1.5 rounded-full">
               Included · part of the loop
             </span>
           </div>
         </div>
         <div className="lg:col-span-6 reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">03 · The cylinder</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
+            03 · The cylinder
+          </span>
           <h2 className="mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-            Reusable.<br/>
+            Reusable.
+            <br />
             <span className="italic font-light text-muted-foreground">Returnable. Refined.</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
-            The matte aluminum cylinder is included with the kit — but it belongs to
-            the system. Return it with four others, get your deposit back, and the
-            cylinder begins another life.
+            The matte aluminum cylinder is included with the kit — but it belongs to the system.
+            Return it with four others, get your deposit back, and the cylinder begins another life.
           </p>
           <ul className="mt-8 space-y-3 max-w-md text-sm">
             {[
@@ -404,7 +497,8 @@ function StarterKitPage() {
               "Sterilized and refilled — not recycled away",
             ].map((b) => (
               <li key={b} className="flex gap-3 text-muted-foreground border-b border-border pb-2">
-                <span className="text-primary mt-0.5">—</span>{b}
+                <span className="text-primary mt-0.5">—</span>
+                {b}
               </li>
             ))}
           </ul>
@@ -414,19 +508,27 @@ function StarterKitPage() {
       {/* RITUAL CARD */}
       <section className="relative overflow-hidden">
         <div className="relative h-[80svh] min-h-[560px] w-full">
-          <img src={shopRitualDesk} alt="Ruhiger Morgen-Schreibtisch mit der VYTAL Flasche, dem Zylinder und der gedruckten Ritual-Karte" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+          <img
+            src={shopRitualDesk}
+            alt="Ruhiger Morgen-Schreibtisch mit der VYTAL Flasche, dem Zylinder und der gedruckten Ritual-Karte"
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20" />
         </div>
         <div className="absolute inset-0 flex items-end">
           <div className="max-w-7xl mx-auto w-full px-6 md:px-10 pb-16 md:pb-24">
-            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-background reveal">04 · The first morning</span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-background reveal">
+              04 · The first morning
+            </span>
             <h2 className="reveal mt-5 font-display text-4xl md:text-6xl font-extrabold leading-[0.98] tracking-tight max-w-2xl text-background drop-shadow">
-              The printed<br/>
+              The printed
+              <br />
               <span className="italic font-light">ritual card.</span>
             </h2>
             <p className="reveal mt-6 max-w-md text-background/85 leading-relaxed">
-              A small folded card lives inside the kit. Three steps for the first
-              morning. After that, it lives on your shelf — quiet, unbranded, yours.
+              A small folded card lives inside the kit. Three steps for the first morning. After
+              that, it lives on your shelf — quiet, unbranded, yours.
             </p>
           </div>
         </div>
@@ -439,9 +541,12 @@ function StarterKitPage() {
           <div className="absolute bottom-0 right-0 size-[40vmax] rounded-full bg-accent/15 blur-3xl animate-float" />
         </div>
         <div className="max-w-3xl mx-auto reveal">
-          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">A box that opens once</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
+            A box that opens once
+          </span>
           <h2 className="mt-8 font-display text-5xl md:text-7xl font-extrabold leading-[0.95] tracking-tighter text-balance">
-            Open it once.<br/>
+            Open it once.
+            <br />
             <span className="italic font-light text-muted-foreground">Refill it forever.</span>
           </h2>
           <div className="mt-12 flex flex-wrap gap-3 justify-center">
@@ -451,10 +556,16 @@ function StarterKitPage() {
             >
               Add Starter Kit — €40
             </button>
-            <Link to="/refill" className="inline-flex border border-foreground/20 text-foreground px-8 py-4 rounded-full font-medium hover:bg-foreground hover:text-background transition-all">
+            <Link
+              to="/refill"
+              className="inline-flex border border-foreground/20 text-foreground px-8 py-4 rounded-full font-medium hover:bg-foreground hover:text-background transition-all"
+            >
               How the system works
             </Link>
-            <Link to="/shop" className="inline-flex px-8 py-4 rounded-full font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <Link
+              to="/shop"
+              className="inline-flex px-8 py-4 rounded-full font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
               Back to shop →
             </Link>
           </div>

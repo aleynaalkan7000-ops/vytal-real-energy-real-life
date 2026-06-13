@@ -23,13 +23,16 @@ export const Route = createFileRoute("/journal/$slug")({
       ],
     };
   },
-  
+
   notFoundComponent: () => (
     <main className="min-h-screen bg-background text-foreground">
       <section className="max-w-2xl mx-auto px-6 py-40 text-center">
         <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">404</p>
         <h1 className="mt-6 font-display text-4xl md:text-5xl">This essay can't be found.</h1>
-        <Link to="/journal" className="mt-10 inline-block font-mono text-xs uppercase tracking-[0.24em] border-b border-foreground/40 pb-1 hover:text-primary hover:border-primary">
+        <Link
+          to="/journal"
+          className="mt-10 inline-block font-mono text-xs uppercase tracking-[0.24em] border-b border-foreground/40 pb-1 hover:text-primary hover:border-primary"
+        >
           ← Back to journal
         </Link>
       </section>
@@ -39,9 +42,14 @@ export const Route = createFileRoute("/journal/$slug")({
   errorComponent: ({ reset }) => (
     <main className="min-h-screen bg-background text-foreground">
       <section className="max-w-2xl mx-auto px-6 py-40 text-center">
-        <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">Something went quiet</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-primary">
+          Something went quiet
+        </p>
         <h1 className="mt-6 font-display text-3xl">This essay couldn't be loaded.</h1>
-        <button onClick={reset} className="mt-8 font-mono text-xs uppercase tracking-[0.24em] border-b border-foreground/40 pb-1">
+        <button
+          onClick={reset}
+          className="mt-8 font-mono text-xs uppercase tracking-[0.24em] border-b border-foreground/40 pb-1"
+        >
           Try again
         </button>
       </section>
@@ -57,8 +65,18 @@ function buildBreadcrumbSchema(a: { title: string; slug: string }) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://vytal-energy.de" },
-      { "@type": "ListItem", position: 2, name: "Journal", item: "https://vytal-energy.de/journal" },
-      { "@type": "ListItem", position: 3, name: a.title, item: `https://vytal-energy.de/journal/${a.slug}` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Journal",
+        item: "https://vytal-energy.de/journal",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: a.title,
+        item: `https://vytal-energy.de/journal/${a.slug}`,
+      },
     ],
   };
 }

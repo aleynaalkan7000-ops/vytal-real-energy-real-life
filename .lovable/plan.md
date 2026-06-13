@@ -9,27 +9,32 @@ This is a large, multi-system build. To ship it well (and not as a fragile mega-
 Pure frontend. Ships immediately, no Cloud needed.
 
 **Shop page redesign (`/shop`)**
+
 - Hero with product **visible above the fold** (bottle + floating tablets, atmospheric lighting, grain overlay, slow parallax)
 - Headline "Built for calmer focus." + 3 CTAs
 - Denser, rhythm-driven product grid (asymmetric editorial layout, hover lift, light sweep, soft zoom)
 - Ambient moving gradient + subtle noise across the whole page
 
-**Product detail page (`/shop/$slug`)** *(new route)*
+**Product detail page (`/shop/$slug`)** _(new route)_
+
 - Large cinematic product image dominates viewport
 - Dissolve / ripple motion accents
 - Ingredients, ritual, nutrition, reviews — editorial layout
 - Add-to-cart with magnetic button + success microinteraction
 
 **Global cart (client-side, `localStorage`)**
+
 - Cart context + animated cart icon in header (badge count)
 - **Side drawer** with glassmorphism, animated quantity steppers, live totals
 - Persists across reloads
 
 **Global header upgrade**
+
 - Glassmorphism on scroll, animated hover underlines
 - Cart icon + account icon (account icon links to /account, gated in phase 2)
 
-**Starter Kit Configurator (`/shop/starter-kit`)** *(new route)*
+**Starter Kit Configurator (`/shop/starter-kit`)** _(new route)_
+
 - Step flow: bottle type → color → 3 flavor picks → goal
 - Live preview that swaps imagery, tints background, updates summary
 - "Add ritual to cart" at the end
@@ -41,15 +46,18 @@ Pure frontend. Ships immediately, no Cloud needed.
 I'll enable Lovable Cloud (DB + auth). I'll ask one question first: do you need profile fields (name, etc.) beyond email?
 
 **Auth**
+
 - Email/password + Google sign-in
 - `/login`, `/signup`, `/reset-password` routes
 - Protected `/account/*` via `_authenticated` layout
 
 **Account dashboard (`/account`)**
+
 - Profile, order history, saved favorites, refill reminders, reorder button
 - Calm editorial layout matching shop
 
 **Checkout flow (`/checkout`)**
+
 - Steps: shipping → payment (mock for now) → confirmation
 - Progress animation, soft transitions, order summary
 - Orders persisted to Cloud DB

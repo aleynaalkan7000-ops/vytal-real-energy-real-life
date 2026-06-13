@@ -35,7 +35,10 @@ export function SiteHeader() {
       }`}
     >
       <nav className="flex items-center justify-between px-6 md:px-10 py-4 max-w-7xl mx-auto">
-        <Link to="/" className="flex items-center gap-2.5 font-display text-xl font-extrabold tracking-tight uppercase">
+        <Link
+          to="/"
+          className="flex items-center gap-2.5 font-display text-xl font-extrabold tracking-tight uppercase"
+        >
           <img src={logo} alt="VYTAL Logo" className="h-8 w-auto" />
           Vytal
         </Link>
@@ -58,9 +61,13 @@ export function SiteHeader() {
             aria-label="Switch language"
             className="hidden sm:flex items-center gap-0.5 h-8 px-2.5 rounded-full text-[10px] font-mono tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
           >
-            <span className={lang === "en" ? "text-foreground" : "text-muted-foreground/50"}>EN</span>
+            <span className={lang === "en" ? "text-foreground" : "text-muted-foreground/50"}>
+              EN
+            </span>
             <span className="mx-0.5 text-border">|</span>
-            <span className={lang === "de" ? "text-foreground" : "text-muted-foreground/50"}>DE</span>
+            <span className={lang === "de" ? "text-foreground" : "text-muted-foreground/50"}>
+              DE
+            </span>
           </button>
           <Link
             to="/account"
