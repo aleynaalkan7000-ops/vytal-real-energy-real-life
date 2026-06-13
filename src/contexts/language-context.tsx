@@ -529,7 +529,7 @@ export const t = {
       heroH1b: "what you're",
       heroH1c: "working on.",
       heroDesc:
-        "For collaborations, ideas, support, or simply reaching out. We read every message thoughtfully — there is no queue, no ticket, no script.",
+        "For collaborations, ideas, support, or simply reaching out. We read every message thoughtfully.",
       heroCta1: "Contact VYTAL",
       heroCta2: "Explore the Journal",
       heroCta3: "Shop VYTAL →",
@@ -1254,7 +1254,7 @@ export const t = {
       heroH1b: "woran du",
       heroH1c: "arbeitest.",
       heroDesc:
-        "Für Kooperationen, Ideen, Support oder einfach um Kontakt aufzunehmen. Wir lesen jede Nachricht aufmerksam – keine Warteschlange, kein Ticket, kein Script.",
+        "Für Kooperationen, Ideen, Support oder einfach um Kontakt aufzunehmen. Wir lesen jede Nachricht aufmerksam.",
       heroCta1: "VYTAL kontaktieren",
       heroCta2: "Journal entdecken",
       heroCta3: "VYTAL kaufen →",
