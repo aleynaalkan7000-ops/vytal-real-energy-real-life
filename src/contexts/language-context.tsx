@@ -87,7 +87,7 @@ export const t = {
         {
           n: "04",
           t: "Refill",
-          d: "When you're low, refills arrive at your door in compostable paper.",
+          d: "When you're low, a refill cylinder arrives at your door. Eight tablets, matte aluminum, €4 refundable deposit — drop, dissolve, repeat.",
         },
       ],
       systemLink: "See how a refill arrives",
@@ -786,7 +786,7 @@ export const t = {
         {
           n: "04",
           t: "Nachfüllen",
-          d: "Wenn der Vorrat knapp wird, kommen Nachfüllungen in kompostierbarem Papier zu dir.",
+          d: "Wenn der Vorrat knapp wird, kommt ein neuer Zylinder zu dir. Acht Tabletten, mattes Aluminium, €4 Pfand inklusive — einwerfen, auflösen, wiederholen.",
         },
       ],
       systemLink: "Sieh, wie ein Nachfüllpaket ankommt",
