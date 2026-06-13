@@ -676,7 +676,7 @@ function JournalPage() {
               onClick={() => setActiveArticle(featured)}
               className="block group/title text-left w-full"
             >
-              <h3 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.02] tracking-tight text-balance group-hover/title:text-primary transition-colors">
+              <h3 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.02] tracking-tight text-balance hyphens-auto group-hover/title:text-primary transition-colors">
                 {featured.title}
               </h3>
             </button>
@@ -851,7 +851,7 @@ function ArticleCard({
       <h3
         className={`mt-3 font-display ${
           compact ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"
-        } font-bold leading-[1.08] tracking-tight text-balance group-hover:text-primary transition-colors`}
+        } font-bold leading-[1.08] tracking-tight text-balance hyphens-auto group-hover:text-primary transition-colors`}
       >
         {article.title}
       </h3>
