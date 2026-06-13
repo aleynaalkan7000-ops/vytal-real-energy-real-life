@@ -43,7 +43,7 @@ const refillFaqSchema = {
       name: "How do I return the empty cylinders?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Collect five empty cylinders, place them in the included pre-paid return pouch, and drop it unfranked in any postbox. We sterilize and refill them. Your €4-per-cylinder deposit is credited to your next order.",
+        text: "Place any empty cylinders in the included pre-paid return pouch and drop it unfranked in any postbox or simply keep them. We sterilize and refill returned cylinders. Your €4-per-cylinder deposit is credited to your next order.",
       },
     },
     {
@@ -241,7 +241,7 @@ function useRefillTx() {
           { t: "Sammeln", d: "Leere Zylinder nach und nach in den Rückgabebeutel legen.", img: "" },
           {
             t: "Zurückschicken",
-            d: "Beutel portofrei in jeden Briefkasten einwerfen. Vorfrankiert. Keine App. Oder einfach behalten.",
+            d: "Beutel portofrei in jeden Briefkasten einwerfen. Vorfrankiert. Keine App. Oder einfach behalten. Du entscheidest, wann der Loop sich schließt.",
             img: "",
           },
           {
@@ -377,7 +377,7 @@ function useRefillTx() {
           },
           {
             q: "Wie gebe ich die leeren Zylinder zurück?",
-            a: "Sammle fünf leere Zylinder, lege sie in den vorfrankierten Rückgabebeutel und wirf ihn portofrei in jeden Briefkasten. Wir sterilisieren und befüllen sie neu. Dein Pfand wird mit der nächsten Bestellung verrechnet.",
+            a: "Lege leere Zylinder in den vorfrankierten Rückgabebeutel und wirf ihn portofrei in jeden Briefkasten oder behalte sie einfach. Wir sterilisieren und befüllen zurückgegebene Zylinder neu. Dein Pfand wird mit der nächsten Bestellung verrechnet.",
           },
           {
             q: "Welches Wasser eignet sich am besten?",
@@ -407,7 +407,7 @@ function useRefillTx() {
           },
           {
             q: "How do I return the empty cylinders?",
-            a: "Collect five empty cylinders, place them in the included pre-paid return pouch, and drop it unfranked in any postbox. We sterilize and refill them. Your €4-per-cylinder deposit is credited to your next order.",
+            a: "Place any empty cylinders in the included pre-paid return pouch and drop it unfranked in any postbox or simply keep them. We sterilize and refill returned cylinders. Your €4-per-cylinder deposit is credited to your next order.",
           },
           {
             q: "What water works best?",
