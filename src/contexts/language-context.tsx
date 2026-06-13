@@ -451,15 +451,15 @@ export const t = {
         },
         {
           n: "03",
-          t: "Quiet by default.",
-          d: "No neon, no edges, no urgency. The packaging, the tone, the rituals — all written to make a day a little less loud.",
+          t: "Made for real life.",
+          d: "Built for people who'd rather live a day than survive it. That applies to the product and to everything around it.",
         },
       ],
       humanKicker: "The human side",
       humanH2a: "A small studio.",
       humanH2b: "Slow on purpose.",
       humanBodyA:
-        "We're a small team based in Heilbronn. No growth-at-all-costs deck. No twenty-person marketing floor. Just a quiet studio, a long table, and a stubborn belief that brands made calmly tend to age better.",
+        "We're a small team based in Heilbronn. Small enough that every word here was written by someone who meant it. Just a quiet studio, a long table, and a stubborn belief that brands made calmly tend to age better.",
       humanBodyB:
         "We share rituals more than we share opinions. A glass of water in the morning. A walk between meetings. A working day that ends when it ends.",
       humanBodyC: "Nothing radical. Just life, treated like it matters.",
@@ -1177,17 +1177,17 @@ export const t = {
         },
         {
           n: "03",
-          t: "Still als Standard.",
-          d: "Kein Neon, keine Kanten, keine Dringlichkeit. Verpackung, Ton, Rituale – alles geschrieben, um einen Tag ein bisschen leiser zu machen.",
+          t: "Gemacht für das echte Leben.",
+          d: "Gebaut für Menschen, die einen Tag lieber leben als überleben. Das gilt für das Produkt und für alles drum herum.",
         },
       ],
       humanKicker: "Die menschliche Seite",
       humanH2a: "Ein kleines Studio.",
       humanH2b: "Bewusst langsam.",
       humanBodyA:
-        "Wir sind ein kleines Team in Heilbronn. Kein Wachstum-um-jeden-Preis-Deck. Kein zwanzigköpfiger Marketing-Floor. Nur ein ruhiges Studio, ein langer Tisch und die hartnäckige Überzeugung, dass ruhig gemachte Marken besser altern.",
+        "Wir sind ein kleines Team in Heilbronn. Klein genug, dass jedes Wort hier von jemandem geschrieben wurde, der es auch meinte. Nur ein ruhiges Studio, ein langer Tisch und die hartnäckige Überzeugung, dass ruhig gemachte Marken besser altern.",
       humanBodyB:
-        "Wir teilen lieber Rituale als Meinungen. Ein Glas Wasser morgens. Ein Spaziergang zwischen Meetings. Ein Arbeitstag, der endet, wenn er endet.",
+        "Wir teilen lieber Rituale als Meinungen. Ein Glas Wasser, bevor der Tag beginnt. Ein Spaziergang zwischen Meetings. Ein Arbeitstag, der endet, wenn er endet.",
       humanBodyC: "Nichts Radikales. Einfach das Leben, behandelt als würde es zählen.",
       finalKicker: "(Re)Fuel deinen Tag. Nicht den Planeten.",
       finalH2a: "Ruhig gebaut.",

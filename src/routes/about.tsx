@@ -213,7 +213,7 @@ function AboutPage() {
           <ol className="lg:col-span-8 lg:pl-12 divide-y divide-background/15 border-y border-background/15">
             {tx.about.philosophyLines.map((line, i) => (
               <li
-                key={line}
+                key={i}
                 className="reveal grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-14 items-baseline py-8 md:py-10"
               >
                 <span className="font-mono text-xs text-primary/80">0{i + 1}</span>
