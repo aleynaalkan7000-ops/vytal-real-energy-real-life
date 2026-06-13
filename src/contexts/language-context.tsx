@@ -280,7 +280,7 @@ export const t = {
       refillsH2a: "The refills.",
       refillsH2b: "Always inside the cylinder.",
       refillsDesc:
-        "Each refill arrives in a reusable matte aluminum cylinder. Every cylinder holds 8 functional tablets and includes a €4 refundable deposit. Return them whenever you're ready or keep them. Every returned cylinder earns back its deposit and gets sterilized and refilled.",
+        "Each refill arrives in a reusable matte aluminum cylinder. Every cylinder holds 8 functional tablets and includes a €4 refundable deposit. Return them when you're ready or keep them. Every returned cylinder earns back its deposit and gets sterilized and refilled.",
       inRefillLoop: "In refill loop",
       loopKicker: "05 · The return loop",
       loopH2a: "How the VYTAL",
@@ -990,7 +990,7 @@ export const t = {
       refillsH2a: "Die Nachfüllungen.",
       refillsH2b: "Immer im Zylinder.",
       refillsDesc:
-        "Jede Nachfüllung kommt in einem matten Aluminiumzylinder. Jeder Zylinder enthält 8 funktionale Tabletten und beinhaltet ein €4-Pfand. Schick sie zurück, wenn du möchtest oder behalte sie. Mit jedem zurückgegebenen Zylinder bekommst du dein Pfand zurückerstattet. Zurückgegebene Zylinder werden sterilisiert und neu befüllt.",
+        "Jede Nachfüllung kommt in einem matten Aluminiumzylinder. Jeder Zylinder enthält 8 funktionale Tabletten und beinhaltet ein €4-Pfand. Schick sie zurück, wann immer du möchtest oder behalte sie. Mit jedem zurückgegebenen Zylinder bekommst du dein Pfand zurückerstattet. Zurückgegebene Zylinder werden sterilisiert und neu befüllt.",
       inRefillLoop: "Im Nachfüll-Kreislauf",
       loopKicker: "05 · Der Rückgabe-Loop",
       loopH2a: "Wie der VYTAL-",
