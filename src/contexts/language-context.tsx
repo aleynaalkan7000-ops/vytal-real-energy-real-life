@@ -693,6 +693,23 @@ export const t = {
       bottleDetailsLabel: "Bottle details & care",
       fullPage: "Full product page →",
     },
+    // ── Checkout ──────────────────────────────────────────────────────────
+    checkout: {
+      kicker: "Checkout",
+      h1: "A calm checkout.",
+      desc: "Shipping, payment and confirmation will live here. For now, review your ritual — full checkout arrives with the account layer.",
+      yourRitual: "Your ritual",
+      cartEmpty: "Your cart is quiet.",
+      findRefills: "Find your refills →",
+      remove: "Remove",
+      summary: "Summary",
+      subtotal: "Subtotal",
+      shipping: "Shipping",
+      shippingValue: "Calculated next",
+      total: "Total today",
+      cta: "Continue to shipping →",
+      footer: "Carbon-neutral delivery · 30-day returns",
+    },
     // ── Account ───────────────────────────────────────────────────────────
     account: {
       kicker: "Account",
@@ -1399,6 +1416,23 @@ export const t = {
       depositNote: "Pfand inklusive. Rückgabe-Loop gilt für Nachfüllzylinder.",
       bottleDetailsLabel: "Flascheneigenschaften & Pflege",
       fullPage: "Zur Produktseite →",
+    },
+    // ── Checkout ──────────────────────────────────────────────────────────
+    checkout: {
+      kicker: "Kasse",
+      h1: "Ein ruhiger Checkout.",
+      desc: "Versand, Zahlung und Bestätigung kommen hier. Überprüfe dein Ritual — der vollständige Checkout folgt mit dem Account-Layer.",
+      yourRitual: "Dein Ritual",
+      cartEmpty: "Dein Warenkorb ist leer.",
+      findRefills: "Nachfüllungen finden →",
+      remove: "Entfernen",
+      summary: "Zusammenfassung",
+      subtotal: "Zwischensumme",
+      shipping: "Versand",
+      shippingValue: "Wird berechnet",
+      total: "Gesamtsumme",
+      cta: "Weiter zum Versand →",
+      footer: "CO₂-neutraler Versand · 30 Tage Rückgabe",
     },
     // ── Account ───────────────────────────────────────────────────────────
     account: {

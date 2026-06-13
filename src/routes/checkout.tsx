@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteFooter } from "@/components/site-footer";
 import { useCart, formatPrice } from "@/contexts/cart-context";
+import { useLanguage } from "@/contexts/language-context";
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({
@@ -14,30 +15,29 @@ export const Route = createFileRoute("/checkout")({
 
 function CheckoutPage() {
   const { items, subtotal, setQty, remove } = useCart();
+  const { tx } = useLanguage();
+  const c = tx.checkout;
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="max-w-5xl mx-auto px-6 md:px-10 py-24 md:py-32 grid lg:grid-cols-12 gap-16">
         <div className="lg:col-span-7">
           <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-primary">
-            Checkout
+            {c.kicker}
           </span>
           <h1 className="mt-6 font-display text-5xl md:text-6xl font-extrabold leading-[0.98] tracking-tight">
-            A calm checkout.
+            {c.h1}
           </h1>
-          <p className="mt-6 text-muted-foreground max-w-md leading-relaxed">
-            Shipping, payment and confirmation will live here. For now, review your ritual — full
-            checkout arrives with the account layer.
-          </p>
+          <p className="mt-6 text-muted-foreground max-w-md leading-relaxed">{c.desc}</p>
 
           <div className="mt-14">
             <h2 className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-6">
-              Your ritual
+              {c.yourRitual}
             </h2>
             {items.length === 0 ? (
               <p className="text-muted-foreground">
-                Your cart is quiet.{" "}
+                {c.cartEmpty}{" "}
                 <Link to="/shop" className="underline underline-offset-4 hover:text-foreground">
-                  Find your refills →
+                  {c.findRefills}
                 </Link>
               </p>
             ) : (
@@ -77,7 +77,7 @@ function CheckoutPage() {
                       onClick={() => remove(i.id)}
                       className="text-muted-foreground hover:text-foreground text-xs font-mono"
                     >
-                      Remove
+                      {c.remove}
                     </button>
                   </li>
                 ))}
@@ -89,19 +89,19 @@ function CheckoutPage() {
         <aside className="lg:col-span-5 lg:sticky lg:top-28 self-start">
           <div className="rounded-2xl border border-border bg-secondary/30 p-8 backdrop-blur">
             <h3 className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
-              Summary
+              {c.summary}
             </h3>
             <div className="mt-6 space-y-3 text-sm">
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Subtotal</span>
+                <span className="text-muted-foreground">{c.subtotal}</span>
                 <span className="font-mono">{formatPrice(subtotal)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Shipping</span>
-                <span className="font-mono text-muted-foreground">Calculated next</span>
+                <span className="text-muted-foreground">{c.shipping}</span>
+                <span className="font-mono text-muted-foreground">{c.shippingValue}</span>
               </div>
               <div className="flex justify-between pt-3 border-t border-border">
-                <span className="font-display text-lg">Total today</span>
+                <span className="font-display text-lg">{c.total}</span>
                 <span className="font-display text-lg">{formatPrice(subtotal)}</span>
               </div>
             </div>
@@ -109,11 +109,9 @@ function CheckoutPage() {
               disabled={items.length === 0}
               className="mt-8 w-full bg-foreground text-background rounded-full py-4 text-sm font-medium hover:bg-primary transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              Continue to shipping →
+              {c.cta}
             </button>
-            <p className="mt-4 text-[11px] text-muted-foreground text-center">
-              Carbon-neutral delivery · 30-day returns
-            </p>
+            <p className="mt-4 text-[11px] text-muted-foreground text-center">{c.footer}</p>
           </div>
         </aside>
       </section>
