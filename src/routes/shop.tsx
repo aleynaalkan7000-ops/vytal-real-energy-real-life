@@ -266,8 +266,8 @@ function useShopTx() {
     refillsH2a: isDE ? "Die Nachfüllungen." : "The refills.",
     refillsH2b: isDE ? "Immer im Zylinder." : "Always inside the cylinder.",
     refillsDesc: isDE
-      ? "Jede Nachfüllung kommt in einem matten Aluminiumzylinder. Jeder Zylinder enthält 8 funktionale Tabletten und beinhaltet ein €4-Pfand. Wenn fünf Zylinder leer sind, schickst du sie zurück und wir sterilisieren und befüllen sie neu."
-      : "Each refill arrives in a reusable matte aluminum cylinder. Every cylinder holds 8 functional tablets and includes a €4 refundable deposit. When five cylinders are empty, send them back, get your deposit credited, and we sterilize and refill them.",
+      ? "Jede Nachfüllung kommt in einem matten Aluminiumzylinder. Jeder Zylinder enthält 8 funktionale Tabletten und beinhaltet ein €4-Pfand. Schick sie zurück, wenn du möchtest oder behalte sie. Mit jedem zurückgegebenen Zylinder bekommst du dein Pfand zurückerstattet. Zurückgegebene Zylinder werden sterilisiert und neu befüllt."
+      : "Each refill arrives in a reusable matte aluminum cylinder. Every cylinder holds 8 functional tablets and includes a €4 refundable deposit. Return them when you're ready or keep them. Every returned cylinder earns back its deposit and gets sterilized and refilled.",
     inRefillLoop: isDE ? "Im Nachfüll-Kreislauf" : "In refill loop",
     perCylinder: isDE ? "/ Zylinder" : "/ cylinder",
     quickAdd: isDE ? "Schnell hinzufügen →" : "Quick add →",
