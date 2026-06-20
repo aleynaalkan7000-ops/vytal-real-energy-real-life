@@ -26,7 +26,7 @@ export function SiteFooter() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://www.instagram.com/vytal.energy"
+                href="https://www.instagram.com/vytalofficialde"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="VYTAL auf Instagram"
@@ -48,7 +48,7 @@ export function SiteFooter() {
                 </svg>
               </a>
               <a
-                href="https://www.tiktok.com/@vytal.energy"
+                href="https://www.tiktok.com/@vytal30"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="VYTAL auf TikTok"
@@ -59,7 +59,7 @@ export function SiteFooter() {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/company/vytal-energy"
+                href="https://www.linkedin.com/in/vytal-de-023a7a417/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="VYTAL auf LinkedIn"
