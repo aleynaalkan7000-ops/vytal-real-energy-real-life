@@ -908,7 +908,8 @@ export const t = {
           role: "Produktdesignerin · Berlin",
         },
         {
-          quote: "Ich kann um 22 Uhr noch eine Schreibsession beenden und danach trotzdem schlafen.",
+          quote:
+            "Ich kann um 22 Uhr noch eine Schreibsession beenden und danach trotzdem schlafen.",
           name: "Mira H.",
           role: "Doktorandin · Wien",
         },
