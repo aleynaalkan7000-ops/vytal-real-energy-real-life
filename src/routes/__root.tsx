@@ -76,14 +76,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "VYTAL Energy — Energie, die wirklich zum Leben passt." },
+      { title: "VYTAL Energy - Energie, die wirklich zum Leben passt." },
       {
         name: "description",
         content:
           "Nachhaltige funktionale Energie und Nachfüllflaschen für Studierende und Young Professionals. Ruhiger Fokus, kein Crash.",
       },
       { name: "author", content: "VYTAL Energy" },
-      { property: "og:title", content: "VYTAL Energy — Energie, die wirklich zum Leben passt." },
+      { property: "og:title", content: "VYTAL Energy - Energie, die wirklich zum Leben passt." },
       {
         property: "og:description",
         content:
@@ -92,7 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@vytalenergy" },
-      { name: "twitter:title", content: "VYTAL Energy — Energie, die wirklich zum Leben passt." },
+      { name: "twitter:title", content: "VYTAL Energy - Energie, die wirklich zum Leben passt." },
       {
         name: "twitter:description",
         content:
@@ -108,6 +108,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "https://storage.googleapis.com/gpt-engineer-file-uploads/1c4ws6p5MXPwwujUbziYClwyGNr1/social-images/social-1780930255767-Screenshot_2026-06-08_at_16.38.13.webp",
       },
+      { name: "description", content: "Pflanzenbasierte Energie-Tabletten mit nachfüllbarem System. Ruhiger Fokus, kein Crash, keine Einwegdosen. Starter Kit ab 40 Euro." },
+      { property: "og:description", content: "Pflanzenbasierte Energie-Tabletten mit nachfüllbarem System. Ruhiger Fokus, kein Crash, keine Einwegdosen. Starter Kit ab 40 Euro." },
+      { name: "twitter:description", content: "Pflanzenbasierte Energie-Tabletten mit nachfüllbarem System. Ruhiger Fokus, kein Crash, keine Einwegdosen. Starter Kit ab 40 Euro." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/1c4ws6p5MXPwwujUbziYClwyGNr1/social-images/social-1782257145267-Vorschaubild.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/1c4ws6p5MXPwwujUbziYClwyGNr1/social-images/social-1782257145267-Vorschaubild.webp" },
     ],
     links: [
       {
